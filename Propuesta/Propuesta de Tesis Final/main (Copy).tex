@@ -1,0 +1,839 @@
+\documentclass[12pt]{article}
+\setlength{\parskip}{10pt}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} %para copiar y pegar desde el pdf generado
+\usepackage[spanish,activeacute]{babel}
+\renewcommand{\familydefault}{\sfdefault} %Arial
+\usepackage[  margin=35pt]{caption}  %Tamaño del caption de las figuras
+\usepackage{hyperref}
+\usepackage{colortbl}
+\usepackage{booktabs,tabularx,xcolor}
+\usepackage[labelfont=bf]{caption} % opcional
+\newcommand{\activo}{\textcolor{black}{$\bullet$}}
+\newcommand{\hito}{\textcolor{red}{$\blacktriangle$}}
+\usepackage{xcolor}
+% \usepackage{booktabs,tabularx,xcolor}
+% \newcommand{\activo}{\textcolor{black}{$\bullet$}}   % Marca de actividad
+% \newcommand{\hito}{\textcolor{red}{$\blacktriangle$}}% Marca de hito
+\usepackage{bm}
+\usepackage[table,xcdraw]{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\setlength{\parindent}{0in}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+%\usepackage[margin=2.5cm]{geometry}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{natbib}
+
+%\usepackage[natbibapa]{apacite}
+        %\setlength{\bibsep}{15pt}
+\bibliographystyle{apalike}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%tamaño márgenes
+\hypersetup{colorlinks,linkcolor={black},citecolor={blue},urlcolor={blue}}
+\renewcommand{\baselinestretch}{1} %interlineado
+\setlength{\parindent}{12pt}
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{wrapfig}
+
+
+\title{ESTUDIO DE LA FASE CUÁNTICA EN EL FORMALISMO DE FOURIER FRACCIONARIO}
+%\date
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace{2cm}
+{\scshape\Huge Estudio de la fase cuántica en el formalismo de Fourier Fraccionario \par}
+\vspace{3cm}
+{\Large Miguel Jafert Serrano Mantilla }\\
+\vspace{2.5cm}
+{\itshape\Large Propuesta de trabajo de grado para optar al título de: Magister en matemática aplicada }\\
+\vspace{2.5cm}
+{\Large Director:}\\
+{\Large Dr. Rafael Ángel Torres Amaris \\
+}
+\vspace{1cm}
+
+
+\vspace{3cm}
+{\bfseries\LARGE Universidad Industrial de Santander }\\
+\vspace{1cm}
+{\scshape\Large Facultad de ciencias}\\
+{\scshape\Large  Escuela de física}\\
+{\scshape\Large Bucaramanga }\\
+{\scshape\Large 2025 \par}
+
+
+
+
+\vfill
+
+
+\vfill
+\end{titlepage}
+\vspace*{\fill}
+\begin{abstract}
+
+
+\noindent \textbf{Palabras claves: Operador, fase, transformación de Fourier, Espacio de Hilbert, polarización, hermítico, unitario.} \\
+	
+	El obejtivo princpal de este trabajo de maestría es investigar y proponer un nuevo enfoque para la interpretación y determinación de la fase cuántica de la radiación electromagnética. Se pretende desarrollar un modelo teórico que permita comprender y aplicar este fenómeno desde una nueva perspectiva para mejorar la interpretación, a nivel fundamental, del problema de la fase cuántica. Para esto se explorará la transformación de Fourier Fraccionaria (TFFr) como un operador unitario en la mecánica cuántica, propuesta originalmente en el estudio de los estados propios del oscilador armónico cuántico, con el objetivo de estudiar su relación con los estados coherentes. Se plantea explorar propiedades estadísticas y matemáticas de la TFFr con el fin de analizar su comportamiento sobre el espacio de fase para distintos estados, como bien pueden ser, los coherentes, térmicos, estrangulados, entre otros.
+	
+	Basándonos en la dinámica del operador de transformación de Fourier fraccionaria proponemos a este como un potencial operador intermediario para la formulación explícita de un operador de fase,y un operador de diferencia de fase con el fin de poder abordar fenómenos como lo puede ser la fase de la funcion de coherencia cuántica y observar si esta puede replicar las observaciones realizadas de la fase de la función de coherencia a nivel clásico. Posteriormente, con base en un operador de diferencia de fase proponemos a este operador como un intermediario para explicar las transformaciones de polarización de fotones como lo es la birrefringencia, dicroísmo y despolarizacioń, las cuales, como es bien sabido a nivel clásico, corresponden a diferencias de fase reales o compljeas y que el orden fraccionario de la TFFr pueda ser complejo nos daría una pista de que esta se puede aplicar en el estudio de la polarización a nivel cuántico.
+    
+\end{abstract}
+\vspace*{\fill}
+
+
+%--------------------------------------------------------------
+\newpage
+\section{Introducción}
+	
+	La fase cuántica es un recurso fundamental en óptica cuántica, interferometría y teoría de la coherencia, pues gobierna fenómenos de interferencia, metrología de alta precisión y control de estados de la luz. Sin embargo, la definición rigurosa de un operador de fase para el oscilador armónico cuántico (o un modo de campo) ha sido notoriamente problemática desde los trabajos pioneros de Dirac y los desarrollos posteriores, que exhiben problemas entre hermiticidad, unitariedad e interpretación física. Hoy, el consenso académico reconoce que el “problema de la fase” sigue siendo sutil y con variantes activas (operadores, POVMs, fase relativa, etc.). Revisiones recientes, tanto matemáticas como físicas, documentan la persistencia y evolución del problema en las últimas décadas\citep{barnett2007quantum,van2020garrison}.
+	
+	Clásicamente, Dirac intentó una descomposición polar del operador de aniquilación, lo que conduciría a un operador de fase hermítico canónicamente conjugado al operador número \citep{dirac1927quantum}; pero el exponencial de fase resultante no es unitario, dando lugar a inconsistencias formales. Susskind y Glogower propusieron entonces operadores seno y coseno de fase (o un exponencial semi-unitario), que evitan parte de los problemas pero introducen una dependencia crítica del vacío y rompen la identidad pitagórica en la base de Fock\citep{susskind1964quantum}. Más tarde, Pegg y Barnett ofrecieron una solución en dimensión finita, truncando el espacio de Hilbert para luego tomar el límite, con un operador de fase unitario bien definido; no obstante, su extensión al espacio infinito reabre debates físicos y matemáticos. Este arco histórico permanece vigente en obras de referencia, con análisis técnicos finos sobre dominios, relaciones de conmutación y la estructura matemática de estos operadores.
+	
+
+	Aunque el formalismo de Pegg–Barnett se ha tomado en cuenta, desarrollos contemporáneos buscan conectarlo con otros enfoques y clarificar su posición conceptual. Por ejemplo, se ha establecido recientemente una relación formal entre el marco de Pegg–Barnett y el formalismo de Paul \citep{linowski2023formal}lo que sugiere que el segundo puede verse como límite semiclasico del primero reforzando la unificación de distintas propuestas de fase. En paralelo, la teoría moderna de mediciones generalizadas (POVMs) y observables covariantes ofrece marcos operacionales para la medición de fase que coexisten \citep{haapasalo2021optimal} (y a veces sustituyen) a operadores auto-adjuntos exactos, con resultados recientes sobre optimalidad y realizaciones experimentales en plataformas fotónicas y de información cuántica
+	
+	Más allá de la fase “absoluta”, una línea de trabajo especialmente fértil considera que la magnitud físicamente accesible y relevante es la diferencia de fase entre dos modos. En esta dirección, Luis y Sánchez‑Soto \citep{luis1993phase} introdujeron un operador unitario del exponencial de la diferencia de fase, íntimamente ligado a las simetrías SU(2) y a los operadores de Stokes, lo que conecta directamente la fase con observables de polarización y proporciona un espectro discreto natural en subespacios de número total fijo. Esta perspectiva enlaza con marcos de fase-espín y herramientas SU(2) que hoy se utilizan también en representaciones de Wigner \citep{sanchez2025phase} para qubits, metrología y caracterización de estados con número de excitaciones no fijado.
+	
+	En paralelo al desarrollo conceptual, en las últimas tres décadas la Transformación de Fourier Fraccionaria (TFFr) ha emergido como una herramienta unitaria y continua que realiza rotaciones en el espacio de fase (posición–momento o tiempo–frecuencia) por un ángulo arbitrario. Sus funciones propias son las Hermite–Gauss, compartidas con el oscilador armónico, y su núcleo integral se relaciona estrechamente con la difracción de Fresnel\citep{pellat1994fractional,namias1980fractional,mustard1996fractional}; de hecho, la TFFr articula una familia uniparamétrica que interpela directamente la dinámica del oscilador, el formalismo de óptica de Fourier y las transformaciones lineales canónicas. En representaciones de Wigner, la TFFr induce una rotación  de la distribución, lo que la convierte en un candidato natural para modelar evoluciones (o “rotaciones de fase”) a nivel cuántico. 
+	
+	Este nexo ha sido verificado y explotado experimentalmente con creciente sofisticación. Por ejemplo, en 2023 se demostró en óptica cuántica una implementación experimental de la TFFr en el dominio tiempo–frecuencia con memorias atómicas, validando la rotación cronocíclica de funciones de Wigner mediante homodinaje limitado por ruido de disparo\citep{niewelt2023experimental}. Asimismo, a nivel fundamental, se ha mostrado que el propagador de fotones de Feynmann puede escribirse de forma equivalente a una TFFr/Fresnel, aportando una lectura unificadora entre propagación cuántica y óptica clásica \citep{santos2018huygens}. Estas evidencias refuerzan la idoneidad de la TFFr como operador unitario para describir transformaciones de fase físicas y controlables.
+	
+	La novedad del enfoque reside en tratar la fase (y la diferencia de fase) como rotaciones implementadas físicamente por un grupo unitario bien entendido,la familia de TFFr,y, por tanto, compatibles con la dinámica y las medidas. Al estudiar su acción sobre cuasi‑distribuciones (por ejemplo, Wigner) de estados relevantes (coherentes, número, etc.), se esperan criterios operacionales para definir y estimar la fase que, además, sean compatibles con POVMs covariantes y con el marco SU(2) en escenarios bimodales que se puedan conectar con la polarización. Asimismo, la literatura sugiere extensiones a órdenes complejos de la TFFr para modelar procesos con pérdidas o dicroísmo (fase compleja efectiva), lo cual abre una vía para identificar y clasificar transformaciones de polarización en términos de rotaciones reales (birrefringencia) y componentes complejas (absorción diferencial).
+	
+	En síntesis, la TFFr ofrece un lenguaje unificado y experimentalmente realizable para explorar la fase cuántica desde una perspectiva de rotaciones en el espacio de fase, con potencial para armonizar definiciones históricas de fase, articular con formalismos de medición moderna (POVMs) y vincular directamente con observables de polarización (Stokes/SU(2)). Esta propuesta, por tanto, pretende avanzar el entendimiento fundamental de la fase cuántica y proporcionar herramientas aplicables en óptica cuántica y metrología de fase.
+
+%introduccion a la polarización
+
+
+%Introducción a la problemática
+
+\section{Planteamiento del problema}
+
+	La fase cuántica es una magnitud fundamental en la descripción de sistemas físicos, especialmente en óptica cuántica, interferometría y teoría de la coherencia. Sin embargo, a pesar de su relevancia, la formulación rigurosa de un operador de fase cuántica ha sido históricamente problemática. El primer intento formal fue propuesto por Paul Dirac \citep{dirac1927quantum}, quien sugirió un operador hermítico conjugado al operador número. No obstante, su propuesta condujo a inconsistencias matemáticas, como la no unitaridad del operador exponencial de fase y la aparición de singularidades en las relaciones de conmutación, especialmente en la base de los estados número (Louisell, 1963).
+	
+	Posteriormente, Susskind y Glogower \citep{susskind1964quantum} introdujeron un operador exponencial de fase semi-unitario, que evita algunos de los problemas del formalismo de Dirac al trabajar con funciones periódicas del operador de fase. Sin embargo, este enfoque también presenta limitaciones, como la ruptura de la identidad de Pitágoras en la base de los estados número y la dependencia crítica del estado de vacío, lo que compromete su aplicabilidad en sistemas con baja ocupación fotónica.
+	
+	Otros intentos incluyen el formalismo de Pegg y Barnett \citep{pegg1990quantum}, quienes propusieron truncar el espacio de Hilbert para definir un operador de fase unitario. Aunque esta técnica permite una definición consistente en espacios finitos, su extensión al espacio completo requiere un límite que puede introducir ambigüedades físicas. Asimismo, el enfoque de Carruthers y Nieto ha sido ampliamente utilizado para estudiar operadores como el seno y coseno de la fase, aunque sin resolver completamente el problema de la unitaridad.
+	
+	En un intento por superar estas dificultades, Luis y Sánchez-Soto \citep{luis1993phase} propusieron el concepto de operador de diferencia de fase cuántica, argumentando que en contextos experimentales la fase relevante no es absoluta sino relativa entre dos modos de oscilación. Este operador, definido en términos de los operadores de creación y destrucción de dos modos, permite una formulación más robusta al incorporar simetrías del grupo SU(2) y al relacionarse directamente con observables físicos como los operadores de Stokes, que describen la polarización de la luz.
+	
+	A pesar de estos avances, el problema persiste: no existe aún un formalismo universalmente aceptado que defina un operador de fase cuántica que sea hermítico, y un exponencial de fase unitario y físicamente interpretable en todo el espacio de Hilbert. En este contexto, la Transformación de Fourier Fraccionaria (TFFr), introducida por Namias \citep{namias1980fractional}, emerge como una herramienta prometedora. Su comportamiento unitario, su capacidad para describir rotaciones en el espacio de fase y su conexión con los estados propios del oscilador armónico cuántico sugieren que podría ser utilizada para construir un operador de fase cuántica consistente, tanto en su versión absoluta como en su versión de diferencia de fase.
+	
+	Este trabajo propone explorar la TFFr como base para desarrollar un nuevo formalismo de la fase cuántica, con el objetivo de superar las limitaciones de los enfoques anteriores y establecer una conexión directa con observables físicos relevantes en óptica cuántica.
+%--------------------------------------------------------------
+
+
+
+%--------------------------------------------------------------
+
+\section{Marco Teórico}
+
+	
+	\subsection{Cuantización del campo electromagnético}
+		Formalmente hablando, la primera persona en hacer una teoría cuántica de la radiación fue Albert Einstein en su artículo \textit{on the quantization of radiation} \citep{einstein1917quantum}. A pesar de haber logrado explicar fenómenos fundamentales como lo fue el efecto fotoeléctrico en su trabajo no se presentó ninguna formulación de campos electromagnéticos cuantizados ni mucho menos alguna función de onda para el fotón.
+		
+		No fue sino hasta 1927 que se
+		logró resolver este problema gracias al trabajo de Dirac, quien logró cuantizar la radiación
+		electromagnética por medio de un método conocido actualmente como segunda cuantización, método que desarroló y aplicó al Hamiltoniano de la radiación en el estudio del fenómeno de interacción de
+		absorción y emisión de estos cuantos de energía,\citep{dirac1927quantum}, que, para la fecha ya se les conocía con el nombre de "fotones". Gracias a la investigación de Fock \citep{fock1932konfigurationsraum} se desarrolló más el formalismo de la segunda cuantización, lo cual daría paso a la teoría cuántica de campos, también conocida como $QFT$ (\textit{Quantum Field Theory}) por sus siglas en inglés. La QFT permitió explicar las interacciones de las partículas fundamentales, interpretadas como excitaciones de un campo cuantizado mediado por unos \textbf{operadores} llamados \textit{operadores escalera} u operadores de creación y destrucción.
+		
+		Con esto en mente vamos a mostrar el procedimiento de la segunda cuantización para el campo electromagnético. En este formalismo se eleva a estatus de operador el Hamiltoniano de la radiación electromagnética imponiendo unas relaciones de conmutación canónicamente conjugados \citep{dirac1927quantum,dirac1981principles}. Como consecuencia directa, el potencial vectorial $\vec{A}(\vec{r},t)$ también se eleva a estatus de operador y, de esta manera, el campo eléctrico y magnético también se convieren en operadores \citep{loudon2000quantum};\citep{grynberg2010introduction}.
+		
+		Para cuantizar el campo electromagnético vamos a partir de la descripción matemática del potencial vectorial para un campo multimodal confinado en una cavidad de volumen V (ver figura \ref{fig:cavidadL}), teniendo en cuenta que tanto el potencial escalar como el potencial vectorial satisfacen unas ecuaciones de onda bajo el gauge de Lorentz y, en ausencia de fuentes tenemos,
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{"figures/CavidadL"}
+			\caption{Representación gráfica de la cavidad cúbica de longitud L en la cual oscilan todos los posibles modos de radiación electromagnética.}
+			\label{fig:cavidadL}
+		\end{figure}
+		
+		\begin{align}
+			& \square \vec{A}(\vec{r},t) = 0 \rightarrow \nabla^2 \vec{A}(\vec{r},t) - \frac{1}{C^2}\frac{\partial^2}{\partial t^2}\vec{A}(\vec{r},t) = 0,\\
+			& \square \phi(\vec{r},t) = 0 \rightarrow \nabla^2 \phi(\vec{r},t) - \frac{1}{C^2}\frac{\partial^2}{\partial t^2}\phi(\vec{r},t) =0,
+		\end{align}
+		donde $\square$ es el operador D'Alambertiano y el gauge de Lorentz impone unas condiciones sobre las derivadas espaciales y temporal del potencial vectorial y escalar de la siguiente manera,
+		\begin{align}
+			& \vec{\nabla}\cdot\vec{A}(\vec{r},t) + \frac{1}{C^2}\frac{\partial}{\partial t}\phi =0.
+		\end{align}
+		
+		Vamos a asumir una condición de transversalidad, es decir, el campo electromagnético es ortogonal a la dirección de propagación lo cual nos da paso a usar el gauge de Coulomb
+		\begin{equation}
+			\vec{\nabla}\cdot \vec{A}\left(\vec{r},t\right)=0.
+		\end{equation}
+		
+		La ecuación de onda para el potencial vectorial se puede solucionar como una expansión en ondas armónicas \citep{grynberg2010introduction} como se muestra a continuación 
+		
+		\begin{equation}\label{eq:CampoVecA}
+			\vec{A}(\vec{r},t) = = \sum_{\mathbf{k}}\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\mathbf{k}}V}}\left[ a_{\mathbf{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} + a_{\mathbf{k}}^*(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} \right]\vec{e}_{\mathbf{k}},
+		\end{equation}
+		donde $\vec{k}$ es un modo de oscilación de la radiación dentro de la cavidad, y $\vec{e}_{\mathbf{k}}$ representa la polarización de la onda electromagnética para un modo dado. 
+		
+		Teniendo en cuenta que el campo electromagnético se pueden escribir en términos del potencial vectorial \citep{jackson2021classical} por medio de las siguientes ecuaciones
+		
+		\begin{equation}\label{eq:CampoEClas}
+			\vec{E}(\vec{r},t) = - \frac{\partial \vec{A}\left( \vec{r},t \right)}{\partial t},
+		\end{equation}
+		\begin{equation}\label{eq:CampoBClas}
+			\vec{B}\left(\vec{r},t\right) = \vec{\nabla}\times \vec{A}\left(\vec{r},t\right),
+		\end{equation}
+		de tal forma que el Hamiltoniano de la radiación en la cavidad está dado por
+		\begin{equation}\label{eq:HamiltonianoClas}
+			H = \frac{\epsilon_0}{2}\int_V \left[ || \vec{E}\left(\vec{r},t\right)||^2 + C^2 || \vec{B}\left(\vec{r},t\right) ||^2 \right] d^3r = \sum_{\mathbf{k}}\hbar\omega_{\mathbf{k}}\;a^*_{\mathbf{k}}(t)a_{\mathbf{k}}(t),
+		\end{equation}
+		done la evolución temporal de la variable está dada por $\alpha(t) = \alpha(0)e^{-i\omega_{\mathbf{k}}t}$. 
+		
+		Ahora, con el objetivo de definir el Hamiltoniano \ref{eq:HamiltonianoClas} de una manera más compacta (y como veremos un poco más adelante, conveniente) en términos de variables canónicamente conjugadas, se expresa $a$ en términos de las varaibles $q,p$ de la siguiente manera
+		\begin{equation}
+			a_{\mathbf{k}}(t) = \frac{1}{\sqrt{2\hbar\omega_{\mathbf{k}}}} \left[ \omega_{\mathbf{k}}q_{\mathbf{k}}(t) + ip_{\mathbf{k}}(t) \right],
+		\end{equation}
+		de tal forma, que el Hamiltoniano \ref{eq:HamiltonianoClas} queda expresado como:
+		\begin{equation}
+			H = \frac{1}{2}\sum_{\mathbf{k}} \left[ p^2_{\mathbf{k}}(t) + \omega_{\mathbf{k}}^2q_{\mathbf{k}}^2(t) \right],
+		\end{equation}
+		donde se puede demostrar que este Hamiltoniano satisface las ecuaciones de Hamilton-Jacobi para todos los pares $\left( q_{\mathbf{k}},p_{\mathbf{k}} \right)$ las cuales representan las posiciones y momentos generalizados, respectivamente.
+		
+		Nuestro objetivo ahora será cuantizar el Hamiltoniano para ello vamos a elevar a estatus de operador a las varaibles canónicamente conjugadas $q_{\mathbf{k}}\to \hat{q}_{\mathbf{k}}$,$p_{\mathbf{k}}\to \hat{p}_{\mathbf{k}}$ e imponer la relación de conmutación \citep{zettili2009quantum} de los operadores canónicamente conjugados 
+		\begin{equation}
+			\left[ \hat{q}_{\mathbf{k}}, \hat{p}_{\mathbf{k}'} \right] = i\hbar \hat{I}\delta_{\mathbf{k}\;\mathbf{k}'},
+		\end{equation}
+		donde $\hat{I}$ es el operador identidad. 
+		Estos operadores hermíticos, $\hat{q}_{\mathbf{k}},\hat{p}_{\mathbf{k}}$, juegan el papel de operador posición y operador de momento canónico, sin embargo, en lo que concierne a radiación electromagnética estos operadores están directamente relacionados con las cantidades observables del campo eléctrico y magnético. Como consecuencia de elevar estas variables a estatus de operador, la variable $a$ se eleva a estatus de operador tomando la forma
+		
+		\begin{align}
+			& a_{\mathbf{k}}(t) \rightarrow \hat{a}_{\mathbf{k}}(t) = \frac{1}{\sqrt{2\hbar\omega_{\mathbf{k}}}}\left[ \omega_{\mathbf{k}} \hat{q}_{\mathbf{k}} + i\hat{p}_{\mathbf{k}}(t) \right],\\
+			& a^*_{\mathbf{k}}(t) \rightarrow \hat{a}^\dagger_{\mathbf{k}}(t) = \frac{1}{\sqrt{2\hbar\omega_{\mathbf{k}}}}\left[ \omega_{\mathbf{k}} \hat{q}_{\mathbf{k}} - i\hat{p}_{\mathbf{k}}(t) \right],
+		\end{align}
+		los cuales, comunmente \citep{cohen2019quantum}, se llaman \textbf{operadores escalera} u \textbf{operadores de destrucción y creación}, respectivamente.
+		
+		Los operadores de creación y destrucción satisfacen la siguiente regla de conmutación y de evolución temporal
+		
+		\begin{align}
+			& \left[ \hat{a}_{\mathbf{k}}(t), \hat{a}^\dagger_{\mathbf{k}'}(t) \right] = \hat{I}\delta_{\mathbf{k}\;\mathbf{k}'},\\
+			& \hat{a}_{\mathbf{k}}(t) = \vec{a}_{\mathbf{k}}(0)e^{-i\omega_{\mathbf{k}}t}.
+		\end{align}
+		
+		Finalmente, en términos de los operadores de creación y destrucción, los operadores canónicamente conjugados se escriben como
+		
+		\begin{align}
+			& \hat{q}_{\mathbf{k}}(t) = \sqrt{\frac{\hbar}{2\omega_{\mathbf{k}}}} \left[ \hat{a}_{\mathbf{k}}(t) + \hat{a}_{\mathbf{k}}^\dagger(t) \right],\\
+			& \hat{p}_{\mathbf{k}}(t) = \frac{\sqrt{2\hbar\omega_{\mathbf{k}}}}{2i}\left[ \hat{a}_{\mathbf{k}}(t) - \hat{a}^\dagger_{\mathbf{k}}(t) \right].
+		\end{align}
+		
+		Por otra parte, el operador Hamiltoniano se puede expresar en términos de los operadores de creación y destrucción como
+		\begin{equation}\label{eq:HamiltonianoAs}
+			\hat{H} = \sum_{\mathbf{k}} \hbar\omega_{\mathbf{k}}\left( \hat{a}^\dagger_{\mathbf{k}}\hat{a}_{\mathbf{k}} + \frac{1}{2} \right),
+		\end{equation}
+		el cual corresponde al Hamiltoniano de un oscilador armónico cuántico multimodal, \citep{loudon2000quantum},\citep{cohen2019quantum}. En este orden de ideas, se muestra que la radiación electromagnética en el vacío se comporta como un oscilador armónico cuántico. En términos de los operadores escalera, el operador potencial vectorial se escribe de la siguiente manera
+		
+		\begin{equation}
+			\hat{A}\left(\vec{r},t\right) = \sum_{\mathbf{k}} \frac{\hbar}{2\epsilon_0\omega_{\mathbf{k}}V} \left[ \hat{a}_{\mathbf{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} + \hat{a}^\dagger_{\mathbf{k}}(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} \right]
+		\end{equation}
+		y usando las ecuaciones \ref{eq:CampoEClas} y \ref{eq:CampoBClas} los operadores de Campo eléctrico y campo magnético se expresan de la siguiente forma
+		
+		\begin{equation}\label{eq:OperadorE}
+			\hat{E}\left(\vec{r},t\right) = i \sum_{\mathbf{k}} \sqrt{\frac{\hbar\omega_{\mathbf{k}}}{2\epsilon_0V}}\left[ \hat{a}_{\mathbf{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} - \hat{a}^\dagger_{\mathbf{k}}(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} \right]\vec{e}_{\mathbf{k}},
+		\end{equation}
+		\begin{equation}\label{eq:OperadorB}
+			\hat{B}\left(\vec{r},t\right) = \frac{i}{C}\sum_{\mathbf{k}}\sqrt{\frac{\hbar\omega_{\mathbf{k}}}{2\epsilon_0V}}\left[ \hat{a}_{\mathbf{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} - \hat{a}^\dagger_{\mathbf{k}}(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\mathbf{k}}t \right)} \right]\left(\vec{k}\times\vec{e}_{\mathbf{k}}\right).
+		\end{equation}
+		
+		Es, con base en esta formulación de la teoría cuántica de campos, que se describe a la radiación como estados pertenecientes a un espacio de Hilbert, y en todo espacio de Hilbert se admite una base Hilbertiana \citep{young1988introduction} con base en alguna familia de estados. De los estados más relevantes e interesantes se encuentran los estados coherentes, que se revisarán un poco más adelante, y los estados de Fock o estados número, que revisaremos justo a continuación.
+		
+		\subsubsection{Estados de Fock}
+			
+			Denotados como $\ket{n_{\mathbf{k}}}$, representan los estados propios del operador número definido como el producto del operador de creación y el operador de estrucción, $\hat{N}_{\mathbf{k}}=\hat{a}^\dagger_{\mathbf{k}}\hat{a}_{\mathbf{k}}$, es decir, dichos estados satisfacen la ecuación de estados y valores propios
+			
+			\begin{equation}
+				\hat{N}_{\mathbf{k}}\ket{n_{\mathbf{k}}} = n_{\mathbf{k}} \ket{n_{\mathbf{k}}},
+			\end{equation}
+			donde los valores propios $n_{\mathbf{k}}$ se conocen en la literatura como el número de cuantos de energía (o también conocido cono número de fotones) en el modo $\vec{k}$. Los estados de Fock o estados número forman una base completa y ortonormal, es decir, satisfacen las ecuaciones
+			
+			\begin{align}
+				& \braket{n_{\mathbf{k}}| n_{\mathbf{k}'}} = \delta_{\vec{k}\;\vec{k}'},\\
+				& \sum_{\mathbf{k}} \ket{n_{\mathbf{k}}}\bra{n_{\mathbf{k}}} = \mathbf{I},
+			\end{align}
+			lo que implica directamente que los estados número permiten expandir cualquier estado $\ket{\Psi} \; \in \; \mathcal{H}$ para la radiación de la siguiente manera
+			\begin{equation}
+				\ket{\Psi} = \sum_{\mathbf{k}} \ket{n_{\mathbf{k}}} \braket{n_{\mathbf{k}}| \Psi}.
+			\end{equation} 
+			
+			En la base de los estados número se puede reescribir el hamiltoniano \ref{eq:HamiltonianoAs} y su efecto sobre $\ket{n_{\mathbf{k}}}$ como
+			\begin{equation}
+				\hat{H}\ket{n_{\mathbf{k}}} = \sum_{\mathbf{k}} \hbar\omega_{\mathbf{k}} \left( \hat{N}_{\mathbf{k}} + \frac{1}{2} \right)\ket{n_{\mathbf{k}}} = \sum_{\mathbf{k}} \hbar\omega_{\mathbf{k}} \left( n_{\mathbf{k}} + \frac{1}{2}\right) \ket{n_{\mathbf{k}}},
+			\end{equation}
+			donde, se evidencia que los estados número también son estados propios del operador Hamiltoniano.
+			
+			Al tener en cuesta el Hamoltoniano en la base de los estados número y la relación de conmutación de los operadores de creación y destrucción tendremos que su efecto sobre los estados número está dado por
+			\begin{align}
+				& \hat{a}_{\mathbf{k}} \ket{n_{\mathbf{k}}} = \sqrt{n_{\mathbf{k}}}\ket{n_{\mathbf{k}}-1},\\
+				& \hat{a}_{\mathbf{k}}^\dagger \ket{n_{\mathbf{k}}} = \sqrt{n_{\mathbf{k}}+1}\ket{n_{\mathbf{k}}+1},
+			\end{align}
+			por lo tanto, al aplicar el operador de creación, el estado se incrementa en un fotón\footnote{Esto no es del todo preciso, puesto que los estados números son estados insuficientes para explicar la naturaleza de un fotón.}, y al aplicar el operador de aniquilación e lestado disminuye en un fotón. En este orden de ideas, con base en el operador de creación se pueden expresar los estados $\ket{n_{\mathbf{k}}}$ de la siguiente manera
+			\begin{equation}\label{eq:ncomposicion}
+				\ket{n_{\mathbf{k}}} = \frac{\left( \hat{a}_{\mathbf{k}}^{n_{\mathbf{k}}} \right)}{\sqrt{n_{\mathbf{k}}}!} \ket{0},
+			\end{equation}
+			donde $\ket{0}$ representa al estado de 0 fotnes o comunmente conocidos como estados de vacío para cualquier modo $\vec{k}$ y este estado satisface que
+			\begin{equation}
+				\hat{a}_{\mathbf{k}}\ket{0}=0\ket{}.
+			\end{equation}
+			
+			La representaciónd e los estados número en el espacio $q$ y $p$, espacio de fase de las variables conjugadas, está descrita por funciones de Hermite-Gauss y su función de onda, para un modo fijo\citep{zettili2009quantum}, está dada por
+			\begin{equation}
+				\Psi_n(q)= \frac{1}{\sqrt{2^n n!}}\left(\frac{\omega_{\mathbf{k}}}{\pi\hbar}\right)^{1/4}e^{-\frac{\omega_{\mathbf{k}}q^2}{2\hbar}}H_n \left( \sqrt{\frac{\omega_{\mathbf{k}}}{\hbar}}q \right),
+			\end{equation}
+			donde $H_n$ son los polinomios de Hermite en la base $q$ y $\omega_{\mathbf{k}}$ es la frecuencia asociada con el modo $\vec{k}$.
+		
+		\subsubsection{Estados coherentes}
+		
+			Los estados coherentes surgen, por primera vez, de la mano de Schrödinger \citep{schrodinger1926stetige} en $1926$ al estar estudiando los estados propios del oscilador armónico cuántico pero, el nombre de \textit{estados coherentes} fue dado por Roy J. Glauber \citep{glauber1963coherent,glauber1963quantum} al estudiar los estados propios del operador de aniquilación, lo cual da lugar a estados  coherentes a todo orden de la función de coherencia cuántica. La investigación sobre los estados coherente no quedó ahí, surgieron los conocidos estados coherentes $SU(2)$ \citep{radcliffe1971some}, una extensión con más propiedades llamados estados coherentes $SU(n)$ \citep{perelomov1972coherent} y, en la modernidad, Carla Hermann encontré una familia de estados coherente no Gaussianos que manteniendo su comportamiento \textit{cuántico}\footnote{Caracterizar qué tan cuántico es un sistema es algo para nada trivial, en esta propuesta de investigación no ahondaremos en detalles al respecto, por el momento, basta con decir que su caracterización yace en las funciones de Wigner y su comportamiento negativo para una familia de estados.} para un número grande de fotones, o como ellos lo denominan, luz cuántica intensa.
+			
+			Vamos a estudiar a los estados coherentes como estados propios del operador aniquilación, es decir
+			\begin{equation}
+				\hat{a}_{\mathbf{k}}\ket{\alpha_{\mathbf{k}}} = \alpha_{\mathbf{k}} \ket{\alpha_{\mathbf{k}}},
+			\end{equation}
+			y los estados coherentes se expresan en la base de los estados número como sigue
+			\begin{equation}
+				\ket{\alpha_{\mathbf{k}}} = e^{-\frac{|\alpha_{\mathbf{k}}|^2}{2}} \sum_{n_{\mathbf{k}}} \frac{\alpha_{\mathbf{k}}^n}{\sqrt{n_{\mathbf{k}}}}\ket{n_{\mathbf{k}}}.
+			\end{equation}
+			
+			Sin embargo, esta expresión puede llevarse un poco más lejos, para ello, usaremos la relación que hay entre los estados número y el estado de vacío \ref{eq:ncomposicion} lo cual permite expresar a los estados coherentes a partir del estado de vacío como
+			
+			\begin{equation}
+				\ket{\alpha_{\mathbf{k}}} = \hat{\mathcal{D}}\ket{0} = e^{-\frac{1}{2}|\alpha_{\mathbf{k}}|^2}e^{\alpha_{\mathbf{k}}\hat{a}^\dagger_{\mathbf{k}}}e^{-\alpha_{\mathbf{k}}^*\hat{a}_{\mathbf{k}}} \ket{0},
+			\end{equation}
+			esta expresión permite entender a los estados coherentes como desplazamientos del estado de vacío.
+	\subsection{La fase de Dirac}
+		
+		Vamos a seguir ahora las ideas de Dirac al proponer un operador de fase cuántica $\hat{\phi}$ hermítico para los operadores escalera. Su razonamiento parte de la cavidad \ref{fig:cavidadL} y el vector potencial \ref{eq:CampoVecA} y, por simplicidad, tomando el caso monomodal, es decir con un $\vec{k}$ fijo. Así como de manera clásica se propone que la amplitud de campo se puede escribir de manera polar como $a = re^{i\phi}$, donde $r>0$, se propone a nivel cuántico que 
+		\begin{equation}
+			\hat{a} = \hat{R}e^{i\hat{\phi}},
+		\end{equation}
+		en donde, se suponen que tanto $\hat{R}$ como $\hat{\phi}$ son operadores hermíticos. Ahora, para solucionar para el operador exponencial de fase tenemos dos opciones
+		\begin{equation}\label{eq:ExpDirac}
+			e^{i\hat{\phi}} = \hat{a}\hat{R}^{-1},
+		\end{equation}
+		\begin{equation}\label{eq:ExpSSG}
+			e^{i\hat{\phi}} = \hat{R}^{-1}\hat{a}.
+		\end{equation}
+		
+		Para seguir el desarrollo planteado por Dirac tomaremos la primera expresión (ecuación \ref{eq:ExpDirac}), y tratar de resolver para $\hat{R}$, para ello, usaremos al operador número
+		
+		\begin{equation}
+			\hat{a}^\dagger\hat{a} = \hat{N} = \hat{R}e^{-i\hat{\phi}}e^{i\hat{\phi}}\hat{R} = \hat{R}^2,
+		\end{equation}
+		de donde se obtiene que el operador hermítico de amplitud $\hat{R}$ está dado por $\hat{R} = \hat{N}^{1/2}$ y el operador exponencial de fase de Dirac está dado por
+		\begin{equation}\label{eq:OperadorDirac}
+			e^{i\hat{\phi}} = \hat{a}\hat{N}^{-1/2}.
+		\end{equation}
+		
+		Con base en este operador exponencial se puede calcular el conmutador entre el operador número y este operador exponencial para determinar cuál es el operador conjugado de la fase. En este orden de ideas, se tiene el conmutador
+		\begin{equation}
+			\left[e^{i\hat{\phi}},\hat{N}\right] = e^{i\hat{\phi}},
+		\end{equation}
+		también conocido como \textit{criterio de Lerner}. Expandiendo en series de Taylor e igualamente el término de menor order se encuentra que los operadores $\hat{N}$ y $\hat{\phi}$ están canónicamente conjugados \citep{heitler1984quantum}
+		\begin{equation}
+			\left[ \hat{N},\hat{\phi}\right]=i,
+		\end{equation}
+		Esta relación\footnote{Tradicionalmente se dice que dos operadores $\hat{q}$ y $\hat{p}$ están canónicamente conjugados si $[\hat{q},\hat{p}]=i\hbar$, y por la ausencia de $\hbar$ uno podría estar tentado a pensar que $\hat{N},\hat{\phi}$ no son pares  conjugados canónicamente. Hay que tener presente que estos dos operadores son adimensionales, por ello, la ausencia de $\hbar$ es natural en su conmutador.}  inmediatamente nos da a lugar a una relación de incertidumbre dada por
+		\begin{equation}\label{eq:ConmutadorNPhi}
+			\triangle N\triangle \phi \geq \frac{1}{2}.
+		\end{equation}
+		
+		Sin embargo, todo el desarrollo hecho por Dirac escondía inconsistencias matemáticas, por ejemplo, fijémonos en los elementos de matriz en la base de los estados número para el conmutador \ref{eq:ConmutadorNPhi} \cite{louisell1963amplitude}, en donde tenemos
+		\begin{align}
+			& \bra{n'}\left(\hat{N}\hat{\phi} -\hat{\phi}\hat{N} \right) \ket{n} = i \braket{n'|n},\\
+			& \left(n'-n\right)\bra{n'}\hat{\phi}\ket{n} = i\delta_{n'n},
+		\end{align}
+		donde $\delta_{n'n}$ es el delta de Kronecker. Observemos que para $n'=n$ tendremos una singularidad matemática del tipo $0=1$, una inconsistencia imperdonable. En $1964$ Susskind y Glogower \citep{susskind1964quantum} demostraron que el operador exponencial de Dirac \ref{eq:OperadorDirac} no es un operador unitario. Esta afirmación se demuestra de la siguiente manera:
+		
+		\begin{align}
+			& e^{i\hat{\phi}}e^{-i\hat{\phi}} = \hat{a}\hat{N}^{-1/2} \hat{N}^{-1/2} \hat{a}^\dagger = \hat{a}\hat{N}\hat{a}^\dagger,
+		\end{align}
+		\begin{equation}
+			e^{-i\hat{\phi}}e^{i\hat{\phi}} = \hat{N}^{-1/2}\hat{a}^\dagger\hat{a}\hat{N}^{-1/2} = \hat{N}^{-1/2}\hat{N}\hat{N}^{-1/2}= \mathbf{I}.
+		\end{equation}
+		
+		Los problemas del formalismo de Dirac se pueden identificar de dos fuentes. La primera es que el espectro de $n$ no se extiende a valores negativos, sino que solo por los enteros no negativos desde $0$ hasta $+\infty$. Para entender un poco esto vamos a ver el desarrollo de Barnett y Pegg e introducir estados número negativos, tal que podemos escribir la siguiente expresión
+		
+		\begin{equation}
+			e^{i\hat{\phi}} = \sum_{n=-\infty}^{\infty} \ket{n}\bra{n+1},
+		\end{equation}
+		y es fácil ver que el adjunto conjugado es el operador
+		\begin{equation}
+			e^{-i\hat{\phi}} = \sum_{n=-\infty}^{\infty}\ket{n+1}\bra{n},
+		\end{equation}
+		en donde podemos verificar que este exponencial de fase es unitario
+		
+		\begin{align}\label{eq:Pegg}
+			&e^{i\hat{\phi}}e^{-i\hat{\phi}} = \sum_{n,n'=-\infty}^{\infty} \ket{n}\bra{n+1}\ket{n'+1}\bra{n'} = \sum_{n,n'=-\infty}^{\infty}\ket{n}\delta_{nn'}\bra{n'} = \sum_{n=-\infty}^\infty\ket{n}\bra{n}= \mathbb{I},\\
+			& e^{-i\hat{\phi}}e^{i\hat{\phi}} = \sum_{n,n'=-\infty}^{\infty}\ket{n+1}\bra{n}\ket{n'}\bra{n'+1} = \sum_{n,n'=-\infty}^{\infty}\ket{n+1}\delta_{nn'}\bra{n+1} = \sum_{n=-\infty}^{\infty}\ket{n+1}\bra{n+1}= \mathbb{I}
+		\end{align}
+		
+		Vale la pena notar que los estados número negativos son solamente una herramienta matemática que permite definir un operador unitario pero no tienen sentido físico. Así como Barnett y Pegg \citep{sanders1986phase} mencionaron ''... la deducción de los estados propios del oscilador armónico se requiere un estado base que es aniquilado por el operador de aniquilación tal que el espectro de energía es acotado desde abajo... Estados de energía negativa no están excluidos pero ellos deben desprenderse de los estados de base de energía positiva que son aniquilados por el operador de aniquilación... Estados que contienen un número negativo de fotones son inaccesibles a un sistema físico, por lo tanto, su mera existencia en el formalismo no predice ningún fenómeno nuevo en la electrodinámica cuántica''.
+		
+		Debido a que $e^{i\hat{\phi}}$ es un operador unitario este define un operador hermítico $\hat{\phi}$. De la ecuación \ref{eq:Pegg} se puede deducir un conmutador como el de la regla de Lerner
+		
+		\begin{equation}
+			\left[ e^{i\hat{\phi}},\hat{N} \right] = e^{i\hat{\phi}},
+		\end{equation}
+		que de manera análoga nos lleva a la conmutación canónica entre $\hat{N},\hat{\phi}$ y se repite el problema de tener una ecuación singular del tipo $0=1$ como pasó con el exponencial de Dirac.
+		
+		La fuente de problemas restante \citep{pegg1990quantum} se debe a que $\hat{\phi}$ es un operador de ángulo. Esto se puede apreciar mejor al comparar este tratamiento de fase y número con algún problema análogo, como el momento angular y su variable conjugada. En este analogía, el operador de momento angular $\hat{L}$ representa cualquier componentes del momento angular corresponde al operador número \citep{judge1963commutator}. Sin embargo, como se vio, la introducción de estados número negativos es una herramienta matemática más no física, entonces los valores propios de $\hat{L}$ pertenecientes al estado propio $\ket{m}$ realmente genran el rango de enteros que van desde $-\infty$ hasta $\infty$. Vamos a asumir que $\hat{L}$ y su ángulo canónicamente conjugado $\hat{\chi}$ satisfacen la relación de conmutación
+		
+		\begin{equation}
+			\left[ \hat{L},\hat{\chi} \right] = i.
+		\end{equation}
+		
+		En la base de $\chi$ los operadores toman la forma $\hat{\chi}\to \hat{\chi}, \hat{L}\to i \frac{\partial}{\partial\chi}$. Las funciones propias de $\hat{K}$, $\braket{\chi|m}$, son simplemente proporcionalmente a $e^{im\hat{\chi}}$. $m$ se convierte en un valor entero después de imponer la condición de que $\chi \to \chi + 2\pi$. En este orden de ideas, las funciones propias base son periódicas, con periodos de $2\pi$. Sin embargo, debemos restrigir el rango de $\chi$, puesto que este cubre a todo $\mathbb{R}.$
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{figures/chivsphi.pdf}
+			\caption{Relación entre el operador de ángulo restringido $\hat{\phi}$ con $-\pi < \hat{\phi} \leq \pi$ y el operador de ángulo $\hat{\chi}$.}
+			\label{fig:chivsphi}
+		\end{figure}
+		
+		Un resultado de esto es que $\hat{\chi}$ opera impropiamente sobre el espacio de las funciones propias, a pesar de que $\braket{\chi|m}$ es periódico en $\chi$, $\hat{\chi}\braket{\chi|m}$ no lo es. Una forma de salir de este problema es introduciendo un ángulo $\phi$ relacionado con $\chi$, el cual es periódico. Si escogemos el intervalo de periodicidad de manera arbitraria, como por ejemplo, $-\pi$ a $\pi$, entonces la relación entre $\hat{\chi}$ y $\hat{\phi}$ se muestra en la figura \ref{fig:chivsphi}.
+		
+		Volviendo al conmutador, recordando que el operador $\hat{L}$ es una derivada parcial y recordando las discontinuidades que hay en la relación de $\phi vs \chi$ esta da lugar a una función delta de Dirac, por ende tenemos
+		
+		\begin{equation}\label{eq:phires}
+			\left[ \hat{L},\hat{\phi} \right] = i - 2\pi i \delta(\phi-\pi), \quad -\pi < \phi \leq \pi. 
+		\end{equation}
+		
+		El mismo argumento aplica a la relación de conmutación $[\hat{N},\hat{\phi}$ ya que esta es isomorfa a la conmutación $[\hat{L},\hat{\phi}]$ en donde el espectro de $n$ se extiende a valores negativos. Con esta relación de conmutación \ref{eq:phires}, si calculamos los elementos de matiz en la base de los estados número tendremos ahora
+		
+		\begin{equation}
+			\bra{n} \left( \hat{N}\hat{\phi} - \hat{\phi}\hat{N} \right) \ket{n'} = i \left[ 1 - 2\pi \bra{n}\delta(\phi-\pi) \ket{n'} \right].
+		\end{equation}
+		Recordemos que $\braket{\phi|n}\propto e^{in\phi}$ en esta representación, entonces tenemos
+		
+		\begin{equation}
+			(n-n')\bra{n}\hat{\phi}\ket{n'} = i \left[ 1 - e^{i(n'-n)\pi} \right],
+		\end{equation}
+		la cual es una relación matemáticamente consistente.
+		
+		Al revisar la discusión hasta ahora, se observa que el formalismo de Dirac sufre de dos dificultades. Primero, la resolución del operador de campo en componentes de amplitud y fase produce un operador no unitario, $e^{i\hat{\phi}}$, por lo que esta expresión no define un operador hermítico $\hat{\phi}$. El origen de este problema se debe a que el espectro del operador número, $\hat{n}$, está acotado inferiormente. Esta es una dificultad importante del formalismo de Dirac.
+		
+		Suponiendo que se pudiera resolver esta dificultad, se encuentra que al tener el número y la fase conjugados canónicamente se obtienen resultados matemáticamente inconsistentes. Sin embargo, como hemos visto, la fuente de este problema particular es fácilmente rastreable a descuidos en el manejo del dominio de $\hat{\phi}$. Un tratamiento adecuado de este aspecto del operador fase produce la relación de conmutación modificada,  equivalente a la ecuación \ref{eq:phires}, que se reduce a la forma canónica $[\hat{n},\hat{\phi}]=i$ excepto en un límite del dominio de $\hat{\phi}$. Por lo tanto, esto es solo un problema relativamente menor, aunque potencialmente problemático si no se maneja correctamente. En la siguiente sección consideraremos un intento temprano de modificar la teoría de Dirac para evitar esta segunda dificultad, lo que da lugar al llamado formalismo de Susskind–Glogower.
+		
+	\subsection{La fase de Susskind y Glogower}
+		
+		Como se ha visto, el enfoque de Dirac para el problema del operador fase sufre de una inconsistencia matemática relacionada con el dominio del operador. \citep{louisell1963amplitude} sugirió que esto podría evitarse trabajando con funciones periódicas del operador, en lugar del operador mismo.
+		
+		Susskind y Glogower \citep{susskind1964quantum} siguieron esta sugerencia y desarrollaron una teoría funcional (aunque difícil de usar) con algunos problemas formales residuales. La teoría ha evolucionado hasta convertirse en un formalismo estándar, utilizado constantemente hasta la actualidad. Por lo tanto, vale la pena examinar en detalle el trabajo de Susskind-Glogower.
+		
+		Aunque la sugerencia de Louisell y su implementación por Susskind-Glogower llevan a examinar objetos como $\cos\hat{\phi}$, $\sin\hat{\phi}$ y $\mathrm{e}^{\mathrm{i}\hat{\phi}}$, se encuentra que este último operador exponencial no es unitario. Por consiguiente, $\mathrm{e}^{\mathrm{i}\hat{\phi}}$ no puede ser una función de un operador hermítico $\hat{\phi}$, lo que indica que debe tenerse cuidado con estos objetos. Así, para evitar ser inducidos a razonamientos erróneos, seguiremos libremente a Carruthers y Nieto  y usaremos la notación sugerente, manejable y menos propensa a errores $\hat{C}$, $\hat{S}$ y $\hat{E}$ para estos operadores.
+		
+		Susskind y Glogower definen los operadores de exponencial de faso en conección con el operador de aniquilación $\hat{a}$ como
+		
+		\begin{equation}\label{eq:SGE}
+			\hat{E} = \left( \hat{N}+1 \right)^{-1/2}\hat{a}, \quad\hat{E}^\dagger = \hat{a}^\dagger \left( \hat{N}+1 \right)^{-1/2},
+		\end{equation}
+		la razón por la cual se escoge el operador número más uno no es del todo clara, sin embargo, podemos hacer una deducción de este operador desde la teoría electromagnética clásica. Partamos la amplitud de campo eléctrico $a = Re^{i\phi}$, donde, como ya vimos, se puede despejar al exponencial de fase como $e^{i\phi}=R^{-1}a$, elevando a estatuto de operador y suponiendo que $\hat{\phi}, \hat{R}$ son operadores hermíticos tendremos las siguientes ecuaciones
+		
+		\begin{align}
+			& \hat{a}\hat{a}^\dagger = \hat{R}e^{i\hat{\phi}}e^{-i\hat{\phi}}\hat{R} = \hat{R}^2,
+		\end{align}
+		ahora, debemos hacer uso del conmutador $[\hat{a},\hat{a}^\dagger]=1$ para obtener el siguiente resultado
+		
+		\begin{equation}
+			\hat{a}\hat{a}^\dagger= \hat{a}^\dagger\hat{a}
+			+1=\hat{N}+1 = \hat{R}^2, 
+		\end{equation}
+		de donde es fácil obtener que $\hat{R}= \sqrt{\hat{N}+1}$. De esta manera, tomando al operador $\hat{E}$ como el análogo operador exponencial de fase $e^{i\hat{\phi}}$ llegamos a los operadores de Susskind y Glogower \ref{eq:SGE}. Con base en este operador exponencial de fase se pueden definir los operadores $\hat{C},\hat{S}$ equivalentes al coseno y seno, respectivamente, de la siguiente manera
+		
+		\begin{equation}
+			\hat{C} = \frac{1}{2}\left( \hat{E}+\hat{E}^\dagger \right),\quad \hat{S}= \frac{1}{2i}\left( \hat{E}-\hat{E}^\dagger \right).
+		\end{equation}
+		
+		Si usamos la base de los estados número, podemos expresar a los operadores $\hat{E},\hat{E}^\dagger$ en términos de estos, para ello tomaremos las expresiones \ref{eq:SGE} y usaremos el hecho de que de $\{\ket{n}\}$ genera un espacio de Hilbert, es decir, un espacio completo
+		
+		\begin{align}\label{eq:SGNum}
+			& \hat{E} =  \sum_{n=0}^{\infty}   \ket{n} \bra{n} \left( \hat{N}+1 \right)^{-1/2}\hat{a} = \sum_{n=0}^\infty \ket{n} \left( n+1 \right)^{-1/2} \bra{n}\hat{a} = \sum_{n=0}^\infty \ket{n}\bra{n+1},\\
+			& \hat{E}^\dagger = \left(  \sum_{n=0}^\infty \ket{n}\bra{n+1}\right)^\dagger = \sum_{{n=0}}^\infty \ket{n+1}\bra{n}.
+		\end{align}
+		
+		Si nos fijamos, estos operadores de exponencial de fase son casi idénticos a los propuestos por Barnett y Pegg, sin embargo, estos no tienen el problema de un espectro de estados número negativos, sin embargo, mientras que el operador de Barnett y Pegg son unitario, el de Susskind-Glogower es un operador semi-unitario, esto se ve de la siguiente manera
+		
+		\begin{align}\label{eq:SGUni}
+			& \hat{E}\hat{E}^\dagger = \sum_{n,n'=0}^{\infty} \ket{n}\bra{n+1}\ket{n'+1}\bra{n'} = \sum_{n,n'=0}^\infty\ket{n}\delta_{nn'}\bra{n'} = \sum_{n=0}^\infty \ket{n}\bra{n}=\mathbb{I},\\
+			& \hat{E}^\dagger\hat{E} = \sum_{n,n'=0}^\infty \ket{n+1}\bra{n}\ket{n'}\bra{n'+1} = \sum_{n,n'=0}^\infty \ket{n+1}\delta_{nn'}\bra{n'+1} \pm \ket{0}\bra{0} = \mathbb{I}- \ket{0}\bra{0}.
+		\end{align}
+		
+		El proyecto en el estado de vacío $\ket{0}\bra{0}$ es el que evita la unitaridad del operador $\hat{E}$. Esto siguiere que en estados de campo con un número de fotones grande en promedio, es decir, $\bar{N} = \braket{\hat{n}}\gg  1$, la componente del vacío cuántico será muy pequeña, y el comportamiento de $\hat{E}$ es aproximadamente unitario. Usando el resultado de \ref{eq:SGUni} podemos llegar a las relaciones de conmutación de los operados de seno, coseno y número de la siguiente manera
+		
+		\begin{align}
+			& \left[ \hat{C},\hat{N} \right] = i \hat{S},\\
+			& \left[ \hat{S},\hat{N} \right] = -i\hat{C},\\
+			& \left[ \hat{C},\hat{S} \right] = \frac{1}{2}i \ket{0}\bra{0},\\
+			& \hat{C}^2+\hat{S}^2 = 1 - \frac{1}{2}\ket{0}\bra{0}.
+		\end{align}
+		
+		Es realmente interesante ver cómo el proyecto sobre el estado de vacío, es decir, el vacío cuántico, impide las conmutaciones entre el seno y el coseno y a su vez, impide la aparición de la identidad de Pitágoras.
+		
+		Las funciones propias del operador $\hat{E}$ son $\ket{e^{i\phi}}$ y satisfacen la ecuación
+		
+		\begin{equation}
+			\hat{E}\ket{e^{i\phi}} = e^{i\phi}\ket{e^{i\phi}},
+		\end{equation}
+		las cuales son de gran interés general en la teoría de operadores. Estas funciones propias se pueden escribir en la base de los estados número como
+		
+		\begin{equation}
+			\ket{e^{i\phi}} = \sum_{n=0}^\infty e^{in\phi}\ket{n}.
+		\end{equation}
+		
+		Estos estados, con un factor de normalización diferente, fueron utilizados temprano en la historia de la mecánica cuántica por London. Los estados $\ket{e^{i\phi}}$ forman un conjunto completo, dando paso a una relación de clausura como sigue
+		
+		\begin{equation}
+			\frac{1}{2\pi} \int_{-\pi}^\pi \ket{e^{i\phi}}\bra{e^{i\phi}}d\phi = \mathbb{I}.
+		\end{equation}
+		
+	\subsection{El operador de diferencia de fase}
+		Otra de las diferentes propuestas respecto a la formulación de la fase es la desarrollada por Alfredo Luis y Luis Sanchez Soto \citep{luis1993phase}. En su artículo, resaltan el hecho de que la mayor parte del trabajo invertido en este problema se enfoca principalmente en las propiedades de un operador de fase para el campo electromagnético con un único modo de oscilación. Sin embargo, en un sentido práctico la noción de fase recupera mayor relevancia si se trata de una diferencia de fase entre una oscilación y otra que se tome de referencia, siendo esta una motivación para introducir lo que denominan un operador de diferencia de fase. \\ 
+		
+		
+		En este sentido, se considera nuevamente un operador exponencial de fase $\hat{E}_{12}$, el cual ahora va a estar defiido para un estado bimodal de campo $|n_1,n_2\rangle$, para lo cual se efectúa la descomposición polar 
+		
+		\begin{equation}
+			\widehat{a}_{1}\widehat{a}^{\dagger}_2 = \hat{E}_{12}\sqrt{\hat{N}_1(\hat{N}_2 + 1)}.
+		\end{equation}
+		
+		Sin embargo, esta relación no logra caracterizar por completo al operador $\hat{E}_{12}$, pues por ejemplo si deseamos estudiar en el caso en el que la totalidad de fotones se encuentra en sólo uno de los modos, encontramos que los elementos de $\langle n_1,0| \hat{E}_{12} | 0,n_2\rangle$ no están definidos. Por lo que es necesario caracterizar otras condiciones para el operador, las cuales pueden ser obtenidas mediante la relación de conmutación con la acción $j$ del oscilador armónico, la cual puede entenderse como un momento angular. Para ello, clásicamente se sabe que satisface el corchete de Poisson
+		
+		\begin{equation}\label{eq:Poisson1}
+			\{j,\phi\} = 1,
+		\end{equation}
+		y
+		\begin{equation}\label{eq:Poisson2}
+			\{j_1 + j_2,\phi_{12}\} = 0,
+		\end{equation}
+		\begin{equation}
+			\left\{\frac{j_1 - j_2}{2},\phi_{12}\right\} = 1
+		\end{equation}
+		para el caso de dos osciladores independientes. De manera que para nuestros osciladores cuánticos tendríamos 
+		\begin{equation}
+			[E_{12},N_1+N_2] = 0,
+		\end{equation}
+		y 
+		\begin{equation}
+			\left[E_{12},\frac{N_1 - N_2}{2}\right] = E_{12}.
+		\end{equation}
+		Esta segunda ecuación se puede interpretar como el análogo al criterior de Lerner.
+		
+		Debe notarse que hay una solución no unitaria para $\hat{E}_{12}$ que verifican simultáneamente estas dos relaciones de conmutación y se le puede llamar como el operar exponencial de diferencia de fase de Susskind-Glogower. La falta de unitaridad de estas solución es un remanente de la incomptabilidad con una traducción cuántica de los corchetes de Poisson \ref{eq:Poisson1},\ref{eq:Poisson2}.
+		
+		Para proponer un operador de diferencia de fase vamos a tomar ventaja de que los siguientes operadores
+		\begin{align}\label{eq:Jotas}
+			& \hat{J}_x = \frac{1}{2}\left(  \hat{a}_1^\dagger \hat{a}_2 + \hat{a}_2^\dagger\hat{a}_1\right),\\
+			& \hat{J}_y = \frac{i}{2}\left( \hat{a}_2^\dagger\hat{a}_1 - \hat{a}_1^\dagger\hat{a}_2 \right),\\
+			& \hat{J}_x = \frac{1}{2}\left( \hat{a}_1^\dagger \hat{a}_1 - \hat{a}_2^\dagger\hat{a}_2 \right),
+		\end{align}
+		satisfacen las relaciones de conmutación del álgebra de Lie del grupo de rotaciones tridimensionales $SU(2)$:
+		\begin{equation}
+			\left[ \hat{J}_k, \hat{J}_l \right] = i \epsilon_{klm}\hat{J}_m.
+		\end{equation}
+		El invariante de Casimir para este grupo puede ser puesto en la forma
+		\begin{equation}
+			\hat{J}^2 = \frac{\hat{N}}{2}\left( \frac{\hat{N}}{2}+1 \right);
+		\end{equation}
+		de hecho, $\hat{N}$ conmuta con todos los operadores $\hat{J}_i\;,\; i=1,2,3$. El espacio de Hilbert total del problema $\mathcal{H}_1\otimes \mathcal{H}_2$ puede ser expresado como una suma directa de los subespacios invariantes bajo los operadores de momento angular
+		\begin{equation}
+			\mathcal{H}_1\times\mathcal{H}_2 = \bigoplus_{n=0}^\infty \mathcal{H}_n.
+		\end{equation}
+		
+		Cada $\mathcal{H}_n$ tiene un número total $n$ fijo es generado por los $2j+1=n+1$ vectores $\ket{j,m}$, los cuales son estados propios en común de $\hat{J}^2$ y $\hat{J}_z$. Los estos propios número $\ket{n_1,n_2}\in \mathcal{H}_n$ corresponden a la base $\ket{j,m}$ como sigue
+		
+		\begin{equation}
+			\ket{n_1,n_2} = \ket{j = (n_1+n_2)/2, m = (n_1-n_2)/2}.
+		\end{equation}
+		
+		Podemos definir unos operadores escalera de momento angular $\hat{J}_\pm$ tales que
+		
+		\begin{align}
+			& \hat{J}_+ = \hat{J}_x + i \hat{J}_y = \hat{a}_1^\dagger\hat{a}_2,\\
+			& \hat{J}_- = \hat{J}_x -i\hat{J}_y = \hat{a}_1\hat{a}_2^\dagger,
+		\end{align}
+		en donde podemos ver la relación entre $\hat{J}_\pm$ y el operador exponencial de diferencia de fase $\hat{E}_{12}$ como
+		
+		\begin{equation}\label{eq:JE12}
+			\hat{J}_- = \hat{E}_{12}\sqrt{\hat{J}_+\hat{J}_-}.
+		\end{equation}
+		
+		Debido a que el operador $\hat{E}_{12}$ conmuta con el número total de fotones $\hat{N}$ entonces vamos a restringir un poco el estudios a cada subespacio $\mathcal{H}_n$ y, posteriormente, extender esto al espacio de Hilbert completo. Sea $\hat{E}_{12}^{(n)}$ la restricción, entonces la ecuación \ref{eq:JE12} se puede resolver obteniendo el operador exponencial de diferencia de fase unitario $SU(2)$ como
+		
+		\begin{equation}\label{eq:E12Jotas}
+			\hat{E}_{12}^{(n)} = \sum_{m=-j+1}^j \ket{j,m-1}\bra{j,m}+e^{i(n+1)\phi^{(n)}}\ket{j,j}\bra{j,-j},
+		\end{equation}
+		siendo $\phi^{(n)}$ una fase arbitraria. Nótese que el término extra en \ref{eq:E12Jotas} es importante ya que garantiza la unitaridad de $\hat{E}_{12}^{(n)}$ y se sostiene en la finitud de los estados número. Para los operadores del oscilador armónico tal descomposición es inviable porque sus estados número se extienden hacia el infinito y no tiene un término extra que proyecte un estado superior a un estado base ( a menos de que uno decida truncan como en el formalismo de Pegg-Barnett). De esta manera, en cada subespacio $\mathcal{H}_n$ hay $n+1$ estados ortonormales que verifican
+		
+		\begin{equation}
+			\hat{E}_{12}^{(n)}\ket{\phi_r^{(n}} = e^{i\phi_r^{(n)}}\ket{\phi_r^{(n)}},
+		\end{equation}
+		con $r=0,...,n.$ Estos estados se pueden expresar en la base de los estados número como
+		
+		\begin{equation}
+			\ket{\phi_r^{(n)}} = \frac{1}{\sqrt{n+1}} \sum_{n_1=0}^n e^{in_1\phi_r^{(n)}}\ket{n_1,n-n_1},
+		\end{equation}
+		donde, al tomar la misma ventana de $2\pi$ en cada subespacio, tenemos
+		\begin{equation}
+			\phi_r^{(n)} = \phi_0 + \frac{2\pi r}{n+1}.
+		\end{equation}
+		
+		La expresión para $\hat{E}_{12}$ en todo el espacio se obtiene al tomar las infinitas copias del exponencial de diferencia de fase de $SU(2)$
+		\begin{align}
+			& \hat{E}_{12} = \sum_{n=0}^\infty \hat{E}_{12}^{(n)} = \sum_{n=0}^\infty \sum_{r=0}^n \ket{\phi_r^{(n)}}e^{i\phi_r^{(n)}}\bra{\phi_r^{(n)}},\\
+			& \hat{E}_{12} = \sum_{n=0}^\infty \frac{1}{n+1}\sum_{r=0}^n \sum_{k,k'=0}^n \ket{k,n-k}e^{i\left( k-k'+1 \right)\phi_r^{(n)}}\bra{k',n-k'}.
+		\end{align}
+		
+		Como $\hat{E}_{12}$ es unitario, este define un operador de diferencia de fase hermítico
+		\begin{equation}
+			\hat{\phi}_{12} = \sum_{n=0}^\infty \sum_{r=0}^n \ket{\phi_r^{(n)}}\phi_r^{(n)}\bra{\phi_r^{(n)}},
+		\end{equation}
+		y finalmente tenemos $\hat{E}_{12} = e^{i\hat{\phi}_12}$.
+		
+		Este operador difiere de otros, principalmente porque no se puede obtener de una construcción previa de los operadores de fase para cada uno de los osciladores individuales involucrados. Además, a diferencia del formalismo de Susskind-Glogower, $\hat{E}_{12}$ así definido sí es unitario.
+		
+		A su vez, el espectro de valores propios de $\hat{\phi}_{12}$ es discreto, para cada subespacio $\mathcal{H}_n$ hay $n+1$ uniformemente distribuidos valores propios en el intervalo $[0,2\pi]$, a diferencia de otros formalismos que dan un espectro continuo en el intervalo $[0,4\pi]$.
+		
+		Podemos dar una interpretación física a los operadores de momento angular y al operador de diferencia de fase en términos de la polarización. Una forma de lidiar con la polarización a nivel cuántico es con los operadores de Stokes definidos por
+		
+		\begin{align}
+			&\hat{S}_0 = \hat{a}_1^\dagger\hat{a}_1 + \hat{a}_2^\dagger\hat{a}_2,\\
+			& \hat{S}_1 = \hat{a}_1^\dagger\hat{a}_2 + \hat{a}_2^\dagger\hat{a}_1,\\
+			& \hat{S}_2 = i\left( \hat{a}_2^\dagger\hat{a}_1 - \hat{a}_1^\dagger\hat{a}_2 \right),\\
+			& \hat{S}_3 = \hat{a}_1^\dagger \hat{a}_1 - \hat{a}_2^\dagger \hat{a}_2.
+		\end{align}
+		
+		Nótese que, excepto por un factor de $2$, los operadores $\hat{S}_i\;,\; i=1,2,3$ coinciden con los operadores \ref{eq:Jotas} de momento angular, mientras que $\hat{S}_0$ representa el número total de fotones $\hat{N}$. La no conmutatividad de los operadores de Stokes nos advierte sobre la imposibildiad de hacer mediciones simultáneas de las cantidades físicas asociadas a estos operados. Los operadores $\hat{S}_i$ pueden ser vistos como generadores de un grupo de transformaciones localmente isomorfas al grupo de rotaciones tridimensional que dejan invariante al operador $\hat{S}_0$.
+		
+		Estos operadores de Stokes replican los parámetros de Stokes cuando calculamos los valores medio en la basee de los estados coherentes bimodales dados por
+		\begin{equation}
+			\ket{\alpha_1,\alpha_2} = e^{-\frac{|\alpha_1|^2+|\alpha_2|^2}{2}}\sum_{n_1,n_2=0}^\infty \frac{\alpha_1^{n_1}\alpha_2^{n_2}}{\sqrt{n_1! n_2!}}\ket{n_1,n_2},
+		\end{equation}
+		en donde los parámetros de Stokes se calculan como
+		
+		\begin{align}
+			& s_0 = \bra{\alpha_1,\alpha2}\hat{S}_0 \ket{\alpha_1,\alpha2} = |\alpha_1|^2 + |\alpha_2|^2,\\
+			& s_1 = \bra{\alpha_1,\alpha2}\hat{S}_1 \ket{\alpha_1,\alpha2} = 2|\alpha_1||\alpha_2|\cos(\phi_1-\phi_2), \\
+			& s_2 = \bra{\alpha_1,\alpha2}\hat{S}_2 \ket{\alpha_1,\alpha2} = -2|\alpha_1||\alpha_2|sen (\phi_1-\phi_2), \\
+			& s_3 = \bra{\alpha_1,\alpha2}\hat{S}_3 \ket{\alpha_1,\alpha2} = |\alpha_1|^2 - |\alpha_2|^2.
+		\end{align} 
+		
+		Si denotamos como $s_\pm = (s_1\pm is_2)/2$ entonces la diferencia de fase cláscia entre dos modos se obtiene sin ambigüedades como
+		
+		\begin{equation}
+			s_+ = e^{-i(\phi_1-\phi_2)}|\alpha_1||\alpha_2| = e^{-i(\phi_1-\phi_2)}\sqrt{s_-s_+}.
+		\end{equation}
+	\subsection{La transformación de Fourier fraccionaria}
+
+		En $1980$ Victor Namias \citep{namias1980fractional} propuso la Transformación de Fourier Fraccionaria como una generalización del operador de Fourier clásico. Su principal contribución fue desarrollar el marco matemático (un ''cálculo operacional'') para manipular esta nueva herramienta y demostrar su poder como método elegante y sistemático para resolver problemas fundamentales de la mecánica cuántica, como el oscilador armónico y el movimiento de partículas en campos magnéticos, obteniendo soluciones de forma cerrada.
+		
+		Antes de continuar con el desarrollo de la transformación de Fourier Fraccionaria, vale la pena aclarar unos conceptos. Se habla de la \textit{transformación de Fourier} al operador (del cual hablaremos un poco más adelante) mientras que la transformada es la aplicación de dicho operador sobre una función o distribución. En este orden de ideas, originalmente se define a la transformación de Fourier como
+		
+		\begin{equation}
+			\begin{split}
+				\mathcal{F}: L^1(\mathbb{R}) & \longrightarrow L^\infty(\mathbb{R})\\
+				f & \longmapsto \tilde{f}(x') =  \int_{-\infty}^{\infty} f(x)e^{i2\pi xx'}dx,
+			\end{split}
+		\end{equation}
+		en donde $L^1(\mathbb{R}),L^\infty(\mathbb{R}) \in L^p(\mathbb{R})$ conocidos como espacios de Lebesgue en los reales \citep{evans2022partial}. Sin embargo, la familia de funciones absolutamente integrables sobre los reales $(L^1(\mathbb{R}))$ no es tan grande, es por ello, que se suele trabajar con un espacio un poco diferente, en esencia, más pequeño que el espacio $L^p$ pero con un gran interés. El espacio conocido como \textit{espacio de Schwarz} o \textit{espacio de funciones de crecimiento rápido}, en donde se tiene que la transformación de Fourier es una isometría entre espacios de Schwarz, es decir $\mathcal{F}: \mathcal{S}(\mathbb{R}) \Longrightarrow \mathcal{S}(\mathbb{R})$ el cual, nos permite trabajar con su dual topológico, conocido también como espacio de distribuciones temperadas\citep{lesfari2012distributions} en donde también es una isometría y se define el efecto de $\mathcal{F}$ sobre una distribución temperada $T\in\mathcal{S}'(\mathbb{R})$ como
+		\begin{equation}
+			\begin{split}
+				\mathcal{F}\left(T\right): \mathcal{S}(\mathbb{R}) &\longrightarrow \mathbb{R}\\
+				\phi & \longmapsto \braket{\mathcal{F}(T),\phi} = \braket{T,\mathcal{F}(\phi)}
+			\end{split},
+		\end{equation}
+		es decir, la transformada de una distribución temperada sobre una función de prueba $\phi \in \mathcal{S}(\mathbb{R})$ es igual a la transformación temperada sin transformar sobre la transformada de la función de prueba. Vale recalcar que, el espacio de distribuciones temperadas es un espacio grande lo cual permite definir la transformación de Fourier con mucha más libertad. También, cabe aclarar que así como en espacios de Schwarz la transformación de Fourier es una istrometría, sobre las distribuciones temperadas también lo será.
+		
+		Podemos reescribir (con una notación conveniente) a las transformadas de fourier como
+		\begin{align}
+			& \mathcal{F}_{\pi/2}\left\{ \tilde{f}(x') \right\} = \int_{-\infty}^{\infty} f(x)e^{i2\pi xx'}dx',\\
+			& \mathcal{F}_{-\pi/2}\left\{ f(x) \right\} = \int_{-\infty}^{\infty} \tilde{f}(x')e^{-i2\pi xx'}dx'.
+		\end{align}
+		
+		Los operadores $\mathcal{F}_{\pm \pi/2}$ son complejos conjugados del otro y satisfacen las siguientes ecuaciones
+		\begin{align}
+			& \mathcal{F}_{\pi/2}\mathcal{F}_{-\pi/2} = \mathcal{F}_{-\pi/2}\mathcal{F}_{\pi/2}  = 1,\\
+			& \mathcal{F}_{\pi/2}\left\{ f(x) \right\} = g(x),\\
+			& \mathcal{F}_{\pi/2}g(x) = f(-x),\\
+			& \mathcal{F}_{\pi/2} \left\{ f(-x) \right\} = g(-x), \\
+			&  \mathcal{F}_{\pi/2}\left\{ g(-x) \right\} = f(x).
+		\end{align}
+		
+		Se puede probar que el operador de la transformación de fourier satisface una ecuación de autovalores dada po-r
+		
+		\begin{equation}\label{eq:AutoFuncFourier}
+			\mathcal{F}\left\{ H_n(x)e^{-x^2/2} \right\} = e^{in\frac{\pi}{2}}H_n(x)e^{-x^2/2},
+		\end{equation}
+		donde $H_n(x)$ corresponde a los polinomios de Hermite y al producto $H_n(x)e^{-x^2/2}$ se le conoce como funciones de \textit{Hermite-Gauss}, las cuales también son las funciones propias del oscilador armónico cuántico \citep{cohen2019quantum}.
+		
+		Con base en la ecuación de funciones y valores propios \ref{eq:AutoFuncFourier} es que Namias parte para construir y definir la transformación de Fourier Fraccionaria $\mathcal{F}_{\alpha}$, la cual obedece a la ecuación de funciones y valores propios
+		
+		\begin{equation}
+			\mathcal{F}_\alpha \left\{ H_ne^{-x^2/2} \right\} = e^{in\alpha}H_n(x)e^{-x^2/2}.
+		\end{equation}
+ 		
+ 		Para encontrar el \textit{operador diferencial} que representa a la transformación de Fourier Fraccionaria vamos a suponer que este tiene la forma $e^{i\alpha A}$, donde $A$ es un operador diferencial que vamos a determinar, en donde se tiene 
+ 		\begin{equation}
+ 			e^{i\alpha A}\left\{ H_ne^{-x^2/2} \right\} = e^{in\alpha}H_ne^{-x^2/2},
+ 		\end{equation}
+ 		tomando la derivada parcial respecto a $\alpha$ e imponiendo $\alpha=0$ se tiene
+ 		\begin{equation}
+ 			AH_ne^{-x^2/2} = nH_ne^{-x^2/2},
+ 		\end{equation}
+ 		y al tener en cuenta la ecuación diferencial para los polinomios de Hermite \citep{arfken2011mathematical} tendremos
+ 		\begin{equation}
+ 			A = -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}\left(x^2-1\right).
+ 		\end{equation}
+ 		
+ 		Con esto en mente ya queda construir el operador diferencial que representa a la transformación de Fourier Fraccionaria 
+ 		\begin{equation}\label{eq:FourierDiffFrac}
+ 			\mathcal{F}_\alpha = e^{i\alpha\left[ -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}\left(x^2-1\right) \right]},
+ 		\end{equation}
+ 		en donde la transformación de Fourier tradicional corresponde a $\alpha= \frac{\pi}{2}$ y su inversa con $\alpha=-\frac{\pi}{2}$. El valor $\alpha=0$ corresponde al operador identidad, mientras que para $\alpha=\pi$ se tiene el operador paridad. 
+ 		
+ 		Si se define al orden $n$ de la transformación de Fourier Fraccionaria por $n = \frac{2\alpha}{\pi}$, el rango entero de las transformaciones está dado por $-2\leq n \leq 2$. Transformaciones con valores no enteros de $n$ se denominarán \textbf{transformaciones de Fourier de orden fraccionario}. De hecho, se puede ir más lejos y tener órdenes fraccionarios y complejos \citep{pellat2006complex}, sin embargo, en este trabajo no ahondaremos en esto.
+ 		
+ 		El operador diferencial \ref{eq:FourierDiffFrac} es útil a nivel teórico, sin embargo, es necesario llevarlo a una forma integral que permita incluso describir a la transformación de Fourier tradicional. Para hacer esto, se hace la expansión de una función $f$ en la base de las funciones de Hermite-Gauss
+ 		\begin{equation}
+ 			f(x) = \sum_{n=0}^{\infty}a_nH_n(x)e^{-x^2/2},
+ 		\end{equation}
+ 		y los coeficientes $a_n$ se calculan a partir de la condición de ortogonalidad de los polinomios de Hermite
+ 		\begin{equation}
+ 			a_n = \frac{1}{2^nn!\sqrt{\pi}}\int_{-\infty}^{\infty}H_n(x)e^{-x^2/2}dx.
+ 		\end{equation}
+ 		
+ 		En este orden de ideas, el efecto de $\mathcal{F}_\alpha$ sobre $f$ es 
+ 		\begin{equation}
+ 			\mathcal{F}_\alpha\left\{ f(x) \right\} = \sum_{n=0}^{\infty}a_ne^{in\alpha}H_n(x)e^{-x^2/2}.
+ 		\end{equation}
+ 		
+ 		Para calcular la expresión integral se usa la fórmula de Melher\citep{srivastava1972some} y la representación integral de los polinomios de Hermite en donde se tiene 
+ 		
+ 		\begin{align}\label{eq:FrFT}
+ 			& \mathcal{F}_\alpha\left\{f(x)\right\} = \frac{e^{i\left( \frac{\pi}{4}-\frac{\alpha}{2} \right)}}{\sqrt{2\pi\sen\alpha}}e^{-\frac{i}{2}x^2\cot\alpha}\int_{-\infty}^{\infty}e^{-\frac{i}{2}x'^2\cot\alpha + \frac{ixx'}{\sen\alpha}}f(x')dx'.
+ 		\end{align}
+ 		
+ 		Mientras que el operador inverso es
+ 		
+ 		\begin{align}
+ 			& \mathcal{F}_\alpha\left\{f(x)\right\} = \frac{e^{-i\left( \frac{\pi}{4}-\frac{\alpha}{2} \right)}}{\sqrt{2\pi\sen\alpha}}e^{\frac{i}{2}x^2\cot\alpha}\int_{-\infty}^{\infty}e^{\frac{i}{2}x'^2\cot\alpha - \frac{ixx'}{\sen\alpha}}f(x')dx'.
+ 		\end{align}
+ 		
+ 		La transformación de Fourier Fraccionaria (TFFr) \ref{eq:FrFT} se ha utilizado de manera exitosa a nivel teórico y experimental de manera muy amplia en la teoría de la difracción \citep{pellat1994fractional,pellat2006complex} y, recientemente, se demostró teórica y experimentalmente que el propagador de fotones a nivel fundamental está dada por una TFFr \citep{santos2018huygens}. El propio Namias en paper original \citep{namias1980fractional} aplica este operador a la mecánica cuántica de manera exitosa mostrando que es un formalismo natural y fundamental a la hora de tratar problemas clásicos como cuánticos.
+%--------------------------------------------------------------
+
+\section{Objetivos}
+
+\subsection*{Objetivo General}
+	
+	Desarrollo de un modelo teórico para un operador de fase cuántica con base en el formalismo de la transformación de Fourier Fraccionaria.
+
+\subsection*{Objetivos específicos}
+	\begin{enumerate}
+	    \item Caracterizar el efecto del a transformación de Fourier Fraccionaria sobre la función de Wigner $W$ en el espacio de fase para estados coherentes.
+	    \item Formular un operador hermítico de fase  cuántica $\hat{\phi}$ en términos de la TFFr.
+	    \item Desarrollar un operador de diferencia de fase cuántica en términos de la TFFr.
+	    \item Relacionar los operadores propuestos con observables en la polarización, como lo son los operadores de Stokes $\hat{S}_i\quad i = 0,1,2,3$.
+	
+	\end{enumerate}
+ 
+
+%--------------------------------------------------------------
+
+\section{Metodología}
+	
+	\subsection*{Fase 1: Estudio del análisis de Fourier sobre operadores y su efecto en el espacio de fase}
+		
+		Se analizará tanto su representación diferencial como su representación integral, así como su acción sobre funciones de Hermite-Gauss y estados coherentes. Se prestará especial atención a su interpretación como rotación en el espacio de fase y a su comportamiento unitario, lo cual la convierte en una herramienta potencialmente poderosa para la formulación de operadores de fase.
+		
+		Para lograr esto, debemos buscar una relación entre el operador de Fourier $\mathcal{F}_\alpha$ y el Hamiltoniano del oscilador armónico cuántico y posteriormente aplicar este operador sobre la función de Wigner, primeramente, de los estados coherentes.
+		
+	\subsection*{Fase 2:Definición y formulación de un operador hermítico de fase cuántica}
+		
+		Se propondrá una construcción matemática que permita definir un operador hermítico de fase, utilizando la estructura de la TFFr como base. Se verificará su comportamiento algebraico, su relación con el operador número y su acción sobre estados coherentes y estados número.
+		
+		En el caso de no poderse definir un operador hermítico en este formalismo, buscaremos probar la no existencia o no unicidad de un operador Hermítico de fase cuántica en términos del operador $\mathcal{F}_\alpha$.
+		
+	\subsection*{Fase 3: Extensión al régimen bimodal para la formulación de un operador de diferencia de fase cuántica}
+		
+		 Mediante la construcción de un operador de diferencia de fase cuántica basado en la TFFr. Esta etapa se inspirará en el trabajo de Luis y Sánchez-Soto \citep{luis1993phase}, quienes propusieron un operador de diferencia de fase como una alternativa más física en sistemas con múltiples modos. Se explorará la relación de este operador con el grupo SU(2), los operadores de momento angular y los operadores de Stokes, que permiten describir la polarización de la luz. Se analizará su espectro, sus propiedades algebraicas y su aplicabilidad en sistemas coherentes bimodales, con el objetivo de establecer una conexión directa entre la fase cuántica y observables medibles.
+		 
+		 Una vez encontrada esta relación directa, se pretende hacer una extensión de este trabajo que nos permita entender las transformaciones de polarización a nivel cuántico entendiendo las causas de esta como birrefringencias (surge una diferencia de fase real) o dicroísmo (surge una diferencia de fase compleja, esto podría inducir a la necesidad de la TFFr de orden complejo) o incluso la despolarización, esto para dar un formalismo más fundamental al entendimiento de las transformaciones de polarización a nivel cuántico.
+		 
+	\subsection*{Fase 4: Validación del modelo}
+		
+		Por último, esta fase estará orientada a la validación del modelo propuesto. Se realizarán simulaciones teóricas para estudiar la acción del operador sobre diferentes estados cuánticos, y se evaluará su comportamiento en términos de coherencia, interferencia y evolución temporal. Se compararán los resultados obtenidos con los formalismos tradicionales y se analizará la consistencia matemática y física del modelo. Esta fase permitirá determinar la viabilidad del operador propuesto como herramienta para el estudio de la fase cuántica en sistemas físicos reales.
+
+%--------------------------------------------------------------
+
+\section{Cronograma}
+	
+	\begin{table}[htbp]
+		\centering
+		\captionsetup{justification=centering}
+		\caption{Cronograma del proyecto (segundo semestre de maestría → entrega final en Oct-2026)}
+		\label{tab:cronograma_resumen}
+		\rowcolors{2}{gray!8}{white}
+		\begin{tabularx}{\textwidth}{@{} l X p{2.0cm} p{2.0cm} X @{}}
+			\toprule
+			\textbf{Fase / Hito} & \textbf{Actividad principal} & \textbf{Inicio} & \textbf{Fin} & \textbf{Entregables / Resultados} \\
+			\midrule
+			\rowcolor{gray!15}
+			Fase 1 & Análisis de Fourier (clásico y fraccionario), estudio de funciones de Wigner para estados coherentes; fijación de notación y casos de prueba. 
+			& 25-Sep-2025 & 31-Ene-2026 & Informe técnico con pruebas preliminares y \emph{notebook} de validación. \\
+			Fase 2 & Formulación del operador hermítico de fase basado en TFFr; propiedades algebraicas y relación con operador número; tests en bases de Fock/coherentes. 
+			& 01-Feb-2026 & 30-Abr-2026 & Borrador de sección teórica (operador de fase) con resultados y lemas auxiliares. \\
+			Fase 3 & Extensión al régimen bimodal: diferencia de fase; conexión con $SU(2)$ y operadores de Stokes; ejemplos de polarización.
+			& 01-May-2026 & 31-Jul-2026 & Sección de diferencia de fase + experimentos numéricos (simulados) en polarización. \\
+			\rowcolor{gray!15}
+			Fase 4 & Validación del modelo: simulaciones comparativas vs. enfoques clásicos (Dirac, Susskind–Glogower, Pegg–Barnett); análisis de sensibilidad.
+			& 01-Ago-2026 & 30-Sep-2026 & Informe de validación + tabla comparativa de resultados y discusión crítica. \\
+			\addlinespace[2pt]
+			\textbf{Hito: Entrega borrador} & Compilación del manuscrito completo para revisión del director. 
+			& \multicolumn{2}{c}{15-Ago-2026} & PDF borrador (versión interna). \\
+			\textbf{Hito: Entrega final} & Depósito y sustentación (si aplica) ante Escuela de Física. 
+			& \multicolumn{2}{c}{15-Oct-2026} & Versión final entregada y registrada. \\
+			\bottomrule
+		\end{tabularx}
+	\end{table}
+
+\section{Presupuesto}
+
+
+
+\bibliographystyle{apacite}
+\addcontentsline{toc}{section}{Referencias}
+\bibliography{References.bib}
+\nocite{*}
+
+
+
+
+\end{document}

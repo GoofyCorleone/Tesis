@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: apalike.bst
+Illegal, another \bibstyle command---line 108 of file main.aux
+ : \bibstyle
+ :          {apacite}
+I'm skipping whatever remains of this command
+Database file #1: References.bib
+Warning--empty journal in barnett2007quantum
+Warning--there's a number but no series in dirac1981principles
+Warning--empty journal in zettili2009quantum
+You've used 39 entries,
+            1935 wiz_defined-function locations,
+            716 strings with 9110 characters,
+and the built_in function-call counts, 13788 in all, are:
+= -- 1329
+> -- 472
+< -- 31
++ -- 171
+- -- 150
+* -- 1159
+:= -- 2450
+add.period$ -- 116
+call.type$ -- 39
+change.case$ -- 261
+chr.to.int$ -- 38
+cite$ -- 42
+duplicate$ -- 541
+empty$ -- 1026
+format.name$ -- 207
+if$ -- 2652
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 48
+newline$ -- 196
+num.names$ -- 117
+pop$ -- 217
+preamble$ -- 1
+purify$ -- 270
+quote$ -- 0
+skip$ -- 411
+stack$ -- 0
+substring$ -- 972
+swap$ -- 39
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 216
+warning$ -- 3
+while$ -- 116
+width$ -- 0
+write$ -- 494
+(There was 1 error message)

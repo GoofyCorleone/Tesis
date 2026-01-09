@@ -1,0 +1,356 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} %para copiar y pegar desde el pdf generado
+\usepackage[spanish,activeacute]{babel}
+\renewcommand{\familydefault}{\sfdefault} %Arial
+\usepackage[  margin=35pt]{caption}  %Tamaño del caption de las figuras
+\usepackage{hyperref}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage[table,xcdraw]{xcolor}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\setlength{\parindent}{0in}
+\usepackage{amsmath}
+\usepackage{booktabs} 
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{natbib}
+%\usepackage[natbibapa]{apacite}
+        %\setlength{\bibsep}{15pt}
+\bibliographystyle{apalike}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}%tamaño márgenes
+\hypersetup{colorlinks,linkcolor={black},citecolor={blue},urlcolor={blue}}
+\renewcommand{\baselinestretch}{1} %interlineado
+
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\providecommand{\norm}[1]{\lVert#1\rVert}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{wrapfig}
+
+
+\title{ESTUDIO DE LA FASE CUÁNTICA EN EL FORMALISMO DE FOURIER FRACCIONARIO}
+%\date
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace{2cm}
+{\scshape\Huge Estudio de la fase cuántica en el formalismo de Fourier Fraccionario \par}
+\vspace{3cm}
+{\Large Miguel Jafert Serrano Mantilla }\\
+\vspace{2.5cm}
+{\itshape\Large Propuesta de trabajo de grado para optar al título de: Magister en matemática aplicada }\\
+\vspace{2.5cm}
+{\Large Director:}\\
+{\Large Dr. Rafael Ángel Torres Amaris \\
+}
+\vspace{1cm}
+
+
+\vspace{3cm}
+{\bfseries\LARGE Universidad Industrial de Santander }\\
+\vspace{1cm}
+{\scshape\Large Facultad de ciencias}\\
+{\scshape\Large  Escuela de física}\\
+{\scshape\Large Bucaramanga }\\
+{\scshape\Large 2025 \par}
+
+
+
+
+\vfill
+
+
+\vfill
+\end{titlepage}
+\vspace*{\fill}
+\begin{abstract}
+
+
+\noindent \textbf{Palabras claves: Operador, fase, transformación, Espacio de Hilbert, polarización, hermítico, unitario.} \\
+	
+	El objtivo princpal de este trabajo de maestría es investigar y proponer un nuevo enfoque para la interpretación y determinación de la fase cuántica de sistemas físicos con base en radiación electromagnética. Se pretende desarrollar un modelo teórico que permita comprender y aplicar este fenómeno desde una nueva perspectiva para mejorar la interpretación, a nivel fundamental, del problema de la fase cuántica. Para esto se explorará la transformación de Fourier Fraccionaria (TFF) en la mecánica cuántica, propuesta originalmente en el estudio de los estados propios del oscilador armónico cuántico, con el objetivo de estudiar su relación con los estados coherentes y su potencial relación con los operadores de fase cuántica. Se plantea explorar propiedades estadísticas y matemáticas de la TFF con el fin de analizar su comportamiento al operador sobre cuasi-distribuciones de probablidad en el espacio de fase.
+	
+	Basándonos en la dinámica del operador relacionado a la transformación de Fourier fraccionaria proponemos este operador como un potencial operador exponencial de fase cuántica. Este modelo, por el comportamiento unitario de la TFF se adapta de manera natural a rotaciones de estados sobre el espacio de fase.
+    
+\end{abstract}
+\vspace*{\fill}
+
+
+%--------------------------------------------------------------
+\newpage
+\section{Introducción}
+
+%introduccion a la polarización
+
+
+%Introducción a la problemática
+
+\section{Planteamiento del problema}
+
+
+%--------------------------------------------------------------
+
+
+
+%--------------------------------------------------------------
+
+\section{Marco Teórico}
+
+	
+	\subsection{Cuantización del campo electromagnético}
+		Formalmente hablando, la primera persona en hacer una teoría cuántica de la radiación fue Albert Einstein en su artículo \textit{on the quantization of radiation} \citep{einstein1917quantum}. A pesar de haber logrado explicar fenómenos fundamentales como lo fue el efecto fotoeléctrico en su trabajo no se presentó ninguna formulación de campos electromagnéticos cuantizados ni mucho menos alguna función de onda para el fotón.
+		
+		No fue sino hasta 1927 que se
+		logró resolver este problema gracias al trabajo de Dirac, quien logró cuantizar la radiación
+		electromagnética por medio de un método conocido actualmente como segunda cuantización, método que desarroló y aplicó al Hamiltoniano de la radiación en el estudio del fenómeno de interacción de
+		absorción y emisión de estos cuantos de energía,\citep{dirac1927quantum}, que, para la fecha ya se les conocía con el nombre de "fotones". Gracias a la investigación de Fock \citep{fock1932konfigurationsraum} se desarrolló más el formalismo de la segunda cuantización, lo cual daría paso a la teoría cuántica de campos, también conocida como $QFT$ (\textit{Quantum Field Theory}) por sus siglas en inglés. La QFT permitió explicar las interacciones de las partículas fundamentales, interpretadas como excitaciones de un campo cuantizado mediado por unos \textbf{operadores} llamados \textit{operadores escalera} u operadores de creación y destrucción.
+		
+		Con esto en mente vamos a mostrar el procedimiento de la segunda cuantización para el campo electromagnético. En este formalismo se eleva a estatus de operador el Hamiltoniano de la radiación electromagnética imponiendo unas relaciones de conmutación canónicamente conjugados \citep{dirac1927quantum,dirac1981principles}. Como consecuencia directa, el potencial vectorial $\vec{A}(\vec{r},t)$ también se eleva a estatus de operador y, de esta manera, el campo eléctrico y magnético también se convieren en operadores \citep{loudon2000quantum};\citep{grynberg2010introduction}.
+		
+		Para cuantizar el campo electromagnético vamos a partir de la descripción matemática del potencial vectorial para un campo multimodal confinado en una cavidad de volumen V (ver figura \ref{fig:cavidadL}), teniendo en cuenta que tanto el potencial escalar como el potencial vectorial satisfacen unas ecuaciones de onda bajo el gauge de Lorentz y, en ausencia de fuentes tenemos,
+		
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.5\linewidth]{"figures/CavidadL"}
+			\caption{Representación gráfica de la cavidad cúbica de longitud L en la cual oscilan todos los posibles modos de radiación electromagnética.}
+			\label{fig:cavidadL}
+		\end{figure}
+		
+		\begin{align}
+			& \square \vec{A}(\vec{r},t) = 0 \rightarrow \nabla^2 \vec{A}(\vec{r},t) - \frac{1}{C^2}\frac{\partial^2}{\partial t^2}\vec{A}(\vec{r},t) = 0,\\
+			& \square \phi(\vec{r},t) = 0 \rightarrow \nabla^2 \phi(\vec{r},t) - \frac{1}{C^2}\frac{\partial^2}{\partial t^2}\phi(\vec{r},t) =0,
+		\end{align}
+		donde $\square$ es el operador D'Alambertiano y el gauge de Lorentz impone unas condiciones sobre las derivadas espaciales y temporal del potencial vectorial y escalar de la siguiente manera,
+		\begin{align}
+			& \vec{\nabla}\cdot\vec{A}(\vec{r},t) + \frac{1}{C^2}\frac{\partial}{\partial t}\phi =0.
+		\end{align}
+		
+		Vamos a asumir una condición de transversalidad, es decir, el campo electromagnético es ortogonal a la dirección de propagación lo cual nos da paso a usar el gauge de Coulomb
+		\begin{equation}
+			\vec{\nabla}\cdot \vec{A}\left(\vec{r},t\right)=0.
+		\end{equation}
+		
+		La ecuación de onda para el potencial vectorial se puede solucionar como una expansión en ondas armónicas \citep{grynberg2010introduction} como se muestra a continuación 
+		
+		\begin{equation}
+			\vec{A}(\vec{r},t) = = \sum_{\vec{k}}\sqrt{\frac{\hbar}{2\epsilon_0\omega_{\vec{k}}V}}\left[ a_{\vec{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} + a_{\vec{k}}^*(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} \right]\vec{e}_{\vec{k}},
+		\end{equation}
+		donde $\vec{k}$ es un modo de oscilación de la radiación dentro de la cavidad, y $\vec{e}_{\vec{k}}$ representa la polarización de la onda electromagnética para un modo dado. 
+		
+		Teniendo en cuenta que el campo electromagnético se pueden escribir en términos del potencial vectorial \citep{jackson2021classical} por medio de las siguientes ecuaciones
+		
+		\begin{equation}\label{eq:CampoEClas}
+			\vec{E}(\vec{r},t) = - \frac{\partial \vec{A}\left( \vec{r},t \right)}{\partial t},
+		\end{equation}
+		\begin{equation}\label{eq:CampoBClas}
+			\vec{B}\left(\vec{r},t\right) = \vec{\nabla}\times \vec{A}\left(\vec{r},t\right),
+		\end{equation}
+		de tal forma que el Hamiltoniano de la radiación en la cavidad está dado por
+		\begin{equation}\label{eq:HamiltonianoClas}
+			H = \frac{\epsilon_0}{2}\int_V \left[ || \vec{E}\left(\vec{r},t\right)||^2 + C^2 || \vec{B}\left(\vec{r},t\right) ||^2 \right] d^3r = \sum_{\vec{k}}\hbar\omega_{\vec{k}}\;a^*_{\vec{k}}(t)a_{\vec{k}}(t),
+		\end{equation}
+		done la evolución temporal de la variable está dada por $\alpha(t) = \alpha(0)e^{-i\omega_{\vec{k}}t}$. 
+		
+		Ahora, con el objetivo de definir el Hamiltoniano \ref{eq:HamiltonianoClas} de una manera más compacta (y como veremos un poco más adelante, conveniente) en términos de variables canónicamente conjugadas, se expresa $a$ en términos de las varaibles $q,p$ de la siguiente manera
+		\begin{equation}
+			a_{\vec{k}}(t) = \frac{1}{\sqrt{2\hbar\omega_{\vec{k}}}} \left[ \omega_{\vec{k}}q_{\vec{k}}(t) + ip_{\vec{k}}(t) \right],
+		\end{equation}
+		de tal forma, que el Hamiltoniano \ref{eq:HamiltonianoClas} queda expresado como:
+		\begin{equation}
+			H = \frac{1}{2}\sum_{\vec{k}} \left[ p^2_{\vec{k}}(t) + \omega_{\vec{k}}^2q_{\vec{k}}^2(t) \right],
+		\end{equation}
+		donde se puede demostrar que este Hamiltoniano satisface las ecuaciones de Hamilton-Jacobi para todos los pares $\left( q_{\vec{k}},p_{\vec{k}} \right)$ las cuales representan las posiciones y momentos generalizados, respectivamente.
+		
+		Nuestro objetivo ahora será cuantizar el Hamiltoniano para ello vamos a elevar a estatus de operador a las varaibles canónicamente conjugadas $q_{\vec{k}}\to \hat{q}_{\vec{k}}$,$p_{\vec{k}}\to \hat{p}_{\vec{k}}$ e imponer la relación de conmutación \citep{zettili2009quantum} de los operadores canónicamente conjugados 
+		\begin{equation}
+			\left[ \hat{q}_{\vec{k}}, \hat{p}_{\vec{k}'} \right] = i\hbar \hat{I}\delta_{\vec{k}\;\vec{k}'},
+		\end{equation}
+		donde $\hat{I}$ es el operador identidad. 
+		Estos operadores hermíticos, $\hat{q}_{\vec{k}},\hat{p}_{\vec{k}}$, juegan el papel de operador posición y operador de momento canónico, sin embargo, en lo que concierne a radiación electromagnética estos operadores están directamente relacionados con las cantidades observables del campo eléctrico y magnético. Como consecuencia de elevar estas variables a estatus de operador, la variable $a$ se eleva a estatus de operador tomando la forma
+		
+		\begin{align}
+			& a_{\vec{k}}(t) \rightarrow \hat{a}_{\vec{k}}(t) = \frac{1}{\sqrt{2\hbar\omega_{\vec{k}}}}\left[ \omega_{\vec{k}} \hat{q}_{\vec{k}} + i\hat{p}_{\vec{k}}(t) \right],\\
+			& a^*_{\vec{k}}(t) \rightarrow \hat{a}^\dagger_{\vec{k}}(t) = \frac{1}{\sqrt{2\hbar\omega_{\vec{k}}}}\left[ \omega_{\vec{k}} \hat{q}_{\vec{k}} - i\hat{p}_{\vec{k}}(t) \right],
+		\end{align}
+		los cuales, comunmente \citep{cohen2019quantum}, se llaman \textbf{operadores escalera} u \textbf{operadores de destrucción y creación}, respectivamente.
+		
+		Los operadores de creación y destrucción satisfacen la siguiente regla de conmutación y de evolución temporal
+		
+		\begin{align}
+			& \left[ \hat{a}_{\vec{k}}(t), \hat{a}^\dagger_{\vec{k}'}(t) \right] = \hat{I}\delta_{\vec{k}\;\vec{k}'},\\
+			& \hat{a}_{\vec{k}}(t) = \vec{a}_{\vec{k}}(0)e^{-i\omega_{\vec{k}}t}.
+		\end{align}
+		
+		Finalmente, en términos de los operadores de creación y destrucción, los operadores canónicamente conjugados se escriben como
+		
+		\begin{align}
+			& \hat{q}_{\vec{k}}(t) = \sqrt{\frac{\hbar}{2\omega_{\vec{k}}}} \left[ \hat{a}_{\vec{k}}(t) + \hat{a}_{\vec{k}}^\dagger(t) \right],\\
+			& \hat{p}_{\vec{k}}(t) = \frac{\sqrt{2\hbar\omega_{\vec{k}}}}{2i}\left[ \hat{a}_{\vec{k}}(t) - \hat{a}^\dagger_{\vec{k}}(t) \right].
+		\end{align}
+		
+		Por otra parte, el operador Hamiltoniano se puede expresar en términos de los operadores de creación y destrucción como
+		\begin{equation}\label{eq:HamiltonianoAs}
+			\hat{H} = \sum_{\vec{k}} \hbar\omega_{\vec{k}}\left( \hat{a}^\dagger_{\vec{k}}\hat{a}_{\vec{k}} + \frac{1}{2} \right),
+		\end{equation}
+		el cual corresponde al Hamiltoniano de un oscilador armónico cuántico multimodal, \citep{loudon2000quantum},\citep{cohen2019quantum}. En este orden de ideas, se muestra que la radiación electromagnética en el vacío se comporta como un oscilador armónico cuántico. En términos de los operadores escalera, el operador potencial vectorial se escribe de la siguiente manera
+		
+		\begin{equation}
+			\hat{A}\left(\vec{r},t\right) = \sum_{\vec{k}} \frac{\hbar}{2\epsilon_0\omega_{\vec{k}}V} \left[ \hat{a}_{\vec{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} + \hat{a}^\dagger_{\vec{k}}(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} \right]
+		\end{equation}
+		y usando las ecuaciones \ref{eq:CampoEClas} y \ref{eq:CampoBClas} los operadores de Campo eléctrico y campo magnético se expresan de la siguiente forma
+		
+		\begin{equation}\label{eq:OperadorE}
+			\hat{E}\left(\vec{r},t\right) = i \sum_{\vec{k}} \sqrt{\frac{\hbar\omega_{\vec{k}}}{2\epsilon_0V}}\left[ \hat{a}_{\vec{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} - \hat{a}^\dagger_{\vec{k}}(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} \right]\vec{e}_{\vec{k}},
+		\end{equation}
+		\begin{equation}\label{eq:OperadorB}
+			\hat{B}\left(\vec{r},t\right) = \frac{i}{C}\sum_{\vec{k}}\sqrt{\frac{\hbar\omega_{\vec{k}}}{2\epsilon_0V}}\left[ \hat{a}_{\vec{k}}(0)e^{i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} - \hat{a}^\dagger_{\vec{k}}(0)e^{-i\left( \vec{k}\cdot\vec{r} - \omega_{\vec{k}}t \right)} \right]\left(\vec{k}\times\vec{e}_{\vec{k}}\right).
+		\end{equation}
+		
+		Es, con base en esta formulación de la teoría cuántica de campos, que se describe a la radiación como estados pertenecientes a un espacio de Hilbert, y en todo espacio de Hilbert se admite una base Hilbertiana \citep{young1988introduction} con base en alguna familia de estados. De los estados más relevantes e interesantes se encuentran los estados coherentes, que se revisarán un poco más adelante, y los estados de Fock o estados número, que revisaremos justo a continuación.
+		
+		\subsubsection{Estados de Fock}
+			
+			Denotados como $\ket{n_{\vec{k}}}$, representan los estados propios del operador número definido como el producto del operador de creación y el operador de estrucción, $\hat{N}_{\vec{k}}=\hat{a}^\dagger_{\vec{k}}\hat{a}_{\vec{k}}$, es decir, dichos estados satisfacen la ecuación de estados y valores propios
+			
+			\begin{equation}
+				\hat{N}_{\vec{k}}\ket{n_{\vec{k}}} = n_{\vec{k}} \ket{n_{\vec{k}}},
+			\end{equation}
+			donde los valores propios $n_{\vec{k}}$ se conocen en la literatura como el número de cuantos de energía (o también conocido cono número de fotones) en el modo $\vec{k}$. Los estados de Fock o estados número forman una base completa y ortonormal, es decir, satisfacen las ecuaciones
+			
+			\begin{align}
+				& \braket{n_{\vec{k}}| n_{\vec{k}'}} = \delta_{\vec{k}\;\vec{k}'},\\
+				& \sum_{\vec{k}} \ket{n_{\vec{k}}}\bra{n_{\vec{k}}} = \mathbf{I},
+			\end{align}
+			lo que implica directamente que los estados número permiten expandir cualquier estado $\ket{\Psi} \; \in \; \mathcal{H}$ para la radiación de la siguiente manera
+			\begin{equation}
+				\ket{\Psi} = \sum_{\vec{k}} \ket{n_{\vec{k}}} \braket{n_{\vec{k}}| \Psi}.
+			\end{equation} 
+			
+			En la base de los estados número se puede reescribir el hamiltoniano \ref{eq:HamiltonianoAs} y su efecto sobre $\ket{n_{\vec{k}}}$ como
+			\begin{equation}
+				\hat{H}\ket{n_{\vec{k}}} = \sum_{\vec{k}} \hbar\omega_{\vec{k}} \left( \hat{N}_{\vec{k}} + \frac{1}{2} \right)\ket{n_{\vec{k}}} = \sum_{\vec{k}} \hbar\omega_{\vec{k}} \left( n_{\vec{k}} + \frac{1}{2}\right) \ket{n_{\vec{k}}},
+			\end{equation}
+			donde, se evidencia que los estados número también son estados propios del operador Hamiltoniano.
+			
+			Al tener en cuesta el Hamoltoniano en la base de los estados número y la relación de conmutación de los operadores de creación y destrucción tendremos que su efecto sobre los estados número está dado por
+			\begin{align}
+				& \hat{a}_{\vec{k}} \ket{n_{\vec{k}}} = \sqrt{n_{\vec{k}}}\ket{n_{\vec{k}}-1},\\
+				& \hat{a}_{\vec{k}}^\dagger \ket{n_{\vec{k}}} = \sqrt{n_{\vec{k}}+1}\ket{n_{\vec{k}}+1},
+			\end{align}
+			por lo tanto, al aplicar el operador de creación, el estado se incrementa en un fotón\footnote{Esto no es del todo preciso, puesto que los estados números son estados insuficientes para explicar la naturaleza de un fotón.}, y al aplicar el operador de aniquilación e lestado disminuye en un fotón. En este orden de ideas, con base en el operador de creación se pueden expresar los estados $\ket{n_{\vec{k}}}$ de la siguiente manera
+			\begin{equation}\label{eq:ncomposicion}
+				\ket{n_{\vec{k}}} = \frac{\left( \hat{a}_{\vec{k}}^{n_{\vec{k}}} \right)}{\sqrt{n_{\vec{k}}}!} \ket{vac},
+			\end{equation}
+			donde $\ket{vac}$ representa al estad ode vacío para cualquier modo $\vec{k}$ y este estado satisface que
+			\begin{equation}
+				\hat{a}_{\vec{k}}\ket{vac}=0.
+			\end{equation}
+			
+			La representaciónd e los estados número en el espacio $q$ y $p$, espacio de fase de las variables conjugadas, está descrita por funciones de Hermite-Gauss y su función de onda, para un modo fijo\citep{zettili2009quantum}, está dada por
+			\begin{equation}
+				\Psi_n(q)= \frac{1}{\sqrt{2^n n!}}\left(\frac{\omega_{\vec{k}}}{\pi\hbar}\right)^{1/4}e^{-\frac{\omega_{\vec{k}}q^2}{2\hbar}}H_n \left( \sqrt{\frac{\omega_{\vec{k}}}{\hbar}}q \right),
+			\end{equation}
+			donde $H_n$ son los polinomios de Hermite en la base $q$ y $\omega_{\vec{k}}$ es la frecuencia asociada con el modo $\vec{k}$.
+		
+		\subsubsection{Estados coherentes}
+		
+			Los estados coherentes surgen, por primera vez, de la mano de Schrödinger \citep{schrodinger1926stetige} en $1926$ al estar estudiando los estados propios del oscilador armónico cuántico pero, el nombre de \textit{estados coherentes} fue dado por Roy J. Glauber \citep{glauber1963coherent,glauber1963quantum} al estudiar los estados propios del operador de aniquilación, lo cual da lugar a estados  coherentes a todo orden de la función de coherencia cuántica. La investigación sobre los estados coherente no quedó ahí, surgieron los conocidos estados coherentes $SU(2)$ \citep{radcliffe1971some}, una extensión con más propiedades llamados estados coherentes $SU(n)$ \citep{perelomov1972coherent} y, en la modernidad, Carla Hermann encontré una familia de estados coherente no Gaussianos que manteniendo su comportamiento \textit{cuántico}\footnote{Caracterizar qué tan cuántico es un sistema es algo para nada trivial, en esta propuesta de investigación no ahondaremos en detalles al respecto, por el momento, basta con decir que su caracterización yace en las funciones de Wigner y su comportamiento negativo para una familia de estados.} para un número grande de fotones, o como ellos lo denominan, luz cuántica intensa.
+			
+			Vamos a estudiar a los estados coherentes como estados propios del operador aniquilación, es decir
+			\begin{equation}
+				\hat{a}_{\vec{k}}\ket{\alpha_{\vec{k}}} = \alpha_{\vec{k}} \ket{\alpha_{\vec{k}}}.
+			\end{equation}
+			
+			Para calcular una cara explícita de los estados coherentes $\ket{\alpha_{\vec{k}}}$ vamos a expresar en la base de los estados número $\ket{n_{\vec{k}}}$ como sigue
+			\begin{equation}
+				\ket{\alpha_{\vec{k}}} = \sum_{n_{\vec{k}}} C_{n_{\vec{k}}} \ket{n_{\vec{k}}}.
+			\end{equation} 
+			Al aplicar el operador de destrucción a cada lado de la ecuación se llega a la siguiente relación de recurrencia para los coeficientes $C_n$
+			\begin{equation}
+				C_{n_{\vec{k}}+1} = \frac{\alpha}{\sqrt{n_{\vec{k}}+1}}C_{\vec{k}},
+			\end{equation}
+			de donde se tiene que
+			\begin{equation}
+				C_{n_{\vec{k}}} = \frac{\alpha^n}{\sqrt{n}}C_0,
+			\end{equation}
+			por la condición de normalización se calcula $C_0=exp\left( -\frac{|\alpha_{\vec{k}}|^2}{2} \right)$  y los estados coherentes se expresan en la base de los estados número como sigue
+			\begin{equation}
+				\ket{\alpha_{\vec{k}}} = e^{-\frac{|\alpha_{\vec{k}}|^2}{2}} \sum_{n_{\vec{k}}} \frac{\alpha_{\vec{k}}^n}{\sqrt{n_{\vec{k}}}}\ket{n_{\vec{k}}}.
+			\end{equation}
+			
+			Sin embargo, esta expresión puede llevarse un poco más lejos, para ello, usaremos la relación que hay entre los estados número y el estado de vacío \ref{eq:ncomposicion} lo cual permite expresar a los estados coherentes a partir del estado de vacío como
+			
+			\begin{equation}
+				\ket{\alpha_{\vec{k}}} = \hat{\mathcal{D}}\ket{vac} = e^{-\frac{1}{2}|\alpha_{\vec{k}}|^2}e^{\alpha_{\vec{k}}\hat{a}^\dagger_{\vec{k}}}e^{-\alpha_{\vec{k}}^*\hat{a}_{\vec{k}}} \ket{vac}
+			\end{equation}
+	\subsection{La fase de Dirac}
+	
+	\subsection{La fasa de Susskind y Glogower}
+	
+	\subsection{La fase de Garrison y Wong}
+	
+	\subsection{La transformación de Fourier fraccionaria}
+
+
+ 
+%--------------------------------------------------------------
+
+\section{Objetivos}
+
+\subsection*{Objetivo General}
+	
+	Desarrollo de un modelo físico de la fase cuántica a partir de la transformación de Fourier Fraccionaria.
+
+\subsection*{Objetivos específicos}
+	\begin{enumerate}
+	    \item Describir el efecto del a transformación de Fourier Fraccionaria sobre la función de Wigner $W$ en el espacio de fase para estados coherentes.
+	    \item Desarrollar un operador hermítico de fase  cuántica $\hat{\phi}$ en términos de la TFF.
+	    \item Desarrollar un operador de diferencia de fase cuántica en términos de la TFF.
+	    \item Relacionar los operadores propuestos con observables en la polarización, como lo son los operadores de Stokes $\hat{S}_i\quad i = 0,1,2,3$.
+	
+	\end{enumerate}
+ 
+
+%--------------------------------------------------------------
+
+\section{Metodología}
+
+
+
+
+%--------------------------------------------------------------
+
+\section{Cronograma}
+
+
+\section{Presupuesto}
+
+
+
+\bibliographystyle{apacite}
+\addcontentsline{toc}{section}{Referencias}
+\bibliography{References.bib}
+\nocite{*}
+
+
+
+
+\end{document}

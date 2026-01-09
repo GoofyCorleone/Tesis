@@ -1,0 +1,209 @@
+\begin{thebibliography}{}
+
+\bibitem[Arfken et~al., 2011]{arfken2011mathematical}
+Arfken, G.~B., Weber, H.~J., and Harris, F.~E. (2011).
+\newblock {\em Mathematical methods for physicists: a comprehensive guide}.
+\newblock Academic press.
+
+\bibitem[Barnett and Vaccaro, 2007]{barnett2007quantum}
+Barnett, S.~M. and Vaccaro, J.~A. (2007).
+\newblock The quantum phase operator: a review.
+
+\bibitem[Cohen-Tannoudji et~al., 2019]{cohen2019quantum}
+Cohen-Tannoudji, C., Diu, B., and Lalo{\"e}, F. (2019).
+\newblock {\em Quantum mechanics, volume 3: fermions, bosons, photons,
+  correlations, and entanglement}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Dirac, 1927]{dirac1927quantum}
+Dirac, P. A.~M. (1927).
+\newblock The quantum theory of the emission and absorption of radiation.
+\newblock {\em Proceedings of the Royal Society of London. Series A, Containing
+  Papers of a Mathematical and Physical Character}, 114(767):243--265.
+
+\bibitem[Dirac, 1981]{dirac1981principles}
+Dirac, P. A.~M. (1981).
+\newblock {\em The principles of quantum mechanics}.
+\newblock Number~27. Oxford university press.
+
+\bibitem[Einstein, 1917]{einstein1917quantum}
+Einstein, A. (1917).
+\newblock On the quantum theory of radiation.
+\newblock {\em Physikalische Zeitschrift}, 18(121):167--83.
+
+\bibitem[Evans, 2022]{evans2022partial}
+Evans, L.~C. (2022).
+\newblock {\em Partial differential equations}, volume~19.
+\newblock American mathematical society.
+
+\bibitem[Fock, 1932]{fock1932konfigurationsraum}
+Fock, V. (1932).
+\newblock Konfigurationsraum und zweite quantelung.
+\newblock {\em Zeitschrift f{\"u}r Physik}, 75(9):622--647.
+
+\bibitem[Glauber, 1963a]{glauber1963coherent}
+Glauber, R.~J. (1963a).
+\newblock Coherent and incoherent states of the radiation field.
+\newblock {\em Physical Review}, 131(6):2766.
+
+\bibitem[Glauber, 1963b]{glauber1963quantum}
+Glauber, R.~J. (1963b).
+\newblock The quantum theory of optical coherence.
+\newblock {\em Physical Review}, 130(6):2529.
+
+\bibitem[Grynberg et~al., 2010]{grynberg2010introduction}
+Grynberg, G., Aspect, A., and Fabre, C. (2010).
+\newblock {\em Introduction to quantum optics: from the semi-classical approach
+  to quantized light}.
+\newblock Cambridge university press.
+
+\bibitem[Haapasalo and Pellonp{\"a}{\"a}, 2021]{haapasalo2021optimal}
+Haapasalo, E. and Pellonp{\"a}{\"a}, J.-P. (2021).
+\newblock Optimal covariant quantum measurements.
+\newblock {\em Journal of Physics A: Mathematical and Theoretical},
+  54(15):155304.
+
+\bibitem[Heitler, 1984]{heitler1984quantum}
+Heitler, W. (1984).
+\newblock {\em The quantum theory of radiation}.
+\newblock Courier Corporation.
+
+\bibitem[Jackson, 2021]{jackson2021classical}
+Jackson, J.~D. (2021).
+\newblock {\em Classical electrodynamics}.
+\newblock John Wiley \& Sons.
+
+\bibitem[Judge and Lewis, 1963]{judge1963commutator}
+Judge, D. and Lewis, J. (1963).
+\newblock On the commutator zlz, $\varphi$.
+\newblock {\em Physics Letters}, 5(3):190.
+
+\bibitem[Lesfari, 2012]{lesfari2012distributions}
+Lesfari, A. (2012).
+\newblock Distributions, analyse de fourier et transformation de laplace: cours
+  et exercices.
+\newblock {\em (No Title)}.
+
+\bibitem[Linowski et~al., 2023]{linowski2023formal}
+Linowski, T., Schlichtholz, K., and Rudnicki, {\L}. (2023).
+\newblock Formal relation between pegg-barnett and paul quantum phase
+  frameworks.
+\newblock {\em Physical Review A}, 107(3):033707.
+
+\bibitem[Loudon, 2000]{loudon2000quantum}
+Loudon, R. (2000).
+\newblock {\em The quantum theory of light}.
+\newblock OUP Oxford.
+
+\bibitem[Louisell, 1963]{louisell1963amplitude}
+Louisell, W.~H. (1963).
+\newblock Amplitude and phase uncertainty relations.
+\newblock {\em Phys. Letters}, 7.
+
+\bibitem[Luis and S{\'a}nchez-Soto, 1993]{luis1993phase}
+Luis, A. and S{\'a}nchez-Soto, L. (1993).
+\newblock Phase-difference operator.
+\newblock {\em Physical Review A}, 48(6):4702.
+
+\bibitem[Morse and Feshbach, 1978]{morse19781953methods}
+Morse, P.~M. and Feshbach, H. (1978).
+\newblock 1953methods of theoretical physics.
+\newblock {\em McGraw-Hill, New York). by WSPC on}, 4:01--19.
+
+\bibitem[Mustard, 1996]{mustard1996fractional}
+Mustard, D. (1996).
+\newblock The fractional fourier transform and the wigner distribution.
+\newblock {\em The ANZIAM Journal}, 38(2):209--219.
+
+\bibitem[Namias, 1980]{namias1980fractional}
+Namias, V. (1980).
+\newblock The fractional order fourier transform and its application to quantum
+  mechanics.
+\newblock {\em IMA Journal of Applied Mathematics}, 25(3):241--265.
+
+\bibitem[Niewelt et~al., 2023]{niewelt2023experimental}
+Niewelt, B., Jastrz{\k{e}}bski, M., Kurzyna, S., Nowosielski, J., Wasilewski,
+  W., Mazelanik, M., and Parniak, M. (2023).
+\newblock Experimental implementation of the optical fractional fourier
+  transform in the time-frequency domain.
+\newblock {\em Physical Review Letters}, 130(24):240801.
+
+\bibitem[Pegg et~al., 1990]{pegg1990quantum}
+Pegg, D., Vaccaro, J., and Barnett, S.~M. (1990).
+\newblock Quantum-optical phase and canonical conjugation.
+\newblock {\em Journal of Modern Optics}, 37(11):1703--1710.
+
+\bibitem[Pellat-Finet and Bonnet, 1994]{pellat1994fractional}
+Pellat-Finet, P. and Bonnet, G. (1994).
+\newblock Fractional order fourier transform and fourier optics.
+\newblock {\em Optics communications}, 111(1-2):141--154.
+
+\bibitem[Pellat-Finet and Fogret, 2006]{pellat2006complex}
+Pellat-Finet, P. and Fogret, {\'E}. (2006).
+\newblock Complex order fractional fourier transforms and their use in
+  diffraction theory. application to optical resonators.
+\newblock {\em Optics communications}, 258(2):103--113.
+
+\bibitem[Perelomov, 1972]{perelomov1972coherent}
+Perelomov, A.~M. (1972).
+\newblock Coherent states for arbitrary lie group.
+\newblock {\em Communications in Mathematical Physics}, 26(3):222--236.
+
+\bibitem[Radcliffe, 1971]{radcliffe1971some}
+Radcliffe, J.~M. (1971).
+\newblock Some properties of coherent spin states.
+\newblock {\em Journal of Physics A: General Physics}, 4(3):313.
+
+\bibitem[S{\'a}nchez-Soto et~al., 2025]{sanchez2025phase}
+S{\'a}nchez-Soto, L.~L., Mu{\~n}oz, A., de~la Hoz, P., Klimov, A.~B., and
+  Leuchs, G. (2025).
+\newblock Phase space insights: Wigner functions for qubits and beyond.
+\newblock {\em Applied Sciences}, 15(9):5155.
+
+\bibitem[Sanders et~al., 1986]{sanders1986phase}
+Sanders, B., Barnett, S., and Knight, P. (1986).
+\newblock Phase variables and squeezed states.
+\newblock {\em Optics communications}, 58(4):290--294.
+
+\bibitem[Santos et~al., 2018]{santos2018huygens}
+Santos, E.~A., Castro, F., and Torres, R. (2018).
+\newblock Huygens-fresnel principle: Analyzing consistency at the photon level.
+\newblock {\em Physical Review A}, 97(4):043853.
+
+\bibitem[Schr{\"o}dinger, 1926]{schrodinger1926stetige}
+Schr{\"o}dinger, E. (1926).
+\newblock Der stetige {\"u}bergang von der mikro-zur makromechanik.
+\newblock {\em Naturwissenschaften}, 14(28):664--666.
+
+\bibitem[Srivastava and Singhal, 1972]{srivastava1972some}
+Srivastava, H. and Singhal, J. (1972).
+\newblock Some extensions of the mehler formula.
+\newblock {\em Proceedings of the American Mathematical Society},
+  31(1):135--141.
+
+\bibitem[Susskind and Glogower, 1964]{susskind1964quantum}
+Susskind, L. and Glogower, J. (1964).
+\newblock Quantum mechanical phase and time operator.
+\newblock {\em Physics Physique Fizika}, 1(1):49.
+
+\bibitem[Uria et~al., 2023]{uria2023emergence}
+Uria, M., Maldonado-Trapp, A., Hermann-Avigliano, C., and Solano, P. (2023).
+\newblock Emergence of non-gaussian coherent states through nonlinear
+  interactions.
+\newblock {\em Physical Review Research}, 5(1):013165.
+
+\bibitem[van Neerven, 2020]{van2020garrison}
+van Neerven, J. (2020).
+\newblock The garrison-wong quantum phase operator revisited.
+\newblock {\em arXiv preprint arXiv:2008.08935}.
+
+\bibitem[Young, 1988]{young1988introduction}
+Young, N. (1988).
+\newblock {\em An introduction to Hilbert space}.
+\newblock Cambridge university press.
+
+\bibitem[Zettili, 2009]{zettili2009quantum}
+Zettili, N. (2009).
+\newblock Quantum mechanics: concepts and applications.
+
+\end{thebibliography}
