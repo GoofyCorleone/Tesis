@@ -1,7 +1,6 @@
-\documentclass[8pt, letterpaper]{report}
+\documentclass[letterpaper]{report}
 
 % Paquetes --------------------------------------------------------------------------
-
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
@@ -11,6 +10,7 @@
 \usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 \usepackage{tocloft}
 \usepackage{fancyhdr}
+\setlength{\headheight}{13.07225pt} % Corregido: fancyhdr warning
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -18,22 +18,19 @@
 \usepackage{multirow}
 \usepackage{float}
 \usepackage{physics}
-\usepackage{graphicx}
 \usepackage{braket}
 \usepackage{bm}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{amsthm}
 \usepackage{fixmath}
-%\captionsetup[figure]{name=Figura}
-\counterwithout{figure}{chapter}
-\counterwithout{table}{chapter}
-\usepackage{tocloft}
-%\usepackage{natbib}
-%\usepackage[square,sort,comma,numbers]{natbib} %Para ver solo números
+
+% CORRECCIÓN: Solo cargar natbib UNA VEZ con las opciones deseadas
 \usepackage[square,sort,comma]{natbib}
 
-%Definiciones paras las ecuaciones y las figuras --------------------------------------
+% Definiciones para las ecuaciones y las figuras --------------------------------------
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 
 % Redefinir el comando \theequation para incluir el número de sección y subsección
 \renewcommand{\theequation}{\thesubsection.\arabic{equation}}
@@ -56,9 +53,7 @@
 \setlength\cftbeforeloftitleskip{1cm}
 \setlength\cftbeforelottitleskip{1cm}
 
-
-% Reiniciar el contador de ecuaciones al principio de cada subsección -------------------------
-
+% Reiniciar el contador de ecuaciones al principio de cada subsección
 \makeatletter
 \@addtoreset{equation}{section}
 \makeatother
@@ -97,20 +92,13 @@
   \fancyhead[C]{UIS}
   \fancyhead[R]{\thepage}
 }
-\titlespacing*{\chapter}{0pt}{50pt}{20pt} %Cambio los valores del espacio entre el título del cap y el encabezado
+\titlespacing*{\chapter}{0pt}{50pt}{20pt}
 
 \begin{document}
 
 % Portada
 \begin{titlepage}
     \centering
-    %\begin{minipage}[b]{0.45\textwidth}
-    %    \includegraphics[width=\textwidth]{Figuras/logouis.png}\par\vspace{1cm}
-    %\end{minipage}
-    %\hfill
-    %\begin{minipage}[b]{0.45\textwidth}
-    %    \includegraphics[width=\textwidth]{Figuras/loGOTS.png}\par\vspace{1cm}
-    %\end{minipage}
     \vspace{5cm}
     \rule{\textwidth}{2pt}
     {\huge\bfseries Nombre de la Tesis\par}
@@ -122,25 +110,21 @@
     \vspace{1 cm}
     {\Large\itshape Director: \par}
     {\Large\itshape Nombre del director \par}
-     %{\Large\itshape Título del director \par}
-    %\vfill
     \vspace{0.5cm}
     {\Large\itshape Co-director: \par}
     {\Large\itshape Nombre del co-director \par}
-     %{\Large\itshape Título del co-director \par}
     \vfill
     \vspace{1cm}
-    {\scshape\Large Universidad  Industrial De Santander \par}
+    {\scshape\Large Universidad Industrial De Santander \par}
     {\scshape\Large Facultad de ciencias \par}
     {\scshape\Large Escuela de física \par}
     {\scshape\Large Bucaramanga \par}
     {\scshape\Large 2024 \par}
-%    {\large \today\par}
 \end{titlepage}
 
+\cleardoublepage
 
 % Dedicatoria
-\clearpage
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{flushright}
@@ -152,7 +136,6 @@
 \clearpage
 
 % Agradecimientos
-\clearpage
 \thispagestyle{empty}
 \vspace*{\fill}
 \begin{flushleft}
@@ -163,55 +146,40 @@
 \vspace*{\fill}
 \clearpage
 
-
-
 % Tabla de contenido
 \tableofcontents
-
+\clearpage
 
 % Lista de figuras
-\clearpage
 \listoffigures
 \clearpage
-% Capítulos
-\vspace{5cm}
 
 % Página de resumen
-\clearpage
-%\thispagestyle{empty}
-\vspace*{2cm} % Ajusta este valor según tu preferencia
+\vspace*{2cm}
 \begin{flushleft}
     {\huge\bfseries Resumen\par}
     \vspace{0.5cm}
     Aquí va tu resumen. Puedes escribir lo que desees aquí.
 \end{flushleft}
+\clearpage
 
-
-
-% Añadir la página de resumen al PDF pero no a la tabla de contenidos
-%\addcontentsline{toc}{chapter}{Resumen}
-
-
-%Capítulo 1
+% Capítulos
 \input{Chapter1/chapter1.tex}
-
-%Capítulo 2
 \input{Chapter2/chapter2.tex}
-
-%Capítulo 3
 \input{Chapter3/chapter3.tex}
-
-%Capítulo 4
 \input{Chapter4/chapter4.tex}
 
 \chapter{Conclusiones}
-\lipsum[9-10] % Eliminar y reemplazar con las conclusiones reales
+\lipsum[9-10]
 
-\cite{ejemplo1}
-% Bibliografía
+% IMPORTANTE: Cambia el estilo de bibliografía
+% Opción 1: Usa un estilo compatible con natbib (recomendado)
+\bibliographystyle{plainnat}  % o 'abbrvnat', 'unsrtnat'
+% Opción 2: O si necesitas APA, carga el paquete apacite y úsalo
+% \usepackage{apacite}
+% \bibliographystyle{apacite}
 
-\bibliographystyle{apacite} % Cambiar para hacerlo todo Apa
 \renewcommand{\bibname}{Referencias}
 \addcontentsline{toc}{chapter}{Referencias}
-\bibliography{Bibliografia.bib} % Reemplaza 'biblio' con el nombre de tu archivo .bib
+\bibliography{Bibliografia.bib}
 \end{document}
