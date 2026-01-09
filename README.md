@@ -1,11 +1,11 @@
-# Master's Thesis: [Thesis Title]
+# Master's Thesis: Study Of The Quantum Phase In The Framework Of The Fractional Fourier Transform
 
-**Author:** [Your Full Name]  
-**Degree:** Master of Science in [Physics/Quantum Science/Your Field]  
-**Institution:** [Your University]  
-**Supervisor:** [Supervisor's Name]  
-**Co-Supervisor:** [Co-Supervisor's Name, if applicable]  
-**Academic Year:** [e.g., 2023-2024]
+**Author:** Miguel Jafert Serrano Mantilla
+**Degree:** Master studen of Applied Mathematics
+**Institution:** Universidad Industrial De Santander
+**Supervisor:** PhD. Rafael Ángel Torres Amaris
+**Co-Supervisor:** Papá Dios  
+**Academic Year:** 2025-2027
 
 [![LaTeX](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
@@ -109,15 +109,15 @@ The `Project_Proposal.pdf` document contains the original research plan, includi
 If you wish to reference this thesis or its contents in academic work, please use the following BibTeX entry (update with your final details):
 
 ```bibtex
-@mastersthesis{YourLastName2024,
-  author  = {Your Full Name},
-  title   = {Complete Thesis Title},
-  school  = {Your University},
-  year    = {2024},
-  month   = {Month},
+@mastersthesis{SerranoMantilla2024,
+  author  = {Jafert Serrano, Rafael Torres },
+  title   = {Study of the quantum phase in the framework of the Fractional Fourier Transform},
+  school  = {Universidad Industrial De Santander},
+  year    = {2026},
+  month   = {December},
   type    = {Master's Thesis},
-  url     = {https://github.com/yourusername/thesis-repo},
-  note    = {Available at: \url{https://github.com/yourusername/thesis-repo}}
+  url     = {https://github.com/GoofyCorleone/Tesis},
+  note    = {Available at: \url{https://github.com/GoofyCorleone/Tesis}}
 }
 ```
 
