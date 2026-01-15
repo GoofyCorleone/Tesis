@@ -1,0 +1,203 @@
+\documentclass[letterpaper]{report}
+
+% Paquetes --------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{lipsum} % Solo para generar texto de relleno, eliminar en la versión final
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\setlength{\headheight}{13.07225pt} % Corregido: fancyhdr warning
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{physics}
+\usepackage{braket}
+\usepackage{bm}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsthm}
+\usepackage{fixmath}
+
+% Formalismo matemático: Definiciones, proposiciones y más
+\newtheorem{definition}{Definición}
+\newtheorem{proposition}{Proposición}
+\newtheorem{lemma}{Lema}
+\newtheorem{theorem}{Teorema}
+\newtheorem{corollary}{Corolario}
+\newtheorem{Proof}{Demostración}
+\newtheorem{example}{Ejemplo}
+\newtheorem{remark}{Observación}
+
+% Formalismo matemático autores externos: Definiciones, proposiciones y más
+\newtheorem{definition*}{Definición*}
+\newtheorem{proposition*}{Proposición*}
+\newtheorem{lemma*}{Lema*}
+\newtheorem{theorem*}{Teorema*}
+\newtheorem{corollary*}{Corolario*}
+\newtheorem{proof*}{Demostración*}
+
+% CORRECCIÓN: Solo cargar natbib UNA VEZ con las opciones deseadas
+\usepackage[square,sort,comma]{natbib}
+
+% Definiciones para las ecuaciones y las figuras --------------------------------------
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% Redefinir el comando \theequation para incluir el número de sección y subsección
+\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+
+\DeclareCaptionFormat{myformat}{\textbf{#1#2} #3}
+\captionsetup[figure]{format=myformat}
+
+\addto\captionsspanish{\renewcommand*\contentsname{Tabla de contenido}}
+\addto\captionsspanish{\renewcommand*\listtablename{Lista de tablas}}
+\addto\captionsspanish{\renewcommand*\tablename{Tabla}}
+\addto\captionsspanish{\renewcommand*\listfigurename{Lista de figuras}}
+
+\renewcommand{\cftfigpresnum}{Figura }
+\setlength{\cftfignumwidth}{5em}
+\renewcommand{\cfttabpresnum}{Tabla }
+\setlength{\cfttabnumwidth}{5em}
+
+\tocloftpagestyle{fancy}
+\setlength\cftbeforetoctitleskip{1cm}
+\setlength\cftbeforeloftitleskip{1cm}
+\setlength\cftbeforelottitleskip{1cm}
+
+% Reiniciar el contador de ecuaciones al principio de cada subsección
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+
+% Configuración de márgenes
+\usepackage[left=3cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
+
+% Configuración del interlineado
+\renewcommand{\baselinestretch}{1.5}
+
+% Configuración de títulos de secciones
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-50pt}{40pt}
+
+% Título de la tesis
+\title{Nombre de la Tesis}
+\author{Tú Nombre}
+\date{Fecha}
+
+% Configuración de puntos en la tabla de contenidos
+\renewcommand{\cftchapleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+
+% Configuración de encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{} % Limpia los encabezados y pies de página predeterminados
+\fancyhead[L]{RESUMEN}
+\fancyhead[C]{UIS}
+\fancyhead[R]{\thepage}
+
+% Redefinir el estilo de página de la primera página de cada capítulo
+\fancypagestyle{plain}{%
+  \fancyhf{} % Limpia los encabezados y pies de página predeterminados
+  \fancyhead[L]{\leftmark}
+  \fancyhead[C]{UIS}
+  \fancyhead[R]{\thepage}
+}
+\titlespacing*{\chapter}{0pt}{50pt}{20pt}
+
+\begin{document}
+
+% Portada
+\begin{titlepage}
+    \centering
+    \vspace{5cm}
+    \rule{\textwidth}{2pt}
+    {\huge\bfseries Nombre de la Tesis\par}
+    \rule{\textwidth}{2pt}
+    \vfill
+    {\Large\itshape Tu Nombre\par}
+    \vspace{3cm}
+    {\Large\itshape Trabajo de grado para optar por el título de:  \par}
+    \vspace{1 cm}
+    {\Large\itshape Director: \par}
+    {\Large\itshape Nombre del director \par}
+    \vspace{0.5cm}
+    {\Large\itshape Co-director: \par}
+    {\Large\itshape Nombre del co-director \par}
+    \vfill
+    \vspace{1cm}
+    {\scshape\Large Universidad Industrial De Santander \par}
+    {\scshape\Large Facultad de ciencias \par}
+    {\scshape\Large Escuela de física \par}
+    {\scshape\Large Bucaramanga \par}
+    {\scshape\Large 2024 \par}
+\end{titlepage}
+
+\cleardoublepage
+
+% Dedicatoria
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushright}
+    {\Large\itshape Dedicatoria\par}
+    \vspace{0.5cm}
+    Aquí va tu dedicatoria. Puedes escribir lo que desees aquí es decir podés introducir la dedicatoria más cagadamente melosa que te podás imaginar.
+\end{flushright}
+\vspace*{\fill}
+\clearpage
+
+% Agradecimientos
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushleft}
+    {\huge\bfseries Agradecimientos\par}
+    \vspace{0.5cm}
+    Aquí van tus agradecimientos. Puedes escribir lo que desees aquí.
+\end{flushleft}
+\vspace*{\fill}
+\clearpage
+
+% Tabla de contenido
+\tableofcontents
+\clearpage
+
+% Lista de figuras
+\listoffigures
+\clearpage
+
+% Página de resumen
+\vspace*{2cm}
+\begin{flushleft}
+    {\huge\bfseries Resumen\par}
+    \vspace{0.5cm}
+    Aquí va tu resumen. Puedes escribir lo que desees aquí.
+\end{flushleft}
+\clearpage
+
+% Capítulos
+\input{Chapter1/chapter1.tex}
+\input{Chapter2/chapter2.tex}
+\input{Chapter3/chapter3.tex}
+\input{Chapter4/chapter4.tex}
+
+\chapter{Conclusiones}
+\lipsum[9-10]
+
+% IMPORTANTE: Cambia el estilo de bibliografía
+% Opción 1: Usa un estilo compatible con natbib (recomendado)
+\bibliographystyle{plainnat}  % o 'abbrvnat', 'unsrtnat'
+% Opción 2: O si necesitas APA, carga el paquete apacite y úsalo
+% \usepackage{apacite}
+% \bibliographystyle{apacite}
+
+\renewcommand{\bibname}{Referencias}
+\addcontentsline{toc}{chapter}{Referencias}
+\bibliography{Bibliografia.bib}
+\end{document}
