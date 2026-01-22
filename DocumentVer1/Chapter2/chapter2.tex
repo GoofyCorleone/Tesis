@@ -83,4 +83,24 @@
         \begin{equation*}
             f \sim g \iff f(x) = g(x) \quad \text{en c.t.p respecto a la medida de Lebesgue $\mu$}.
         \end{equation*}
+
+        \begin{definition*}
+            \textit{(Espacio normado de Lebesgue)} El espacio  normado de Lbesgue $\left(\mathcal{L}^p\left(\mathbb{R}^n \right), ||\cdot||_p \right)$ es el espacio cociente
+            \begin{equation*}
+                L^p\left(\mathbb{R}^n\right) := \mathcal{L}^p\left(\mathbb{R}^n\right) \text{/} \sim,
+            \end{equation*}
+            tal que un elemento de $L^p\left(\mathbb{R}^n\right)$ es una clase de equivalencia de funciones
+            \begin{equation*}
+                [f] = \left\{g \in \mathcal{L}^p\left(\mathbb{R}^n\right)\;:\; f \sim g\right\},
+            \end{equation*}
+            donde seminorma $||\cdot||_p$ ahora desciende al espacio cociente definiendo
+            \begin{equation*}
+                \left| \left| [f] \right| \right|_p := ||f||_p,
+            \end{equation*}
+            Esta definicón es independiente del representante elegido.
+        \end{definition*}
         
+        Con esto en mente, enunciaremos uno de los teoremas \citep{brezis2011functional} más importantes en el análisis funcional.
+        \begin{theorem*}
+            \textit{(Teorema de completitud de Reisz-Fischer)} El espacio normado de Lbesgue $\left(\mathcal{L}^p\left(\mathbb{R}^n \right), ||\cdot||_p \right)$ es un espacio de Banach para $1 \leq p \leq \infty$.
+        \end{theorem*}
