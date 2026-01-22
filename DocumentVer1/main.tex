@@ -7,7 +7,7 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{lipsum} % Solo para generar texto de relleno, eliminar en la versión final
-\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+%\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 \usepackage{tocloft}
 \usepackage{fancyhdr}
 \setlength{\headheight}{13.07225pt} % Corregido: fancyhdr warning
@@ -24,6 +24,7 @@
 \usepackage{subcaption}
 \usepackage{amsthm}
 \usepackage{fixmath}
+%\usepackage{apacite}
 
 % Formalismo matemático: Definiciones, proposiciones y más
 \newtheorem{definition}{Definición}
@@ -88,8 +89,8 @@
 \titlespacing*{\chapter}{0pt}{-50pt}{40pt}
 
 % Título de la tesis
-\title{Nombre de la Tesis}
-\author{Tú Nombre}
+\title{Estudio de la fase cuántica en el formalismo de la Transformación de Fourier Fraccionaria}
+\author{Miguel Jafert Serrano Mantilla}
 \date{Fecha}
 
 % Configuración de puntos en la tabla de contenidos
@@ -112,6 +113,8 @@
 }
 \titlespacing*{\chapter}{0pt}{50pt}{20pt}
 
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
 \begin{document}
 
 % Portada
@@ -119,25 +122,25 @@
     \centering
     \vspace{5cm}
     \rule{\textwidth}{2pt}
-    {\huge\bfseries Nombre de la Tesis\par}
+    {\huge\bfseries Estudio de la fase cuántica en el formalismo de la Transformación De Fourier Fraccionaria\par}
     \rule{\textwidth}{2pt}
     \vfill
-    {\Large\itshape Tu Nombre\par}
+    {\Large\itshape Miguel Jafert Serrano Mantilla\par}
     \vspace{3cm}
-    {\Large\itshape Trabajo de grado para optar por el título de:  \par}
+    {\Large\itshape Trabajo de grado para optar por el título de: Magister en matemática aplicada \par}
     \vspace{1 cm}
-    {\Large\itshape Director: \par}
-    {\Large\itshape Nombre del director \par}
+    {\Large\itshape Director:  \par}
+    {\Large\itshape PhD. Rafael Ángel Torres Amaris \par}
     \vspace{0.5cm}
-    {\Large\itshape Co-director: \par}
-    {\Large\itshape Nombre del co-director \par}
+    %{\Large\itshape Co-director: \par}
+    %{\Large\itshape Nombre del co-director \par}
     \vfill
     \vspace{1cm}
     {\scshape\Large Universidad Industrial De Santander \par}
     {\scshape\Large Facultad de ciencias \par}
     {\scshape\Large Escuela de física \par}
     {\scshape\Large Bucaramanga \par}
-    {\scshape\Large 2024 \par}
+    {\scshape\Large 2026 \par}
 \end{titlepage}
 
 \cleardoublepage
@@ -148,7 +151,7 @@
 \begin{flushright}
     {\Large\itshape Dedicatoria\par}
     \vspace{0.5cm}
-    Aquí va tu dedicatoria. Puedes escribir lo que desees aquí es decir podés introducir la dedicatoria más cagadamente melosa que te podás imaginar.
+    Aquí va tu dedicatoria. Puedes escribir lo que desees aquí es decir podés introducir la dedicatoria.
 \end{flushright}
 \vspace*{\fill}
 \clearpage
@@ -177,7 +180,7 @@
 \begin{flushleft}
     {\huge\bfseries Resumen\par}
     \vspace{0.5cm}
-    Aquí va tu resumen. Puedes escribir lo que desees aquí.
+    En este trabajo hemos desarrollado una formulación teórica en espacios $\mathcal{L}^p$ del operador que representa a la transformación de Fourier Fraccionaria en su formulación exponencial e integral, a su vez, hemos definido dos espacios nuevos, uno al que llamamos espacio de funciones de decrecimiento acelerado y el espacio de distribuciones atemperadas, esto con el fin de estudiar a la Transformación de Fourier Fraccionaria de orden complejo. 
 \end{flushleft}
 \clearpage
 
@@ -190,14 +193,9 @@
 \chapter{Conclusiones}
 \lipsum[9-10]
 
-% IMPORTANTE: Cambia el estilo de bibliografía
-% Opción 1: Usa un estilo compatible con natbib (recomendado)
-\bibliographystyle{plainnat}  % o 'abbrvnat', 'unsrtnat'
-% Opción 2: O si necesitas APA, carga el paquete apacite y úsalo
-% \usepackage{apacite}
-% \bibliographystyle{apacite}
-
+\bibliographystyle{apalike}  % ← ESTILO CORRECTO para natbib
 \renewcommand{\bibname}{Referencias}
 \addcontentsline{toc}{chapter}{Referencias}
-\bibliography{Bibliografia.bib}
+\bibliography{Bibliografia}
+
 \end{document}

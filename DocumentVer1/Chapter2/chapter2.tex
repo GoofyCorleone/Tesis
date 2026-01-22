@@ -1,4 +1,86 @@
-\chapter{Marco Teórico}
+\chapter{Fundamentos matemáticos de la Transformación de Fourier Fraccionaria}
 \thispagestyle{fancy}
 \fancyhead[L]{\leftmark}
-\lipsum[3-4] % Eliminar y reemplazar con el contenido real del marco teórico
+ 
+    En $1980$ Victor Namias \citep{namias1980fractional} presentó una teoría fraccionaria para la transformación de Fourier y derivó una cantidad de fórmulas operacionales que utilizó para resolver varios tipos de ecuaciones de Schrödinger. Namias admitió que su derivación de la transformación de Fourier Fraccionaria (TFFr de ahora en adelante) fue, básicamente, heurística y que reconocía que aún había una cantidad grande de trabajo para darle un soporte matemático riguroso a su teoría.
+
+    Es en este orden de ideas que en \citep{mcbride1987namias,kerr1988distributional} se dio un soporte a la TFFr en su formulación integral para órdenes reales sobre el espacio de funciones de decreimiento rápido o espacio de Schwartz $\mathcal{S}$ sobre el cuerpo de los reales $\mathbb{R}$. Vamos a repasar brevemente el desarrollo de Namias y el desarrollo de McBride y Fiona H. Kerr. 
+
+    \section{Nociones básicas}
+
+        Vamos a empezar a definir un conjunto de espacios de bastante de utilidad e interés. 
+
+        \begin{definition*}
+            \textit{(Espacio de Schwartz)}: El espacio de funciones de decrecimiento rápido $\mathcal{S}(\mathbb{R}^n)$ es el conjunto de funciones
+            \begin{equation}
+                \mathcal{S}(\mathbb{R}^n) = \left\{ f \in \mathcal{C}^\infty\; : \; \forall \alpha,\beta : ||f||_{\alpha,\beta} < \infty \right\},
+            \end{equation}
+        \end{definition*}
+        donde $\alpha,\beta$ son multi-índices, $\mathcal{C}^\infty(\mathbb{R})^n$ es el conjunto de funciones suaves sobre $\mathbb{R}^n$, $||\cdot||_{\alpha,\beta}$ es una seminorma\footnote{Recordemos que una seminorma es un funcional que no satisface la propiedad de que $||f|| = 0 \iff f = 0$.} definida como
+        \begin{equation}
+            ||f||_{\alpha,\beta} := \left|\left|x^\alpha D^\beta f \right| \right|_\infty = 
+            \begin{matrix}
+                Sup\\
+                \mathbf{x}\in \mathbb{R}^n
+            \end{matrix} 
+            \left|x_{i_1}^{\alpha_1}x_{i_2}^{\alpha_2}...x_{i_m}^{\alpha_m} \frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}x_{j_2}^{\beta_2}...x_{j_k}^{\beta_k}}  \right|,
+        \end{equation}
+        donde $\alpha_i,\beta_j$ corresponde a números enteros positivos y $|\alpha|,|\beta|$ están defindios como
+        \begin{equation*}
+            |\alpha| = \sum_{i=1}^{m}\alpha_i, \qquad |\beta| = \sum_{j=1}^{k}\beta_j.
+        \end{equation*}
+
+        De forma un poco más cualatitativa, este espacio consiste en todas las funciones que por si solas y todas sus posibles derivadas decrecen más rápido que cualquier polinomio.
+
+        \begin{definition*}
+            \textit{(Distribuciones)}: Dado el espacio de funciones suaves de soporte compacto $\mathcal{C}^\infty_c$\footnote{Se dice que el espacio tiene soporte compacto cuando toda función perteneciente al espacio se hace cero fuera de un conjunto compacto.} se define al espacio de distribuciones o de \textit{funciones generalizadas} al conjunto $\mathcal{D}(\mathbb{R}^n)$ definidio como el espacio dual topológico de las funciones $\mathcal{C}^\infty_c$, es decir
+            \begin{equation}
+                \begin{split}
+                    \mathcal{D}(\mathbb{R}^n): \mathcal{C}_c^\infty(\mathbb{R}^n) & \longrightarrow \mathbb{R}\\
+                     \phi & \longmapsto \langle f,\phi \rangle = \int_{\mathbb{R}^n} f(\mathbf{x})\phi(\mathbf{x}),
+                \end{split}
+            \end{equation}
+            donde $f$ es una distribución y $\phi \in \mathcal{C}_c^\infty (\mathbb{R}^n)$ usualmente se le conoce como función de prueba.
+        \end{definition*}
+
+        El ejemplo más común en la física es el del delta de Dirac $\delta(\mathbf{x}-\mathbf{x})$ y, de manera un poco más tácita pero aún así muy utilizado en muchos resutlados físicos, es que toda función localmente integrable es una distribución.
+
+        \begin{definition*}
+            \textit{(Distribuciones temperadas)}: Dado el espacio de Schwartz $\mathcal{S}(\mathbb{R})^n$ se define al espacio de distribuciones temperadas como  al espacio dual topológico $\mathcal{S}'(\mathbb{R}^n)$ del espacio de Schwartz, es decir
+            \begin{equation}
+                \begin{split}
+                    \mathcal{S}'(\mathbb{R}^n): \mathcal{S}(\mathbb{R}^n) & \longrightarrow \mathbb{R}\\
+                     \phi & \longmapsto \langle f,\phi \rangle = \int_{\mathbb{R}^n} f(\mathbf{x})\phi(\mathbf{x}),
+                \end{split}
+            \end{equation}
+            donde $f$ es una distribución temperada y $\phi \in \mathcal{S} (\mathbb{R}^n)$ también se le conoce como función de prueba, es por eso que a lo largo de este trabajo se especificará a qué espacio pertenece cada función de prueba sobre la cual se trabaje.
+        \end{definition*}
+
+        Ahora, vamos a dar las nociones básicas sobre los espacios de Lebesgue \citep{folland1999real} o también conocidos como espacios $L^p$.
+
+        \begin{definition*}
+            Sea $\left(\mathbb{R}^n, \mathcal{L}, \mu \right)$ el espacio de medida de Lebesgue, donde $\mathcal{L}$ es la $\sigma$-álgebra de conjuntos Lebesgue-medibles y $\mu$ es la medida de Lebesgue en $\mathbb{R}^n$. Se define el espacio $\mathcal{L}^p(\mathbb{R}^n)$ de funciones como
+            \begin{align}
+                & \mathcal{L}^p\left(\mathbb{R}^n\right) := \left\{f: \mathbb{R}^n \rightarrow \mathbb{R}\;\; medible \; : \; \int_{\mathbb{R}^n} \left|f(\mathbf{x}) \right|^p d\mu < \infty \quad 1 \leq p < \infty \right\},\\
+                & \mathcal{L}^\infty \left(\mathbb{R}^n\right) := \left\{f: \mathbb{R}^n \rightarrow \mathbb{R}\;\; medible \; : \; \exists C \geq 0 \;:\; \left|f(\mathbf{x})\right|\leq C \; en\;\; c.t.p\right\}.
+            \end{align}
+
+        \end{definition*}
+
+        También se define la siguiente seminorma \citep{stein2005real} $||\cdot||_p$ como
+
+        \begin{definition*}
+            \textit{(Seminorma $\mathcal{L}^p$)} Se define a la seminorma $||\cdot||_p\; \mathcal{L}^p\left(\mathbb{R}^n\right)  \longrightarrow \mathbb{R}^+\cup \{0\}$ como
+            \begin{align*}
+                & ||f||_p : = \left( \int_{\mathbb{R}^n} \left| f(\mathbf{x}) \right|^p d\mu \right)^{1/p}, \qquad 1 \leq p < \infty,\\
+                & ||f||_\infty := \inf \left\{ C \geq 0 \;:\; \left|f(x)\right|\leq C \; c.t.p \right\}.
+            \end{align*}
+        \end{definition*}
+
+        Vale la pena recalcar que $||\cdot||_p$ es una seminorma en $\mathcal{L}^p$ ya que $||f_p||=0$ implica que $f=0$ solamente en casi todo punto. 
+
+        Para poder construir un espacio normado útil, el conocido espacio de Lebesgue of espacio $L^p$ debemos definir la siguiente relación de equivalencia
+        \begin{equation*}
+            f \sim g \iff f(x) = g(x) \quad \text{en c.t.p respecto a la medida de Lebesgue $\mu$}.
+        \end{equation*}
+        
