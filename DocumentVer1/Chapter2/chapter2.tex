@@ -104,3 +104,25 @@
         \begin{theorem*}
             \textit{(Teorema de completitud de Reisz-Fischer)} El espacio normado de Lbesgue $\left(\mathcal{L}^p\left(\mathbb{R}^n \right), ||\cdot||_p \right)$ es un espacio de Banach para $1 \leq p \leq \infty$.
         \end{theorem*}
+
+        Con estos espacios en mente, vamos a recorrer la teoría de la transformación de Fourier Fraccionaria. Namias parte de que los valores propios del operador Transformación de Fourier\footnote{Victor Namias en ningún momento utilizó una formulación formal en teoría de operadores en su artículo, por ende, cuando sea estrictamente necesario hacemos uso de dicha notación y cuando no se aclará el porqué no se hace uso de esta.}
+        \begin{equation}
+            \begin{split}
+                \mathcal{F}\;:L^1\left(\mathbb{R}\right) & \longrightarrow L^\infty\left(\mathbb{R}\right)\\
+                \quad f(x) & \longmapsto \mathcal{F}\left[f(x')\right](x) = \frac{1}{\sqrt{2\pi}}\int_{\mathbb{R}}f(x')e^{ixx'}dx',
+            \end{split}
+        \end{equation}
+        son $\left\{\exp\left(\frac{i}{2}n\pi \right) \right\}$ con $n$ entero y sus funciones propias son las funciones de Hermite-Gauss \citep{namias1980fractional}, las cuales corresponden al producto de los polinomios de Hermite por una gaussiana, es decir
+        \begin{equation*}
+            \mathcal{F}\left[ e^{-\frac{1}{2}x'}H_n(x') \right](x) = e^{\frac{i}{2}n\pi} e^{-\frac{1}{2}x}H_n(x),
+        \end{equation*}
+        donde $H_n(x)$ obedece a la fórmula de Rodrigues \citep{wyld2020mathematical}
+        \begin{equation*}
+            H_n(x) = \left(-1\right)^n e^{x^2} \frac{d^n}{dx^n} e^{-x^2}.
+        \end{equation*}
+
+        Ahora, Namias define al operador \textit{Transformación de Fourier Fraccionaria} $\mathcal{F}_\alpha$ como  el operador que satisface la siguiente ecuación de valores y funciones propias
+        \begin{equation}
+            \mathcal{F}_\alpha \left[ e^{-\frac{1}{2}x'}H_n(x')  \right](x) = e^{in\alpha} e^{-\frac{1}{2}x}H_n(x), \quad \alpha \in \mathbb{C},
+        \end{equation}
+        y prueba 
