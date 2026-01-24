@@ -55,6 +55,11 @@ McBride, A. and Kerr, F. (1987).
 \newblock On namias's fractional fourier transforms.
 \newblock {\em IMA Journal of applied mathematics}, 39(2):159--175.
 
+\bibitem[Morse and Feshbach, 1978]{morse19781953methods}
+Morse, P.~M. and Feshbach, H. (1978).
+\newblock 1953methods of theoretical physics.
+\newblock {\em McGraw-Hill, New York.}, 4:01--19.
+
 \bibitem[Mustard, 1996]{mustard1996fractional}
 Mustard, D. (1996).
 \newblock The fractional fourier transform and the wigner distribution.
@@ -94,5 +99,10 @@ Susskind, L. and Glogower, J. (1964).
 van Neerven, J. (2020).
 \newblock The garrison-wong quantum phase operator revisited.
 \newblock {\em arXiv preprint arXiv:2008.08935}.
+
+\bibitem[Wyld and Powell, 2020]{wyld2020mathematical}
+Wyld, H.~W. and Powell, G. (2020).
+\newblock {\em Mathematical methods for physics}.
+\newblock CRC Press.
 
 \end{thebibliography}

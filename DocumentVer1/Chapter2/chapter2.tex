@@ -118,11 +118,36 @@
         \end{equation*}
         donde $H_n(x)$ obedece a la fórmula de Rodrigues \citep{wyld2020mathematical}
         \begin{equation*}
-            H_n(x) = \left(-1\right)^n e^{x^2} \frac{d^n}{dx^n} e^{-x^2}.
+            H_n(x) = \left(-1\right)^n e^{x^2} \frac{d^n}{dx^n} e^{-x^2},
         \end{equation*}
 
         Ahora, Namias define al operador \textit{Transformación de Fourier Fraccionaria} $\mathcal{F}_\alpha$ como  el operador que satisface la siguiente ecuación de valores y funciones propias
         \begin{equation}
             \mathcal{F}_\alpha \left[ e^{-\frac{1}{2}x'}H_n(x')  \right](x) = e^{in\alpha} e^{-\frac{1}{2}x}H_n(x), \quad \alpha \in \mathbb{C},
         \end{equation}
-        y prueba 
+        y prueba que el operador se puede representar en la forma $e^{i\alpha A}$, donde $A$ es un operador diferencial dado por
+        \begin{equation}
+            A = -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}x^2 - \frac{1}{2},
+        \end{equation}
+        lo que lleva al operador diferencial
+        \begin{equation}\label{eq:Cap2FourierExp1D}
+            \exp\left[ i\alpha \left( -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}x^2 - \frac{1}{2} \right) \right].
+        \end{equation}
+
+        Para calcular la representación integral, Namias utiliza la fórmula de Mehler \citep{morse19781953methods} deducida a partir de la representación integral de los polinomios de Hermite, en donde obtiene que el operador integral que representa al a TFFr está dada por
+        \begin{equation}\label{eq:Cap2FourierInt1D}
+            \left( \mathcal{F}_\alpha f \right)(x) = \frac{ e^{i\left(.\frac{1}{4}\pi - \frac{1}{2}\alpha \right)} }{\sqrt{2\pi \sen\alpha}} e^{-\frac{i}{2}x^2 \cot\alpha}\int_{\mathbb{R}}\exp\left(  \frac{ixx'}{\sen\alpha } - \frac{i}{2}x'^2 \cot\alpha \right)f(x')dx'.
+        \end{equation}
+
+        Sin embargo, los operadores \ref{eq:Cap2FourierExp1D} y \ref{eq:Cap2FourierInt1D} no son el mismo para todo $\alpha \in \mathbb{C}$, puesto que podemos ver que el operador \ref{eq:Cap2FourierExp1D} tiene periodo $2\pi$, mientras que \ref{eq:Cap2FourierInt1D} tiene periodo $4\pi$. En este orden de ideas, \ref{eq:Cap2FourierInt1D} no es del todo una representación integral del operador \ref{eq:Cap2FourierExp1D} para todo $\alpha \in \mathbb{C}$ y más problemas surgen cuando $sen \alpha \leq 0 $ y el lado derecho de \ref{eq:Cap2FourierInt1D} tiene sentido solo cuando $\alpha \neq n\pi\; n\in \mathbb{Z}$. Con todo esto en mente \citep{mcbride1987namias}, se modifica la representación integral \ref{eq:Cap2FourierInt1D} como
+        \begin{align}
+            & \left( \mathcal{F}_\alpha f \right)(x) = \frac{e^{i\left(\frac{1}{4}\pi \tilde{\alpha} - \frac{1}{2}\alpha \right)} }{\sqrt{ 2\pi \left|\sen\alpha \right| }^{1/2}}e^{-\frac{i}{2}x^2\cot\alpha}\int_{\mathbb{R}}\exp\left(\frac{ixx'}{\sen\alpha} - \frac{1}{2}ix'^2\cot\alpha\right)f(x')dx', \quad 0 < |\alpha| < \pi,\label{eq:Cap2FourierInt1DMejor}\\
+            & \left(\mathcal{F}_0 f\right)(x) = f(x), \qquad  \left(\mathcal{F}_{\pm\pi} f\right)(x) = f(-x),
+        \end{align}
+        donde $\tilde{\alpha} = sign(\sen\alpha)$ la función signo de $\sen\alpha$, tal que la TFFr $\mathcal{F}_\alpha$ queda definida sin ambigüedad para $\pi \leq \alpha \leq \pi$ y, nótese, que para $\alpha = \frac{\pi}{2}$ obtendremos la Transformación de Fourier tradicional y su respectiva inversa cuando $\alpha = - \frac{\pi}{2}$.
+
+        Con esto en mente, A. McBride y F. Kerr demostraron los siguientes teoremas.
+
+        \begin{theorem*}
+            Para $0 < |\alpha| < \pi$, $\mathcal{F}_\alpha$ dado por \ref{eq:Cap2FourierInt1DMejor} es un homeomorfismo\footnote{Recordemos que un homemorfismo es una función biyectiva, continua y con inversa continua entre dos espacios topológicos.} en el espacio de Schwartz $\mathcal{S}\left(\mathbb{R}\right)$ con inversa $\mathcal{F}_{-\alpha}$.
+        \end{theorem*}

@@ -4,45 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: apalike.bst
 Database file #1: Bibliografia.bib
 Warning--I didn't find a database entry for "ejemplo1"
-You've used 19 entries,
+You've used 21 entries,
             1935 wiz_defined-function locations,
-            601 strings with 6801 characters,
-and the built_in function-call counts, 6859 in all, are:
-= -- 656
-> -- 249
-< -- 17
-+ -- 92
-- -- 80
-* -- 588
-:= -- 1219
-add.period$ -- 57
-call.type$ -- 19
-change.case$ -- 132
-chr.to.int$ -- 19
-cite$ -- 19
-duplicate$ -- 264
-empty$ -- 499
-format.name$ -- 113
-if$ -- 1316
+            611 strings with 7011 characters,
+and the built_in function-call counts, 7556 in all, are:
+= -- 725
+> -- 275
+< -- 19
++ -- 100
+- -- 88
+* -- 643
+:= -- 1342
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 145
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 292
+empty$ -- 549
+format.name$ -- 127
+if$ -- 1452
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 23
-newline$ -- 98
-num.names$ -- 57
-pop$ -- 104
+missing$ -- 26
+newline$ -- 108
+num.names$ -- 63
+pop$ -- 117
 preamble$ -- 1
-purify$ -- 135
+purify$ -- 149
 quote$ -- 0
-skip$ -- 203
+skip$ -- 224
 stack$ -- 0
-substring$ -- 467
-swap$ -- 22
+substring$ -- 510
+swap$ -- 24
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 106
+type$ -- 116
 warning$ -- 0
-while$ -- 55
+while$ -- 61
 width$ -- 0
-write$ -- 246
+write$ -- 271
 (There was 1 warning)
