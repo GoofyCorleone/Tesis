@@ -254,8 +254,27 @@
 
     \section{Fundamentos de la TFFr integral}
        
+       Como ya se ha mencionado hasta el momento se ha explorado poco a nivel matemático la TFFr y mucho menos sobre el espacio de Lebesgue $L^p$, es por eso, que en lo que sigue de este trabajo en el presente capítulo se desarrolla una teoría sobre espacios $L^p$ para la $TFFr$ de orden real y para los órdenes complejos se propone un nuevo espacio, el que denominamos como \textit{Espacio de funciones de decrecimiento acelerado} con su dual topológico que denominamos \textit{Espacio de distribuciones atemperadas}.
+
        \subsection{Orden real}
 
+            \begin{proposition}
+                \textit{(Dominio de la transformación de Fourier Fraccionaria).} La TFFr $\mathcal{F}_\alpha$ de orden $\alpha \in \mathbb{R}$ en un operador\footnote{A pesar de que en esta proposición y futuras proposiciones se use explícitamente la forma integral del operador, implícitamente, para extender naturalmente $\alpha$ en lo reales usamos las definiciones ya mostradas: $(\mathcal{F}_0 f)(\mathbf{x})=f(\mathbf{x})$,$\left(\mathcal{F}_{\pm\pi}f\right)(\mathbf{x})=f\left(-\mathbf{x}\right)$,$\left(\mathcal{F}_{2n\pi}f\right)(\mathbf{x}) = f\left(\mathbf{x}\right)$,$\left(\mathcal{F}_{\left(2n+1\right)\pi}f\right)\left(\mathbf{x}\right)=f\left(-\mathbf{x}\right)$ y $\left(\mathcal{F}_{\alpha + 2n\pi} f\right)(\mathbf{x}) = \left(\mathcal{F}_\alpha f\right)(\mathbf{x})$ con $n \in \mathbb{Z}$.} 
+                \begin{equation}
+                    \begin{split}
+                        \mathcal{F}_\alpha: L^1\left(\mathbb{R}^n\right) & \longrightarrow L^\infty \left(\mathbb{R}^n\right)\\
+                        \qquad f\left(\mathbf{x}\right) & \longmapsto \left(\mathcal{F}_\alpha f\right)(\mathbf{x}) = \int_{\mathbb{R}^n}K_\alpha(\mathbf{x},\mathbf{x}')f(\mathbf{x}')d\mathbf{x}',
+                    \end{split}
+                \end{equation} 
+                donde el kernel $K_\alpha\left(\mathbf{x},\mathbf{x}'\right)$ es 
+                \begin{equation}
+                    K_\alpha \left(\mathbf{x},\mathbf{x}'\right) = A_\alpha \left(\mathbf{x}\right) \exp \left(\frac{i\mathbf{x}\cdot\mathbf{x}'}{\sen\alpha} -\frac{i}{2}\cot\alpha \mathbf{x}'^2 \right),
+                \end{equation}
+                y la constante de normalización $A_\alpha(\mathbf{x})$ está dada por 
+                \begin{equation}
+                    A_\alpha(\mathbf{x}) = \frac{e^{i \left(\frac{\pi}{4}\tilde{\alpha} - \frac{\alpha}{2} \right)}}{\left( 2\pi \left|\sen\alpha \right| \right)^{n/2}}
+                \end{equation}
+            \end{proposition}
        \subsection{Orden complejo}
 
        \subsection{Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}

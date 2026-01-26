@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 JAN 2026 14:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 JAN 2026 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -645,18 +645,6 @@ LaTeX Info: Redefining \% on input line 1.
 ] (./Chapter1/chapter1.tex
 Cap\'{\i }tulo 1.
 
-Package natbib Warning: Citation `barnett2007quantum' on page 6 undefined on input line 6.
-
-
-Package natbib Warning: Citation `van2020garrison' on page 6 undefined on input line 6.
-
-
-Package natbib Warning: Citation `dirac1927quantum' on page 6 undefined on input line 8.
-
-
-Package natbib Warning: Citation `susskind1964quantum' on page 6 undefined on input line 8.
-
-
 
 LaTeX Info: Redefining \. on input line 9.
 LaTeX Info: Redefining \% on input line 9.
@@ -665,46 +653,9 @@ LaTeX Info: Redefining \% on input line 9.
 
 ]
 
-Package natbib Warning: Citation `linowski2023formal' on page 7 undefined on input line 10.
-
-
-Package natbib Warning: Citation `haapasalo2021optimal' on page 7 undefined on input line 10.
-
-
-Package natbib Warning: Citation `luis1993phase' on page 7 undefined on input line 12.
-
-
-Package natbib Warning: Citation `sanchez2025phase' on page 7 undefined on input line 12.
-
-
-Package natbib Warning: Citation `namias1980fractional' on page 7 undefined on input line 14.
-
-
-Package natbib Warning: Citation `mustard1996fractional' on page 7 undefined on input line 14.
-
-
-Package natbib Warning: Citation `niewelt2023experimental' on page 7 undefined on input line 16.
-
-
-Package natbib Warning: Citation `santos2018huygens' on page 7 undefined on input line 16.
-
-
-Package natbib Warning: Citation `lesfari2012distributions' on page 7 undefined on input line 18.
-
-
-Package natbib Warning: Citation `de2018analise' on page 7 undefined on input line 18.
-
-
-Package natbib Warning: Citation `kerr1988distributional' on page 7 undefined on input line 18.
-
-
-Package natbib Warning: Citation `mcbride1987namias' on page 7 undefined on input line 18.
-
-) (./Chapter2/chapter2.tex
-
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-[7]
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+[7]) (./Chapter2/chapter2.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -714,15 +665,6 @@ Cap\'{\i }tulo 2.
 Overfull \hbox (10.83188pt too wide) in paragraph at lines 1--1
 |\OT1/cmr/bx/n/24.88 Fundamentos ma-tem^^Sati-cos de la Trans-
  []
-
-
-Package natbib Warning: Citation `namias1980fractional' on page 9 undefined on input line 5.
-
-
-Package natbib Warning: Citation `mcbride1987namias' on page 9 undefined on input line 7.
-
-
-Package natbib Warning: Citation `kerr1988distributional' on page 9 undefined on input line 7.
 
 
 
@@ -739,10 +681,6 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 
 ]
 
-Package natbib Warning: Citation `folland1999real' on page 10 undefined on input line 59.
-
-
-
 LaTeX Info: Redefining \. on input line 63.
 LaTeX Info: Redefining \% on input line 63.
 
@@ -754,15 +692,8 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 
 [10]
 
-Package natbib Warning: Citation `stein2005real' on page 11 undefined on input line 70.
-
-
-Package natbib Warning: Citation `brezis2011functional' on page 11 undefined on input line 103.
-
-
-
-LaTeX Info: Redefining \. on input line 109.
-LaTeX Info: Redefining \% on input line 109.
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
 
 Package fancyhdr Warning: \headheight is too small (13.07225pt): 
 (fancyhdr)                Make it at least 25.07225pt, for example:
@@ -771,19 +702,6 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.0pt}.
 
 [11]
-
-Package natbib Warning: Citation `namias1980fractional' on page 12 undefined on input line 115.
-
-
-Package natbib Warning: Citation `wyld2020mathematical' on page 12 undefined on input line 119.
-
-
-Package natbib Warning: Citation `morse19781953methods' on page 12 undefined on input line 137.
-
-
-Package natbib Warning: Citation `mcbride1987namias' on page 12 undefined on input line 142.
-
-
 
 LaTeX Info: Redefining \. on input line 143.
 LaTeX Info: Redefining \% on input line 143.
@@ -796,10 +714,6 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 
 [12]
 
-Package natbib Warning: Citation `mcbride1987namias' on page 13 undefined on input line 159.
-
-
-
 LaTeX Info: Redefining \. on input line 184.
 LaTeX Info: Redefining \% on input line 184.
 
@@ -810,13 +724,6 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.0pt}.
 
 [13]
-
-Package natbib Warning: Citation `kerr1988distributional' on page 14 undefined on input line 190.
-
-
-Package natbib Warning: Citation `kerr1988distributional' on page 14 undefined on input line 204.
-
-
 
 LaTeX Info: Redefining \. on input line 221.
 LaTeX Info: Redefining \% on input line 221.
@@ -829,12 +736,8 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 
 [14]
 
-Package natbib Warning: Citation `kerr1988distributional' on page 15 undefined on input line 244.
-
-) (./Chapter3/chapter3.tex
-
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 259.
+LaTeX Info: Redefining \% on input line 259.
 
 Package fancyhdr Warning: \headheight is too small (13.07225pt): 
 (fancyhdr)                Make it at least 25.07225pt, for example:
@@ -842,7 +745,7 @@ Package fancyhdr Warning: \headheight is too small (13.07225pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.0pt}.
 
-[15]
+[15]) (./Chapter3/chapter3.tex
 
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -919,11 +822,6 @@ LaTeX Info: Redefining \% on input line 201.
 [22] (out/main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
-
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
 )
  ***********
 LaTeX2e <2024-11-01> patch level 2
@@ -933,18 +831,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A3A6E43A4D8EBB6C5B3B6884601890BA;3073.
  ) 
 Here is how much of TeX's memory you used:
- 16784 strings out of 473190
- 269080 string characters out of 5715801
- 780317 words of memory out of 5000000
- 39665 multiletter control sequences out of 15000+600000
+ 16794 strings out of 473190
+ 269255 string characters out of 5715801
+ 782033 words of memory out of 5000000
+ 39670 multiletter control sequences out of 15000+600000
  572657 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,19n,93p,1163b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on out/main.pdf (23 pages, 326743 bytes).
+ 79i,19n,93p,1157b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on out/main.pdf (23 pages, 346236 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 348 compressed objects within 4 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 422 compressed objects within 5 object streams
+ 115 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
