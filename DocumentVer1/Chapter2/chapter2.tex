@@ -190,5 +190,81 @@
         Para esta parte vamos a continuar recapitulando los aportes hechos por \citep{kerr1988distributional} en donde, motivado por la ecuación de Parseval
 
         \begin{equation*}
-            \int_{\mathbb{R}}\phi(x) \left(\mathcal{F}_\alpha \psi \right)(x) dx = \int_{\mathbb{R}} \left( \mathcal{F}_\alpha \phi \right)(x) \psi(x)dx, \quad \phi.\psi \in \mathcal{S}, \quad \alpha \in \mathbb{R}.
+            \int_{\mathbb{R}}\phi(x) \left(\mathcal{F}_\alpha \psi \right)(x) dx = \int_{\mathbb{R}} \left( \mathcal{F}_\alpha \phi \right)(x) \psi(x)dx, \quad \phi.\psi \in \mathcal{S}, \quad \alpha \in \mathbb{R},
         \end{equation*}
+        se hace la siguiente definición
+
+        \begin{definition*}
+            Dado $f \in \mathcal{S}'$, se define la generalización distribucional de la Transformación De Fourier Fraccionaria de orden $\alpha \in \mathbb{R}$ por $\tilde{\mathcal{F}}_\alpha: \mathcal{S}' \to \mathcal{S}'$ y está dada por 
+            \begin{equation*}
+                \langle \tilde{\mathcal{F}}_\alpha f, \phi \rangle = \langle f, \mathcal{F}_\alpha\phi \rangle, \quad \phi \in \mathcal{S}.
+            \end{equation*}
+        \end{definition*}
+
+        Como $\mathcal{F}_\alpha: \mathcal{S} \to \mathcal{S}$ es un homemorfismo, el lado derecho de la definición está bien definido, formalmente, $\tilde{\mathcal{F}}_\alpha$ es el operador adjunto de $\mathcal{F}_\alpha$, entonces se deduce \citep{kerr1988distributional} que para cada $\alpha \in \mathbb{R}$, $\tilde{\mathcal{F}}_\alpha: \mathcal{S}'\to \mathcal{S}'$ es un homemorfismo. Entonces, con base en las propidades de los operatores adjuntos, se prueba que dada $f \in L^1$,
+        \begin{equation*}
+            \tilde{\mathcal{F}}_\alpha\tilde{f} = \widetilde{\mathcal{F}_\alpha f},\quad \alpha \in \mathbb{R},
+        \end{equation*}
+        donde $\tilde{f}$ y $\widetilde{\mathcal{F}_\alpha f}$ representan las distribuciones regulares\footnote{Una distribución regular es una distribución generada por una función $h$ localmente integrable $L^1_{Loc}$, y opera distribucionalmente como $\langle \tilde{h},\phi \rangle = \int_{\mathbb{R}} h(x)\phi(x)dx$, donde $\tilde{h} \in \mathcal{S}'$ y $\phi \in \mathcal{S}$. } generadas por $f$ y $\mathcal{F}_{\alpha}F$, respectivamente.
+
+        La importancia de extender el análisis de Fourier fraccionario al espacio de las distribuciones yace en que $\mathcal{S}'$ contiene las distribuciones regualres generadas por los polinomios, por lo tanto, muchos resultados obtenidos para los operadores clásicos $\mathcal{F}_\alpha$ se mantendrán para los operadores distribucionales $\tilde{\mathcal{F}}_\alpha$ y los teoremas ya mostrados se mantienen.
+
+        \begin{theorem*}
+            \begin{enumerate}
+                \item Para cada $f \in \mathcal{S}'$ y $\alpha,\beta \in \mathbb{R}$ se cumple la ley de adición de índices
+                \begin{equation*}
+                    \tilde{\mathcal{F}}_\alpha \tilde{\mathcal{F}}_\beta = \widetilde{\mathcal{F}}_{\alpha+\beta} f.
+                \end{equation*}
+                \item Para cada $\alpha \in \mathbb{R}$
+                \begin{equation*}
+                    \tilde{\mathcal{F}}_\alpha^{-1} = \tilde{\mathcal{F}}_{-\alpha}.
+                \end{equation*}
+                \item Para cada $f \in \mathcal{S}'$ y $\beta \in \mathbb{R}$,
+                \begin{equation*}
+                    \tilde{\mathcal{F}}_\alpha f \to \tilde{\mathcal{F}}_\beta f \quad \text{en $\mathcal{S}'$ cuando } \quad \alpha \to \beta.
+                \end{equation*}
+            \end{enumerate}
+        \end{theorem*}
+
+        De las propiedades más importantes, son las reglas operacionales, es decir, las reglas de las derivadas, producto e integral. Para plantear las reglas en el sentido distribucional, se parte de la siguiente definición
+
+       \begin{definition*}
+            \begin{enumerate}
+                \item La derivada $\widetilde{D} := \frac{d}{dx}$ es definida, en el sentido distribucional sobre $\mathcal{S}'$ como
+                \begin{equation}
+                    \langle \widetilde{D}f,\phi \rangle = - \langle f, D \phi \rangle, \quad F \in \mathcal{S}',\; \phi \in \mathcal{S}.
+                \end{equation}
+                \item Sea $\theta \in C^\infty$ tal que $\theta$ y todas sus derviadas son de crecimiento lento, entonces se definide la multiplicación distribucional por el operador $\tilde{\theta}$ sobre $\mathcal{S}'$ por
+                \begin{equation}
+                    \langle \widetilde{\theta}f, \phi \rangle = \langle f, \theta\phi \rangle, \quad f \in \mathcal{S}', \; \phi \in \mathcal{S}.
+                \end{equation}
+            \end{enumerate}
+       \end{definition*} 
+
+       Con esto en mente, se prueba el siguiente teorema \citep{kerr1988distributional}
+       \begin{theorem*}
+            Sea $f\in \mathcal{S}'$, $\alpha \in \mathbb{R}$ y $m \in \mathbb{N}$. Entonces
+            \begin{enumerate}
+                \item $\widetilde{\mathcal{F}}_\alpha \widetilde{x}^mf = \widetilde{\left(x\cos\alpha - i\sen\alpha D \right)}^m \widetilde{\mathcal{F}}_\alpha$ ,
+                \item $\widetilde{\mathcal{F}}_\alpha \widetilde{D}^mf = \widetilde{\left(-ix\sen\alpha + \cos\alpha D\right)}^m \widetilde{\mathcal{F}}_\alpha f$.
+            \end{enumerate}
+       \end{theorem*}
+
+       Uno de los conceptos matemáticos con más utilidad que podemos tener en el contexto de la mecánica cuántica el de la isometría ya que esta nos permite hablar, en un sentido físico, de conservación de la energía o conservación de la densidad de probabilidad, todo esto, en el análisis de Fourier viene del \textit{toerema de Plancherel-Parseval} pero este solo está formualado para la Transformación De Fourier $\mathcal{F}_{\pi/2}$. En lo que sigue, vamos a desarrollar un formalismo matemático para la TFFr de orden real, complejo y en su forulación diferencial e integral.
+
+    \section{Fundamentos de la TFFr integral}
+       
+       \subsection{Orden real}
+
+       \subsection{Orden complejo}
+
+       \subsection{Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}
+
+    \section{Fundamentos de la TFFr diferencial}
+       
+       \subsection{Orden real}
+
+       \subsection{Orden complejo}
+
+       \subsection{Extensión a órdenes matriciales}
+       
