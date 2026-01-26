@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex out/main"] 1769283414.10837 "out/main.aux" "out/main.bbl" "out/main" 1769284899.93302 0
-  "./Bibliografia.bib" 1769265098.07309 6139 b29d520c3ac3271eaa401eaeed30805a ""
+["bibtex out/main"] 1769434240.94669 "out/main.aux" "out/main.bbl" "out/main" 1769434395.59655 0
+  "./Bibliografia.bib" 1769434240.85677 6140 f7297dfb535e42205dd20e5eb134eaf6 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "out/main.aux" 1769284899.76785 4171 8d0390d1f61bf432cc34b9ef81e7e6e1 "pdflatex"
+  "out/main.aux" 1769434395.43723 4372 42912021ed2d04ac1db0c1e0056deb01 "pdflatex"
   (generated)
   "out/main.bbl"
   "out/main.blg"
   (rewritten before read)
-["pdflatex"] 1769284899.2123 "/Users/jafertserrano/Desktop/U/Maestria/Tesis/DocumentVer1/main.tex" "out/main.pdf" "main" 1769284899.93311 2
+["pdflatex"] 1769434394.95439 "/Users/jafertserrano/Desktop/U/Maestria/Tesis/DocumentVer1/main.tex" "out/main.pdf" "main" 1769434395.59665 2
   "/Users/jafertserrano/Desktop/U/Maestria/Tesis/DocumentVer1/main.tex" 1768627648.87736 6422 6a00ba62ff5f57471a7f5b510571f591 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -155,15 +155,15 @@
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Chapter1/chapter1.tex" 1768627621.64618 6997 cd3e1a0bbcd645a087fa546cf73c2b71 ""
-  "Chapter2/chapter2.tex" 1769284899.11963 13366 1e80ce7ae81007b837b9b5e4ee25c74f ""
+  "Chapter2/chapter2.tex" 1769434394.86634 15978 0b45a27b74bd1b810177f27c8130660a ""
   "Chapter3/chapter3.tex" 1719275142.42705 147 c894453b8ea57b81ce054b015a481cf4 ""
   "Chapter4/chapter4.tex" 1767971143.95306 383 6e865083929ea6d710c3960bdfd5f80d ""
   "main.tex" 1768627648.87736 6422 6a00ba62ff5f57471a7f5b510571f591 ""
-  "out/main.aux" 1769284899.76785 4171 8d0390d1f61bf432cc34b9ef81e7e6e1 "pdflatex"
-  "out/main.bbl" 1769283414.19235 4691 d4875dad433e029d0a375c49cc63fed9 "bibtex out/main"
-  "out/main.lof" 1769284899.77029 130 6065a55bb8926a8d1f250ea1e44d6185 "pdflatex"
-  "out/main.out" 1769284899.77007 1216 8f6edcf25b7a834aeed91e2cd98ece7b "pdflatex"
-  "out/main.toc" 1769284899.77027 702 4db1efec85a1e82e76bed966f44ee747 "pdflatex"
+  "out/main.aux" 1769434395.43723 4372 42912021ed2d04ac1db0c1e0056deb01 "pdflatex"
+  "out/main.bbl" 1769434241.01219 4691 d4875dad433e029d0a375c49cc63fed9 "bibtex out/main"
+  "out/main.lof" 1769434395.43817 130 6065a55bb8926a8d1f250ea1e44d6185 "pdflatex"
+  "out/main.out" 1769434395.43802 1466 8561d3f0cddf24fca1664598adf8119f "pdflatex"
+  "out/main.toc" 1769434395.43815 799 6042676b46eecbb6b0ee7801f25198e5 "pdflatex"
   (generated)
   "out/main.aux"
   "out/main.lof"
