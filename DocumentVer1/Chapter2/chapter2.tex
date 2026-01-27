@@ -289,10 +289,10 @@
 
                 Con esto en mente, se tiene entonces que $\forall\; \mathbf{x},\mathbf{x}' \in \mathbb{R}^n$ y $\forall\; f \in L^1$
                 \begin{equation*}
-                    \left| \left(\mathcal{F}_\alpha f \right)(x) \right| \leq \int_{\mathbb{R}^n}\left|K_\alpha \left( \mathbf{x},\mathbf{x}' \right)\right| \left|f(\mathbf{x}')\right|d\mathbf{x}' = \left|A_\alpha\left(\mathbf{x},\mathbf{x}' \right)\right| \int_{\mathbb{R}^n}\left|f\left(\mathbf{x}'\right)\right|d\mathbf{x}',
+                    \left| \left(\mathcal{F}_\alpha f \right)(\mathbf{x}) \right| \leq \int_{\mathbb{R}^n}\left|K_\alpha \left( \mathbf{x},\mathbf{x}' \right)\right| \left|f(\mathbf{x}')\right|d\mathbf{x}' = \left|A_\alpha\left(\mathbf{x},\mathbf{x}' \right)\right| \int_{\mathbb{R}^n}\left|f\left(\mathbf{x}'\right)\right|d\mathbf{x}',
                 \end{equation*}
                 \begin{equation}
-                    \left| \left(\mathcal{F}_\alpha f \right)(x) \right| \leq \left| A_\alpha \left(\mathbf{x}\right)\right|\; ||f||_{L^1\left(\mathbb{R^n}\right)},
+                    \left| \left(\mathcal{F}_\alpha f \right)(\mathbf{x}) \right| \leq \left| A_\alpha \left(\mathbf{x}\right)\right|\; ||f||_{L^1\left(\mathbb{R^n}\right)},
                 \end{equation}
                 si tomamos el supremo\footnote{La mínima de las cotas superiores} sobre todo $\mathbb{R}^n$ tendremos entonces
                 \begin{equation}
@@ -304,41 +304,122 @@
             Ahora que conocemos bien el dominio de la TFFr vamos a extender uno de los teoremas más útiles del análisis de Fourier, el teorema de Plancherel-Parseval, el cual, se manifiesta como una isometría en $L^2$, y recordemos, que en todo $L^p$ solamente $L^2$ es un espacio de Hilbert, el cual es de sumo interés en este trabajo de investigación.
 
             \begin{proposition}
-		\textit{(Isometría en $L^2$)}. La transformación de Fourier Fraccionaria, en su formulación integral, para un orden real $\alpha \in \mathbb{R}$ es una isometría en $L^2$.
-	\end{proposition}
+		        \textit{(Isometría en $L^2$)}. La transformación de Fourier Fraccionaria, en su formulación integral, para un orden real $\alpha \in \mathbb{R}$ es una isometría en $L^2$.
+	        \end{proposition}
 	
-	\begin{proof}
-		Sea $f \in L^2\left(\mathbb{R}^n\right)$ y sea $\mathcal{F}_\alpha$ el operador transformación de Fourier Fraccionario de orden real $\alpha \in \mathbb{R}$. Conideraremos que las funciones propias del operador de Fourier Fraccionario son los polinomios de Hermite-Gauss $\varphi_n = H_n(\mathbf{x})e^{-\mathbf{x}^2/2}$ las cuales forman una base completa y ortonormal en $L^2\left(\mathbb{R}^n\right)$.
-		
-		Sea $f \in L^2\left(\mathbb{R}^n\right)$, entonces esta la podemos escribir en la base de las funciones de Hermite-Gauss como,
-		\begin{equation*}
-			f(\mathbf{x}) = \sum_{n=0}^{\infty}a_n H_n(\mathbf{x})e^{-\frac{\mathbf{x}^2}{2}},\quad donde \quad a_n = \langle  f,\varphi_n \rangle.
-		\end{equation*}
-		
-		En este orden de ideas, la Transformada de Fourier Fraccionaria de $f$ es
-		\begin{equation*}
-			\mathcal{F}_\alpha\left\{ f \right\} = \sum_{n=0}^{\infty}a_n \mathcal{F}_\alpha\left\{ \varphi_n \right\} = \sum_{n=0}^{\infty}a_ne^{-in\alpha\pi /2}\varphi_n,
-		\end{equation*}
-		
-		La norma de $f$ en $L^2$ está dada por
-		\begin{equation*}
-			||f||^2_{L^2\left(\mathbb{R}^n\right)} = \langle f,f \rangle = \sum_{n=0}^{\infty} |a_n|^2,
-		\end{equation*}
-		en donde hemos utilizado la ortonormalidad de la base $\left\{\varphi_n\right\}$.
-		
-		La norma de $\mathcal{F}_\alpha\left\{f\right\}$ es
-		\begin{equation*}
-			\left|\left|  \mathcal{F}_\alpha\left\{f\right\}  \right|\right|^2_{L^2\left(\mathbb{R}^n\right)} = \left\langle \sum_{n=0}^{\infty} a_n e^{-in\alpha\pi/2}\varphi_n, \sum_{n'=0}^{\infty} a_{n'}e^{-in'a\pi/2}\varphi_{n'} \right\rangle,
-		\end{equation*}
-		\begin{equation*}
-			\left|\left|  \mathcal{F}_\alpha\left\{f\right\}  \right|\right|^2_{L^2\left(\mathbb{R}^n\right)} = \sum_{n=0}^{\infty} |a_n|^2,
-		\end{equation*}
-		ya que $\langle \varphi_n , \varphi_{n'} \rangle = \delta_{nn'}$.
-		
-		Se concluye, entonces que $\mathcal{F}_{\alpha}$ con $\alpha \in \mathbb{R}$ es una isometría en $L^2\left(\mathbb{R}^n\right)$.
-	\end{proof}
+            \begin{proof}
+                Sea $f \in L^2\left(\mathbb{R}^n\right)$ y sea $\mathcal{F}_\alpha$ el operador transformación de Fourier Fraccionario de orden real $\alpha \in \mathbb{R}$. Conideraremos que las funciones propias del operador de Fourier Fraccionario son los polinomios de Hermite-Gauss $\varphi_n = H_n(\mathbf{x})e^{-\mathbf{x}^2/2}$ las cuales forman una base completa y ortonormal en $L^2\left(\mathbb{R}^n\right)$.
+                
+                Sea $f \in L^2\left(\mathbb{R}^n\right)$, entonces esta la podemos escribir en la base de las funciones de Hermite-Gauss como,
+                \begin{equation*}
+                    f(\mathbf{x}) = \sum_{n=0}^{\infty}a_n H_n(\mathbf{x})e^{-\frac{\mathbf{x}^2}{2}},\quad donde \quad a_n = \langle  f,\varphi_n \rangle.
+                \end{equation*}
+                
+                En este orden de ideas, la Transformada de Fourier Fraccionaria de $f$ es
+                \begin{equation*}
+                    \mathcal{F}_\alpha f = \sum_{n=0}^{\infty}a_n \mathcal{F}_\alpha \varphi_n  = \sum_{n=0}^{\infty}a_ne^{-in\alpha\pi /2}\varphi_n,
+                \end{equation*}
+                
+                La norma de $f$ en $L^2$ está dada por
+                \begin{equation*}
+                    ||f||^2_{L^2\left(\mathbb{R}^n\right)} = \langle f,f \rangle = \sum_{n=0}^{\infty} |a_n|^2,
+                \end{equation*}
+                en donde hemos utilizado la ortonormalidad de la base $\left\{\varphi_n\right\}$.
+                
+                La norma de $\mathcal{F}_\alpha f$ es
+                \begin{equation*}
+                    \left|\left|  \mathcal{F}_\alpha f  \right|\right|^2_{L^2\left(\mathbb{R}^n\right)} = \left\langle \sum_{n=0}^{\infty} a_n e^{-in\alpha\pi/2}\varphi_n, \sum_{n'=0}^{\infty} a_{n'}e^{-in'a\pi/2}\varphi_{n'} \right\rangle,
+                \end{equation*}
+                \begin{equation*}
+                    \left|\left|  \mathcal{F}_\alpha f  \right|\right|^2_{L^2\left(\mathbb{R}^n\right)} = \sum_{n=0}^{\infty} |a_n|^2,
+                \end{equation*}
+                ya que $\langle \varphi_n , \varphi_{n'} \rangle = \delta_{nn'}$.
+                
+                Se concluye, entonces que $\mathcal{F}_{\alpha}$ con $\alpha \in \mathbb{R}$ es una isometría en $L^2\left(\mathbb{R}^n\right)$.
+            \end{proof}
+
+            Ahora, vamos a mostrar la extensión de la isometría a espacios de Schwartz y distribuciones temperadas.
+
+            \begin{proposition}
+                \textit{( Isometría en Schwartz y en distribuciones temperadas ).} La transformación de Fourier Fraccionaria $\mathcal{F}_\alpha$ de orden real $\alpha \in \mathbb{R}$ es una isometría en el espacio de Schwartz $\mathcal{S}\left(\mathbb{R}^n\right)$ o espacio de funciones de decrecimiento rápido y también es una isometría en el espacio de distribuciones temperadas $\mathcal{S}'\left(\mathbb{R}^n\right)$.
+            \end{proposition}
+            
+            \begin{proof}
+                Sea $f \in \mathcal{S}\left(\mathbb{R}^n\right)$ una función de decrecimiento rápido. Recordemos que Schwartz es denso en $L^p$ es decir, $\overline{\mathcal{S}}^{L^p} = L^p$  y, en particular, para $p=2$, por la proposición anterior tenemos que se cumple la identidad de Plancherel-Parseval, por ende, si se cumple en $L^2$ se cumplirá en $\mathcal{S} \subset L^2$, es decir, $\forall f \in \mathcal{S}\left(\mathbb{R}^n\right)$ tendremos que $\mathcal{F}_\alpha: \mathcal{S} \longrightarrow \mathcal{S}$ y
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha f \right|\right|_{L^2\left(\mathbb{R}^n\right)} = || f ||_{L^2\left(\mathbb{R}^n\right)}.
+                \end{equation*}
+                
+                El espacio $\mathcal{S}'\left(\mathbb{R}^n\right)$ es el dual topológico de $\mathcal{S}\left(\mathbb{R}^n\right)$, es decir, el espacio de las funciones lineales continuas sobre $\mathcal{S}\left(\mathbb{R}^n\right)$. La TFFr en $\mathcal{S}'\left(\mathbb{R}^n\right)$ se define mediante el producto distribucional o por la dualidad; $\forall T \in \mathcal{S}'\left(\mathbb{R}^n\right)$ y $\phi \in \mathcal{S}$, se cumple que
+                \begin{equation*}
+                    \langle \mathcal{F}_\alpha T,\phi \rangle = \langle T, \mathcal{F}_\alpha\phi\rangle.
+                \end{equation*}
+                
+                Sobre $\mathcal{S}'\left(\mathbb{R}^n\right)$ no se tiene una norma en el sentido usual sino que podemos definir una norma en el sentido funcional, en este orden de ideas, la norma de una distribución temperada $T$ inducida por $L^2$ está dada por
+                \begin{equation*}
+                    \left|\left| T \right|\right|_{\mathcal{S}'} =  \sup_{\phi\in\mathcal{S},\; ||\phi||_{L^2}=1}\left| \langle T, \phi \rangle \right|.
+                \end{equation*}
+                
+                Para $T \in \mathcal{S}'\left(\mathbb{R}^n\right)$ tendremos
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha T \right|\right|_{\mathcal{S}'} = \sup_{\phi\in\mathcal{S},\; ||\phi||_{L^2}=1} \left| \langle \mathcal{F}_\alpha T,\phi \rangle \right|,
+                \end{equation*}
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha T \right|\right|_{\mathcal{S}'} = \sup_{\phi\in\mathcal{S},\; ||\mathcal{F}_\alpha \phi||_{L^2}=1} \left| \langle  T, \mathcal{F}_\alpha \phi  \rangle \right|.
+                \end{equation*}
+                Dado que $\mathcal{F}_\alpha$ es una isometría en $\mathcal{S}\left(\mathbb{R}^n\right)$, entonces 
+                \begin{equation*}
+                    \sup_{\phi\in\mathcal{S},\; ||\mathcal{F}_\alpha \phi||_{L^2}=1} \left| \langle  T, \mathcal{F}_\alpha \phi \rangle \right| = \sup_{\phi\in\mathcal{S},\; ||\phi||_{L^2}=1} \left| \langle  T, \phi \rangle \right|,
+                \end{equation*}
+                por lo tanto
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha T \right|\right|_{\mathcal{S}'} = \sup_{\phi\in\mathcal{S},\; ||\phi||_{L^2}=1} \left| \langle  T, \phi \rangle \right| = || T ||_{\mathcal{S}'}.
+                \end{equation*}
+            \end{proof}
 
        \subsection{Orden complejo}
+            
+            Hasta el momento se ha demostrado, entonces, que las propiedades de la transformación de Fourier tradicional se conservan en el caso fraccionario de orden real, sin embargo, si deseamos generalizar un poco el resultado a una transformación de Fourier de orden complejo vamos a encontrar que, desde su construcción, no se cumple nada, ahora su dominio ni siquiera es $L^1$, ya no hay isometría en $L^2$. Esto se puede ver al tomar el valor absoluto del kernel $K_\alpha\left(\mathbf{x},\mathbf{x}'\right)$ cuando $\alpha \in \mathbb{C}$ y, sin pérdida de generalidad, asumamos que $\alpha$ es un imaginario puro $(\alpha \rightarrow i \alpha)$ entonces tendremos
+
+            \begin{equation}
+                \left| K_\alpha \left(\mathbf{x},\mathbf{x}'\right) \right| = |A_\alpha(\mathbf{x})| \left| exp\left( -\frac{1}{2}\coth\alpha \mathbf{x}'^2 + \frac{\mathbf{x}\cdot\mathbf{x}'}{\sinh\alpha} \right) \right|,
+            \end{equation}
+            donde
+            \begin{equation*}
+                |A_\alpha\left(\mathbf{x}\right)| = \frac{e^{\alpha/2}}{\left(2\pi \left|\sinh \alpha \right|\right)^{n/2}}e^{-\frac{1}{2}\coth\alpha \mathbf{x}^2}.
+            \end{equation*}
+            
+            Es por este motivo que debemos definir un nuevo espacio y ver su relación con el espacio de Schwartz y el de distribuciones temperadas.
+
+            \begin{definition}
+                \textit{(Espacio de funciones de decrecimiento acelerado)}. Decimos que una función $f$ es de decrecimiento acelerado $f\in \mathcal{D}\left(\mathbb{R}^n\right)$ $\alpha,\beta$ si dados dos multi-índices de tamaño $m$ y $k$, respectivamente, se cumple que 
+                \begin{equation*}
+                    ||f||_{\alpha,\beta}  < \infty,
+                \end{equation*}
+                donde $||\cdot ||_{\alpha,\beta}$ está definida por
+                \begin{equation*}
+                    ||f||_{\alpha,\beta} := \left|\left| e^{x^\alpha} D^\beta f \right|\right|_{L^\infty\left(\mathbb{R}^n\right)} = \sup_{x\in\mathbb{R}}\left|\frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right|
+                \end{equation*},
+                donde $\left\{\alpha_1,...,\alpha_m\right\}$ y $\left\{\beta_1,...,\beta_k\right\}$ son tales que
+                \begin{equation*}
+                    \sum_{i=1}^{m}\alpha_i = |\alpha|, \qquad \sum_{j=1}^{k}\alpha_j = |\beta|.
+                \end{equation*}
+            \end{definition}
+
+            Este espacio se llamó así ya que es el conjunto de todas las funciones que decrecen más rápido que cualquier exponencial de un polinomio, por ende, su decrecimiento es bastante rápido. A este nuevo espacio definido debemos dotarlo de ciertas propiedades y probar que no es un conjunto vacío.
+
+            \begin{lemma}
+                La función $||\cdot||_{\alpha,\beta}$ definada sobre $\mathcal{D}$ es una seminorma.
+            \end{lemma}
+
+            \begin{proof}
+                Sean $\alpha, \beta$ dos multi-índices de tamaño $m$ y $k$, respectivamente. Por definción del valor absoluto y el supremo, es inmediato que
+                \begin{equation*}
+                    ||f||_{\alpha,\beta} \geq 0 \; \forall\; f \in \mathcal{D}.
+                \end{equation*}
+
+                Sea $\lambda \in \mathbb{R}$
+            \end{proof}
 
        \subsection{Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}
 
