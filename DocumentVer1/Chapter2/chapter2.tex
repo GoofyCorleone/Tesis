@@ -272,9 +272,72 @@
                 \end{equation}
                 y la constante de normalización $A_\alpha(\mathbf{x})$ está dada por 
                 \begin{equation}
-                    A_\alpha(\mathbf{x}) = \frac{e^{i \left(\frac{\pi}{4}\tilde{\alpha} - \frac{\alpha}{2} \right)}}{\left( 2\pi \left|\sen\alpha \right| \right)^{n/2}}
+                    A_\alpha(\mathbf{x}) = \frac{e^{i \left(\frac{\pi}{4}\tilde{\alpha} - \frac{\alpha}{2} \right)}}{\left( 2\pi \left|\sen\alpha \right| \right)^{n/2}}, \quad \text{con} \; \tilde{\alpha} = sign\left(\sen\alpha \right).
                 \end{equation}
             \end{proposition}
+
+            \begin{proof}
+                Sea $f \in L^1$ y sea el kernel $K_\alpha\left(\mathbf{x},\mathbf{x}'\right)$ de $\mathcal{F}_\alpha$, entonces, se tiene que el valor absoluto del kernel está dado por 
+                \begin{equation*}
+                    \left|K_\alpha\left(\mathbf{x},\mathbf{x}'\right)\right| = \left|A_\alpha\left(\mathbf{x}\right)\right| \left|\exp \left( \frac{i\mathbf{x}\cdot\mathbf{x}'}{\sen\alpha} - \frac{i}{2}\cot\alpha \mathbf{x}'^2 \right)\right|.
+                \end{equation*}
+
+                Si $\alpha \in \mathbb{R}$ entonces se tiene que todo el término que multiplica a la constante de normalización $A_\alpha \left(\mathbf{x}\right)$ es un exponencial cuyo argumento es un imaginario puro, por ende, su valro absoluto es $1$,en este orden de ideas, se tiene que
+                \begin{equation*}
+                    \left|K_\alpha\left(\mathbf{x},\mathbf{x}'\right)\right| = \left(2\pi \left|\sen\alpha\right|\right)^{-n/2} \; \in \mathbb{R}.
+                \end{equation*}
+
+                Con esto en mente, se tiene entonces que $\forall\; \mathbf{x},\mathbf{x}' \in \mathbb{R}^n$ y $\forall\; f \in L^1$
+                \begin{equation*}
+                    \left| \left(\mathcal{F}_\alpha f \right)(x) \right| \leq \int_{\mathbb{R}^n}\left|K_\alpha \left( \mathbf{x},\mathbf{x}' \right)\right| \left|f(\mathbf{x}')\right|d\mathbf{x}' = \left|A_\alpha\left(\mathbf{x},\mathbf{x}' \right)\right| \int_{\mathbb{R}^n}\left|f\left(\mathbf{x}'\right)\right|d\mathbf{x}',
+                \end{equation*}
+                \begin{equation}
+                    \left| \left(\mathcal{F}_\alpha f \right)(x) \right| \leq \left| A_\alpha \left(\mathbf{x}\right)\right|\; ||f||_{L^1\left(\mathbb{R^n}\right)},
+                \end{equation}
+                si tomamos el supremo\footnote{La mínima de las cotas superiores} sobre todo $\mathbb{R}^n$ tendremos entonces
+                \begin{equation}
+                    \left|\left| \left(\mathcal{F}_\alpha f\right)(\mathbf{x}) \right|\right|_{L^\infty\left(\mathbb{R}^n\right)} \leq \left|A_\alpha\left(\mathbf{x}\right)\right|\; ||f||_{L^1\left(\mathbb{R}^n\right)},
+                \end{equation}
+                por lo que $\mathcal{F}_\alpha$ es un operador que va de $L^1$ a $L^\infty$.
+            \end{proof}
+
+            Ahora que conocemos bien el dominio de la TFFr vamos a extender uno de los teoremas más útiles del análisis de Fourier, el teorema de Plancherel-Parseval, el cual, se manifiesta como una isometría en $L^2$, y recordemos, que en todo $L^p$ solamente $L^2$ es un espacio de Hilbert, el cual es de sumo interés en este trabajo de investigación.
+
+            \begin{proposition}
+		\textit{(Isometría en $L^2$)}. La transformación de Fourier Fraccionaria, en su formulación integral, para un orden real $\alpha \in \mathbb{R}$ es una isometría en $L^2$.
+	\end{proposition}
+	
+	\begin{proof}
+		Sea $f \in L^2\left(\mathbb{R}^n\right)$ y sea $\mathcal{F}_\alpha$ el operador transformación de Fourier Fraccionario de orden real $\alpha \in \mathbb{R}$. Conideraremos que las funciones propias del operador de Fourier Fraccionario son los polinomios de Hermite-Gauss $\varphi_n = H_n(\mathbf{x})e^{-\mathbf{x}^2/2}$ las cuales forman una base completa y ortonormal en $L^2\left(\mathbb{R}^n\right)$.
+		
+		Sea $f \in L^2\left(\mathbb{R}^n\right)$, entonces esta la podemos escribir en la base de las funciones de Hermite-Gauss como,
+		\begin{equation*}
+			f(\mathbf{x}) = \sum_{n=0}^{\infty}a_n H_n(\mathbf{x})e^{-\frac{\mathbf{x}^2}{2}},\quad donde \quad a_n = \langle  f,\varphi_n \rangle.
+		\end{equation*}
+		
+		En este orden de ideas, la Transformada de Fourier Fraccionaria de $f$ es
+		\begin{equation*}
+			\mathcal{F}_\alpha\left\{ f \right\} = \sum_{n=0}^{\infty}a_n \mathcal{F}_\alpha\left\{ \varphi_n \right\} = \sum_{n=0}^{\infty}a_ne^{-in\alpha\pi /2}\varphi_n,
+		\end{equation*}
+		
+		La norma de $f$ en $L^2$ está dada por
+		\begin{equation*}
+			||f||^2_{L^2\left(\mathbb{R}^n\right)} = \langle f,f \rangle = \sum_{n=0}^{\infty} |a_n|^2,
+		\end{equation*}
+		en donde hemos utilizado la ortonormalidad de la base $\left\{\varphi_n\right\}$.
+		
+		La norma de $\mathcal{F}_\alpha\left\{f\right\}$ es
+		\begin{equation*}
+			\left|\left|  \mathcal{F}_\alpha\left\{f\right\}  \right|\right|^2_{L^2\left(\mathbb{R}^n\right)} = \left\langle \sum_{n=0}^{\infty} a_n e^{-in\alpha\pi/2}\varphi_n, \sum_{n'=0}^{\infty} a_{n'}e^{-in'a\pi/2}\varphi_{n'} \right\rangle,
+		\end{equation*}
+		\begin{equation*}
+			\left|\left|  \mathcal{F}_\alpha\left\{f\right\}  \right|\right|^2_{L^2\left(\mathbb{R}^n\right)} = \sum_{n=0}^{\infty} |a_n|^2,
+		\end{equation*}
+		ya que $\langle \varphi_n , \varphi_{n'} \rangle = \delta_{nn'}$.
+		
+		Se concluye, entonces que $\mathcal{F}_{\alpha}$ con $\alpha \in \mathbb{R}$ es una isometría en $L^2\left(\mathbb{R}^n\right)$.
+	\end{proof}
+
        \subsection{Orden complejo}
 
        \subsection{Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}

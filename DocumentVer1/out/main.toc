@@ -5,15 +5,15 @@
 \contentsline {section}{\numberline {2.2}La TFFr en el sentido distribucional}{14}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Fundamentos de la TFFr integral}{15}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Orden real}{16}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Orden complejo}{16}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}{16}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Fundamentos de la TFFr diferencial}{16}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Orden real}{16}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Orden complejo}{16}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Extensión a órdenes matriciales}{16}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}Metodología}{17}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Resultados}{18}{chapter.4}%
-\contentsline {section}{\numberline {4.1}xd}{18}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}probando}{18}{subsection.4.1.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{20}{chapter.5}%
-\contentsline {chapter}{Referencias}{20}{chapter.5}%
+\contentsline {subsection}{\numberline {2.3.2}Orden complejo}{18}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}{18}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Fundamentos de la TFFr diferencial}{18}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Orden real}{18}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Orden complejo}{18}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Extensión a órdenes matriciales}{18}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Metodología}{19}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Resultados}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}xd}{20}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}probando}{20}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{22}{chapter.5}%
+\contentsline {chapter}{Referencias}{22}{chapter.5}%
