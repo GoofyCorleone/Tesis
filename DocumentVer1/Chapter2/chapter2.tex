@@ -398,7 +398,7 @@
                 \end{equation*}
                 donde $||\cdot ||_{\alpha,\beta}$ está definida por
                 \begin{equation*}
-                    ||f||_{\alpha,\beta} := \left|\left| e^{x^\alpha} D^\beta f \right|\right|_{L^\infty\left(\mathbb{R}^n\right)} = \sup_{x\in\mathbb{R}}\left|\frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right|
+                    ||f||_{\alpha,\beta} := \left|\left| e^{x^\alpha} D^\beta f \right|\right|_{L^\infty\left(\mathbb{R}^n\right)} = \sup_{\mathbf{x}\in\mathbb{R}^n}\left|\frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right|
                 \end{equation*},
                 donde $\left\{\alpha_1,...,\alpha_m\right\}$ y $\left\{\beta_1,...,\beta_k\right\}$ son tales que
                 \begin{equation*}
@@ -418,8 +418,147 @@
                     ||f||_{\alpha,\beta} \geq 0 \; \forall\; f \in \mathcal{D}.
                 \end{equation*}
 
-                Sea $\lambda \in \mathbb{R}$
+                Sea $\lambda \in \mathbb{R}$, entonces
+                \begin{equation*}
+                    || \lambda f||_{\alpha,\beta} = \sup_{\mathbf{x}\in\mathbb{R}^n}\left|\lambda \frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right| = \left|\lambda \right| \sup_{\mathbf{x}\in\mathbb{R}^n}\left|\frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right| = \left|\lambda\right|\;||f||_{\alpha,\beta}.
+                \end{equation*}
+
+                Para probar la desigualdad triangular, es necesario utilizar la desigualdad triangular para el valor absoluto. Sean $f,g\; \in \mathcal{D}$, entonces
+
+                \begin{equation*}
+                    || f + g ||_{\alpha,\beta} = \sup_{\mathbf{x}\in\mathbb{R}^n}\left|\frac{\partial^{|\beta|}(f+g)}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right| \leq \sup_{\mathbf{x}\in\mathbb{R}^n}\left|\frac{\partial^{|\beta|}f}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right| + \sup_{\mathbf{x}\in\mathbb{R}^n}\left|\frac{\partial^{|\beta|}g}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}}  e^{x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} } \right|,
+                \end{equation*}
+                \begin{equation*}
+                    || f + g ||_{\alpha,\beta} \leq ||f||_{\alpha,\beta} + ||g||_{\alpha,\beta}.
+                \end{equation*}
             \end{proof}
+
+            \begin{theorem}
+                El espacio $\mathcal{D}\left( \mathbb{R}^n \right)$ es topológico con la topología inducida por la familia $\left\{ ||\cdot||_{\alpha,\beta} \right\}_{\alpha,\beta \; \mathbb{N}^n}$. Esto significa que una sucesión $\left( f_k \right)\subset \mathcal{D}$ converge a $f\in \mathcal{D}$ si y solo si
+                \begin{equation}
+                    \forall\;\alpha,\beta \in \mathbb{N}^n, \quad \lim_{k\to \infty} || f_k - f ||_{\alpha,\beta} = 0.
+                \end{equation} 
+                Es decir, $e^{x^\alpha}\partial^\beta\;f_k \to e^{x^\alpha}\partial^B f$ uniformemente en $\mathbb{R}^n$. 
+                
+                Esta topología es metrizable, es decir, la dupla $\left(\mathcal{D}, d \right)$, donde
+                \begin{equation}
+                    d\left(f,g\right) = \sum_{\alpha,\beta\in \mathbb{N}^n}2^{-|\alpha|-|\beta|} \frac{ ||f-g||_{\alpha,\beta}}{1 + ||f-g||_{\alpha,\beta}}
+                \end{equation}
+                es un espacio métrico.
+            \end{theorem}
+
+            \begin{proof}
+               \text{\color{red} Pendiente por escribir la demostración} 
+            \end{proof}
+
+            \begin{lemma}
+                El espacio de Schwartz $\mathcal{S}\left(\mathbb{R}^n\right)$ contiene al espacio de funciones de decrecimiento accelerado $\mathcal{D}$$\left( \mathbb{R}^n \right)$.
+            \end{lemma}
+            \begin{proof}
+                Sea $f \in \mathcal{D}\left(\mathbb{R}^n\right)$ una función de decrecimiento acelerado y sean $\alpha,\beta$ dos multi-índices de tamaño $m,k$, respectivamente. como la función exponencial es del tipo $C^\infty\left(\mathbb{R}^n\right)$ entonces se puede expresar como una serie de Taylor, y, a su vez, si $x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m}$ es lo suficientemente pequeño como para trunchar a la serie de Taylor en su primer orden pero es suficientemente más grande que $1$, entonces, tendremos que la seminorma se aproxima a la seminorma en Schwartz
+                
+                \begin{equation*}
+                    ||f||_{\alpha,\beta} := \left|\left| e^{x^\alpha} D^\beta f \right|\right|_{L^\infty\left(\mathbb{R}^n\right)} \approx \sup_{x\in\mathbb{R}}\left|x_{i_1}^{\alpha_1}...x_{i_m}^{\alpha_m} \frac{\partial^{|\beta| f}}{\partial x_{j_1}^{\beta_1}...x_{j_k}^{\beta_k}} \right|,
+                \end{equation*}
+                por lo tanto, en este régimen de crecimiento moderado del argumento del exponencial observamos que $f \in \mathcal{S}\left(\mathbb{R}^n\right)$ y a su vez tenemos que $\mathcal{D}\left(\mathbb{R}^n\right) \subset \mathcal{S}\left(\mathbb{R}^n\right) $
+            \end{proof}
+
+            \begin{theorem}
+                El espacio $\mathcal{D}(\mathbb{R}^n)$ no es denso en $L^\infty(\mathbb{R}^n)$.
+            \end{theorem}
+            
+            \begin{proof}
+                El cierre de $C_c^\infty(\mathbb{R}^n)$ en $L^\infty(\mathbb{R}^n)$ es el espacio de funciones continuas que se anulan en el infinito, denotado por $C_0(\mathbb{R}^n)$, el cual es un subespacio propio de $L^\infty(\mathbb{R}^n)$. 
+                
+                Dado que $C_c^\infty(\mathbb{R}^n) \subset \mathcal{D}(\mathbb{R}^n) \subset C_0(\mathbb{R}^n)$, se sigue que el cierre de $\mathcal{D}(\mathbb{R}^n)$ en $L^\infty(\mathbb{R}^n)$ está contenido en $C_0(\mathbb{R}^n)$, que es un subconjunto propio de $L^\infty(\mathbb{R}^n)$. Por lo tanto, $\mathcal{D}(\mathbb{R}^n)$ no puede ser denso en $L^\infty(\mathbb{R}^n)$.
+            \end{proof}
+            
+            \begin{theorem}
+                El conjunto de funciones de decrecimiento acelerado $\mathcal{D}\left(\mathbb{R}^n\right)$ es denso en $L^p\left(\mathbb{R}^n\right)$ .
+            \end{theorem}
+            \begin{proof}
+                Para demostrar que $\mathcal{D}(\mathbb{R}^n)$ es denso en $L^p(\mathbb{R}^n)$, es suficiente probar que $\mathcal{D}(\mathbb{R}^n)$ contiene un subconjunto denso de $L^p(\mathbb{R}^n)$. 
+                
+                Sea $C_c^\infty(\mathbb{R}^n)$ el espacio de funciones suaves con soporte compacto. Es un resultado bien conocido en análisis funcional que $C_c^\infty(\mathbb{R}^n)$ es denso en $L^p(\mathbb{R}^n)$ para $1 \leq p < \infty$. Por lo tanto, si demostramos que 
+                \begin{equation*}
+                    C_c^\infty(\mathbb{R}^n) \subset \mathcal{D}(\mathbb{R}^n),
+                \end{equation*}
+                entonces $\mathcal{D}(\mathbb{R}^n)$ será también denso en $L^p(\mathbb{R}^n)$.
+                
+                Sea $f \in C_c^\infty(\mathbb{R}^n)$. Por definición, $f$ es infinitamente diferenciable y existe un compacto $K \subset \mathbb{R}^n$ tal que $\sup(f) \subset K$. Consideremos ahora la seminorma definida en $\mathcal{D}(\mathbb{R}^n)$ para cualquier par de multi-índices $\alpha, \beta \in \mathbb{N}_0^n$:
+                
+                \begin{equation*}
+                    \|f\|_{\alpha,\beta} = \sup_{x \in \mathbb{R}^n} \left| e^{x^\alpha} D^\beta f(x) \right|,
+                \end{equation*}
+                
+                donde $x^\alpha = x_1^{\alpha_1} \cdots x_n^{\alpha_n}$ y $D^\beta f = \frac{\partial^{|\beta|} f}{\partial x_1^{\beta_1} \cdots \partial x_n^{\beta_n}}$.
+                
+                Dado que $f$ tiene soporte compacto, $D^\beta f$ también tiene soporte compacto (contenido en $K$) para todo multi-índice $\beta$. Además, como $f \in C_c^\infty(\mathbb{R}^n)$, cada derivada $D^\beta f$ es continua y por lo tanto acotada en $\mathbb{R}^n$.
+                
+                Por otro lado, la función $e^{x^\alpha}$ es continua en $\mathbb{R}^n$ y, en particular, está acotada en el compacto $K$. Por consiguiente, el producto $e^{x^\alpha} D^\beta f$ es una función continua con soporte compacto, lo que implica que está acotada en $\mathbb{R}^n$. Así,
+                
+                \begin{equation*}
+                    \|f\|_{\alpha,\beta} = \sup_{x \in \mathbb{R}^n} \left| e^{x^\alpha} D^\beta f(x) \right| = \sup_{x \in K} \left| e^{x^\alpha} D^\beta f(x) \right| < \infty
+                \end{equation*}
+                
+                para todo par de multi-índices $\alpha, \beta$. Esto prueba que $f \in \mathcal{D}(\mathbb{R}^n)$.
+                
+                Con esto queda demostrado que $C_c^\infty(\mathbb{R}^n) \subset \mathcal{D}(\mathbb{R}^n)$. Dado que $C_c^\infty(\mathbb{R}^n)$ es denso en $L^p(\mathbb{R}^n)$ para $1 \leq p < \infty$, se sigue que $\mathcal{D}(\mathbb{R}^n)$ también es denso en $L^p(\mathbb{R}^n)$ para $1 \leq p < \infty$.
+            \end{proof}
+
+            \begin{theorem}
+                \textit{(Isometría en $\mathcal{D}$)}. Sea $f \in \mathcal{D}\left(\mathbb{R}^n\right)$ y sea $\mathcal{F}_\alpha$ el operador transformación de Fourier fraccionario de orden imaginario puro $i\alpha$, entonces $\mathcal{F}_\alpha$ es una isometría en $\mathcal{D}\left(\mathbb{R}\right)$. 
+            \end{theorem}
+            \begin{proof}
+                \text{\color{red}  queda esto pendiente por demostrar.}
+            \end{proof}
+            
+            \begin{definition}
+                \textit{(Distribuciones atemperadas)}. Se define al espacio de distribuciones atemperadas como el espacio dual topológico $\mathcal{D}'$ del espacio de las funciones de decrecimiento rápido $\mathcal{D}$. Es decir, dado un $T \in \mathcal{D}'$ se tiene entonces que
+                \begin{equation*}
+                    \begin{split}
+                        T: \mathcal{D}\left(\mathbb{R}^n\right) & \longrightarrow \mathbb{R}\\
+                        \quad \phi & \longmapsto \langle T,\phi \rangle = \int_{\mathbb{R}^n}T\phi
+                    \end{split}.
+                \end{equation*}
+            \end{definition}
+            
+            \begin{corollary}
+                La transformación de Fourier de orden imaginario puro $\mathcal{F}_{i\alpha}$ con $\alpha\in\mathbb{R}$ es una isometría en el espacio de distribuciones atemperadas. 
+            \end{corollary}
+            \begin{proof}
+                Sea $\phi \in \mathcal{D}\left(\mathbb{R}^n\right)$ una función de decrecimiento acelerado. Recordemos que $\mathcal{D}\left(\mathbb{R}^n\right)$ es denso en $L^p$ es decir, $\overline{\mathcal{D}}^{L^p} = L^p$  y, en particular, para la seminormal (por el teorema anterior) $||\cdot ||_{\alpha\beta}$, tenemos que se cumple la identidad de Parseval.
+                
+                El espacio $\mathcal{D}'\left(\mathbb{R}^n\right)$ es el dual topológico de $\mathcal{S}\left(\mathbb{R}^n\right)$, es decir, el espacio de las funciones lineales continuas sobre $\mathcal{D}\left(\mathbb{R}^n\right)$. La transformación de Fourier Fraccionaria en $\mathcal{D}'\left(\mathbb{R}^n\right)$ se define mediante el producto distribucional o por la dualidad; $\forall T \in \mathcal{D}'\left(\mathbb{R}^n\right)$ y $\phi \in \mathcal{D}$, se cumple que
+                \begin{equation*}
+                    \langle \mathcal{F}_\alpha T,\phi \rangle = \langle T, \mathcal{F}_\alpha \phi \rangle.
+                \end{equation*}
+                
+                Sobre $\mathcal{D}'\left(\mathbb{R}\right)$ la norma inducida en el espacio de distribuciones atemperadas por la seminorma $||\cdot||_{\alpha,\beta}$ está dada por
+                \begin{equation*}
+                    \left|\left| T \right|\right|_{\mathcal{D}'} =  \sup_{\phi\in\mathcal{S},\; ||\phi||_{\alpha,\beta}=1}\left| \langle T, \phi \rangle \right|.
+                \end{equation*}
+                
+                Para $T \in \mathcal{D}'\left(\mathbb{R}^n\right)$ tendremos
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha T \right|\right|_{\mathcal{D}'} = \sup_{\phi\in\mathcal{D},\; ||\phi||_{\alpha,\beta}=1} \left| \langle \mathcal{F}_\alpha T,\phi \rangle \right|,
+                \end{equation*}
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha T \right|\right|_{\mathcal{D}'} = \sup_{\phi\in\mathcal{D},\; ||\mathcal{F}_\alpha\left\{\phi\right\}||_{\alpha,\beta}=1} \left| \langle  T, \mathcal{F}_\alpha \phi \rangle \right|.
+                \end{equation*}
+                Dado que $\mathcal{F}_\alpha$ es una isometría en $\mathcal{D}\left(\mathbb{R}^n\right)$, entonces 
+                \begin{equation*}
+                    \sup_{\phi\in\mathcal{S},\; ||\mathcal{F}_\alpha \phi||_{\alpha,\beta}=1} \left| \langle  T, \mathcal{F}_\alpha \phi\rangle \right| = \sup_{\phi\in\mathcal{D},\; ||\phi||_{\alpha,\beta}=1} \left| \langle  T, \phi \rangle \right|,
+                \end{equation*}
+                por lo tanto
+                \begin{equation*}
+                    \left|\left| \mathcal{F}_\alpha T \right|\right|_{\mathcal{D}'} = \sup_{\phi\in\mathcal{D},\; ||\phi||_{\alpha,\beta}=1} \left| \langle  T, \phi \rangle \right| = || T ||_{\mathcal{S}'}.
+                \end{equation*}
+            \end{proof}
+            
+            Vale la pena mencionar que dada la contenencia $C^\infty_c \subset\mathcal{D}\subset \mathcal{S} \subset L^p$ tendremos la contenencia en los respectivos duales topológicos $L^q \subset \mathcal{S}' \subset \mathcal{D}' \subset \mathcal{K}$, en donde $q$ es el exponente conjugado de $p$ y $\mathcal{K}$ es el espacio de las distribuciones. En este orden de ideas, se tiene que el espacio de distribuciones atemperadas está entre el espacio de distribuciones y el espacio de distribuciones temperadas.
+
+
 
        \subsection{Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}
 

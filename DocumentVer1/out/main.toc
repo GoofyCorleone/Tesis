@@ -6,14 +6,14 @@
 \contentsline {section}{\numberline {2.3}Fundamentos de la TFFr integral}{15}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Orden real}{16}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Orden complejo}{19}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}{20}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Fundamentos de la TFFr diferencial}{20}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Orden real}{20}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Orden complejo}{20}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Extensión a órdenes matriciales}{20}{subsection.2.4.3}%
-\contentsline {chapter}{\numberline {3}Metodología}{21}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Resultados}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}xd}{22}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}probando}{22}{subsection.4.1.1}%
-\contentsline {chapter}{\numberline {5}Conclusiones}{24}{chapter.5}%
-\contentsline {chapter}{Referencias}{24}{chapter.5}%
+\contentsline {subsection}{\numberline {2.3.3}Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}{23}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Fundamentos de la TFFr diferencial}{23}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Orden real}{23}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Orden complejo}{23}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Extensión a órdenes matriciales}{23}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Metodología}{24}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Resultados}{25}{chapter.4}%
+\contentsline {section}{\numberline {4.1}xd}{25}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}probando}{25}{subsection.4.1.1}%
+\contentsline {chapter}{\numberline {5}Conclusiones}{27}{chapter.5}%
+\contentsline {chapter}{Referencias}{27}{chapter.5}%
