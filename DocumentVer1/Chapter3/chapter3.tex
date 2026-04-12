@@ -2,6 +2,390 @@
 \thispagestyle{fancy}
 \fancyhead[L]{\leftmark}
 
+    \section{Cuantización del campo electromagnético}
+
+        En la mecánica clásica, el estado de una partícula queda completamente determinado por su posición $q$ y su momento $p$. Estas variables evolucionan según las ecuaciones de Hamilton, y el espacio de fases $(q, p)$ contiene toda la información necesaria para predecir el comportamiento futuro del sistema. La estructura matemática subyacente está gobernada por los corchetes de Poisson, que para las variables canónicas satisfacen
+        \begin{equation}
+            \{q_i, p_j\} = \delta_{ij}, \quad \{q_i, q_j\} = \{p_i, p_j\} = 0.
+        \end{equation}
+        
+        La primera cuantización consiste en promover estas variables clásicas a operadores que actúan sobre un espacio de Hilbert. La regla de correspondencia, establecida por Dirac \cite{Dirac1930}, reemplaza los corchetes de Poisson por conmutadores según
+        \begin{equation}
+            \{A, B\}_{\text{Poisson}} \longrightarrow \frac{1}{i\hbar}[\hat{A}, \hat{B}].
+        \end{equation}
+        
+        De esta manera, las variables canónicas se convierten en operadores $\hat{q}$ y $\hat{p}$ que satisfacen las relaciones de conmutación canónicas
+        \begin{equation}
+            [\hat{p}_i, \hat{p}_j] = i\hbar\delta_{ij}, \quad [\hat{p}_i, \hat{p}_j] = [\hat{p}_i, \hat{p}_j] = 0.
+        \end{equation}
+        
+        En este esquema, la función de onda $\psi(\mathbf{r}, t)$ describe la amplitud de probabilidad para encontrar la partícula en diferentes regiones del espacio. Un aspecto crucial es que el número de partículas permanece fijo: si comenzamos con una partícula, siempre tendremos una partícula. Esta limitación resulta ser fundamental cuando queremos describir fenómenos donde las partículas pueden crearse o destruirse, como ocurre con los fotones.
+
+        La segunda cuantización representa un cambio de perspectiva radical. En lugar de tratar a las partículas como entidades fundamentales descritas por funciones de onda, elevamos los campos mismos a la categoría de operadores. Este procedimiento fue desarrollado por Fock \cite{Fock1932} y constituye la base matemática de la teoría cuántica de campos moderna.
+    
+        Consideremos un campo clásico $\phi(\mathbf{r}, t)$ que satisface alguna ecuación de movimiento. En la segunda cuantización, este campo se convierte en un operador $\hat{\phi}(\mathbf{r}, t)$ que actúa sobre un espacio de Hilbert especial llamado espacio de Fock. Este espacio se construye como la suma directa
+        \begin{equation}
+            \mathcal{F} = \bigoplus_{n=0}^{\infty} \mathcal{H}^{(n)} = \mathcal{H}^{(0)} \oplus \mathcal{H}^{(1)} \oplus \mathcal{H}^{(2)} \oplus \cdots
+        \end{equation}
+        donde $\mathcal{H}^{(0)} = \mathbb{C}$ corresponde al estado de vacío sin partículas, y $\mathcal{H}^{(n)}$ es el espacio de estados con exactamente $n$ partículas.
+        
+        La ventaja fundamental de este formalismo es que permite describir sistemas donde el número de partículas no está fijo. Los operadores de creación $\hat{a}^\dagger$ y aniquilación $\hat{a}$ actúan sobre el espacio de Fock conectando sectores con diferente número de partículas. Esta estructura resulta natural para describir la luz: los fotones se crean cuando un átomo emite radiación y se destruyen cuando la absorbe.
+        
+        La diferencia esencial entre ambos esquemas de cuantización puede resumirse así: en la primera cuantización, partimos de partículas clásicas y las hacemos cuánticas; en la segunda cuantización, partimos de campos clásicos y los hacemos cuánticos, obteniendo las partículas como excitaciones elementales del campo cuantizado.
+
+        \begin{figure}[h]
+            \centering    
+            \includegraphics[width=0.5\textwidth]{Chapter3/Figures/CavidadL.pdf}
+            \caption{Campo eléctrico en todos sus modos confinado en una cavidad con paredes conductoras perfectas}
+            \label{fig:cavidad}
+        \end{figure}
+
+        Para desarrollar la teoría cuántica del campo electromagnético, resulta conveniente trabajar con un sistema confinado en una región finita del espacio (ver figura \ref{fig:cavidad}). La cavidad resonante proporciona el escenario ideal: un recinto cerrado con paredes perfectamente conductoras que imponen condiciones de frontera bien definidas. Este modelo, aunque idealizado, captura la física esencial y permite un tratamiento matemático riguroso que luego puede generalizarse al espacio libre mediante un proceso de límite apropiado.
+
+        Consideremos una cavidad cúbica de lado $L$, sin cargas ni corrientes en su interior. Las ecuaciones de Maxwell en el vacío toman la forma \cite{Jackson1999}
+        \begin{align}
+            \nabla \cdot \mathbf{E} &= 0, \\
+            \nabla \cdot \mathbf{B} &= 0, \\
+            \nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t}, \\
+            \nabla \times \mathbf{B} &= \frac{1}{c^2}\frac{\partial \mathbf{E}}{\partial t},
+        \end{align}
+        donde $c = 1/\sqrt{\mu_0 \epsilon_0}$ es la velocidad de la luz.
+        
+        Para resolver estas ecuaciones, introducimos el potencial vector $\mathbf{A}(\mathbf{r}, t)$ mediante la relación $\mathbf{B} = \nabla \times \mathbf{A}$, que satisface automáticamente la condición $\nabla \cdot \mathbf{B} = 0$. La ley de Faraday implica entonces que $\nabla \times (\mathbf{E} + \partial\mathbf{A}/\partial t) = 0$, de donde podemos escribir
+        \begin{equation}
+            \mathbf{E} = -\nabla \Phi - \frac{\partial \mathbf{A}}{\partial t}
+        \end{equation}
+        para algún potencial escalar $\Phi$.
+        
+        Los potenciales $\mathbf{A}$ y $\Phi$ no están determinados unívocamente por los campos físicos $\mathbf{E}$ y $\mathbf{B}$; existe la libertad de gauge. Adoptamos el gauge de Coulomb, definido por la condición
+        \begin{equation}
+            \nabla \cdot \mathbf{A} = 0.
+        \end{equation}
+        
+        Esta elección tiene una consecuencia importante. En ausencia de cargas, la ecuación $\nabla \cdot \mathbf{E} = 0$ junto con el gauge de Coulomb implica $\nabla^2 \Phi = 0$. En una cavidad cerrada, la única solución compatible con condiciones de frontera finitas es $\Phi = 0$. Los campos quedan entonces expresados exclusivamente en términos del potencial vector transversal:
+        \begin{equation}
+            \mathbf{E} = -\frac{\partial \mathbf{A}}{\partial t}, \quad \mathbf{B} = \nabla \times \mathbf{A}.
+        \end{equation}
+        
+        Sustituyendo en la ecuación de Ampère-Maxwell y utilizando la identidad $\nabla \times (\nabla \times \mathbf{A}) = \nabla(\nabla \cdot \mathbf{A}) - \nabla^2 \mathbf{A}$, obtenemos la ecuación de onda
+        \begin{equation}
+            \nabla^2 \mathbf{A} - \frac{1}{c^2}\frac{\partial^2 \mathbf{A}}{\partial t^2} = 0.
+        \end{equation}
+
+        Las paredes conductoras imponen que las componentes tangenciales del campo eléctrico se anulen en las fronteras. Buscamos soluciones mediante separación de variables, expandiendo el potencial vector en una serie de modos normales:
+        \begin{equation}
+            \mathbf{A}(\mathbf{r}, t) = \sum_{\mathbf{k},\lambda} q_{\mathbf{k},\lambda}(t) \, \mathbf{u}_{\mathbf{k},\lambda}(\mathbf{r}).
+        \end{equation}
+        
+        Las funciones de modo $\mathbf{u}_{\mathbf{k},\lambda}(\mathbf{r})$ satisfacen la ecuación de Helmholtz $\nabla^2 \mathbf{u} + k^2 \mathbf{u} = 0$ junto con las condiciones de frontera. Para la cavidad cúbica, las soluciones involucran productos de funciones seno y coseno, y las condiciones de frontera cuantizan los componentes del vector de onda:
+        \begin{equation}
+            k_i = \frac{n_i \pi}{L}, \quad n_i = 0, 1, 2, 3, \ldots \quad (i = x, y, z).
+        \end{equation}
+        
+        Cada vector $\mathbf{k}$ admite dos polarizaciones independientes, etiquetadas por $\lambda = 1, 2$. El gauge de Coulomb impone la condición de transversalidad $\mathbf{k} \cdot \hat{\boldsymbol{e}}_{\mathbf{k},\lambda} = 0$, de modo que los vectores de polarización son perpendiculares a la dirección de propagación. La frecuencia de cada modo está determinada por la relación de dispersión
+        \begin{equation}
+            \omega_{\mathbf{k}} = c\|\mathbf{k}\| = \frac{c\pi}{L}\sqrt{n_x^2 + n_y^2 + n_z^2}.
+        \end{equation}
+        
+        Elegimos las funciones de modo normalizadas según
+        \begin{equation}
+            \int_V \mathbf{u}_{\mathbf{k},\lambda}(\mathbf{r}) \cdot \mathbf{u}_{\mathbf{k}',\lambda'}^*(\mathbf{r}) \, d^3r = \delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'},
+        \end{equation}
+        donde la integral se extiende sobre el volumen $V = L^3$ de la cavidad.
+        
+        Sustituyendo la expansión modal en la ecuación de onda y utilizando la ortogonalidad de las funciones de modo, encontramos que cada amplitud $q_{\mathbf{k},\lambda}(t)$ satisface
+        \begin{equation}
+            \ddot{q}_{\mathbf{k},\lambda}(t) + \omega_{\mathbf{k}}^2 q_{\mathbf{k},\lambda}(t) = 0.
+        \end{equation}
+        
+        Esta es la ecuación de un oscilador armónico de frecuencia $\omega_{\mathbf{k}}$. Hemos llegado a un resultado fundamental: el campo electromagnético en una cavidad es dinámicamente equivalente a una colección infinita de osciladores armónicos independientes, uno por cada modo $(\mathbf{k}, \lambda)$.
+
+        La energía total del campo electromagnético contenido en la cavidad es \cite{Jackson1999}
+        \begin{equation}
+            H = \frac{1}{2}\int_V \left(\epsilon_0 \|\mathbf{E}\|^2 + \frac{1}{\mu_0}\|\mathbf{B}\|^2\right) d^3r.
+        \end{equation}
+        
+        Expresando los campos en términos del potencial vector y sustituyendo la expansión modal, el cálculo procede como sigue. Para el término eléctrico, usando $\mathbf{E} = -\partial\mathbf{A}/\partial t$:
+        \begin{equation}
+            \int_V \epsilon_0 \left\|\frac{\partial \mathbf{A}}{\partial t}\right\|^2 d^3r = \epsilon_0 \sum_{\mathbf{k},\lambda} |\dot{q}_{\mathbf{k},\lambda}|^2,
+        \end{equation}
+        donde hemos empleado la ortonormalidad de las funciones de modo.
+        
+        Para el término magnético, utilizamos que $\int_V \|\nabla \times \mathbf{u}_{\mathbf{k},\lambda}\|^2 d^3r = k^2 = \omega_{\mathbf{k}}^2/c^2$, lo cual conduce a
+        \begin{equation}
+            \int_V \frac{1}{\mu_0}\|\nabla \times \mathbf{A}\|^2 d^3r = \epsilon_0 \sum_{\mathbf{k},\lambda} \omega_{\mathbf{k}}^2 |q_{\mathbf{k},\lambda}|^2.
+        \end{equation}
+        
+        Combinando ambas contribuciones, el Hamiltoniano total toma la forma
+        \begin{equation}
+            H = \frac{\epsilon_0}{2} \sum_{\mathbf{k},\lambda} \left(|\dot{q}_{\mathbf{k},\lambda}|^2 + \omega_{\mathbf{k}}^2 |q_{\mathbf{k},\lambda}|^2\right).
+        \end{equation}
+        
+        Definiendo las variables canónicas $Q_{\mathbf{k},\lambda} = \sqrt{\epsilon_0} \, q_{\mathbf{k},\lambda}$ y $P_{\mathbf{k},\lambda} = \sqrt{\epsilon_0} \, \dot{q}_{\mathbf{k},\lambda}$, el Hamiltoniano adopta la forma estándar de una suma de osciladores armónicos:
+        \begin{equation}
+            H = \sum_{\mathbf{k},\lambda} \frac{1}{2}\left(P_{\mathbf{k},\lambda}^2 + \omega_{\mathbf{k}}^2 Q_{\mathbf{k},\lambda}^2\right).
+        \end{equation}
+
+        Habiendo establecido que el campo electromagnético clásico en una cavidad es equivalente a un conjunto de osciladores armónicos, procedemos ahora a su cuantización. El procedimiento sigue el esquema canónico: promovemos las variables dinámicas a operadores y reemplazamos los corchetes de Poisson por conmutadores.
+
+        Las variables canónicas $Q_{\mathbf{k},\lambda}$ y $P_{\mathbf{k},\lambda}$ se convierten en operadores hermitianos $\hat{Q}_{\mathbf{k},\lambda}$ y $\hat{P}_{\mathbf{k},\lambda}$ que satisfacen las relaciones de conmutación
+        \begin{equation}
+            [\hat{Q}_{\mathbf{k},\lambda}, \hat{P}_{\mathbf{k}',\lambda'}] = i\hbar \delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'},
+        \end{equation}
+        mientras que los conmutadores entre operadores del mismo tipo se anulan:
+        \begin{equation}
+            [\hat{Q}_{\mathbf{k},\lambda}, \hat{Q}_{\mathbf{k}',\lambda'}] = [\hat{P}_{\mathbf{k},\lambda}, \hat{P}_{\mathbf{k}',\lambda'}] = 0.
+        \end{equation}
+
+        Para el oscilador armónico cuántico, resulta conveniente introducir combinaciones lineales de los operadores de posición y momento que simplifican la estructura algebraica. Definimos el operador de aniquilación
+        \begin{equation}
+            \hat{a}_{\mathbf{k},\lambda} = \sqrt{\frac{\omega_{\mathbf{k}}}{2\hbar}}\hat{Q}_{\mathbf{k},\lambda} + \frac{i}{\sqrt{2\hbar\omega_{\mathbf{k}}}}\hat{P}_{\mathbf{k},\lambda}
+        \end{equation}
+        y el operador de creación como su adjunto hermitiano
+        \begin{equation}
+            \hat{a}^\dagger_{\mathbf{k},\lambda} = \sqrt{\frac{\omega_{\mathbf{k}}}{2\hbar}}\hat{Q}_{\mathbf{k},\lambda} - \frac{i}{\sqrt{2\hbar\omega_{\mathbf{k}}}}\hat{P}_{\mathbf{k},\lambda}.
+        \end{equation}
+        
+        Para determinar el álgebra de estos operadores, calculamos su conmutador. Usando las relaciones de conmutación canónicas:
+        \begin{align}
+            [\hat{a}_{\mathbf{k},\lambda}, \hat{a}^\dagger_{\mathbf{k}',\lambda'}] &= \frac{\omega_{\mathbf{k}}}{2\hbar}[\hat{Q}_{\mathbf{k},\lambda}, \hat{Q}_{\mathbf{k}',\lambda'}] - \frac{i}{2\hbar}\sqrt{\frac{\omega_{\mathbf{k}}}{\omega_{\mathbf{k}'}}}[\hat{Q}_{\mathbf{k},\lambda}, \hat{P}_{\mathbf{k}',\lambda'}] \nonumber \\
+            &\quad + \frac{i}{2\hbar}\sqrt{\frac{\omega_{\mathbf{k}'}}{\omega_{\mathbf{k}}}}[\hat{P}_{\mathbf{k},\lambda}, \hat{Q}_{\mathbf{k}',\lambda'}] + \frac{1}{2\hbar\sqrt{\omega_{\mathbf{k}}\omega_{\mathbf{k}'}}}[\hat{P}_{\mathbf{k},\lambda}, \hat{P}_{\mathbf{k}',\lambda'}].
+        \end{align}
+        
+        Los conmutadores $[\hat{Q}, \hat{Q}]$ y $[\hat{P}, \hat{P}]$ se anulan. Utilizando $[\hat{Q}_{\mathbf{k},\lambda}, \hat{P}_{\mathbf{k}',\lambda'}] = i\hbar\delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'}$ y $[\hat{P}_{\mathbf{k},\lambda}, \hat{Q}_{\mathbf{k}',\lambda'}] = -i\hbar\delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'}$, obtenemos
+        \begin{equation}
+            [\hat{a}_{\mathbf{k},\lambda}, \hat{a}^\dagger_{\mathbf{k}',\lambda'}] = \frac{1}{2}\delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'} + \frac{1}{2}\delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'} = \delta_{\mathbf{k},\mathbf{k}'}\delta_{\lambda,\lambda'}.
+        \end{equation}
+        
+        Por construcción, también se tiene $[\hat{a}_{\mathbf{k},\lambda}, \hat{a}_{\mathbf{k}',\lambda'}] = [\hat{a}^\dagger_{\mathbf{k},\lambda}, \hat{a}^\dagger_{\mathbf{k}',\lambda'}] = 0$. Estas son las relaciones de conmutación bosónicas características de los fotones.
+        
+        Las relaciones pueden invertirse para expresar los operadores de posición y momento en términos de los operadores de escalera:
+        \begin{align}
+            \hat{Q}_{\mathbf{k},\lambda} &= \sqrt{\frac{\hbar}{2\omega_{\mathbf{k}}}}\left(\hat{a}_{\mathbf{k},\lambda} + \hat{a}^\dagger_{\mathbf{k},\lambda}\right), \\
+            \hat{P}_{\mathbf{k},\lambda} &= i\sqrt{\frac{\hbar\omega_{\mathbf{k}}}{2}}\left(\hat{a}^\dagger_{\mathbf{k},\lambda} - \hat{a}_{\mathbf{k},\lambda}\right).
+        \end{align}
+ 
+        Estas relaciones expresan que modos diferentes son dinámicamente independientes; cada par $(\mathbf{k}, \lambda)$ constituye un grado de libertad cuántico separado.
+
+        Los campos electromagnéticos se promueven a operadores sustituyendo las amplitudes clásicas por operadores cuánticos. El operador de campo eléctrico resulta
+
+        \begin{equation}
+            \hat{E}(\mathbf{r}, t) = i\sum_{\mathbf{k},\lambda} \sqrt{\frac{\hbar\omega_{\mathbf{k}}}{2\epsilon_0 V}} \left(\hat{a}_{\mathbf{k},\lambda} e^{-i\omega_{\mathbf{k}} t} - \hat{a}^\dagger_{\mathbf{k},\lambda} e^{i\omega_{\mathbf{k}} t}\right) \hat{\boldsymbol{\epsilon}}_{\mathbf{k},\lambda} f_{\mathbf{k}}(\mathbf{r}),
+        \end{equation}
+        donde $f_{\mathbf{k}}(\mathbf{r})$ representa la dependencia espacial del modo y $V = L^3$ es el volumen de la cavidad.
+        
+        Análogamente, el operador de campo magnético es
+        \begin{equation}
+            \hat{B}(\mathbf{r}, t) = i\sum_{\mathbf{k},\lambda} \sqrt{\frac{\hbar}{2\epsilon_0\omega_{\mathbf{k}} V}} \left(\hat{a}_{\mathbf{k},\lambda} e^{-i\omega_{\mathbf{k}} t} - \hat{a}^\dagger_{\mathbf{k},\lambda} e^{i\omega_{\mathbf{k}} t}\right) (\mathbf{k} \times \hat{\boldsymbol{\epsilon}}_{\mathbf{k},\lambda}) g_{\mathbf{k}}(\mathbf{r}).
+        \end{equation}
+        
+        Ambos operadores son hermitianos, como corresponde a observables físicos. La combinación particular de operadores de creación y aniquilación, con sus respectivas fases temporales, garantiza que $\hat{E}^\dagger = \hat{E}$ y $\hat{B}^\dagger = \hat{B}$.
+
+
+        \subsection{El Oscilador Armónico Cuántico de la radiación y los Estados de Fock}
+            
+            La estructura matemática que hemos desarrollado conduce naturalmente al oscilador armónico cuántico, uno de los sistemas más importantes de toda la física teórica. En el contexto de la óptica cuántica, las excitaciones del oscilador armónico corresponden a los fotones.
+
+            Partimos del Hamiltoniano de un modo individual, $\hat{H}_{\mathbf{k},\lambda} = \frac{1}{2}(\hat{P}^2 + \omega^2\hat{Q}^2)$, donde omitimos los subíndices para simplificar la notación. Sustituyendo las expresiones de $\hat{Q}$ y $\hat{P}$ en términos de $\hat{a}$ y $\hat{a}^\dagger$:
+            \begin{equation}
+                \hat{H} = \frac{1}{2}\left[-\frac{\hbar\omega}{2}(\hat{a}^\dagger - \hat{a})^2 + \omega^2 \cdot \frac{\hbar}{2\omega}(\hat{a} + \hat{a}^\dagger)^2\right].
+            \end{equation}
+            
+            Expandiendo los cuadrados y simplificando:
+            \begin{align}
+                (\hat{a}^\dagger - \hat{a})^2 &= \hat{a}^\dagger\hat{a}^\dagger - \hat{a}^\dagger\hat{a} - \hat{a}\hat{a}^\dagger + \hat{a}\hat{a}, \\
+                (\hat{a} + \hat{a}^\dagger)^2 &= \hat{a}\hat{a} + \hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a} + \hat{a}^\dagger\hat{a}^\dagger.
+            \end{align}
+            
+            Al restar estas expresiones, los términos $\hat{a}^\dagger\hat{a}^\dagger$ y $\hat{a}\hat{a}$ se cancelan, quedando
+            \begin{equation}
+                (\hat{a} + \hat{a}^\dagger)^2 - (\hat{a}^\dagger - \hat{a})^2 = 2(\hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a}).
+            \end{equation}
+            
+            Usando la relación de conmutación $[\hat{a}, \hat{a}^\dagger] = 1$, podemos escribir $\hat{a}\hat{a}^\dagger = \hat{a}^\dagger\hat{a} + 1$, de donde $\hat{a}\hat{a}^\dagger + \hat{a}^\dagger\hat{a} = 2\hat{a}^\dagger\hat{a} + 1$. El Hamiltoniano resulta
+            \begin{equation}
+                \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a} + \frac{1}{2}\right).
+            \end{equation}
+
+            Definimos el operador número como
+            \begin{equation}
+                \hat{N} \equiv \hat{a}^\dagger\hat{a}.
+            \end{equation}
+            
+            Este operador cuenta el número de excitaciones (fotones) en el modo. En términos del operador número, el Hamiltoniano de cada modo se escribe
+            \begin{equation}
+                \hat{H}_{\mathbf{k},\lambda} = \hbar\omega_{\mathbf{k}}\left(\hat{N}_{\mathbf{k},\lambda} + \frac{1}{2}\right),
+            \end{equation}
+            y el Hamiltoniano total del campo electromagnético es la suma sobre todos los modos:
+            \begin{equation}
+                \hat{H} = \sum_{\mathbf{k},\lambda} \hbar\omega_{\mathbf{k}}\left(\hat{N}_{\mathbf{k},\lambda} + \frac{1}{2}\right).
+            \end{equation}
+            
+            Para entender la acción de los operadores de escalera, calculamos sus conmutadores con el operador número. Usando la identidad $[AB, C] = A[B, C] + [A, C]B$:
+            \begin{align}
+                [\hat{N}, \hat{a}] &= [\hat{a}^\dagger\hat{a}, \hat{a}] = \hat{a}^\dagger[\hat{a}, \hat{a}] + [\hat{a}^\dagger, \hat{a}]\hat{a} = 0 - \hat{a} = -\hat{a}, \\
+                [\hat{N}, \hat{a}^\dagger] &= [\hat{a}^\dagger\hat{a}, \hat{a}^\dagger] = \hat{a}^\dagger[\hat{a}, \hat{a}^\dagger] + [\hat{a}^\dagger, \hat{a}^\dagger]\hat{a} = \hat{a}^\dagger \cdot 1 + 0 = \hat{a}^\dagger.
+            \end{align}
+            
+            Estas relaciones tienen una interpretación inmediata. Si $\ket{n}$ es un autoestado del operador número con autovalor $n$, entonces
+            \begin{equation}
+                \hat{N}(\hat{a}\ket{n}) = \hat{a}(\hat{N} - 1)\ket{n} = (n-1)(\hat{a}\ket{n}),
+            \end{equation}
+            lo que muestra que $\hat{a}\ket{n}$ es autoestado con autovalor $n-1$. Análogamente, $\hat{a}^\dagger\ket{n}$ es autoestado con autovalor $n+1$. Por esto $\hat{a}$ se llama operador de aniquilación (reduce el número de excitaciones en uno) y $\hat{a}^\dagger$ se llama operador de creación (aumenta el número en uno).
+
+            Para determinar los autovalores permitidos del operador número, observamos primero que $\hat{N}$ es semidefinido positivo:
+            \begin{equation}
+                \bra{\psi}\hat{N}\ket{\psi} = \bra{\psi}\hat{a}^\dagger\hat{a}\ket{\psi} = \|\hat{a}\ket{\psi}\|^2 \geq 0.
+            \end{equation}
+            
+            Por tanto, todos los autovalores son no negativos. Si existiera un autovalor no entero $n = m + \epsilon$ con $0 < \epsilon < 1$ y $m$ entero, la aplicación sucesiva del operador de aniquilación produciría eventualmente un autovalor negativo, lo cual es imposible. Concluimos que los autovalores deben ser enteros no negativos: $n = 0, 1, 2, 3, \ldots$
+            
+            El estado con $n = 0$ es el estado de vacío $\ket{0}$, caracterizado por
+            \begin{equation}
+                \hat{a}\ket{0} = 0.
+            \end{equation}
+            
+            Los estados con $n$ fotones, llamados estados de Fock o estados número, se construyen aplicando el operador de creación repetidamente:
+            \begin{equation}
+                \ket{n} = \frac{(\hat{a}^\dagger)^n}{\sqrt{n!}}\ket{0}.
+            \end{equation}
+            
+            El factor $1/\sqrt{n!}$ asegura la normalización $\braket{n}{n} = 1$. Las acciones de los operadores de escalera sobre estos estados son
+            \begin{align}
+                \hat{a}\ket{n} &= \sqrt{n}\ket{n-1}, \\
+                \hat{a}^\dagger\ket{n} &= \sqrt{n+1}\ket{n+1}.
+            \end{align}
+            
+            La energía del estado con $n$ fotones en el modo $(\mathbf{k}, \lambda)$ es
+            \begin{equation}
+                E_n = \hbar\omega_{\mathbf{k}}\left(n + \frac{1}{2}\right).
+            \end{equation}
+            
+            Los niveles de energía están igualmente espaciados, con separación $\hbar\omega_{\mathbf{k}}$ entre niveles consecutivos. Esta es precisamente la energía de un fotón de frecuencia $\omega_{\mathbf{k}}$, confirmando la interpretación corpuscular: cada excitación del campo corresponde a un fotón.
+
+            El término $\frac{1}{2}\hbar\omega_{\mathbf{k}}$ representa la energía de punto cero del modo, presente incluso cuando no hay fotones. La energía total del vacío electromagnético es
+            \begin{equation}
+                E_{\text{vacío}} = \frac{1}{2}\sum_{\mathbf{k},\lambda} \hbar\omega_{\mathbf{k}}.
+            \end{equation}
+            
+            Esta suma diverge, pues hay infinitos modos. En la práctica, esta contribución infinita se elimina mediante técnicas de renormalización o redefiniendo el Hamiltoniano con ordenamiento normal, donde todos los operadores de creación se colocan a la izquierda de los de aniquilación.
+            
+            Sin embargo, la energía del vacío tiene consecuencias físicas observables. El efecto Casimir \cite{Casimir1948}, la fuerza atractiva entre dos placas conductoras paralelas en el vacío, es una manifestación directa de las fluctuaciones cuánticas del campo electromagnético.
+
+        \subsection{Los estados coherentes}
+
+            Vamos a encontrar una familia de estados realmente importantes, primero encontrando cierta familia de estados especiales que a su vez son los autovalores del operador de aniquilación $\hat{a}$, sabemos que la mecánica cuántica debe producir los mismos resultados que la mecánica clásica en el caso límite en el que el oscilador armónico tiene una energía mucho mayor que la del cuanto de energía $\hbar \omega$.
+
+            Por lo tanto, podemos plantear la siguiente pregunta: ¿es posible construir estados mecánicos cuánticos que conduzcan a predicciones físicas casi idénticas a las clásicas, al menos para un oscilador macroscópico? Veremos en este complemento que existen tales estados cuánticos: son superposiciones lineales coherentes de todos los estados. Los llamaremos \textit{estados cuasi-clásicos} o \textit{estados coherentes del oscilador armónico.}
+
+            El problema que estamos considerando aquí es de gran interés general en la mecánica cuántica. Como bien se sabe en la mecánica cuántica muchos sistemas físicos pueden ser comparados con un oscilador armónico, al menos en una primera aproximación \cite{cohen1986quantum}. Para todos estos sistemas, es importante entender, en el marco de la mecánica cuántica, cómo pasar gradualmente del caso en el que los resultados dados por la aproximación clásica son suficientes al caso en el que los efectos cuánticos son preponderantes.
+
+            La radiación electromagnética es un ejemplo muy importante de tal sistema. Dependiendo del experimento, revela su naturaleza mecánico cuántica o bien puede ser tratada clásicamente. Los estados coherentes de la radiación electromagnética fueron introducidos por Glauber y se utilizan actualmente en el campo de la óptica cuántica.
+
+            Definimos los estados coherentes $\ket{\alpha}$ como los autoestados o estados propios del operador de aniquilación $\hat{a}$
+
+            \begin{equation}
+                \hat{a}\ket{\alpha} = \alpha\ket{\alpha}\;,
+            \end{equation}
+
+            podemos encontrar de muchas formas estos estados coherentes pero como conocemos bien los estados número $\ket{n}$ podemos encontrar los estados $\ket{\alpha}$ como una combinación lineal de los estados números pues estos conforman una base compelta y ortonormal, en este orden de ideas tenemos
+
+            \begin{equation}
+                \ket{\alpha} = \sum_m C_m \ket{m}\;,
+            \end{equation}
+
+            \begin{equation}
+                \hat{\alpha}\ket{\alpha} = \sum_m C_m \sqrt{m}\ket{m-1} = \alpha \sum_n C_n \ket{n}\;,
+            \end{equation}
+
+            para el lado izquierdo de la ecuación vemos que se iguala al lado derecho cuando $m = n +1$ entonces tenemos la siguiente ecuación para los coeficientes de la expansión 
+            
+            \begin{equation}\label{eq:coefcnmahuno}
+                C_{n+1}\sqrt{n + 1} = \alpha C_n \rightarrow C_{n+1} = \frac{\alpha}{\sqrt{n + 1}}C_n \;.
+            \end{equation}
+
+            La relación de recurrencia \ref{eq:coefcnmahuno} muestra un patrón en los coeficientes de la expansión, si evaluamos los primeros tres términos podemos ver dicho patrón:
+
+            \begin{align*}
+                & C_1 = \frac{\alpha}{\sqrt{1}}C_0\;,\\
+                & C_2 = \frac{\alpha}{\sqrt{2}}C_1 = \frac{\alpha^2}{\sqrt{2*1}}C_0\;,\\
+                & C_3 = \frac{\alpha}{\sqrt{3}}C_2 = \frac{\alpha^3}{\sqrt{3*2*1}}C_0\;.
+            \end{align*}
+
+            Es fácil ver que el enésimo coeficiente se puede expresar en términos del primer coeficiente de la siguiente manera,
+
+            \begin{equation}
+                C_n = \frac{\alpha^n}{\sqrt{n!}}C_0\;.
+            \end{equation}
+
+            Vemos que cuando $C_0$ está fijo, es decir, es constante, el enésimo coeficiente también lo será esto implica que el estado $\ket{\alpha}$ es único o a lo mucho varía en una constante de proporcionalidad, para determinar el coefeciente $C_0$ vamos a aprovecharnos de que el estado $\ket{\alpha}$ debe estar normalizado, entonces tenemos la siguiente ecuación 
+
+            \begin{equation}
+                \sum_n |C_n|^2 = 1\;,
+            \end{equation}
+
+            \begin{equation}
+                \sum_n \frac{|\alpha^{2n}|}{n!}|C_0|^2 = 1\;,
+            \end{equation}
+
+            pero podemos darnos cuenta que la suma no es más que una expansión en series de Taylor de un exponencial,
+
+            \begin{equation}
+                |C_0|^2 e^{|\alpha|^2} = 1 \rightarrow C_0 = e^{-|\alpha|^2/2}\;.
+            \end{equation}
+
+            Ahora, podemos determinar los estados coherentes como:
+
+            \begin{equation}\label{eq:CoherentStates}
+                \ket{\alpha} = e^{-|\alpha|^2/2}\sum_n \frac{\alpha^n}{\sqrt{n}}\ket{n}\;.
+            \end{equation}
+
+
+            En este momento cabe preguntarse ¿qué está oscilando armónicamente? Si en el mundo macroscópico tenemos péndulos a pequeños ángulos o canicas oscilan en un pozo parabólico, en el contexto de la radiación ¿es el fotón el que está oscilando así? Para tratar de dar una solución a esto, primero desarrollemos la ecuación \ref{eq:CoherentStates} un poco más matemáticamente y luego veamos una representación gráfica tanto de los estados número como de los estados coherentes.
+
+            Vamos a utilizar el teorema de desenlace \cite{sakurai1995modern}.
+
+            \begin{theorem*}\label{teo:Desenlace}
+                Sean $\hat{A}$ y $\hat{B}$ dos operadores, que no necesariamente conmutan, se cumple que la regla de exponenciación de la suma de $\hat{A}$ y $\hat{B}$ es:
+
+                \begin{equation}
+                    e^{\hat{A} + \hat{B}} = e^{\hat{A}}e^{\hat{B}}e^{-\frac{1}{2}[\hat{A},\hat{B}]} = e^{\hat{B}}e^{\hat{A}}e^{\frac{1}{2}[\hat{A},\hat{B}]}.
+                \end{equation}
+
+            \end{theorem*}
+
+            Vamos a definir el operador de desplazamiento $\hat{\mathcal{D}}$ el cual jugará un rol importante en la interpretación física de los estados coherentes. El operador de desplazamiento es
+
+            \begin{equation}
+                \hat{\mathcal{D}}(\alpha) = e^{\alpha\hat{a}^{\dagger} - \alpha^*\hat{a}},
+            \end{equation}
+
+            y utilizando el teorema \ref{teo:Desenlace} entonces queda:
+
+            \begin{equation}
+                \hat{\mathcal{D}} = e^{-\frac{1}{2}|\alpha|^2}e^{\alpha \hat{a}^{\dagger}}e^{-\alpha^*\hat{a}}.
+            \end{equation}
+
+            Podemos expandir cada uno de los exponenciales, exceptuando el primero, en series de Taylor y haremos que actúe sobre el estado de vacío $\ket{0}$.
+
+            \begin{equation}
+                e^{-\alpha^*\hat{a}} \ket{0} = \sum_{k=0}^{\infty}\frac{(-\alpha^*\hat{a})^k}{k!}\ket{0} = \ket{0}\;,
+            \end{equation}
+
+            \begin{equation}
+                e^{\alpha\hat{a}^{\dagger}}\ket{0} = \sum_{n=0}^{\infty}\frac{\alpha^n}{n!}(\hat{a}^{\dagger})^n\ket{0} = \sum_{n=0}^{\infty}\frac{\alpha^n}{n!}\ket{n}\;.
+            \end{equation}
+
+            En este orden de ideas, es fácil ver que aplicar el operador de desplazamiento sobre el estado de vacío $\ket{0}$ nos da origen a los estados coherentes $\ket{\alpha}$
+
+            \begin{equation}
+                \ket{\alpha} = \hat{\mathcal{D}}\ket{0}.
+            \end{equation}
+
+            Es decir, que los estados coherentes surgen al realizar desplazamientos de los estados de vacío, es decir, estados Gaussianos, los cuales oscilan como un oscilador armónico
+
+
+
     \section{Espacio de fase y función de Wigner}
 
     \section{Operador de fase cuántica}
