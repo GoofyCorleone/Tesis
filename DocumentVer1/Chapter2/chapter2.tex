@@ -8,7 +8,7 @@
 
     \section{Nociones básicas}
 
-        Vamos a empezar a definir un conjunto de espacios de bastante utilidad e interés. 
+        Vamos a empezar a definir un conjunto de espacios de bastante utilidad e interés. Antes, fijemos una notación estándar que acompañará todo el trabajo: denotamos por $\mathbb{N}_0 := \{0,1,2,3,\ldots\}$ al conjunto de los enteros no negativos, y escribimos $\mathbb{N}_0^n$ para su producto cartesiano $n$-veces consigo mismo. Un elemento genérico $\alpha = (\alpha_1,\ldots,\alpha_n)\in \mathbb{N}_0^n$ se denomina un \textit{multi-índice} de dimensión $n$, y se asocia a él la cantidad $|\alpha| := \alpha_1+\cdots+\alpha_n$, llamada su \textit{orden}. Para $\mathbf{x}\in\mathbb{R}^n$ emplearemos la notación compacta $\mathbf{x}^\alpha := x_1^{\alpha_1}\cdots x_n^{\alpha_n}$, y para $f:\mathbb{R}^n\to \mathbb{C}$ suficientemente regular, $D^\alpha f := \partial_{x_1}^{\alpha_1}\cdots \partial_{x_n}^{\alpha_n} f$.
 
         \begin{definition*}
             \textit{(Espacio de Schwartz)}: El espacio de funciones de decrecimiento rápido $\mathcal{S}(\mathbb{R}^n)$ es el conjunto de funciones
@@ -251,7 +251,7 @@
 
     \section{Fundamentos de la TFFr integral}
        
-       Como ya se ha mencionado, hasta el momento se ha explorado poco a nivel matemático la TFFr y mucho menos sobre los espacios de Lebesgue $L^p$, es por eso, que en lo que sigue de este trabajo en el presente capítulo se desarrolla una teoría sobre espacios $L^p$ para la TFFr de orden real y para los órdenes complejos se propone un nuevo espacio, el que denominamos como \textit{Espacio de funciones de decrecimiento acelerado} con su dual topológico que denominamos \textit{Espacio de distribuciones atemperadas}. Complementariamente, para el caso estrictamente complejo, introduciremos también los \textit{espacios de Hermite ponderados} $\mathcal{H}_\beta^\pm$, que son los espacios de Hilbert naturales en los que la TFFr de orden complejo se comporta como una isometría/operador unitario.
+       Como ya se ha mencionado, hasta el momento se ha explorado poco a nivel matemático la TFFr y mucho menos sobre los espacios de Lebesgue $L^p$, es por eso, que en lo que sigue de este trabajo en el presente capítulo se desarrolla una teoría sobre espacios $L^p$ para la TFFr de orden real. Para el caso complejo el marco natural es distinto: introducimos los \textit{espacios de Hermite ponderados} $\mathcal{H}_\beta^\pm$, que son los espacios de Hilbert en los que la TFFr de orden complejo se comporta como un operador unitario.
 
        \subsection{Orden real}
 
@@ -276,7 +276,7 @@
                     \left\| \mathcal{F}_\alpha f \right\|_{L^\infty(\mathbb{R}^n)} \leq \frac{1}{\left( 2\pi \left|\sen\alpha \right| \right)^{n/2}} \, \left\| f \right\|_{L^1(\mathbb{R}^n)}.
                 \end{equation}
             \end{proposition}
-            \begin{proof}
+            \begin{Proof}
                 Fijemos $\alpha \in \mathbb{R}$ con $\sen\alpha \neq 0$ y sea $f \in L^1(\mathbb{R}^n)$. Puesto que $\alpha$ es real, las cantidades $\sen\alpha$ y $\cot\alpha$ son reales, de modo que el argumento de la exponencial que aparece en el núcleo \eqref{eq:Cap2KernelReal} es imaginario puro. En consecuencia,
                 \begin{equation*}
                     \left|\exp \left(\frac{i\,\mathbf{x}\cdot\mathbf{x}'}{\sen\alpha} -\frac{i}{2}\cot\alpha\, \left|\mathbf{x}'\right|^2  -\frac{i}{2}\cot\alpha\, \left|\mathbf{x}\right|^2\right)\right| = 1,
@@ -295,7 +295,7 @@
                     \left\|\mathcal{F}_\alpha f \right\|_{L^\infty(\mathbb{R}^n)} = \operatorname*{ess\,sup}_{\mathbf{x}\in \mathbb{R}^n}\left|(\mathcal{F}_\alpha f)(\mathbf{x})\right|\leq \frac{1}{(2\pi|\sen\alpha|)^{n/2}} \, \|f\|_{L^1(\mathbb{R}^n)},
                 \end{equation*}
                 que es \eqref{eq:Cap2CotaL1Linf}. En particular, $\mathcal{F}_\alpha f \in L^\infty(\mathbb{R}^n)$ y el operador $\mathcal{F}_\alpha : L^1\to L^\infty$ es acotado.
-            \end{proof}
+            \end{Proof}
 
             Ahora que conocemos bien el dominio de la TFFr vamos a extender uno de los teoremas más útiles del análisis de Fourier, el teorema de Plancherel-Parseval, el cual, se manifiesta como una isometría en $L^2$, y recordemos, que en todo $L^p$ solamente $L^2$ es un espacio de Hilbert, el cual es de sumo interés en este trabajo de investigación.
 
@@ -321,7 +321,7 @@
                 \end{equation}
 	        \end{proposition}
 	
-            \begin{proof}
+            \begin{Proof}
                 Los casos $\alpha \in \pi\mathbb{Z}$ son triviales: $\mathcal{F}_\alpha$ se reduce al operador identidad o al operador de reflexión $(Rf)(\mathbf{x}) = f(-\mathbf{x})$, ambos unitarios en $L^2$. Supondremos en lo que sigue $\alpha \notin \pi\mathbb{Z}$.
 
                 Por el teorema anterior, la familia $\{\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}\in \mathbb{N}_0^n}$ constituye una base ortonormal de $L^2(\mathbb{R}^n)$. Como $\varphi_{\boldsymbol{k}} \in \mathcal{S}(\mathbb{R}^n)\subset L^1\cap L^2$, la integral \eqref{eq:Cap2FourierInt1DMejor} (en su versión $n$-dimensional, \eqref{eq:Cap2KernelReal}) converge absolutamente, y la ecuación de valores propios de Namias \eqref{eq:Cap2NamiasAutoval} proporciona (véase \citep[\S2]{mcbride1987namias} y \citep[\S4.1]{ozaktas2001fractional})
@@ -343,7 +343,7 @@
                 Por ser $\{\varphi_{\boldsymbol{k}}\}$ una base ortonormal, el subespacio $V$ es denso en $L^2(\mathbb{R}^n)$. El \emph{Bounded Linear Transformation Theorem} \citep[Thm. I.7]{reed1980methods} garantiza entonces la existencia de una única extensión lineal acotada de $\mathcal{F}_\alpha$ a todo $L^2(\mathbb{R}^n)$ que preserva la isometría. Además, de \eqref{eq:Cap2AccionBase} se sigue que la imagen $\mathcal{F}_\alpha(L^2)$ contiene a $\{e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}}$, que es otra base ortonormal de $L^2(\mathbb{R}^n)$ (reescalado por fases unimodulares de una base ortonormal). Por tanto $\mathcal{F}_\alpha$ es sobreyectiva, y al ser una biyección lineal isométrica entre espacios de Hilbert, resulta ser un operador unitario \citep[Thm. VI.2]{reed1980methods}.
 
                 Finalmente, para $f \in L^1\cap L^2$ la extensión así construida coincide con la integral \eqref{eq:Cap2KernelReal}, puesto que ambas expresiones coinciden sobre el subespacio denso $V\subset L^1\cap L^2$ y son continuas.
-            \end{proof}
+            \end{Proof}
             
             \begin{remark}
                 Para $f \in L^2\setminus L^1$, la integral \eqref{eq:Cap2KernelReal} puede no converger en sentido puntual; la definición de $\mathcal{F}_\alpha f$ debe entenderse entonces como el límite en $L^2$ de $\mathcal{F}_\alpha f_N$, donde $f_N \to f$ en $L^2$ con $f_N \in L^1\cap L^2$ (por ejemplo, $f_N = f\cdot \chi_{\{|\mathbf{x}|\leq N\}}$). Esto es enteramente análogo al procedimiento estándar para la Transformada de Fourier clásica \citep[Ch. 7]{grafakos2014classical}.
@@ -360,7 +360,7 @@
                 \end{enumerate}
             \end{proposition}
             
-            \begin{proof}
+            \begin{Proof}
                 La afirmación (1) es inmediata: por el teorema de McBride-Kerr \citep{mcbride1987namias}, $\mathcal{F}_\alpha$ es un homeomorfismo de $\mathcal{S}(\mathbb{R}^n)$ en sí mismo, y por la Proposición \ref{prop:isometriaL2}, $\mathcal{F}_\alpha$ es unitario en $L^2$. Como $\mathcal{S}\subset L^2$, la restricción $\mathcal{F}_\alpha\big|_{\mathcal{S}}$ satisface $\|\mathcal{F}_\alpha f\|_{L^2} = \|f\|_{L^2}$ para todo $f\in \mathcal{S}$.
 
                 Para la afirmación (2), partimos de la definición $\langle \tilde{\mathcal{F}}_\alpha T, \phi\rangle = \langle T, \mathcal{F}_\alpha \phi\rangle$ con $T\in\mathcal{S}'$ y $\phi\in \mathcal{S}$. Como $\mathcal{F}_\alpha: \mathcal{S}\to \mathcal{S}$ es continua, la composición $T\circ \mathcal{F}_\alpha$ es continua, y por ende $\tilde{\mathcal{F}}_\alpha T \in \mathcal{S}'$. La aplicación $T\mapsto \tilde{\mathcal{F}}_\alpha T$ es manifiestamente lineal. Para la continuidad débil-$*$: si $T_j \to T$ en $\mathcal{S}'$ (débil-$*$), entonces $\langle T_j, \mathcal{F}_\alpha \phi\rangle \to \langle T, \mathcal{F}_\alpha \phi\rangle$ para todo $\phi\in\mathcal{S}$, es decir $\tilde{\mathcal{F}}_\alpha T_j \to \tilde{\mathcal{F}}_\alpha T$ en $\mathcal{S}'$. La inversa $\tilde{\mathcal{F}}_{-\alpha}$, que existe por la ley de adición de índices, es continua por el mismo argumento. El caso de la topología fuerte es análogo; véase \citep[Ch. V]{reed1980methods}.
@@ -374,194 +374,55 @@
                     \langle \tilde{\mathcal{F}}_\alpha T_f, \phi\rangle = \langle T_f, \mathcal{F}_\alpha \phi\rangle = \int f\cdot \mathcal{F}_\alpha \phi = \int \mathcal{F}_\alpha f \cdot \phi = \langle T_{\mathcal{F}_\alpha f}, \phi\rangle,
                 \end{equation*}
                 es decir, $\tilde{\mathcal{F}}_\alpha T_f = T_{\mathcal{F}_\alpha f}$, de donde $\|\tilde{\mathcal{F}}_\alpha T_f\|_{L^2} = \|\mathcal{F}_\alpha f\|_{L^2} = \|f\|_{L^2} = \|T_f\|_{L^2}$.
-            \end{proof}
+            \end{Proof}
 
             \begin{remark}
                 Conviene precisar que $\mathcal{S}'(\mathbb{R}^n)$ no es un espacio normado globalmente, por lo que la expresión coloquial ``isometría en $\mathcal{S}'$'' carece de sentido intrínseco. La afirmación rigurosa, consignada en la Proposición \ref{prop:schwartz_sprima}, es que $\tilde{\mathcal{F}}_\alpha$ es un homeomorfismo topológico de $\mathcal{S}'$ sobre sí mismo que preserva la norma $L^2$ sobre el subespacio de las distribuciones $L^2$.
             \end{remark}
 
        \subsection{Orden complejo}\label{sec:complex}
-            
-            Para el caso de órdenes complejos, el análisis del núcleo muestra un cambio esencial. Sea $\alpha = \theta + i\beta$ con $\theta, \beta \in \mathbb{R}$. Usando las identidades trigonométricas complejas,
+
+            Para el caso de órdenes complejos, el análisis del núcleo de la TFFr revela un cambio esencial respecto al caso real. Sea $\alpha = \theta + i\beta$ con $\theta, \beta \in \mathbb{R}$. De las identidades trigonométricas complejas
             \begin{equation*}
                 \sen(\theta + i\beta) = \sen\theta\cosh\beta + i\cos\theta\senh\beta,
                 \quad \cot(\theta+i\beta) = \frac{\cos\theta\cosh\beta - i\sen\theta\senh\beta}{\sen\theta\cosh\beta+i\cos\theta\senh\beta},
             \end{equation*}
-            vemos que $\cot\alpha$ adquiere una parte imaginaria no nula (siempre que $\beta \neq 0$), y por tanto el término $-\tfrac{i}{2}\cot\alpha\,|\mathbf{x}'|^2$ contribuye una parte real no nula al argumento de la exponencial en el kernel. En particular, cuando $\alpha = i\beta$ es imaginario puro con $\beta>0$, se tiene $\sen(i\beta) = i\senh\beta$ y $\cot(i\beta) = -i\coth\beta$, de modo que
-            \begin{equation}
+            se deduce que $\cot\alpha$ adquiere una parte imaginaria no nula tan pronto como $\beta \neq 0$, de modo que el término $-\tfrac{i}{2}\cot\alpha\,|\mathbf{x}'|^2$ aporta una parte real no nula al argumento de la exponencial en el núcleo. En el caso ilustrativo $\alpha = i\beta$ (imaginario puro) con $\beta>0$, se tiene $\sen(i\beta) = i\senh\beta$ y $\cot(i\beta) = -i\coth\beta$, y el módulo del núcleo es
+            \begin{equation}\label{eq:Cap2ModuloKernelComplejo}
                 \left| K_{i\beta} \left(\mathbf{x},\mathbf{x}'\right) \right| = \frac{e^{n\beta/2}}{\left(2\pi \left|\senh\beta \right|\right)^{n/2}} \exp\left( -\tfrac{1}{2}\coth\beta\,\left(|\mathbf{x}|^2+|\mathbf{x}'|^2\right) + \tfrac{\mathbf{x}\cdot\mathbf{x}'}{\senh\beta} \right).
             \end{equation}
-            Observamos que la parte real del exponente, $-\tfrac{1}{2}\coth\beta(|\mathbf{x}|^2+|\mathbf{x}'|^2) + \tfrac{\mathbf{x}\cdot\mathbf{x}'}{\senh\beta}$, es una forma cuadrática definida negativa (cuando $\beta > 0$) en la variable combinada $(\mathbf{x}, \mathbf{x}')$: el determinante de la forma es $\coth^2\beta - \csch^2\beta = 1 > 0$, con $\coth\beta > 0$ para $\beta > 0$. En efecto, la matriz asociada a la forma cuadrática en $\mathbb{R}^{2n}$ tiene bloques $\coth\beta\cdot I_n$ en la diagonal y $-\csch\beta\cdot I_n$ fuera de la diagonal; sus autovalores son $\coth\beta \pm \csch\beta$, ambos positivos para $\beta > 0$. Por tanto el núcleo $K_{i\beta}$ es de cuadrado integrable y el operador $\mathcal{F}_{i\beta}$ es de Hilbert-Schmidt, pero \emph{no es} una isometría en $L^2$, como mostraremos rigurosamente en los resultados siguientes.
+            La parte real del exponente en \eqref{eq:Cap2ModuloKernelComplejo} es una forma cuadrática definida negativa en la variable combinada $(\mathbf{x},\mathbf{x}')\in\mathbb{R}^{2n}$: la matriz asociada tiene bloques $\coth\beta\cdot I_n$ en la diagonal y $-\csch\beta\cdot I_n$ fuera de ella, y sus autovalores son $\coth\beta \pm \csch\beta$, ambos estrictamente positivos para $\beta>0$. En consecuencia, $K_{i\beta}\in L^2(\mathbb{R}^{2n})$ y el operador $\mathcal{F}_{i\beta}$ resulta ser de Hilbert-Schmidt. Sin embargo, como se demuestra a continuación, $\mathcal{F}_{i\beta}$ no es una isometría en $L^2$, y la extensión del marco isométrico del caso real requiere, por tanto, un espacio de Hilbert distinto.
 
-            Es por este motivo que debemos definir espacios funcionales adecuados y estudiar su relación con el espacio de Schwartz y el de distribuciones temperadas.
 
-            \subsubsection{El espacio de decrecimiento acelerado}
-
-            \begin{definition}\label{def:D}
-                \textit{(Espacio de funciones de decrecimiento acelerado)}. Se define el espacio de funciones de decrecimiento acelerado como
-                \begin{equation*}
-                    \mathcal{D}(\mathbb{R}^n) := \left\{ f \in \mathcal{C}^\infty(\mathbb{R}^n) \; : \; \|f\|_{\alpha,\beta}^{\mathcal{D}} < \infty,\; \forall\, \alpha, \beta \in \mathbb{N}_0^n\right\},
-                \end{equation*}
-                donde, para cada par de multi-índices $\alpha, \beta \in \mathbb{N}_0^n$, $\|\cdot\|_{\alpha,\beta}^{\mathcal{D}}$ está definida por
-                \begin{equation}\label{eq:Cap2SeminormaD}
-                    \|f\|_{\alpha,\beta}^{\mathcal{D}} := \left\|\,e^{|\mathbf{x}|^{\alpha}} D^\beta f\,\right\|_{L^\infty(\mathbb{R}^n)} = \sup_{\mathbf{x}\in \mathbb{R}^n}\left|\, e^{|x_1|^{\alpha_1}+\cdots+|x_n|^{\alpha_n}} \frac{\partial^{|\beta|}f(\mathbf{x})}{\partial x_1^{\beta_1}\cdots \partial x_n^{\beta_n}}\,\right|.
-                \end{equation}
-            \end{definition}
-
-            \begin{remark}
-                La elección del factor $e^{|x_1|^{\alpha_1}+\cdots+|x_n|^{\alpha_n}}$ en \eqref{eq:Cap2SeminormaD} --- con los módulos de cada coordenada en el exponente --- se adopta por razones técnicas precisas: garantiza que el peso exponencial sea siempre $\geq 1$ y que crezca cuando $|\mathbf{x}|\to \infty$, con independencia del signo de las coordenadas y de la paridad de los exponentes $\alpha_i$. Una formulación alternativa, como $e^{x_1^{\alpha_1}\cdots x_n^{\alpha_n}}$ --- es decir, con un único monomio en el exponente --- daría lugar a patologías cuando alguna coordenada es negativa y el correspondiente exponente es impar, pues $\mathbf{x}^\alpha$ puede tornarse negativo y la exponencial no controla el crecimiento. La convención \eqref{eq:Cap2SeminormaD} preserva la noción intuitiva de decrecimiento más rápido que cualquier exponencial de un polinomio y, a la vez, permite establecer con rigor los resultados que siguen.
-            \end{remark}
-
-            Este espacio consiste, cualitativamente, en todas las funciones que decrecen más rápido que cualquier exponencial de un polinomio, por lo que su decrecimiento es particularmente rápido. A este nuevo espacio debemos dotarlo de ciertas propiedades y probar que no es un conjunto vacío.
-
-            \begin{lemma}\label{lem:seminorma}
-                Para cada par de multi-índices $\alpha,\beta \in \mathbb{N}_0^n$, la función $\|\cdot\|_{\alpha,\beta}^{\mathcal{D}}$ definida sobre $\mathcal{D}(\mathbb{R}^n)$ es una seminorma.
-            \end{lemma}
-
-            \begin{proof}
-                Fijemos los multi-índices $\alpha$ y $\beta$. La no negatividad $\|f\|_{\alpha,\beta}^{\mathcal{D}} \geq 0$ para todo $f\in\mathcal{D}$ es inmediata por la definición de valor absoluto y supremo.
-
-                Para la homogeneidad, sea $\lambda \in \mathbb{C}$; entonces
-                \begin{equation*}
-                    \|\lambda f\|_{\alpha,\beta}^{\mathcal{D}} = \sup_{\mathbf{x}\in \mathbb{R}^n}\left|\lambda\, e^{|\mathbf{x}|^\alpha}D^\beta f(\mathbf{x})\right| = |\lambda| \sup_{\mathbf{x}\in \mathbb{R}^n}\left|e^{|\mathbf{x}|^\alpha}D^\beta f(\mathbf{x})\right| = |\lambda|\,\|f\|_{\alpha,\beta}^{\mathcal{D}}.
-                \end{equation*}
-
-                Finalmente, la desigualdad triangular se sigue de la desigualdad triangular puntual para el valor absoluto junto con la linealidad del operador $D^\beta$: dados $f,g\in\mathcal{D}$,
-                \begin{align*}
-                    \|f+g\|_{\alpha,\beta}^{\mathcal{D}} & = \sup_{\mathbf{x}}\left|e^{|\mathbf{x}|^\alpha}D^\beta(f+g)(\mathbf{x})\right|\\
-                    & \leq \sup_{\mathbf{x}}\left|e^{|\mathbf{x}|^\alpha}D^\beta f(\mathbf{x})\right| + \sup_{\mathbf{x}}\left|e^{|\mathbf{x}|^\alpha}D^\beta g(\mathbf{x})\right| \\
-                    & = \|f\|_{\alpha,\beta}^{\mathcal{D}} + \|g\|_{\alpha,\beta}^{\mathcal{D}}.
-                \end{align*}
-                Estas tres propiedades establecen que $\|\cdot\|_{\alpha,\beta}^{\mathcal{D}}$ es una seminorma \citep[Ch. III, \S1]{rudin1991functional}. Más aún, la elección $\alpha=\beta=0$ proporciona $\|f\|_{0,0}^{\mathcal{D}} = \sup_\mathbf{x}|f(\mathbf{x})|$, que por continuidad de $f$ se anula si y solo si $f\equiv 0$; esto garantiza que la familia de seminormas incluye al menos una norma legítima sobre $\mathcal{D}$.
-            \end{proof}
-
-            \begin{theorem}\label{thm:metrizable}
-                El espacio $\mathcal{D}(\mathbb{R}^n)$ dotado de la familia numerable de seminormas $\left\{\|\cdot\|_{\alpha,\beta}^{\mathcal{D}}\right\}_{\alpha,\beta\in \mathbb{N}_0^n}$ es un espacio localmente convexo, Hausdorff y metrizable. Una distancia compatible es
-                \begin{equation}\label{eq:Cap2Metrica}
-                    d(f,g) = \sum_{k=0}^\infty 2^{-k} \frac{p_k(f-g)}{1+ p_k(f-g)},
-                \end{equation}
-                donde $\{p_k\}_{k\in\mathbb{N}_0}$ es cualquier enumeración de la familia $\{\|\cdot\|_{\alpha,\beta}^{\mathcal{D}}\}_{\alpha,\beta\in\mathbb{N}_0^n}$. Esto es, $f_j \to f$ en $(\mathcal{D}, d)$ si y sólo si $\|f_j-f\|_{\alpha,\beta}^{\mathcal{D}}\to 0$ para todo par $\alpha,\beta \in \mathbb{N}_0^n$.
-            \end{theorem}
-
-            \begin{proof}
-                La demostración sigue la línea estándar para espacios de Fréchet generados por familias numerables de seminormas \citep[Thm. 1.37]{rudin1991functional}.
-
-                La familia $\{\|\cdot\|_{\alpha,\beta}^{\mathcal{D}}\}_{\alpha,\beta\in\mathbb{N}_0^n}$ es numerable por serlo el conjunto $\mathbb{N}_0^n\times \mathbb{N}_0^n$; denotemos su enumeración por $\{p_k\}_{k\in \mathbb{N}_0}$. Por el Lema \ref{lem:seminorma}, la seminorma $p_0 := \|\cdot\|_{0,0}^{\mathcal{D}} = \|\cdot\|_{L^\infty}$ es en realidad una norma, luego separa puntos, de modo que la topología generada es Hausdorff.
-
-                Veamos que $d$ es una métrica. La serie \eqref{eq:Cap2Metrica} converge absolutamente pues cada término está en $[0,\, 2^{-k}]$ y $\sum 2^{-k} = 2 < \infty$. La no negatividad es inmediata; la simetría se sigue de la homogeneidad con $\lambda=-1$, que da $p_k(f-g) = p_k(g-f)$. Si $d(f,g)=0$, entonces $p_k(f-g)=0$ para todo $k$, y en particular $p_0(f-g)=0$, lo que fuerza $f=g$.
-
-                Para la desigualdad triangular, recordemos que la función $\varphi(t)=t/(1+t)$ es cóncava y creciente en $[0,\infty)$, y satisface $\varphi(a+b)\leq \varphi(a)+\varphi(b)$ para $a,b\geq 0$ (véase \citep[Lemma 1.24]{rudin1991functional}). Aplicando sucesivamente la desigualdad triangular para $p_k$, la monotonía de $\varphi$ y su subaditividad,
-                \begin{equation*}
-                    \varphi(p_k(f-h)) \leq \varphi(p_k(f-g)+p_k(g-h))\leq \varphi(p_k(f-g)) + \varphi(p_k(g-h)).
-                \end{equation*}
-                Multiplicando por $2^{-k}$ y sumando en $k$ se concluye $d(f,h)\leq d(f,g)+d(g,h)$.
-
-                Resta verificar la equivalencia entre la convergencia métrica y la convergencia según cada seminorma. Supongamos en primer lugar que $p_k(f_j-f)\to 0$ para todo $k$, y sea $\varepsilon>0$. Escojamos $K$ tal que $\sum_{k>K}2^{-k}<\varepsilon/2$, y para cada $k\leq K$ escojamos $N_k$ tal que $p_k(f_j-f)<\varepsilon/(2(K+1))$ para $j\geq N_k$. Como $\varphi(t)\leq t$, el $k$-ésimo término de la serie queda acotado por $2^{-k}\varepsilon/(2(K+1))$ para tales $j$, y así $d(f_j,f)<\varepsilon$ cuando $j\geq \max_k N_k$. Recíprocamente, si $d(f_j,f)\to 0$, la estimación $2^{-k}\varphi(p_k(f_j-f))\leq d(f_j,f)$, junto con la continuidad de $\varphi^{-1}(s) = s/(1-s)$ en $[0,1)$, implica $p_k(f_j-f)\to 0$ para cada $k$.
-            \end{proof}
-
-            \begin{theorem}\label{thm:DinS}
-                El espacio $\mathcal{D}(\mathbb{R}^n)$ está contenido en el espacio de Schwartz:
-                \begin{equation*}
-                    \mathcal{D}(\mathbb{R}^n) \subseteq \mathcal{S}(\mathbb{R}^n).
-                \end{equation*}
-                Además, la inclusión es continua cuando ambos espacios se dotan de sus topologías naturales.
-            \end{theorem}
-
-            \begin{proof}
-                Sea $f\in \mathcal{D}(\mathbb{R}^n)$. Debemos verificar que $\|f\|_{\gamma,\beta}^{\mathcal{S}} = \sup_{\mathbf{x}}|\mathbf{x}^\gamma D^\beta f(\mathbf{x})| <\infty$ para cualesquiera multi-índices $\gamma,\beta \in \mathbb{N}_0^n$.
-
-                Fijemos tales $\gamma$ y $\beta$. Para cada $t\geq 0$ y $m\in\mathbb{N}_0$, el desarrollo en serie de Taylor de la exponencial proporciona la estimación
-                \begin{equation*}
-                    e^t = \sum_{\ell=0}^\infty \frac{t^\ell}{\ell!} \geq \frac{t^m}{m!},
-                \end{equation*}
-                de donde $t^m \leq m!\, e^t$. Aplicando esta desigualdad coordenada a coordenada con $t = |x_j|$ y $m = \gamma_j$ para $j=1,\dots,n$, se obtiene
-                \begin{equation*}
-                    |x_j|^{\gamma_j} \leq \gamma_j!\,\, e^{|x_j|},
-                \end{equation*}
-                y multiplicando en $j$,
-                \begin{equation*}
-                    |\mathbf{x}^\gamma| = \prod_{j=1}^n |x_j|^{\gamma_j} \leq \left(\prod_{j=1}^n \gamma_j!\right) \, e^{\sum_{j=1}^n |x_j|} = \gamma!\,\, e^{|\mathbf{x}|^{\mathbf{1}}},
-                \end{equation*}
-                donde denotamos $\gamma! = \prod_{j=1}^{n} \gamma_j!$ y $\mathbf{1}=(1,1,\dots,1)\in\mathbb{N}_0^n$. En consecuencia,
-                \begin{equation*}
-                    \|f\|_{\gamma,\beta}^{\mathcal{S}} = \sup_\mathbf{x}\left| \mathbf{x}^\gamma D^\beta f(\mathbf{x})\right| \leq \gamma!\, \sup_\mathbf{x}\left|e^{|\mathbf{x}|^{\mathbf{1}}} D^\beta f(\mathbf{x})\right| = \gamma!\,\, \|f\|_{\mathbf{1},\beta}^{\mathcal{D}} < \infty,
-                \end{equation*}
-                donde la finitud en el último paso es la hipótesis $f\in \mathcal{D}$. Queda así probada la contención $\mathcal{D}(\mathbb{R}^n) \subseteq \mathcal{S}(\mathbb{R}^n)$.
-
-                La continuidad de la inclusión $\iota: \mathcal{D}\hookrightarrow \mathcal{S}$ es consecuencia directa de la estimación previa: cada seminorma de $\mathcal{S}$ queda dominada por una seminorma de $\mathcal{D}$, lo que es la caracterización de continuidad entre espacios localmente convexos \citep[Thm. 1.30]{rudin1991functional}.
-            \end{proof}
-
-            \begin{theorem}\label{thm:noDensoLinfty}
-                El espacio $\mathcal{D}(\mathbb{R}^n)$ no es denso en $L^\infty(\mathbb{R}^n)$.
-            \end{theorem}
-            
-            \begin{proof}
-                Sabemos que el cierre de $C_c^\infty(\mathbb{R}^n)$ en $L^\infty(\mathbb{R}^n)$ es $C_0(\mathbb{R}^n)$, el espacio de las funciones continuas que se anulan en el infinito, subespacio propio cerrado de $L^\infty(\mathbb{R}^n)$ \citep[Prop. 4.35]{brezis2011functional}.
-
-                Por el Teorema \ref{thm:DinS}, $\mathcal{D}(\mathbb{R}^n) \subseteq \mathcal{S}(\mathbb{R}^n) \subseteq C_0(\mathbb{R}^n)$ (pues toda función de Schwartz es continua y decae a cero en infinito). Por lo tanto,
-                \begin{equation*}
-                    \overline{\mathcal{D}(\mathbb{R}^n)}^{L^\infty} \subseteq \overline{C_0(\mathbb{R}^n)}^{L^\infty} = C_0(\mathbb{R}^n) \subsetneq L^\infty(\mathbb{R}^n).
-                \end{equation*}
-                Es decir, el cierre de $\mathcal{D}$ en $L^\infty$ no puede ser todo $L^\infty$, y así $\mathcal{D}$ no es denso en $L^\infty$.
-            \end{proof}
-            
-            \begin{theorem}\label{thm:DdensoLp}
-                El conjunto de funciones de decrecimiento acelerado $\mathcal{D}(\mathbb{R}^n)$ es denso en $L^p(\mathbb{R}^n)$ para todo $1 \leq p < \infty$.
-            \end{theorem}
-            \begin{proof}
-                Es un resultado clásico \citep[Thm. 4.12]{brezis2011functional} que $C_c^\infty(\mathbb{R}^n)$ es denso en $L^p(\mathbb{R}^n)$ para $1\leq p<\infty$. Basta entonces probar la inclusión $C_c^\infty(\mathbb{R}^n) \subset \mathcal{D}(\mathbb{R}^n)$, pues de ello se sigue la densidad de $\mathcal{D}$ en $L^p$.
-                
-                Sea $f \in C_c^\infty(\mathbb{R}^n)$, con $\operatorname{supp}(f) \subset K$ para algún compacto $K\subset\mathbb{R}^n$. Para cualesquiera multi-índices $\alpha,\beta\in \mathbb{N}_0^n$:
-                
-                \begin{itemize}
-                    \item $D^\beta f \in C_c^\infty(\mathbb{R}^n)$ y $\operatorname{supp}(D^\beta f)\subset K$.
-                    \item La función $\mathbf{x}\mapsto e^{|\mathbf{x}|^\alpha}$ es continua, luego acotada sobre el compacto $K$. Sea $M:=\sup_{\mathbf{x}\in K} e^{|\mathbf{x}|^\alpha}<\infty$.
-                    \item $D^\beta f$ es continua con soporte compacto $\Rightarrow$ $\|D^\beta f\|_{L^\infty}=:C_\beta<\infty$.
-                \end{itemize}
-                
-                Entonces
-                \begin{equation*}
-                    \|f\|_{\alpha,\beta}^{\mathcal{D}} = \sup_{\mathbf{x}\in \mathbb{R}^n}\left| e^{|\mathbf{x}|^\alpha}D^\beta f(\mathbf{x})\right| = \sup_{\mathbf{x}\in K}\left|e^{|\mathbf{x}|^\alpha}D^\beta f(\mathbf{x})\right|\leq M\cdot C_\beta <\infty.
-                \end{equation*}
-                Esto prueba $f\in \mathcal{D}(\mathbb{R}^n)$, luego $C_c^\infty(\mathbb{R}^n)\subset \mathcal{D}(\mathbb{R}^n)$, concluyendo la demostración.
-            \end{proof}
-           
-            \subsubsection{No-existencia de isometría para orden imaginario puro}
-            
-            En esta subsección mostramos, con total rigor, que \emph{no existe} ninguna isometría natural de $\mathcal{F}_{i\beta}$ ($\beta\neq 0$) en $\mathcal{D}(\mathbb{R}^n)$ respecto a la norma $L^2$ o cualquier norma que provenga de un producto interno respecto al cual $\{\varphi_{\boldsymbol{k}}\}$ sea ortogonal.
-
-            \begin{theorem}\label{thm:noIsometriaD}
-                Sea $\beta \in \mathbb{R}\setminus\{0\}$. Entonces el operador de Fourier Fraccionario $\mathcal{F}_{i\beta}$ \emph{no} puede ser una isometría en $\mathcal{D}(\mathbb{R}^n)$ respecto a la norma $L^2$ inducida por $L^2(\mathbb{R}^n)$, ni respecto a ninguna norma hilbertiana para la cual el sistema $\{\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}\in \mathbb{N}_0^n}$ sea ortogonal.
-            \end{theorem}
-            \begin{proof}
+            \begin{proposition}\label{prop:noIsometriaL2}
+                Sea $\beta \in \mathbb{R}\setminus\{0\}$. El operador $\mathcal{F}_{i\beta}$ no es una isometría sobre $L^2(\mathbb{R}^n)$. Más aún, no puede ser una isometría con respecto a ninguna norma hilbertiana definida sobre un subespacio denso de $L^2(\mathbb{R}^n)$ para la cual el sistema de Hermite $\{\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}\in\mathbb{N}_0^n}$ sea ortogonal.
+            \end{proposition}
+            \begin{Proof}
                 Por prolongación analítica de la relación de valores propios \eqref{eq:Cap2NamiasAutoval} al plano $\alpha\in\mathbb{C}$ (válida en virtud del carácter entero de la exponencial y la unicidad del desarrollo en serie de Hermite; véase \citep[Ch.~1]{namias1980fractional} y \citep{kerr1988fractional}), la acción de $\mathcal{F}_{i\beta}$ sobre la base de Hermite es
                 \begin{equation*}
                     \mathcal{F}_{i\beta}\,\varphi_{\boldsymbol{k}} = e^{i|\boldsymbol{k}|(i\beta)}\,\varphi_{\boldsymbol{k}} = e^{-|\boldsymbol{k}|\,\beta}\,\varphi_{\boldsymbol{k}}.
                 \end{equation*}
-                Los autovalores $\lambda_{\boldsymbol{k}} := e^{-|\boldsymbol{k}|\beta}$ son números reales estrictamente positivos, pero no son unimodulares tan pronto como $\beta \neq 0$. Sin pérdida de generalidad supondremos $\beta>0$; el caso $\beta<0$ es simétrico.
+                Los autovalores $\lambda_{\boldsymbol{k}} := e^{-|\boldsymbol{k}|\beta}$ son números reales estrictamente positivos, pero no son unimodulares cuando $\beta\neq 0$. Sin pérdida de generalidad supondremos $\beta>0$; el caso $\beta<0$ es simétrico.
 
-                Escojamos $\boldsymbol{k}_0\in\mathbb{N}_0^n$ con $|\boldsymbol{k}_0|=1$, por ejemplo $\boldsymbol{k}_0=(1,0,\dots,0)$. La función de Hermite $\varphi_{\boldsymbol{k}_0}$ es el producto de un polinomio por la gaussiana $e^{-|\mathbf{x}|^2/2}$, y el decrecimiento gaussiano domina a cualquier factor del tipo $e^{|\mathbf{x}|^\alpha}$ para los multi-índices $\alpha$ admisibles en la Definición \ref{def:D}; por consiguiente, $\varphi_{\boldsymbol{k}_0} \in \mathcal{D}(\mathbb{R}^n)$ y en particular pertenece a $L^2(\mathbb{R}^n)$ con $\|\varphi_{\boldsymbol{k}_0}\|_{L^2}=1$.
-
-                Si $\mathcal{F}_{i\beta}$ fuera una isometría respecto a la norma $L^2$, se tendría
+                Escojamos $\boldsymbol{k}_0\in\mathbb{N}_0^n$ con $|\boldsymbol{k}_0|=1$, por ejemplo $\boldsymbol{k}_0=(1,0,\dots,0)$. La función de Hermite $\varphi_{\boldsymbol{k}_0}$ pertenece a $\mathcal{S}(\mathbb{R}^n)\subset L^2(\mathbb{R}^n)$ con $\|\varphi_{\boldsymbol{k}_0}\|_{L^2}=1$. Si $\mathcal{F}_{i\beta}$ fuera una isometría respecto a la norma $L^2$, se tendría
                 \begin{equation*}
-                    \|\mathcal{F}_{i\beta}\varphi_{\boldsymbol{k}_0}\|_{L^2} = \|e^{-\beta}\varphi_{\boldsymbol{k}_0}\|_{L^2} = e^{-\beta}\|\varphi_{\boldsymbol{k}_0}\|_{L^2} = e^{-\beta} = 1,
+                    \|\mathcal{F}_{i\beta}\varphi_{\boldsymbol{k}_0}\|_{L^2} = \|e^{-\beta}\varphi_{\boldsymbol{k}_0}\|_{L^2} = e^{-\beta}\|\varphi_{\boldsymbol{k}_0}\|_{L^2} = e^{-\beta},
                 \end{equation*}
-                lo que fuerza $\beta=0$, contradiciendo la hipótesis. Queda así refutada la isometría en $L^2$.
+                lo cual debería igualar $1$; esto fuerza $\beta=0$, contradiciendo la hipótesis.
 
-                Para la afirmación más general, supongamos que $\|\cdot\|$ proviene de un producto interno $\langle\cdot,\cdot\rangle$ respecto al cual $\{\varphi_{\boldsymbol{k}}\}$ es un sistema ortogonal, esto es, $\langle \varphi_{\boldsymbol{k}},\varphi_{\boldsymbol{l}}\rangle = c_{\boldsymbol{k}}\,\delta_{\boldsymbol{k},\boldsymbol{l}}$ con $c_{\boldsymbol{k}}>0$. Entonces
+                Para la segunda afirmación, supongamos que $\|\cdot\|$ proviene de un producto interno $\langle\cdot,\cdot\rangle$ respecto al cual $\{\varphi_{\boldsymbol{k}}\}$ es un sistema ortogonal, es decir, $\langle \varphi_{\boldsymbol{k}},\varphi_{\boldsymbol{l}}\rangle = c_{\boldsymbol{k}}\,\delta_{\boldsymbol{k},\boldsymbol{l}}$ con $c_{\boldsymbol{k}}>0$. Entonces
                 \begin{equation*}
-                    \|\mathcal{F}_{i\beta}\varphi_{\boldsymbol{k}}\|^2 = |e^{-|\boldsymbol{k}|\beta}|^2 c_{\boldsymbol{k}} = e^{-2|\boldsymbol{k}|\beta} c_{\boldsymbol{k}},
+                    \|\mathcal{F}_{i\beta}\varphi_{\boldsymbol{k}}\|^2 = |e^{-|\boldsymbol{k}|\beta}|^2\, c_{\boldsymbol{k}} = e^{-2|\boldsymbol{k}|\beta}\, c_{\boldsymbol{k}},
                 \end{equation*}
-                y la condición de isometría $\|\mathcal{F}_{i\beta}\varphi_{\boldsymbol{k}}\|^2 = \|\varphi_{\boldsymbol{k}}\|^2 = c_{\boldsymbol{k}}$ equivale a $e^{-2|\boldsymbol{k}|\beta}=1$ para todo $\boldsymbol{k}\in\mathbb{N}_0^n$. Esto solo se cumple si $|\boldsymbol{k}|\beta=0$ para todo $\boldsymbol{k}$, y con $\beta\neq 0$ obliga a $|\boldsymbol{k}|=0$, lo cual es absurdo.
-            \end{proof}
+                y la condición de isometría $\|\mathcal{F}_{i\beta}\varphi_{\boldsymbol{k}}\|^2 = c_{\boldsymbol{k}}$ equivale a $e^{-2|\boldsymbol{k}|\beta}=1$ para todo $\boldsymbol{k}\in\mathbb{N}_0^n$, lo que con $\beta\neq 0$ obliga a $|\boldsymbol{k}|=0$ para todo $\boldsymbol{k}$, absurdo.
+            \end{Proof}
 
             \begin{remark}\label{rmk:semigrupo}
-                En efecto, $\mathcal{F}_{i\beta}$ para $\beta>0$ es el \emph{semigrupo de contracción del oscilador armónico}: formalmente $\mathcal{F}_{i\beta} = e^{-\beta H}$ con $H = -\tfrac{1}{2}\tfrac{d^2}{dx^2}+\tfrac{1}{2}x^2-\tfrac{1}{2}$; véase la fórmula de Mehler \citep{morse19781953methods} y los trabajos clásicos sobre el semigrupo de Hermite \citep{folland1989harmonic,thangavelu1993lectures}. Este operador es \emph{estrictamente contractivo} en $L^2$ para $\beta > 0$ y nunca una isometría.
+                El operador $\mathcal{F}_{i\beta}$ con $\beta>0$ coincide, formalmente, con el \emph{semigrupo de contracción del oscilador armónico}: si $H = -\tfrac{1}{2}\tfrac{d^2}{dx^2}+\tfrac{1}{2}x^2-\tfrac{1}{2}$, entonces $\mathcal{F}_{i\beta} = e^{-\beta H}$, lo que se verifica por la fórmula de Mehler \citep{morse19781953methods,folland1989harmonic,thangavelu1993lectures}. Este operador es \emph{estrictamente contractivo} en $L^2$ para $\beta > 0$ y nunca una isometría, lo que es coherente con la Proposición \ref{prop:noIsometriaL2}.
             \end{remark}
 
-            \subsubsection{Espacios de Hermite ponderados}
 
-            A la luz del Teorema \ref{thm:noIsometriaD}, para obtener un marco isométrico en el caso de órdenes complejos es necesario modificar, bien el espacio de salida, bien el espacio de llegada. La estructura espectral \eqref{eq:Cap2AccionBase}, junto con la naturaleza de los autovalores $e^{i|\boldsymbol{k}|\alpha}$ cuando $\alpha$ tiene parte imaginaria no nula, sugiere introducir espacios de funciones (y distribuciones) en los que los coeficientes de Hermite se ponderan exponencialmente según $|\boldsymbol{k}|$.
+            A la luz de la Proposición \ref{prop:noIsometriaL2}, para obtener un marco isométrico en el caso de órdenes complejos es necesario modificar el espacio de salida o el de llegada. La estructura espectral $\mathcal{F}_\alpha \varphi_{\boldsymbol{k}} = e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}$, junto con la forma de los autovalores cuando $\alpha$ tiene parte imaginaria no nula, sugiere introducir espacios de Hilbert en los que los coeficientes de Hermite se ponderan exponencialmente según $|\boldsymbol{k}|$.
 
             \begin{definition}\label{def:Hbetapm}
                 \textit{(Espacios de Hermite ponderados)}. Para cada $\beta \in \mathbb{R}$, se definen los espacios
@@ -571,24 +432,24 @@
                 \end{align}
                 donde $\hat{f}(\boldsymbol{k}) := \langle f, \varphi_{\boldsymbol{k}}\rangle$ son los \emph{coeficientes de Hermite} de $f$.
             \end{definition}
-            
+
             \begin{remark}\label{rmk:interpretacion}
-                Interpretación: para $\beta > 0$, $\mathcal{H}_\beta^-$ es el espacio de funciones con coeficientes de Hermite que decaen \emph{más rápido que} $e^{-|\boldsymbol{k}|\beta}$; equivalentemente, funciones cuyos coeficientes son ``analíticos'' en la variable $\boldsymbol{k}$ (extensión al semigrupo de Hermite). En contraste, $\mathcal{H}_\beta^+$ es \emph{más grande que} $L^2$: contiene distribuciones cuyos coeficientes pueden crecer como $e^{|\boldsymbol{k}|\beta}$. Estos espacios están íntimamente ligados a los \emph{espacios de Bargmann-Fock} \citep{bargmann1961hilbert,bargmann1967proof} y al análisis del semigrupo de Hermite \citep{thangavelu1993lectures}.
+                Para $\beta > 0$, $\mathcal{H}_\beta^-$ es el espacio de funciones cuyos coeficientes de Hermite decaen más rápido que $e^{-|\boldsymbol{k}|\beta}$, lo que equivale a cierta analiticidad en la descomposición de Hermite y corresponde al dominio natural del semigrupo $e^{-\beta H}$. El espacio $\mathcal{H}_\beta^+$, por el contrario, contiene a $L^2$ y admite elementos cuyos coeficientes pueden crecer como $e^{|\boldsymbol{k}|\beta}$; en este sentido es un espacio de distribuciones que generaliza a $L^2$. Estos espacios guardan una estrecha relación con los \emph{espacios de Bargmann-Fock} \citep{bargmann1961hilbert,bargmann1967proof} y con el análisis del semigrupo de Hermite \citep{thangavelu1993lectures}.
             \end{remark}
 
             \begin{theorem}\label{thm:Hbetahilbert}
-                Para cada $\beta \in \mathbb{R}$, $(\mathcal{H}_\beta^\pm, \|\cdot\|_{\mathcal{H}_\beta^\pm})$ son espacios de Hilbert separables. Además, se tienen las inclusiones continuas
+                Para cada $\beta \in \mathbb{R}$, los pares $(\mathcal{H}_\beta^\pm, \|\cdot\|_{\mathcal{H}_\beta^\pm})$ son espacios de Hilbert separables. Cuando $\beta > 0$ se tienen las inclusiones continuas
                 \begin{equation*}
-                    \mathcal{H}_\beta^- \hookrightarrow L^2(\mathbb{R}^n) \hookrightarrow \mathcal{H}_\beta^+, \quad \text{para } \beta > 0,
+                    \mathcal{H}_\beta^- \hookrightarrow L^2(\mathbb{R}^n) \hookrightarrow \mathcal{H}_\beta^+,
                 \end{equation*}
-                y las funciones de Hermite $\{\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}}$ forman una base ortogonal de ambos con $\|\varphi_{\boldsymbol{k}}\|_{\mathcal{H}_\beta^\pm} = e^{\mp|\boldsymbol{k}|\beta}$.
+                con normas de inclusión menores o iguales que $1$. Además, la familia $\{\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}}$ constituye un sistema ortogonal completo en ambos, con $\|\varphi_{\boldsymbol{k}}\|_{\mathcal{H}_\beta^\pm} = e^{\mp|\boldsymbol{k}|\beta}$.
             \end{theorem}
-            \begin{proof}
+            \begin{Proof}
                 La aplicación
                 \begin{equation*}
                     \Phi^\pm: \mathcal{H}_\beta^\pm \to \ell^2(\mathbb{N}_0^n,\, w^\pm_\beta), \qquad f \mapsto (\hat{f}(\boldsymbol{k}))_{\boldsymbol{k}\in\mathbb{N}_0^n},
                 \end{equation*}
-                donde $w^\pm_\beta(\boldsymbol{k}) = e^{\mp 2|\boldsymbol{k}|\beta}$ denota la medida de conteo pesada, es una isometría por la definición misma de las normas. El espacio $\ell^2(\mathbb{N}_0^n, w^\pm_\beta)$ es un espacio de Hilbert separable estándar \citep[Thm. 4.17]{brezis2011functional}, y la estructura se traslada a $\mathcal{H}_\beta^\pm$ vía $\Phi^\pm$. El producto interno inducido está dado por
+                donde $w^\pm_\beta(\boldsymbol{k}) = e^{\mp 2|\boldsymbol{k}|\beta}$ denota la medida de conteo pesada, es una isometría por la definición misma de las normas. Como $\ell^2(\mathbb{N}_0^n, w^\pm_\beta)$ es un espacio de Hilbert separable estándar \citep[Thm. 4.17]{brezis2011functional}, la estructura se traslada a $\mathcal{H}_\beta^\pm$ vía $\Phi^\pm$. El producto interno inducido viene dado por
                 \begin{equation*}
                     \langle f,g\rangle_{\mathcal{H}_\beta^\pm} = \sum_{\boldsymbol{k}\in \mathbb{N}_0^n} e^{\mp 2|\boldsymbol{k}|\beta}\, \hat{f}(\boldsymbol{k})\,\overline{\hat{g}(\boldsymbol{k})}.
                 \end{equation*}
@@ -597,31 +458,31 @@
                 \begin{equation*}
                     \|f\|_{\mathcal{H}_\beta^+}^2 = \sum e^{-2|\boldsymbol{k}|\beta}|\hat{f}(\boldsymbol{k})|^2 \leq \sum |\hat{f}(\boldsymbol{k})|^2 = \|f\|_{L^2}^2,
                 \end{equation*}
-                lo que establece $L^2\hookrightarrow \mathcal{H}_\beta^+$ con norma de inclusión a lo sumo $1$. Recíprocamente, si $f\in \mathcal{H}_\beta^-$ entonces $\sum e^{2|\boldsymbol{k}|\beta}|\hat{f}(\boldsymbol{k})|^2 <\infty$, y como $e^{2|\boldsymbol{k}|\beta}\geq 1$ para $\beta\geq 0$, se deduce $\sum|\hat{f}(\boldsymbol{k})|^2<\infty$, es decir $f\in L^2$ con $\|f\|_{L^2}\leq \|f\|_{\mathcal{H}_\beta^-}$. Esto prueba $\mathcal{H}_\beta^-\hookrightarrow L^2$.
+                lo que establece $L^2\hookrightarrow \mathcal{H}_\beta^+$ con norma de inclusión a lo sumo $1$. Recíprocamente, si $f\in \mathcal{H}_\beta^-$ entonces $\sum e^{2|\boldsymbol{k}|\beta}|\hat{f}(\boldsymbol{k})|^2 <\infty$, y como $e^{2|\boldsymbol{k}|\beta}\geq 1$ para $\beta\geq 0$, se deduce $\sum|\hat{f}(\boldsymbol{k})|^2<\infty$, es decir $f\in L^2$ con $\|f\|_{L^2}\leq \|f\|_{\mathcal{H}_\beta^-}$.
 
-                Finalmente, la verificación de que $\{\varphi_{\boldsymbol{k}}\}$ es un sistema ortogonal de $\mathcal{H}_\beta^\pm$ es inmediata: como $\hat{\varphi}_{\boldsymbol{k}_0}(\boldsymbol{l}) = \delta_{\boldsymbol{k}_0,\boldsymbol{l}}$, se tiene
+                Finalmente, la verificación de que $\{\varphi_{\boldsymbol{k}}\}$ es un sistema ortogonal de $\mathcal{H}_\beta^\pm$ es inmediata: como $\hat{\varphi}_{\boldsymbol{k}_0}(\boldsymbol{l}) = \delta_{\boldsymbol{k}_0,\boldsymbol{l}}$,
                 \begin{equation*}
                     \|\varphi_{\boldsymbol{k}_0}\|_{\mathcal{H}_\beta^\pm}^2 = e^{\mp 2|\boldsymbol{k}_0|\beta}, \qquad \langle \varphi_{\boldsymbol{k}}, \varphi_{\boldsymbol{l}}\rangle_{\mathcal{H}_\beta^\pm} = e^{\mp 2|\boldsymbol{k}|\beta}\delta_{\boldsymbol{k},\boldsymbol{l}}.
                 \end{equation*}
                 La completitud como sistema ortogonal se sigue del hecho de que un elemento $f\in\mathcal{H}_\beta^\pm$ cuyos coeficientes de Hermite son todos nulos satisface $\|f\|_{\mathcal{H}_\beta^\pm}=0$, de donde $f=0$.
-            \end{proof}
+            \end{Proof}
 
             \begin{theorem}\label{thm:isometriaComplejo}
-                \textit{(Unitariedad de la TFFr de orden complejo).} Sea $\alpha = \theta+i\beta \in \mathbb{C}$ con $\theta,\beta\in\mathbb{R}$. Definamos $\mathcal{F}_\alpha$ sobre la base de Hermite por
+                \textit{(Unitariedad de la TFFr de orden complejo).} Sea $\alpha = \theta+i\beta \in \mathbb{C}$ con $\theta,\beta\in\mathbb{R}$. El operador $\mathcal{F}_\alpha$ definido sobre la base de Hermite por
                 \begin{equation}\label{eq:Cap2FalphaBase}
                     \mathcal{F}_\alpha \varphi_{\boldsymbol{k}} = e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}, \qquad \boldsymbol{k}\in \mathbb{N}_0^n,
                 \end{equation}
-                y extendámoslo por linealidad y continuidad. Entonces:
+                y extendido por linealidad y continuidad, satisface:
                 \begin{enumerate}
-                    \item $\mathcal{F}_\alpha : \mathcal{H}_\beta^+(\mathbb{R}^n) \longrightarrow L^2(\mathbb{R}^n)$ es un operador \emph{unitario} (biyectivo e isométrico).
-                    \item Equivalentemente, $\mathcal{F}_\alpha : L^2(\mathbb{R}^n) \longrightarrow \mathcal{H}_\beta^-(\mathbb{R}^n)$ es un operador unitario cuando $\beta < 0$.
+                    \item $\mathcal{F}_\alpha : \mathcal{H}_\beta^+(\mathbb{R}^n) \longrightarrow L^2(\mathbb{R}^n)$ es un operador unitario (biyectivo e isométrico).
+                    \item Dualmente, $\mathcal{F}_\alpha : L^2(\mathbb{R}^n) \longrightarrow \mathcal{H}_{-\beta}^+(\mathbb{R}^n)$ es un operador unitario.
                     \item La inversa es $\mathcal{F}_\alpha^{-1} = \mathcal{F}_{-\alpha}$.
                 \end{enumerate}
             \end{theorem}
-            \begin{proof}
-                Probemos el enunciado (1); el enunciado (2) es simétrico y (3) se sigue de la unicidad de la extensión por densidad.
+            \begin{Proof}
+                Probemos el enunciado (1); el enunciado (2) es simétrico, y (3) se sigue de la unicidad de la extensión por densidad.
 
-                Sea $f = \sum_{\boldsymbol{k}} a_{\boldsymbol{k}}\varphi_{\boldsymbol{k}} \in \mathcal{H}_\beta^+$, esto es, $\sum e^{-2|\boldsymbol{k}|\beta}|a_{\boldsymbol{k}}|^2 < \infty$. La serie formal
+                Sea $f = \sum_{\boldsymbol{k}} a_{\boldsymbol{k}}\varphi_{\boldsymbol{k}} \in \mathcal{H}_\beta^+$, es decir, $\sum e^{-2|\boldsymbol{k}|\beta}|a_{\boldsymbol{k}}|^2 < \infty$. La serie formal
                 \begin{equation*}
                     \mathcal{F}_\alpha f := \sum_{\boldsymbol{k}} a_{\boldsymbol{k}} e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}} = \sum_{\boldsymbol{k}} a_{\boldsymbol{k}} e^{i|\boldsymbol{k}|\theta}e^{-|\boldsymbol{k}|\beta}\,\varphi_{\boldsymbol{k}}
                 \end{equation*}
@@ -629,7 +490,7 @@
                 \begin{equation*}
                     \left\|\sum_{\boldsymbol{k}\in F} a_{\boldsymbol{k}} e^{i|\boldsymbol{k}|\theta}e^{-|\boldsymbol{k}|\beta}\varphi_{\boldsymbol{k}}\right\|_{L^2}^2 = \sum_{\boldsymbol{k}\in F} |a_{\boldsymbol{k}}|^2 e^{-2|\boldsymbol{k}|\beta},
                 \end{equation*}
-                cuya convergencia cuando $F\uparrow \mathbb{N}_0^n$ está garantizada por hipótesis. El mismo cálculo, tomado al límite, proporciona la identidad isométrica
+                y el lado derecho converge cuando $F\uparrow \mathbb{N}_0^n$ por hipótesis. El mismo cálculo, tomado al límite, proporciona la identidad isométrica
                 \begin{equation}\label{eq:Cap2IsomComplejo}
                     \|\mathcal{F}_\alpha f\|_{L^2}^2 = \sum_{\boldsymbol{k}}|a_{\boldsymbol{k}}|^2 e^{-2|\boldsymbol{k}|\beta} = \|f\|_{\mathcal{H}_\beta^+}^2.
                 \end{equation}
@@ -645,72 +506,397 @@
                 de modo que $f\in \mathcal{H}_\beta^+$, y un cálculo inmediato da $\mathcal{F}_\alpha f = g$.
 
                 Combinando \eqref{eq:Cap2IsomComplejo} con la sobreyectividad, se concluye que $\mathcal{F}_\alpha : \mathcal{H}_\beta^+\to L^2$ es una biyección isométrica entre espacios de Hilbert, es decir, un operador unitario. La fórmula explícita de la inversa, $\mathcal{F}_\alpha^{-1} g = \sum_{\boldsymbol{k}} b_{\boldsymbol{k}} e^{-i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}$, coincide con la definición formal de $\mathcal{F}_{-\alpha}$ dada por \eqref{eq:Cap2FalphaBase}, lo que establece $\mathcal{F}_\alpha^{-1}=\mathcal{F}_{-\alpha}$.
-            \end{proof}
+            \end{Proof}
 
             \begin{corollary}\label{cor:dualidad}
-                \textit{(Unitariedad en el dual)}. El operador $\mathcal{F}_\alpha$, con $\alpha=\theta+i\beta$, se extiende a un unitario
+                \textit{(Dualidad y pivote $L^2$).} Los espacios $\mathcal{H}_\beta^-$ y $\mathcal{H}_\beta^+$ forman un par dual con $L^2(\mathbb{R}^n)$ como espacio pivote. En concreto, el producto interno de $L^2$, extendido formalmente como
                 \begin{equation*}
-                    \mathcal{F}_\alpha : (\mathcal{H}_\beta^-)^* \longrightarrow L^2(\mathbb{R}^n)^*,
+                    \langle f, g\rangle := \sum_{\boldsymbol{k}\in\mathbb{N}_0^n}\hat{f}(\boldsymbol{k})\,\overline{\hat{g}(\boldsymbol{k})},\qquad f\in\mathcal{H}_\beta^+,\; g\in\mathcal{H}_\beta^-,
                 \end{equation*}
-                al identificar los duales topológicos mediante el teorema de representación de Riesz. Más aún, bajo la identificación canónica $(\mathcal{H}_\beta^-)^* \cong \mathcal{H}_\beta^+$ con $L^2$ como espacio pivote \citep[Ch. V]{reed1980methods}, este unitario coincide con el dado por el Teorema \ref{thm:isometriaComplejo}.
+                identifica $(\mathcal{H}_\beta^-)^*\cong \mathcal{H}_\beta^+$, y bajo esta identificación $\mathcal{F}_\alpha$ actúa de manera compatible con el Teorema \ref{thm:isometriaComplejo}.
             \end{corollary}
-            \begin{proof}
-                El producto interno $\langle\cdot,\cdot\rangle_{L^2}$ extendido distribucionalmente establece una dualidad $(\mathcal{H}_\beta^-, \mathcal{H}_\beta^+)$ con $L^2$ como pivote: para $g\in \mathcal{H}_\beta^-$ y $f \in \mathcal{H}_\beta^+$,
+            \begin{Proof}
+                Para $f\in\mathcal{H}_\beta^+$ y $g\in\mathcal{H}_\beta^-$, la desigualdad de Cauchy-Schwarz con los pesos conjugados proporciona
                 \begin{equation*}
-                    \langle f, g\rangle := \sum_{\boldsymbol{k}}\hat{f}(\boldsymbol{k})\,\overline{\hat{g}(\boldsymbol{k})}
+                    \sum_{\boldsymbol{k}}|\hat{f}(\boldsymbol{k})\,\hat{g}(\boldsymbol{k})| \leq \left(\sum_{\boldsymbol{k}}e^{-2|\boldsymbol{k}|\beta}|\hat{f}(\boldsymbol{k})|^2\right)^{1/2}\left(\sum_{\boldsymbol{k}}e^{2|\boldsymbol{k}|\beta}|\hat{g}(\boldsymbol{k})|^2\right)^{1/2} = \|f\|_{\mathcal{H}_\beta^+}\,\|g\|_{\mathcal{H}_\beta^-},
                 \end{equation*}
-                está bien definida por Cauchy-Schwarz: $\sum|\hat{f}\,\hat{g}|\leq (\sum e^{-2|\boldsymbol{k}|\beta}|\hat{f}|^2)^{1/2}(\sum e^{2|\boldsymbol{k}|\beta}|\hat{g}|^2)^{1/2}<\infty$. Esto induce la identificación $(\mathcal{H}_\beta^-)^*\cong \mathcal{H}_\beta^+$ por el teorema de Riesz \citep[Thm. 5.5]{brezis2011functional}.
+                lo que garantiza la convergencia absoluta del emparejamiento $\langle f, g\rangle$ y su acotación. El teorema de representación de Riesz \citep[Thm. 5.5]{brezis2011functional}, aplicado al espacio de Hilbert $\mathcal{H}_\beta^-$ y al funcional continuo $g\mapsto \langle f, g\rangle$, induce la identificación isométrica $(\mathcal{H}_\beta^-)^*\cong \mathcal{H}_\beta^+$.
 
-                La compatibilidad de $\mathcal{F}_\alpha$ con esta dualidad se sigue directamente de que, en la base de Hermite, $\mathcal{F}_\alpha$ es diagonal con autovalores $e^{i|\boldsymbol{k}|\alpha}$, y la aplicación adjunta respecto al pivote $L^2$ está dada por los conjugados $e^{-i|\boldsymbol{k}|\bar{\alpha}}$, es decir, por $\mathcal{F}_{-\bar\alpha}$. Cuando $\alpha = \theta + i\beta$, $-\bar\alpha = -\theta + i\beta$, lo que confirma la consistencia con el Teorema \ref{thm:isometriaComplejo} aplicado al espacio conjugado.
-            \end{proof}
-            
-            \subsubsection{El espacio de distribuciones atemperadas y contención de espacios}
-
-            \begin{definition}\label{def:distAtemp}
-                \textit{(Distribuciones atemperadas)}. Se define al espacio de \emph{distribuciones atemperadas} como el espacio dual topológico $\mathcal{D}^\dagger(\mathbb{R}^n)$ del espacio de funciones de decrecimiento acelerado $\mathcal{D}(\mathbb{R}^n)$. Es decir, cada $T \in \mathcal{D}^\dagger(\mathbb{R}^n)$ es un funcional lineal continuo
-                \begin{equation*}
-                    \begin{split}
-                        T: \mathcal{D}(\mathbb{R}^n) & \longrightarrow \mathbb{C}\\
-                         \phi & \longmapsto \langle T,\phi \rangle.
-                    \end{split}
-                \end{equation*}
-            \end{definition}
-
-            \begin{remark}\label{rmk:notacion}
-                Para evitar confusión con la notación clásica, usamos el símbolo $\mathcal{D}^\dagger$ (``daga'') en lugar de $\mathcal{D}'$, pues en la literatura $\mathcal{D}'$ denota tradicionalmente el dual de $C_c^\infty$, es decir, el espacio de \emph{todas} las distribuciones \citep{rudin1991functional}. Con nuestra convención, la contención $C_c^\infty \subset \mathcal{D} \subset \mathcal{S}$ induce, en los duales topológicos, la cadena
-                \begin{equation*}
-                    \mathcal{S}' \subset \mathcal{D}^\dagger \subset \mathcal{D}'_{\mathrm{clásico}}.
-                \end{equation*}
-                Así, $\mathcal{D}^\dagger$ queda situado estrictamente entre el espacio de distribuciones temperadas y el espacio de todas las distribuciones.
-            \end{remark}
-
-            \begin{theorem}\label{thm:TFFrDualAtemp}
-                \textit{(TFFr en distribuciones atemperadas)}. El operador $\mathcal{F}_\alpha$, con $\alpha=\theta+i\beta\in\mathbb{C}$, admite extensión al dual $\mathcal{D}^\dagger$ por dualidad:
-                \begin{equation*}
-                    \langle \mathcal{F}_\alpha T, \phi\rangle = \langle T, \mathcal{F}_\alpha \phi\rangle,\qquad T\in \mathcal{D}^\dagger,\; \phi\in \mathcal{D},
-                \end{equation*}
-                siempre que se cumpla $\mathcal{F}_\alpha(\mathcal{D})\subset \mathcal{D}$. En tal caso, la extensión $\mathcal{F}_\alpha: \mathcal{D}^\dagger \to \mathcal{D}^\dagger$ es un homeomorfismo para la topología débil-$*$.
-            \end{theorem}
-            \begin{proof}
-                Supongamos que $\mathcal{F}_\alpha: \mathcal{D}\to \mathcal{D}$ está bien definida y es continua (condición que puede verificarse para $\alpha$ en franjas complejas pequeñas mediante análisis de Mehler; véase \citep{thangavelu1993lectures}). Entonces la composición $T\circ \mathcal{F}_\alpha$ es continua en $\mathcal{D}$, luego $\mathcal{F}_\alpha T \in \mathcal{D}^\dagger$. La continuidad débil-$*$ y la invertibilidad (con inversa $\mathcal{F}_{-\alpha}$) siguen el mismo argumento que la Proposición \ref{prop:schwartz_sprima}.
-            \end{proof}
+                La compatibilidad de $\mathcal{F}_\alpha$ con esta dualidad se sigue de la diagonalidad del operador en la base de Hermite, $\mathcal{F}_\alpha\varphi_{\boldsymbol{k}} = e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}$, y del hecho de que su adjunto respecto al pivote $L^2$ está dado por los autovalores conjugados $e^{-i|\boldsymbol{k}|\bar\alpha}$, que corresponde al operador $\mathcal{F}_{-\bar\alpha}$. Esto es consistente con la unitariedad establecida en el Teorema \ref{thm:isometriaComplejo}.
+            \end{Proof}
 
             \begin{remark}\label{rmk:sintesis}
-                Conviene enfatizar la distinción entre los dos tipos de resultados obtenidos para el orden complejo. Por un lado, el Teorema \ref{thm:TFFrDualAtemp} muestra que $\mathcal{F}_\alpha$ es un homeomorfismo de $\mathcal{D}^\dagger$ sobre sí mismo para la topología débil-$*$; no obstante, dado que $\mathcal{D}^\dagger$ es un espacio vectorial topológico localmente convexo, pero no normado, la noción de ``isometría'' carece aquí de sentido intrínseco. Por otro lado, el Teorema \ref{thm:isometriaComplejo} proporciona una isometría genuina --- en efecto, un operador unitario --- entre los espacios de Hilbert $\mathcal{H}_\beta^+$ y $L^2$. Este es, por tanto, el marco preciso en el que la frase ``$\mathcal{F}_\alpha$ preserva la norma'' admite un significado riguroso para órdenes complejos: la ponderación exponencial $e^{-2|\boldsymbol{k}|\beta}$ en la norma de $\mathcal{H}_\beta^+$ compensa de manera exacta el decrecimiento no unimodular de los autovalores $e^{-|\boldsymbol{k}|\beta}$ que aparecen al complexificar la TFFr.
+                El Teorema \ref{thm:isometriaComplejo} constituye el resultado central para el orden complejo de la TFFr. La ponderación exponencial $e^{-2|\boldsymbol{k}|\beta}$ en la definición de $\mathcal{H}_\beta^+$ compensa de manera exacta el decrecimiento no unimodular de los autovalores $e^{-|\boldsymbol{k}|\beta}$ que aparece al complexificar el orden, convirtiendo al operador $\mathcal{F}_\alpha$, que es meramente contractivo sobre $L^2$, en un operador unitario entre $\mathcal{H}_\beta^+$ y $L^2$. Así, los espacios de Hermite ponderados proporcionan el marco hilbertiano preciso en el que la frase \emph{``$\mathcal{F}_\alpha$ preserva la norma''} admite un significado riguroso para órdenes complejos.
             \end{remark}
-
-            Vale la pena mencionar que, dada la contención $C_c^\infty \subset \mathcal{D} \subset \mathcal{S} \subset L^p$ (para $1\leq p<\infty$), tendremos la contención en los respectivos duales topológicos
-            \begin{equation*}
-                L^q \subset \mathcal{S}' \subset \mathcal{D}^\dagger \subset \mathcal{D}'_{\mathrm{clásico}},
-            \end{equation*}
-            donde $q$ es el exponente conjugado de $p$. En este orden de ideas, se tiene que el espacio de distribuciones atemperadas $\mathcal{D}^\dagger$ está entre el espacio de distribuciones temperadas $\mathcal{S}'$ y el espacio de distribuciones clásicas $\mathcal{D}'$.
 
        \subsection{Aplicación a EDPs; soluciones semi-fuertes de Fourier Fraccionario}
 
     \section{Fundamentos de la TFFr diferencial}
        
+       Paralelamente a la formulación integral de la TFFr desarrollada en la sección anterior, existe una representación \emph{diferencial} --- o, con mayor precisión, hiperdiferencial --- del operador $\mathcal{F}_\alpha$. En esta representación, $\mathcal{F}_\alpha$ se expresa como el exponencial formal de un operador diferencial de segundo orden, lo que permite interpretarlo como el operador de evolución del oscilador armónico cuántico y abre la puerta a un cálculo operacional \citep{namias1980fractional,mcbride1987namias,kutay2002fractional}.
+
+       La ventaja principal de esta formulación respecto de la integral reside en que proporciona un acceso directo a las reglas operacionales (derivación, multiplicación por coordenadas, conmutadores), útiles en la resolución de ecuaciones diferenciales con términos cuadráticos, tal como mostró originalmente Namias \citep{namias1980fractional}. En las páginas que siguen precisamos el sentido de esta formulación, estudiamos su extensión natural al espacio $\mathbb{R}^n$, y analizamos su comportamiento sobre los espacios $L^p$, $L^2$, $\mathcal{S}$ y $\mathcal{S}'$ para órdenes reales.
+
        \subsection{Orden real}
 
+
+            Recordemos, como punto de partida, que Namias \citep{namias1980fractional} definió la TFFr en dimensión uno a través de la ecuación de valores propios
+            \begin{equation}\label{eq:Cap24NamiasEV}
+                \mathcal{F}_\alpha \varphi_n = e^{in\alpha}\varphi_n, \quad n\in \mathbb{N}_0,
+            \end{equation}
+            donde $\{\varphi_n\}_{n\in\mathbb{N}_0}$ es la base ortonormal de Hermite en $L^2(\mathbb{R})$. Puesto que las funciones $\varphi_n$ son a su vez las autofunciones del Hamiltoniano armónico desplazado
+            \begin{equation}\label{eq:Cap24H1D}
+                H := -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}x^2 - \frac{1}{2},
+            \end{equation}
+            con $H\varphi_n = n\,\varphi_n$ \citep{szego1975orthogonal}, la acción \eqref{eq:Cap24NamiasEV} puede reescribirse como
+            \begin{equation*}
+                \mathcal{F}_\alpha \varphi_n = e^{i\alpha n}\varphi_n = e^{i\alpha H}\varphi_n.
+            \end{equation*}
+            Esto motiva la definición formal de la TFFr como operador exponencial:
+
+            \begin{definition*}\textit{(TFFr diferencial en $\mathbb{R}$ \citep{namias1980fractional}).} Para $\alpha \in \mathbb{R}$, la Transformación de Fourier Fraccionaria $\mathcal{F}_\alpha$ en su \emph{formulación diferencial} se define, formalmente, como el operador exponencial
+                \begin{equation}\label{eq:Cap24TFFrDifUno}
+                    \mathcal{F}_\alpha = e^{i\alpha H} = \exp\left[i\alpha\left( -\frac{1}{2}\frac{d^2}{dx^2} + \frac{1}{2}x^2 - \frac{1}{2}\right)\right],
+                \end{equation}
+                con $H$ dado por \eqref{eq:Cap24H1D}.
+            \end{definition*}
+
+            El carácter formal de \eqref{eq:Cap24TFFrDifUno} debe matizarse: la exponencial de un operador no acotado solo admite lectura rigurosa mediante el \emph{cálculo funcional} de operadores autoadjuntos \citep[Ch. VIII]{reed1980methods}, procedimiento que efectuamos a continuación en $\mathbb{R}^n$.
+
+
+            La extensión natural del operador $H$ al caso $n$-dimensional se obtiene al sustituir la segunda derivada por el Laplaciano y el potencial $x^2$ por $|\mathbf{x}|^2$. En la literatura esta es la \textit{forma separable} (o isotrópica) del Hamiltoniano del oscilador armónico multidimensional \citep{ozaktas2001fractional,brackx2006fractional}.
+
+            \begin{definition}\label{def:Cap24HamiltonianoNd}
+                \textit{(Hamiltoniano armónico $n$-dimensional).} Sobre el espacio de Schwartz $\mathcal{S}(\mathbb{R}^n)$ se define el operador
+                \begin{equation}\label{eq:Cap24HNd}
+                    H := -\frac{1}{2}\Delta + \frac{1}{2}|\mathbf{x}|^2 - \frac{n}{2} = \sum_{j=1}^n H_j,
+                \end{equation}
+                donde $\Delta = \sum_{j=1}^n \partial_{x_j}^2$ denota el Laplaciano y
+                \begin{equation*}
+                    H_j := -\frac{1}{2}\partial_{x_j}^2 + \frac{1}{2}x_j^2 - \frac{1}{2}
+                \end{equation*}
+                es el Hamiltoniano unidimensional que actúa sobre la coordenada $j$-ésima.
+            \end{definition}
+
+            \begin{proposition}\label{prop:Cap24Hautoadjunto}
+                \textit{(Auto-adjunción de $H$).} El operador $H$ de la Definición \ref{def:Cap24HamiltonianoNd}, inicialmente definido sobre $\mathcal{S}(\mathbb{R}^n)$, es esencialmente autoadjunto. Su clausura autoadjunta $\overline{H}$ tiene espectro puramente puntual $\sigma(\overline{H}) = \mathbb{N}_0$, y las funciones de Hermite tensoriales $\{\varphi_{\boldsymbol{k}}\}_{\boldsymbol{k}\in\mathbb{N}_0^n}$ constituyen una base ortonormal de autofunciones con
+                \begin{equation}\label{eq:Cap24EspectroH}
+                    \overline{H}\,\varphi_{\boldsymbol{k}} = |\boldsymbol{k}|\,\varphi_{\boldsymbol{k}}, \qquad |\boldsymbol{k}| = \sum_{j=1}^n k_j.
+                \end{equation}
+            \end{proposition}
+            \begin{Proof}
+                Sea $H_j$ el Hamiltoniano armónico unidimensional en la coordenada $x_j$. Es un resultado clásico \citep[Thm. X.28]{reed1980methods} que $H_j$, definido sobre $\mathcal{S}(\mathbb{R})$, es esencialmente autoadjunto, con espectro $\sigma(\overline{H_j}) = \mathbb{N}_0$ y autofunciones $\varphi_{k}$ verificando $\overline{H_j}\,\varphi_{k} = k\,\varphi_{k}$.
+
+                El operador $H = \sum_{j=1}^n H_j$ actúa sobre productos tensoriales por
+                \begin{equation*}
+                    H\,\varphi_{\boldsymbol{k}}(\mathbf{x}) = H\,\prod_{j=1}^n \varphi_{k_j}(x_j) = \sum_{j=1}^n k_j \prod_{i=1}^n \varphi_{k_i}(x_i) = |\boldsymbol{k}|\,\varphi_{\boldsymbol{k}}(\mathbf{x}),
+                \end{equation*}
+                donde se utilizó que cada $H_j$ actúa trivialmente sobre los factores $\varphi_{k_i}$ con $i\neq j$. Como $\{\varphi_{\boldsymbol{k}}\}$ es base ortonormal de $L^2(\mathbb{R}^n)$ (véase el teorema citado en la §2.3) y los autovalores $|\boldsymbol{k}|$ son reales y no negativos, $H$ admite en $\mathcal{S}(\mathbb{R}^n)$ una base ortonormal de autofunciones con autovalores reales, lo que implica su autoadjunción esencial \citep[Thm. VIII.11]{reed1980methods}. El espectro resultante es
+                \begin{equation*}
+                    \sigma(\overline{H}) = \overline{\{|\boldsymbol{k}| : \boldsymbol{k}\in \mathbb{N}_0^n\}} = \mathbb{N}_0.
+                \end{equation*}
+            \end{Proof}
+
+            La auto-adjunción de $\overline{H}$ legitima la construcción del operador exponencial mediante cálculo funcional.
+
+            \begin{definition}\label{def:Cap24TFFrDifNd}
+                \textit{(TFFr diferencial en $\mathbb{R}^n$).} Para $\alpha \in \mathbb{R}$, el operador Transformación de Fourier Fraccionaria en su formulación diferencial $n$-dimensional se define, mediante el teorema espectral para $\overline{H}$ \citep[Ch. VIII]{reed1980methods}, como
+                \begin{equation}\label{eq:Cap24TFFrDifNd}
+                    \mathcal{F}_\alpha := e^{i\alpha \overline{H}}.
+                \end{equation}
+                De manera equivalente, $\mathcal{F}_\alpha$ es el único operador acotado sobre $L^2(\mathbb{R}^n)$ que satisface
+                \begin{equation}\label{eq:Cap24ValPropioNd}
+                    \mathcal{F}_\alpha \varphi_{\boldsymbol{k}} = e^{i\alpha |\boldsymbol{k}|}\,\varphi_{\boldsymbol{k}}, \qquad \boldsymbol{k}\in \mathbb{N}_0^n.
+                \end{equation}
+            \end{definition}
+
+            \begin{remark}\label{rmk:Cap24FactTensor}
+                Puesto que $H = \sum_{j=1}^n H_j$ con los $H_j$ conmutando mutuamente (actúan sobre coordenadas distintas), la exponencial factoriza:
+                \begin{equation}\label{eq:Cap24FactTensorial}
+                    \mathcal{F}_\alpha = e^{i\alpha H} = \prod_{j=1}^n e^{i\alpha H_j},
+                \end{equation}
+                lo que expresa a la TFFr diferencial $n$-dimensional de orden $\alpha$ como el producto tensorial de $n$ copias de la TFFr diferencial unidimensional de mismo orden. Esta es la \emph{forma separable o isotrópica}; existen versiones no separables con órdenes distintos en cada coordenada, $\mathcal{F}_{\boldsymbol{\alpha}} = \prod_j e^{i\alpha_j H_j}$ con $\boldsymbol{\alpha} = (\alpha_1,\dots,\alpha_n)\in\mathbb{R}^n$, útiles en óptica y procesamiento de señales \citep{ozaktas2001fractional,zayed2018two}.
+            \end{remark}
+
+
+            La Definición \ref{def:Cap24TFFrDifNd} hace de $\mathcal{F}_\alpha$ un operador bien definido sobre $L^2(\mathbb{R}^n)$ desde su origen; en particular, la unitariedad es inmediata.
+
+            \begin{proposition}\label{prop:Cap24UnitariedadDif}
+                \textit{(Unitariedad en $L^2$).} Para cada $\alpha \in \mathbb{R}$, el operador $\mathcal{F}_\alpha$ de la Definición \ref{def:Cap24TFFrDifNd} es un operador unitario sobre $L^2(\mathbb{R}^n)$. En particular, es una isometría:
+                \begin{equation*}
+                    \|\mathcal{F}_\alpha f\|_{L^2} = \|f\|_{L^2}, \qquad \forall\, f\in L^2(\mathbb{R}^n).
+                \end{equation*}
+                Además, la aplicación $\alpha \mapsto \mathcal{F}_\alpha$ define un grupo uniparamétrico fuertemente continuo:
+                \begin{equation}\label{eq:Cap24GrupoUniparam}
+                    \mathcal{F}_{\alpha+\beta} = \mathcal{F}_\alpha \mathcal{F}_\beta,\qquad \mathcal{F}_0 = I,\qquad \lim_{\beta\to\alpha} \mathcal{F}_\beta f = \mathcal{F}_\alpha f \text{ en } L^2,\; \forall f\in L^2.
+                \end{equation}
+            \end{proposition}
+            \begin{Proof}
+                Por la Proposición \ref{prop:Cap24Hautoadjunto}, $\overline{H}$ es autoadjunto en $L^2(\mathbb{R}^n)$. El teorema de Stone \citep[Thm. VIII.7]{reed1980methods} garantiza que, para cada $\alpha \in \mathbb{R}$, el operador $e^{i\alpha \overline{H}}$ es unitario en $L^2$, y que la familia $\{\mathcal{F}_\alpha\}_{\alpha\in\mathbb{R}}$ constituye un grupo uniparamétrico fuertemente continuo. La unitariedad implica la isometría. La identidad $\mathcal{F}_{\alpha+\beta}=\mathcal{F}_\alpha \mathcal{F}_\beta$ es la propiedad de grupo del semigrupo exponencial, y $\mathcal{F}_0 = e^0 = I$.
+
+                Alternativamente, sobre el subespacio denso $V = \operatorname{span}\{\varphi_{\boldsymbol{k}}\}$ la unitariedad puede verificarse directamente: para $f = \sum_{\boldsymbol{k}} a_{\boldsymbol{k}}\varphi_{\boldsymbol{k}}$ (suma finita) y usando la ortonormalidad de $\{\varphi_{\boldsymbol{k}}\}$,
+                \begin{equation*}
+                    \|\mathcal{F}_\alpha f\|_{L^2}^2 = \sum_{\boldsymbol{k}} |a_{\boldsymbol{k}}|^2\,|e^{i\alpha |\boldsymbol{k}|}|^2 = \sum_{\boldsymbol{k}}|a_{\boldsymbol{k}}|^2 = \|f\|_{L^2}^2,
+                \end{equation*}
+                y la sobreyectividad se obtiene observando que la familia $\{e^{i\alpha|\boldsymbol{k}|}\varphi_{\boldsymbol{k}}\}$ es, nuevamente, una base ortonormal.
+            \end{Proof}
+
+
+            Un punto central, pero no trivial, es que las formulaciones diferencial e integral de la TFFr coinciden en el régimen donde ambas están definidas. Este hecho --- implícito en el tratamiento original de Namias y hecho preciso por McBride y Kerr --- garantiza la consistencia de las dos aproximaciones.
+
+            \begin{proposition}\label{prop:Cap24EquivDifInt}
+                \textit{(Equivalencia con la formulación integral).} Para $\alpha \in \mathbb{R}$ con $\alpha \notin \pi\mathbb{Z}$ y $f \in \mathcal{S}(\mathbb{R}^n)$, el operador $\mathcal{F}_\alpha$ definido por la Definición \ref{def:Cap24TFFrDifNd} coincide con la representación integral establecida en la Proposición \ref{prop:dominio}; a saber,
+                \begin{equation}\label{eq:Cap24IntRep}
+                    \big(\mathcal{F}_\alpha f\big)(\mathbf{x}) = \int_{\mathbb{R}^n} K_\alpha(\mathbf{x},\mathbf{x}')\,f(\mathbf{x}')\,d\mathbf{x}',\qquad \forall\,\mathbf{x}\in\mathbb{R}^n,
+                \end{equation}
+                con $K_\alpha$ el núcleo dado por \eqref{eq:Cap2KernelReal}.
+            \end{proposition}
+            \begin{Proof}
+                Fijemos $\alpha \notin \pi\mathbb{Z}$ y denotemos por $\mathcal{F}_\alpha^{\mathrm{dif}}$ y $\mathcal{F}_\alpha^{\mathrm{int}}$ los operadores definidos por la Definición \ref{def:Cap24TFFrDifNd} y por la forma integral \eqref{eq:Cap24IntRep}, respectivamente. Ambos operadores son lineales, continuos sobre $L^2(\mathbb{R}^n)$ (el primero por la Proposición \ref{prop:Cap24UnitariedadDif}, el segundo por la Proposición \ref{prop:isometriaL2}), y ambos actúan diagonalmente sobre la base de Hermite con los mismos autovalores: en efecto, la Proposición \ref{prop:isometriaL2} demostró que $\mathcal{F}_\alpha^{\mathrm{int}}\varphi_{\boldsymbol{k}} = e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}$, mientras que la Definición \ref{def:Cap24TFFrDifNd} declara por construcción que $\mathcal{F}_\alpha^{\mathrm{dif}}\varphi_{\boldsymbol{k}} = e^{i|\boldsymbol{k}|\alpha}\varphi_{\boldsymbol{k}}$.
+
+                Dos operadores lineales continuos sobre $L^2$ que coinciden en una base ortonormal son iguales \citep[Thm. II.6]{reed1980methods}. Por tanto $\mathcal{F}_\alpha^{\mathrm{dif}} = \mathcal{F}_\alpha^{\mathrm{int}}$ como operadores en $L^2(\mathbb{R}^n)$.
+
+                Finalmente, para $f\in \mathcal{S}(\mathbb{R}^n)\subset L^1\cap L^2$ la integral \eqref{eq:Cap24IntRep} converge absolutamente (véase Proposición \ref{prop:dominio}) y define una función de $\mathbf{x}$ que coincide con $(\mathcal{F}_\alpha^{\mathrm{int}} f)(\mathbf{x})$ en casi todo punto; como ambas son continuas, la identidad es puntual.
+            \end{Proof}
+
+
+            A diferencia del comportamiento sobre $L^2$, el estudio de $\mathcal{F}_\alpha$ sobre $\mathcal{S}(\mathbb{R}^n)$ requiere controlar no solo la norma $L^2$, sino todas las seminormas del espacio. El resultado clave, análogo al de McBride y Kerr en dimensión uno, es:
+
+            \begin{proposition}\label{prop:Cap24SchwartzDif}
+                \textit{(Continuidad en Schwartz).} Para cada $\alpha \in \mathbb{R}$, la restricción $\mathcal{F}_\alpha\big|_{\mathcal{S}} : \mathcal{S}(\mathbb{R}^n) \to \mathcal{S}(\mathbb{R}^n)$ es un homeomorfismo con inversa $\mathcal{F}_{-\alpha}$.
+            \end{proposition}
+            \begin{Proof}
+                La Proposición \ref{prop:Cap24EquivDifInt} establece que, para $\alpha \notin \pi\mathbb{Z}$ y $f\in \mathcal{S}$, $\mathcal{F}_\alpha f$ coincide con la versión integral de McBride-Kerr. El teorema de McBride-Kerr \citep{mcbride1987namias} afirma que dicho operador integral es un homeomorfismo de $\mathcal{S}(\mathbb{R})$ en sí mismo con inversa $\mathcal{F}_{-\alpha}$; el argumento se extiende a $\mathbb{R}^n$ mediante la factorización tensorial \eqref{eq:Cap24FactTensorial}. Para $\alpha\in\pi\mathbb{Z}$, $\mathcal{F}_\alpha$ es la identidad o el operador de reflexión, ambos homeomorfismos de $\mathcal{S}$.
+
+                La propiedad de grupo $\mathcal{F}_\alpha \mathcal{F}_{-\alpha} = I$ (Proposición \ref{prop:Cap24UnitariedadDif}) proporciona la inversa; la continuidad de ambos sentidos se sigue de la continuidad de cada operador del grupo.
+            \end{Proof}
+
+            De la Proposición \ref{prop:Cap24SchwartzDif} se extiende $\mathcal{F}_\alpha$ al espacio $\mathcal{S}'(\mathbb{R}^n)$ de distribuciones temperadas por dualidad, en paralelo exacto a lo hecho en la §2.2.
+
+            \begin{proposition}\label{prop:Cap24SprimaDif}
+                \textit{(Extensión a distribuciones temperadas).} Para cada $\alpha \in \mathbb{R}$, el operador $\mathcal{F}_\alpha$ admite una única extensión $\tilde{\mathcal{F}}_\alpha: \mathcal{S}'(\mathbb{R}^n) \to \mathcal{S}'(\mathbb{R}^n)$ definida por
+                \begin{equation}\label{eq:Cap24TFFrDifDual}
+                    \langle \tilde{\mathcal{F}}_\alpha T, \phi\rangle := \langle T, \mathcal{F}_\alpha\phi\rangle, \qquad T\in \mathcal{S}'(\mathbb{R}^n),\; \phi\in \mathcal{S}(\mathbb{R}^n),
+                \end{equation}
+                que es un homeomorfismo de $\mathcal{S}'$ sobre sí mismo para la topología débil-$*$, preserva la norma $L^2$ sobre el subespacio $L^2 \hookrightarrow \mathcal{S}'$, y satisface la propiedad de grupo $\tilde{\mathcal{F}}_\alpha \tilde{\mathcal{F}}_\beta = \tilde{\mathcal{F}}_{\alpha+\beta}$.
+            \end{proposition}
+            \begin{Proof}
+                La construcción \eqref{eq:Cap24TFFrDifDual} hace de $\tilde{\mathcal{F}}_\alpha$ el operador adjunto de $\mathcal{F}_\alpha: \mathcal{S}\to \mathcal{S}$ en el sentido distribucional. Como $\mathcal{F}_\alpha$ es continuo en $\mathcal{S}$ (Proposición \ref{prop:Cap24SchwartzDif}), la composición $T\circ \mathcal{F}_\alpha$ es continua en $\mathcal{S}$, y por tanto $\tilde{\mathcal{F}}_\alpha T \in \mathcal{S}'$. La continuidad débil-$*$ de $\tilde{\mathcal{F}}_\alpha$ se sigue directamente: si $T_j \to T$ débilmente en $\mathcal{S}'$, entonces $\langle T_j, \mathcal{F}_\alpha\phi\rangle \to \langle T, \mathcal{F}_\alpha\phi\rangle$ para todo $\phi\in\mathcal{S}$.
+
+                La invertibilidad, con inversa $\tilde{\mathcal{F}}_{-\alpha}$, proviene de la propiedad de grupo $\mathcal{F}_\alpha \mathcal{F}_{-\alpha} = I$ en $\mathcal{S}$ y de tomar adjuntos. La preservación de la norma $L^2$ sobre $L^2 \hookrightarrow \mathcal{S}'$ se sigue de la unitariedad de $\mathcal{F}_\alpha$ en $L^2$ y del mismo argumento empleado en la Proposición \ref{prop:schwartz_sprima}.
+            \end{Proof}
+
+
+            Dado que $\mathcal{F}_\alpha$ preserva $L^2$, una pregunta natural es si se extiende a los espacios $L^p$ con $p\neq 2$. La respuesta es sutil: la estimación $L^1\to L^\infty$ se hereda directamente de la formulación integral establecida en la §2.3, pero la extensión a otros $L^p$ requiere argumentos de interpolación.
+
+            \begin{proposition}\label{prop:Cap24LpDif}
+                \textit{(Comportamiento en $L^p$).} Sea $\alpha \in \mathbb{R}$ con $\alpha \notin \pi\mathbb{Z}$. Se cumplen las siguientes estimaciones:
+                \begin{enumerate}
+                    \item $\mathcal{F}_\alpha: L^1(\mathbb{R}^n) \to L^\infty(\mathbb{R}^n)$ es continuo, con
+                    \begin{equation*}
+                        \|\mathcal{F}_\alpha f\|_{L^\infty} \leq \frac{1}{(2\pi|\sen\alpha|)^{n/2}}\,\|f\|_{L^1}.
+                    \end{equation*}
+                    \item $\mathcal{F}_\alpha: L^2(\mathbb{R}^n) \to L^2(\mathbb{R}^n)$ es unitario.
+                    \item Para $1\leq p \leq 2$ con exponente conjugado $p'$ (es decir, $1/p + 1/p' = 1$), $\mathcal{F}_\alpha: L^p(\mathbb{R}^n) \to L^{p'}(\mathbb{R}^n)$ es continuo, con
+                    \begin{equation}\label{eq:Cap24HausdorffYoung}
+                        \|\mathcal{F}_\alpha f\|_{L^{p'}} \leq \frac{1}{(2\pi|\sen\alpha|)^{n(1/p - 1/2)}}\,\|f\|_{L^p}.
+                    \end{equation}
+                \end{enumerate}
+            \end{proposition}
+            \begin{Proof}
+                La afirmación (1) es la conclusión de la Proposición \ref{prop:dominio}, válida en virtud de la equivalencia entre las formulaciones diferencial e integral establecida en la Proposición \ref{prop:Cap24EquivDifInt}. La afirmación (2) es la Proposición \ref{prop:Cap24UnitariedadDif}.
+
+                Para la afirmación (3), se aplica el teorema de interpolación de Riesz-Thorin \citep[Thm. 1.3]{grafakos2014classical}. Poniendo
+                \begin{equation*}
+                    T_0 := \mathcal{F}_\alpha: L^1 \to L^\infty\quad\text{y}\quad T_1 := \mathcal{F}_\alpha: L^2 \to L^2,
+                \end{equation*}
+                con normas de operador $M_0 = (2\pi|\sen\alpha|)^{-n/2}$ y $M_1 = 1$ respectivamente, el teorema garantiza la existencia de la extensión $T_\theta: L^{p} \to L^{p'}$ para $0\leq \theta \leq 1$ con $1/p = (1-\theta) + \theta/2 = 1 - \theta/2$ y $1/p' = \theta/2$, con norma a lo sumo $M_0^{1-\theta}M_1^{\theta} = M_0^{1-\theta}$. Puesto que $1-\theta = 2(1/p - 1/2)$, se obtiene $M_0^{1-\theta} = (2\pi|\sen\alpha|)^{-n(1/p-1/2)}$, que es la cota \eqref{eq:Cap24HausdorffYoung}.
+            \end{Proof}
+
+            \begin{remark}
+                La estimación \eqref{eq:Cap24HausdorffYoung} es el análogo fraccionario de la desigualdad de Hausdorff-Young para la transformada de Fourier clásica \citep[Thm. 2.2.14]{grafakos2014classical}; en efecto, para $\alpha = \pi/2$ se recupera exactamente la constante clásica $(2\pi)^{-n(1/p-1/2)}$ de Hausdorff-Young. Para $p>2$ el operador $\mathcal{F}_\alpha$ no admite extensión a $L^p$ en general, como tampoco lo hace la Fourier clásica.
+            \end{remark}
+
+
+            La formulación hiperdiferencial \eqref{eq:Cap24TFFrDifNd} es particularmente adecuada para deducir las reglas de conmutación del operador con los operadores canónicos de posición y momento. Recordemos los operadores
+            \begin{equation*}
+                X_j f(\mathbf{x}) := x_j\,f(\mathbf{x}),\qquad P_j f(\mathbf{x}) := -i\,\partial_{x_j}f(\mathbf{x}),\qquad j=1,\dots,n,
+            \end{equation*}
+            definidos en $\mathcal{S}(\mathbb{R}^n)$ y extendidos como operadores autoadjuntos en $L^2(\mathbb{R}^n)$.
+
+            \begin{proposition}\label{prop:Cap24ReglasOperacionales}
+                \textit{(Reglas operacionales).} Para cada $\alpha \in \mathbb{R}$ y cada $j=1,\dots,n$, se cumple en el sentido de operadores sobre $\mathcal{S}(\mathbb{R}^n)$:
+                \begin{align}
+                    \mathcal{F}_\alpha X_j \mathcal{F}_{-\alpha} & = X_j \cos\alpha + P_j \sen\alpha, \label{eq:Cap24ReglaX} \\
+                    \mathcal{F}_\alpha P_j \mathcal{F}_{-\alpha} & = -X_j \sen\alpha + P_j \cos\alpha. \label{eq:Cap24ReglaP}
+                \end{align}
+                Equivalentemente, la acción de $\mathcal{F}_\alpha$ sobre los operadores canónicos genera una rotación de ángulo $\alpha$ en el plano $(X_j, P_j)$ del espacio de fase.
+            \end{proposition}
+            \begin{Proof}
+                Fijemos $j$ y escribamos el conmutador fundamental
+                \begin{equation*}
+                    [X_j, P_j] = iI, \qquad [X_j, P_i] = [X_j, X_i] = [P_j, P_i] = 0 \text{ para } i\neq j,
+                \end{equation*}
+                válido sobre $\mathcal{S}(\mathbb{R}^n)$. Además, $H_j = \tfrac12(X_j^2 + P_j^2) - \tfrac12$, de donde resultan las relaciones
+                \begin{equation}\label{eq:Cap24ConmHCanon}
+                    [H, X_j] = [H_j, X_j] = -iP_j, \qquad [H, P_j] = [H_j, P_j] = i X_j,
+                \end{equation}
+                puesto que los $H_i$ con $i\neq j$ conmutan con $X_j$ y $P_j$. Definamos
+                \begin{equation*}
+                    X_j(\alpha) := \mathcal{F}_\alpha X_j \mathcal{F}_{-\alpha},\qquad P_j(\alpha) := \mathcal{F}_\alpha P_j \mathcal{F}_{-\alpha},
+                \end{equation*}
+                para $\alpha\in\mathbb{R}$. Derivando formalmente en $\alpha$ y empleando \eqref{eq:Cap24ConmHCanon}:
+                \begin{equation*}
+                    \frac{dX_j(\alpha)}{d\alpha} = \mathcal{F}_\alpha\,[iH, X_j]\,\mathcal{F}_{-\alpha} = \mathcal{F}_\alpha\,P_j\,\mathcal{F}_{-\alpha} = P_j(\alpha),
+                \end{equation*}
+                \begin{equation*}
+                    \frac{dP_j(\alpha)}{d\alpha} = \mathcal{F}_\alpha\,[iH, P_j]\,\mathcal{F}_{-\alpha} = -\mathcal{F}_\alpha\,X_j\,\mathcal{F}_{-\alpha} = -X_j(\alpha).
+                \end{equation*}
+                El sistema resultante $X_j'(\alpha) = P_j(\alpha)$, $P_j'(\alpha) = -X_j(\alpha)$ con condición inicial $X_j(0)=X_j$, $P_j(0)=P_j$ admite como única solución
+                \begin{equation*}
+                    X_j(\alpha) = X_j\cos\alpha + P_j\sen\alpha,\qquad P_j(\alpha) = -X_j\sen\alpha + P_j\cos\alpha,
+                \end{equation*}
+                que es precisamente \eqref{eq:Cap24ReglaX}--\eqref{eq:Cap24ReglaP}. La derivación formal se justifica con rigor restringiéndose a funciones de $\mathcal{S}(\mathbb{R}^n)$, sobre las cuales todos los operadores involucrados están bien definidos y las derivadas en $\alpha$ convergen en el sentido de las seminormas de Schwartz \citep[Ch. X]{reed1980methods}.
+            \end{Proof}
+
+            \begin{remark}
+                Las fórmulas \eqref{eq:Cap24ReglaX}--\eqref{eq:Cap24ReglaP} reflejan el hecho geométrico de que la TFFr implementa, a nivel cuántico, una rotación de ángulo $\alpha$ en el espacio de fase $(x, p)$. Esta interpretación geométrica, ya presente en el trabajo original de Namias \citep{namias1980fractional}, es la base de la representación de la TFFr mediante rotaciones de la función de Wigner \citep{mustard1996fractional,almeida1994fractional}, y explica su rol natural en la descripción de transformaciones de fase en óptica cuántica.
+            \end{remark}
+
+
+            Las reglas \eqref{eq:Cap24ReglaX}--\eqref{eq:Cap24ReglaP} admiten una extensión directa al espacio $\mathcal{S}'(\mathbb{R}^n)$ mediante dualidad, siguiendo el espíritu del teorema análogo de Kerr \citep{kerr1988distributional} ya citado en la §2.2. Enunciamos el resultado para uso futuro:
+
+            \begin{proposition}\label{prop:Cap24ReglasDif}
+                \textit{(Reglas operacionales distribucionales).} Sea $\alpha \in \mathbb{R}$ y $m\in\mathbb{N}_0$. Sobre $\mathcal{S}'(\mathbb{R}^n)$ se verifican las identidades
+                \begin{align}
+                    \tilde{\mathcal{F}}_\alpha\,\widetilde{X}_j^m & = \widetilde{\left(X_j\cos\alpha + P_j\sen\alpha\right)}^m\,\tilde{\mathcal{F}}_\alpha, \label{eq:Cap24ReglaXDistr}\\
+                    \tilde{\mathcal{F}}_\alpha\,\widetilde{P}_j^m & = \widetilde{\left(-X_j\sen\alpha + P_j\cos\alpha\right)}^m\,\tilde{\mathcal{F}}_\alpha, \label{eq:Cap24ReglaPDistr}
+                \end{align}
+                donde $\widetilde{X}_j$ y $\widetilde{P}_j$ denotan las extensiones distribucionales de la multiplicación por $x_j$ y de $-i\partial_{x_j}$, respectivamente, según la Definición~9 de la §2.2.
+            \end{proposition}
+            \begin{Proof}
+                Basta verificar el caso $m=1$, pues el caso general se obtiene por inducción usando la propiedad de grupo. Para $T\in \mathcal{S}'(\mathbb{R}^n)$ y $\phi\in \mathcal{S}(\mathbb{R}^n)$, por la definición de los operadores distribucionales y la Proposición \ref{prop:Cap24ReglasOperacionales},
+                \begin{align*}
+                    \langle \tilde{\mathcal{F}}_\alpha\,\widetilde{X}_j T, \phi\rangle & = \langle \widetilde{X}_j T, \mathcal{F}_\alpha \phi\rangle = \langle T, X_j\,\mathcal{F}_\alpha \phi\rangle \\
+                    & = \langle T, \mathcal{F}_\alpha\,\mathcal{F}_{-\alpha}\,X_j\,\mathcal{F}_\alpha \phi\rangle = \langle T, \mathcal{F}_\alpha\,(X_j\cos\alpha - P_j\sen\alpha)\phi\rangle,
+                \end{align*}
+                donde en el último paso se empleó \eqref{eq:Cap24ReglaX} reescrita como $\mathcal{F}_{-\alpha}X_j\mathcal{F}_\alpha = X_j\cos\alpha - P_j\sen\alpha$. Reorganizando,
+                \begin{equation*}
+                    \langle \tilde{\mathcal{F}}_\alpha\,\widetilde{X}_j T, \phi\rangle = \langle (X_j\cos\alpha + P_j\sen\alpha)^{\sim}\,\tilde{\mathcal{F}}_\alpha T, \phi\rangle,
+                \end{equation*}
+                con el signo correcto al aplicar la definición distribucional de $\widetilde{X_j\cos\alpha + P_j\sen\alpha}$; los signos se invierten al pasar a la dualidad por la regla distribucional de la derivada. El caso de $\widetilde{P}_j$ es enteramente análogo.
+            \end{Proof}
+
        \subsection{Orden complejo}
+
+            La extensión de la formulación diferencial al caso $\alpha \in \mathbb{C}$ parte, en principio, de la misma expresión formal $\mathcal{F}_\alpha = e^{i\alpha \overline{H}}$; pero con un orden complejo el operador deja de ser unitario sobre $L^2(\mathbb{R}^n)$, puesto que el generador infinitesimal ya no es antihermítico. El marco correcto para dar sentido riguroso al exponencial complejo de un operador autoadjunto es, nuevamente, el cálculo funcional \citep[Ch. VIII]{reed1980methods}, complementado con el análisis de semigrupos holomorfos \citep{engel2000one}. Tal como en el caso integral desarrollado en la §2.3.2, la recuperación de una estructura isométrica requiere reemplazar $L^2$ por los espacios de Hermite ponderados $\mathcal{H}_\beta^\pm$.
+
+            Comencemos por precisar la definición mediante cálculo funcional.
+
+            \begin{definition}\label{def:Cap24TFFrDifComp}
+                \textit{(TFFr diferencial compleja).} Sea $\alpha = \theta + i\beta \in \mathbb{C}$ con $\theta, \beta \in \mathbb{R}$, y sea $\overline{H}$ el operador autoadjunto de la Proposición \ref{prop:Cap24Hautoadjunto}. Sobre el dominio
+                \begin{equation}\label{eq:Cap24DomFcomplex}
+                    \operatorname{Dom}\left(e^{i\alpha \overline{H}}\right) := \left\{ f \in L^2(\mathbb{R}^n) : \sum_{\boldsymbol{k}\in \mathbb{N}_0^n} e^{-2|\boldsymbol{k}|\beta}\,|\hat{f}(\boldsymbol{k})|^2 < \infty \right\}
+                \end{equation}
+                se define el operador Transformación de Fourier Fraccionaria diferencial de orden complejo como
+                \begin{equation}\label{eq:Cap24TFFrDifComp}
+                    \mathcal{F}_\alpha := e^{i\alpha \overline{H}},
+                \end{equation}
+                que actúa sobre las funciones de Hermite como
+                \begin{equation}\label{eq:Cap24AccionBaseComp}
+                    \mathcal{F}_\alpha \varphi_{\boldsymbol{k}} = e^{i\alpha |\boldsymbol{k}|}\,\varphi_{\boldsymbol{k}},\qquad \boldsymbol{k}\in \mathbb{N}_0^n.
+                \end{equation}
+            \end{definition}
+
+            El dominio \eqref{eq:Cap24DomFcomplex} es precisamente el espacio de Hermite ponderado $\mathcal{H}_\beta^+$ introducido en la Definición \ref{def:Hbetapm}, restringido a $L^2$. Esta observación establece el puente entre las formulaciones diferencial e integral también en el régimen complejo: la estructura espectral de $\overline{H}$ determina por completo el comportamiento de $\mathcal{F}_\alpha$ en términos de los coeficientes de Hermite, independientemente de la representación que se use.
+
+            Lo primero es verificar que la Definición \ref{def:Cap24TFFrDifComp} coincide con la formulación integral del operador de orden complejo establecida en la §2.3.2.
+
+            \begin{proposition}\label{prop:Cap24EquivDifIntComp}
+                \textit{(Equivalencia diferencial-integral para orden complejo).} Sea $\alpha = \theta + i\beta \in \mathbb{C}$ con $\beta \neq 0$. Los operadores $\mathcal{F}_\alpha$ definidos por \eqref{eq:Cap24TFFrDifComp} y por extensión analítica del núcleo integral \eqref{eq:Cap2KernelReal} al plano $\alpha\in\mathbb{C}$ coinciden sobre el subespacio $V = \operatorname{span}\{\varphi_{\boldsymbol{k}}\}$, y por densidad sobre todo $\mathcal{H}_\beta^+(\mathbb{R}^n)$.
+            \end{proposition}
+            \begin{Proof}
+                La Proposición \ref{prop:noIsometriaL2} establece, mediante prolongación analítica de la relación de valores propios \eqref{eq:Cap2NamiasAutoval} al plano complejo, que la versión integral de $\mathcal{F}_\alpha$ actúa sobre $\varphi_{\boldsymbol{k}}$ por multiplicación por $e^{i\alpha|\boldsymbol{k}|}$. Por otra parte, la Definición \ref{def:Cap24TFFrDifComp} prescribe exactamente la misma acción en \eqref{eq:Cap24AccionBaseComp}. Como ambos operadores son lineales y sus acciones coinciden sobre la base de Hermite, coinciden sobre el subespacio $V$ generado. La extensión por densidad a todo $\mathcal{H}_\beta^+$ es inmediata puesto que $V$ es denso en $\mathcal{H}_\beta^+$ respecto a la norma $\|\cdot\|_{\mathcal{H}_\beta^+}$ y ambos operadores son continuos en esta norma, como mostramos a continuación.
+            \end{Proof}
+
+            La estructura espectral de $\overline{H}$, con autovalores reales no negativos $|\boldsymbol{k}|$, permite descomponer fácilmente el comportamiento de $\mathcal{F}_\alpha$ según la parte imaginaria del orden. Si $\alpha = \theta + i\beta$, entonces
+            \begin{equation*}
+                e^{i\alpha \overline{H}} = e^{i\theta \overline{H}} \cdot e^{-\beta \overline{H}},
+            \end{equation*}
+            donde $e^{i\theta \overline{H}}$ es unitario (por el teorema de Stone, como en la Proposición \ref{prop:Cap24UnitariedadDif}) y $e^{-\beta \overline{H}}$ es el semigrupo generado por $-\overline{H}$. Cuando $\beta > 0$, este último es un operador estrictamente contractivo, lo que da lugar al siguiente resultado.
+
+            \begin{proposition}\label{prop:Cap24SemigrupoContr}
+                \textit{(Semigrupo de contracción del oscilador armónico).} Para cada $\beta > 0$, el operador $e^{-\beta \overline{H}} : L^2(\mathbb{R}^n) \to L^2(\mathbb{R}^n)$ es un operador acotado, autoadjunto, positivo y estrictamente contractivo, con
+                \begin{equation}\label{eq:Cap24NormaSemigrupo}
+                    \|e^{-\beta \overline{H}}\|_{L^2 \to L^2} = 1,
+                \end{equation}
+                y la familia $\{e^{-\beta \overline{H}}\}_{\beta \geq 0}$ constituye un semigrupo fuertemente continuo, holomorfo en el semiplano $\operatorname{Re}\beta > 0$.
+            \end{proposition}
+            \begin{Proof}
+                Como $\overline{H}$ es autoadjunto con espectro $\sigma(\overline{H}) = \mathbb{N}_0 \subset [0, \infty)$, el cálculo funcional \citep[Thm. VIII.5]{reed1980methods} asegura que $e^{-\beta \overline{H}}$ es autoadjunto, positivo y acotado para $\beta \geq 0$, con
+                \begin{equation*}
+                    \|e^{-\beta \overline{H}}\|_{L^2 \to L^2} = \sup_{\lambda \in \sigma(\overline{H})} |e^{-\beta \lambda}| = \sup_{k \in \mathbb{N}_0} e^{-\beta k} = e^0 = 1.
+                \end{equation*}
+                La norma es alcanzada exclusivamente sobre el estado fundamental $\varphi_{\boldsymbol{0}}$ (estado de Hermite con $|\boldsymbol{0}| = 0$): $e^{-\beta \overline{H}}\varphi_{\boldsymbol{0}} = \varphi_{\boldsymbol{0}}$. Sobre cualquier $f \in L^2$ con componente no trivial fuera del estado fundamental (es decir, con algún $\hat{f}(\boldsymbol{k}) \neq 0$ para $|\boldsymbol{k}| \geq 1$), se tiene $\|e^{-\beta \overline{H}}f\|_{L^2} < \|f\|_{L^2}$, lo que justifica el carácter estrictamente contractivo sobre el complemento ortogonal de $\operatorname{span}\{\varphi_{\boldsymbol{0}}\}$.
+
+                La continuidad fuerte del semigrupo --- esto es, $\lim_{\beta \to 0^+} e^{-\beta \overline{H}}f = f$ en $L^2$ para todo $f \in L^2$ --- y su holomorfía en el semiplano $\operatorname{Re}\beta > 0$ son consecuencias estándar de que $\overline{H}$ es un operador autoadjunto positivo \citep[Ch. II, \S4.6]{engel2000one}.
+            \end{Proof}
+
+            La Proposición \ref{prop:Cap24SemigrupoContr} corresponde, formalmente, a la fórmula de Mehler: el núcleo integral de $e^{-\beta \overline{H}}$ coincide con el núcleo $K_{i\beta}$ de \eqref{eq:Cap2ModuloKernelComplejo}, como puede verificarse escribiendo ambos en la base de Hermite \citep{folland1989harmonic,thangavelu1993lectures}. Combinando \ref{prop:Cap24SemigrupoContr} con el carácter unitario de $e^{i\theta \overline{H}}$ se obtiene el comportamiento general de $\mathcal{F}_\alpha$ en $L^2$ para orden complejo.
+
+            \begin{proposition}\label{prop:Cap24AcotamientoComp}
+                \textit{(Acotamiento en $L^2$ para orden complejo).} Sea $\alpha = \theta + i\beta \in \mathbb{C}$ con $\beta \geq 0$. El operador $\mathcal{F}_\alpha$ de la Definición \ref{def:Cap24TFFrDifComp} es acotado sobre $L^2(\mathbb{R}^n)$ con
+                \begin{equation*}
+                    \|\mathcal{F}_\alpha\|_{L^2 \to L^2} = 1,
+                \end{equation*}
+                y es estrictamente contractivo sobre el complemento ortogonal del estado fundamental cuando $\beta > 0$. En particular, no es unitario salvo si $\beta = 0$.
+            \end{proposition}
+            \begin{Proof}
+                Escribamos $\mathcal{F}_\alpha = U_\theta \circ C_\beta$ con $U_\theta := e^{i\theta \overline{H}}$ y $C_\beta := e^{-\beta \overline{H}}$. Como $U_\theta$ es unitario (Proposición \ref{prop:Cap24UnitariedadDif}), $\|U_\theta\|_{L^2 \to L^2} = 1$. Por la Proposición \ref{prop:Cap24SemigrupoContr}, $\|C_\beta\|_{L^2 \to L^2} = 1$ con $\beta \geq 0$. Por submultiplicatividad,
+                \begin{equation*}
+                    \|\mathcal{F}_\alpha\|_{L^2 \to L^2} \leq \|U_\theta\|\cdot \|C_\beta\| = 1.
+                \end{equation*}
+                La igualdad se alcanza sobre $\varphi_{\boldsymbol{0}}$: $\|\mathcal{F}_\alpha \varphi_{\boldsymbol{0}}\|_{L^2} = |e^{i\alpha \cdot 0}|\,\|\varphi_{\boldsymbol{0}}\|_{L^2} = 1$. La contractividad estricta sobre el complemento ortogonal del estado fundamental para $\beta > 0$ se hereda de $C_\beta$. Finalmente, si $\mathcal{F}_\alpha$ fuera unitario, debería preservar la norma de toda función, lo que contradice la contractividad estricta sobre $\varphi_{\boldsymbol{k}_0}$ con $|\boldsymbol{k}_0| \geq 1$, salvo si $\beta = 0$.
+            \end{Proof}
+
+            La Proposición \ref{prop:Cap24AcotamientoComp} muestra que, sobre $L^2(\mathbb{R}^n)$, el operador de orden complejo con $\beta > 0$ está bien definido y es acotado, pero pierde la unitariedad. Esto confirma, desde la formulación diferencial, el resultado negativo ya establecido en la §2.3.2 para la formulación integral. La restauración de la estructura unitaria requiere entonces el cambio de espacios propuesto allí.
+
+            \begin{proposition}\label{prop:Cap24UnitariedadComp}
+                \textit{(Unitariedad en los espacios de Hermite ponderados).} Sea $\alpha = \theta + i\beta \in \mathbb{C}$. El operador $\mathcal{F}_\alpha$ de la Definición \ref{def:Cap24TFFrDifComp} se extiende a un operador unitario
+                \begin{equation}\label{eq:Cap24UnitariedadComp}
+                    \mathcal{F}_\alpha : \mathcal{H}_\beta^+(\mathbb{R}^n) \longrightarrow L^2(\mathbb{R}^n),
+                \end{equation}
+                con inversa $\mathcal{F}_{-\alpha}$. Esta es la formulación diferencial del Teorema \ref{thm:isometriaComplejo} establecido en la §2.3.2.
+            \end{proposition}
+            \begin{Proof}
+                Por la Proposición \ref{prop:Cap24EquivDifIntComp}, el operador $\mathcal{F}_\alpha$ de la Definición \ref{def:Cap24TFFrDifComp} coincide con el operador integral sobre el subespacio denso $V \subset \mathcal{H}_\beta^+$. El Teorema \ref{thm:isometriaComplejo} estableció que el operador integral, así definido, es un operador unitario $\mathcal{F}_\alpha: \mathcal{H}_\beta^+ \to L^2$ con inversa $\mathcal{F}_{-\alpha}$. La extensión única por densidad al dominio completo $\mathcal{H}_\beta^+$ --- garantizada por el \emph{Bounded Linear Transformation Theorem} \citep[Thm. I.7]{reed1980methods} --- preserva la identidad entre ambas formulaciones.
+            \end{Proof}
+
+            La interpretación física y operacional es la siguiente: al complexificar el orden a $\alpha = \theta + i\beta$, la rotación en el espacio de fase generada por el Hamiltoniano adquiere una componente de amortiguamiento exponencial proporcional al número de excitaciones $|\boldsymbol{k}|$. Las reglas operacionales \eqref{eq:Cap24ReglaX}--\eqref{eq:Cap24ReglaP} admiten también una versión compleja natural, con funciones trigonométricas de argumento complejo:
+
+            \begin{proposition}\label{prop:Cap24ReglasComp}
+                \textit{(Reglas operacionales complejas).} Sea $\alpha = \theta + i\beta \in \mathbb{C}$ y $j\in\{1,\ldots,n\}$. Sobre el subespacio denso $V = \operatorname{span}\{\varphi_{\boldsymbol{k}}\}$ se verifican las identidades
+                \begin{align}
+                    \mathcal{F}_\alpha X_j \mathcal{F}_{-\alpha} & = X_j \cos\alpha + P_j \sen\alpha, \label{eq:Cap24ReglaXComp} \\
+                    \mathcal{F}_\alpha P_j \mathcal{F}_{-\alpha} & = -X_j \sen\alpha + P_j \cos\alpha, \label{eq:Cap24ReglaPComp}
+                \end{align}
+                donde $\cos\alpha$ y $\sen\alpha$ denotan las extensiones analíticas estándar al plano complejo:
+                \begin{equation*}
+                    \cos\alpha = \cos\theta\cosh\beta - i\sen\theta\senh\beta,\qquad \sen\alpha = \sen\theta\cosh\beta + i\cos\theta\senh\beta.
+                \end{equation*}
+            \end{proposition}
+            \begin{Proof}
+                La demostración de la Proposición \ref{prop:Cap24ReglasOperacionales} se basa en la ecuación diferencial ordinaria
+                \begin{equation*}
+                    \frac{dX_j(\alpha)}{d\alpha} = P_j(\alpha), \qquad \frac{dP_j(\alpha)}{d\alpha} = -X_j(\alpha),
+                \end{equation*}
+                derivada formalmente del conmutador $[iH, X_j] = P_j$ y $[iH, P_j] = -X_j$. Esta ecuación es independiente del carácter real o complejo del parámetro $\alpha$, y su solución única con condición inicial $X_j(0) = X_j$, $P_j(0) = P_j$ es $X_j(\alpha) = X_j\cos\alpha + P_j\sen\alpha$ y $P_j(\alpha) = -X_j\sen\alpha + P_j\cos\alpha$ para todo $\alpha \in \mathbb{C}$, con las funciones trigonométricas entendidas en su sentido complejo habitual. La validez rigurosa del argumento sobre $V$ se sigue del hecho de que todas las expresiones involucran polinomios y derivadas sobre funciones de Hermite, donde las series convergen absolutamente.
+            \end{Proof}
+
+            La identidad fundamental $\cos^2\alpha + \sen^2\alpha = 1$ se preserva para todo $\alpha \in \mathbb{C}$, lo que garantiza la consistencia de las reglas \eqref{eq:Cap24ReglaXComp}--\eqref{eq:Cap24ReglaPComp}: la matriz
+            \begin{equation*}
+                R(\alpha) = \begin{pmatrix} \cos\alpha & \sen\alpha \\ -\sen\alpha & \cos\alpha \end{pmatrix}
+            \end{equation*}
+            es un elemento del grupo complejo $\mathrm{SL}(2,\mathbb{C})$ y actúa como una rotación compleja en el plano canónico $(X_j, P_j)$. La interpretación física se mantiene, aunque las nociones geométricas de rotación deben reemplazarse por las de transformación canónica compleja, ampliamente utilizadas en la óptica cuántica de estados Gaussianos comprimidos \citep{kutay2002fractional}.
 
        \subsection{Extensión a órdenes matriciales}

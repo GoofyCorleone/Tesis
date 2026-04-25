@@ -2,6 +2,7 @@
 
 % Paquetes --------------------------------------------------------------------------
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -10,7 +11,7 @@
 %\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
 \usepackage{tocloft}
 \usepackage{fancyhdr}
-\setlength{\headheight}{13.07225pt} % Corregido: fancyhdr warning
+\setlength{\headheight}{24.2pt}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -32,7 +33,23 @@
 \newtheorem{lemma}{Lema}
 \newtheorem{theorem}{Teorema}
 \newtheorem{corollary}{Corolario}
-\newtheorem{Proof}{Demostración}
+\renewcommand{\proofname}{Demostración}
+\makeatletter
+\newenvironment{Proof}[1][\proofname]{%
+  \par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries\textbf{#1.}]\ignorespaces%
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\newenvironment{Proof*}[1][Demostración$^*$]{%
+  \par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries\textbf{#1.}]\ignorespaces%
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
 \newtheorem{example}{Ejemplo}
 \newtheorem{remark}{Observación}
 
@@ -42,7 +59,7 @@
 \newtheorem{lemma*}{Lema*}
 \newtheorem{theorem*}{Teorema*}
 \newtheorem{corollary*}{Corolario*}
-\newtheorem{proof*}{Demostración*}
+% \newtheorem{proof*}{Demostración*}
 
 % CORRECCIÓN: Solo cargar natbib UNA VEZ con las opciones deseadas
 \usepackage[square,sort,comma]{natbib}
@@ -51,8 +68,8 @@
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
-% Redefinir el comando \theequation para incluir el número de sección y subsección
-\renewcommand{\theequation}{\thesubsection.\arabic{equation}}
+% Numeración de ecuaciones por capítulo: (capítulo.número), e.g. (2.3)
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
 
 \DeclareCaptionFormat{myformat}{\textbf{#1#2} #3}
 \captionsetup[figure]{format=myformat}
@@ -72,9 +89,9 @@
 \setlength\cftbeforeloftitleskip{1cm}
 \setlength\cftbeforelottitleskip{1cm}
 
-% Reiniciar el contador de ecuaciones al principio de cada subsección
+% Reiniciar el contador de ecuaciones al inicio de cada capítulo
 \makeatletter
-\@addtoreset{equation}{section}
+\@addtoreset{equation}{chapter}
 \makeatother
 
 % Configuración de márgenes
