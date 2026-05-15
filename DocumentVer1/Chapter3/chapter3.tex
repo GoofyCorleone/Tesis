@@ -387,9 +387,9 @@
     \section{Operadores de fase cuántica}
         La noción de fase es central en la física clásica de ondas. Para un campo electromagnético monocromático clásico de la forma $E(t) = E_0 \cos(\omega t + \phi)$, la amplitud $E_0$ y la fase $\phi$ son cantidades perfectamente definidas que admiten medición simultánea con precisión arbitraria. En el régimen cuántico, sin embargo, la situación es cualitativamente diferente: la amplitud del campo está relacionada con el número de fotones y la fase constituye, en cierto sentido, la variable canónicamente conjugada al número de excitaciones. Como veremos, intentar definir un operador de fase hermitiano que sea canónicamente conjugado al operador número conduce a contradicciones matemáticas profundas que la comunidad de óptica cuántica tardó décadas en comprender plenamente \cite{Barnett1989,Lynch1995,Perinova1998}.
     
-        El problema puede enunciarse de manera precisa desde el principio. Definimos el operador número $\hat{n} = \hat{a}^{\dagger}\hat{a}$, con autovalores $n \in \{0, 1, 2, \ldots\}$ y autoestados $|n\rangle$ (estados de Fock). Si existiera un operador de fase hermitiano $\hat{\phi}$ que fuera canónicamente conjugado a $\hat{n}$, debería satisfacer
+        El problema puede enunciarse de manera precisa desde el principio. Definimos el operador número $\hat{N} = \hat{a}^{\dagger}\hat{a}$, con autovalores $n \in \{0, 1, 2, \ldots\}$ y autoestados $|n\rangle$ (estados de Fock). Si existiera un operador de fase hermitiano $\hat{\phi}$ que fuera canónicamente conjugado a $\hat{N}$, debería satisfacer
         \begin{equation}
-            [\hat{n}, \hat{\phi}] = i,
+            [\hat{N}, \hat{\phi}] = i,
             \label{eq:conmutador_n_phi}
         \end{equation}
         en perfecta analogía con el par posición--momento $[\hat{x}, \hat{p}] = i\hbar$. De esta relación se esperarían consecuencias físicas precisas: una relación de incertidumbre $\Delta n \cdot \Delta\phi \geq 1/2$, autoestados de fase bien definidos, y un operador unitario $e^{i\hat{\phi}}$ que actuara como operador de desplazamiento en número. Como demostraremos, ninguna de estas propiedades puede satisfacerse simultáneamente, y el motivo radica en la naturaleza semiboundada del espectro del operador número.
@@ -402,12 +402,12 @@
     
         La primera propuesta de un operador de fase cuántico se debe a Dirac \cite{Dirac1927}, quien en 1927 introdujo la idea de factorizar el operador de aniquilación en la forma
         \begin{equation}
-            \hat{a} = \hat{e}^{i\hat{\phi}} \, (\hat{n})^{1/2},
+            \hat{a} = \hat{e}^{i\hat{\phi}} \, (\hat{N})^{1/2},
             \label{eq:dirac_factorizacion}
         \end{equation}
-        donde $\hat{e}^{i\hat{\phi}}$ sería un operador unitario de fase y $(\hat{n})^{1/2}$ el operador amplitud. La motivación de Dirac es clara: en la mecánica clásica, una amplitud compleja se escribe como $\alpha = |\alpha| e^{i\phi}$, con módulo y fase perfectamente separables. La factorización \eqref{eq:dirac_factorizacion} pretende trasladar esta separación al régimen cuántico.
+        donde $\hat{e}^{i\hat{\phi}}$ sería un operador unitario de fase y $(\hat{N})^{1/2}$ el operador amplitud. La motivación de Dirac es clara: en la mecánica clásica, una amplitud compleja se escribe como $\alpha = |\alpha| e^{i\phi}$, con módulo y fase perfectamente separables. La factorización \eqref{eq:dirac_factorizacion} pretende trasladar esta separación al régimen cuántico.
         
-        De esta definición Dirac dedujo la inversa: $\hat{e}^{-i\hat{\phi}} = (\hat{n})^{-1/2} \hat{a}$. Para que $\hat{e}^{i\hat{\phi}}$ sea unitario, se requiere $\hat{e}^{i\hat{\phi}} (\hat{e}^{i\hat{\phi}})^\dagger = \mathbf{1}$, es decir,
+        De esta definición Dirac dedujo la inversa: $\hat{e}^{-i\hat{\phi}} = (\hat{N})^{-1/2} \hat{a}$. Para que $\hat{e}^{i\hat{\phi}}$ sea unitario, se requiere $\hat{e}^{i\hat{\phi}} (\hat{e}^{i\hat{\phi}})^\dagger = \mathbf{1}$, es decir,
         \begin{equation}
             \hat{e}^{i\hat{\phi}} \hat{e}^{-i\hat{\phi}} = \hat{e}^{-i\hat{\phi}} \hat{e}^{i\hat{\phi}} = \mathbf{1}.
             \label{eq:unitariedad}
@@ -415,23 +415,23 @@
         
         Calculemos el producto $\hat{e}^{-i\hat{\phi}} \hat{e}^{i\hat{\phi}}$ usando las definiciones de Dirac:
         \begin{equation}
-            \hat{e}^{-i\hat{\phi}} \hat{e}^{i\hat{\phi}} = (\hat{n})^{-1/2} \hat{a} \cdot \hat{a}^{\dagger} (\hat{n})^{-1/2} = (\hat{n})^{-1/2} (\hat{n} + 1) (\hat{n})^{-1/2} = \mathbf{1}.
+            \hat{e}^{-i\hat{\phi}} \hat{e}^{i\hat{\phi}} = (\hat{N})^{-1/2} \hat{a} \cdot \hat{a}^{\dagger} (\hat{N})^{-1/2} = (\hat{N})^{-1/2} (\hat{N} + 1) (\hat{N})^{-1/2} = \mathbf{1}.
             \label{eq:producto1}
         \end{equation}
         
         Hasta aquí no hay problema. Calculemos ahora el producto en orden inverso:
         \begin{equation}
-            \hat{e}^{i\hat{\phi}} \hat{e}^{-i\hat{\phi}} = \hat{a}^{\dagger} (\hat{n})^{-1/2} \cdot (\hat{n})^{-1/2} \hat{a} = \hat{a}^{\dagger} \hat{n}^{-1} \hat{a}.
+            \hat{e}^{i\hat{\phi}} \hat{e}^{-i\hat{\phi}} = \hat{a}^{\dagger} (\hat{N})^{-1/2} \cdot (\hat{N})^{-1/2} \hat{a} = \hat{a}^{\dagger} \hat{N}^{-1} \hat{a}.
             \label{eq:producto2}
         \end{equation}
         
-        Para evaluar $\hat{a}^{\dagger} \hat{n}^{-1} \hat{a}$, actuamos sobre el estado de Fock $|n\rangle$. Para $n \geq 1$:
+        Para evaluar $\hat{a}^{\dagger} \hat{N}^{-1} \hat{a}$, actuamos sobre el estado de Fock $|n\rangle$. Para $n \geq 1$:
         \begin{align}
-            \hat{a}^{\dagger} \hat{n}^{-1} \hat{a} |n\rangle &= \hat{a}^{\dagger} \hat{n}^{-1} \sqrt{n} |n-1\rangle = \hat{a}^{\dagger} \frac{1}{n-1}\sqrt{n}|n-1\rangle \quad (n \geq 2) \nonumber\\
+            \hat{a}^{\dagger} \hat{N}^{-1} \hat{a} |n\rangle &= \hat{a}^{\dagger} \hat{N}^{-1} \sqrt{n} |n-1\rangle = \hat{a}^{\dagger} \frac{1}{n-1}\sqrt{n}|n-1\rangle \quad (n \geq 2) \nonumber\\
             &\to \text{(requiere } n^{-1}(n-1)^{-1/2}\text{ que diverge para } n=1).
         \end{align}
         
-        El caso $n = 0$ es inmediatamente problemático: $\hat{n}^{-1}$ no está definido en el estado de vacío $|0\rangle$, ya que $\hat{n}|0\rangle = 0$ implica que $\hat{n}$ no es invertible en ese subespacio. Dirac resuelvió esto de manera ad hoc definiendo la acción sobre el vacío separadamente, pero una evaluación directa muestra que
+        El caso $n = 0$ es inmediatamente problemático: $\hat{N}^{-1}$ no está definido en el estado de vacío $|0\rangle$, ya que $\hat{N}|0\rangle = 0$ implica que $\hat{N}$ no es invertible en ese subespacio. Dirac resuelvió esto de manera ad hoc definiendo la acción sobre el vacío separadamente, pero una evaluación directa muestra que
         \begin{equation}
             \hat{e}^{i\hat{\phi}} \hat{e}^{-i\hat{\phi}} = \mathbf{1} - |0\rangle\langle 0|,
             \label{eq:fallo_unitariedad}
@@ -442,18 +442,18 @@
         
             La consecuencia directa de \eqref{eq:fallo_unitariedad} es que el operador de fase de Dirac no puede ser hermitiano en el sentido usual. Suponiendo que $\hat{\phi}$ es un operador hermitiano con espectro real, el operador $e^{i\hat{\phi}}$ sería unitario por el teorema espectral. Pero hemos visto que no lo es. Por tanto, $\hat{\phi}$ no puede ser hermitiano.
             
-            Para ver la incompatibilidad con la relación de conmutación \eqref{eq:conmutador_n_phi}, supongamos que $[\hat{n}, \hat{\phi}] = i$ se satisface en todo el espacio de Fock. Tomando el elemento de matriz entre estados de Fock $|m\rangle$ y $|n\rangle$:
+            Para ver la incompatibilidad con la relación de conmutación \eqref{eq:conmutador_n_phi}, supongamos que $[\hat{N}, \hat{\phi}] = i$ se satisface en todo el espacio de Fock. Tomando el elemento de matriz entre estados de Fock $|m\rangle$ y $|n\rangle$:
             \begin{equation}
                 (m - n)\langle m|\hat{\phi}|n\rangle = i\delta_{mn}.
             \end{equation}
             
             Para $m = n$: $0 = i$, que es una contradicción. Por tanto, la relación de conmutación \eqref{eq:conmutador_n_phi} no puede satisfacerse en ningún subespacio denso del espacio de Fock. Este es el resultado de Susskind y Glogower \cite{Susskind1964}, que enterró definitivamente el programa de Dirac en su formulación original.
             
-            Existe un argumento aún más general, conocido como el teorema de Garrison \cite{Garrison1970}. Si $\hat{\phi}$ fuera hermitiano con espectro en $[0, 2\pi)$ y $\hat{n}$ tuviera espectro en $\{0, 1, 2, \ldots\}$, entonces la relación de conmutación canónica $[\hat{n}, \hat{\phi}] = i$ implicaría que ambos operadores tienen espectros ilimitados, en contradicción con la acotación inferior del espectro de $\hat{n}$. El argumento formal se basa en la ecuación de Heisenberg:
+            Existe un argumento aún más general, conocido como el teorema de Garrison \cite{Garrison1970}. Si $\hat{\phi}$ fuera hermitiano con espectro en $[0, 2\pi)$ y $\hat{N}$ tuviera espectro en $\{0, 1, 2, \ldots\}$, entonces la relación de conmutación canónica $[\hat{N}, \hat{\phi}] = i$ implicaría que ambos operadores tienen espectros ilimitados, en contradicción con la acotación inferior del espectro de $\hat{N}$. El argumento formal se basa en la ecuación de Heisenberg:
             \begin{equation}
-                e^{i\hat{\phi}\theta} \hat{n} e^{-i\hat{\phi}\theta} = \hat{n} + \theta,
+                e^{i\hat{\phi}\theta} \hat{N} e^{-i\hat{\phi}\theta} = \hat{N} + \theta,
             \end{equation}
-            que, para $\theta < 0$ con $|\theta|$ suficientemente grande, llevaría a autovalores negativos de $\hat{n}$, absurdo.
+            que, para $\theta < 0$ con $|\theta|$ suficientemente grande, llevaría a autovalores negativos de $\hat{N}$, absurdo.
  
     % ============================================================
     \section{El formalismo de Susskind--Glogower}
@@ -465,12 +465,12 @@
         
             Susskind y Glogower definieron el operador de exponencial de fase compleja mediante la expresión
             \begin{equation}
-                \hat{E}_{+} = \sum_{n=0}^{\infty} |n\rangle\langle n+1| = (\hat{n} + 1)^{-1/2} \hat{a},
+                \hat{E}_{+} = \sum_{n=0}^{\infty} |n\rangle\langle n+1| = (\hat{N} + 1)^{-1/2} \hat{a},
                 \label{eq:SG_Eplus}
             \end{equation}
             y su adjunto hermitiano
             \begin{equation}
-                \hat{E}_{-} = \hat{E}_{+}^\dagger = \sum_{n=0}^{\infty} |n+1\rangle\langle n| = \hat{a}^{\dagger} (\hat{n} + 1)^{-1/2}.
+                \hat{E}_{-} = \hat{E}_{+}^\dagger = \sum_{n=0}^{\infty} |n+1\rangle\langle n| = \hat{a}^{\dagger} (\hat{N} + 1)^{-1/2}.
                 \label{eq:SG_Eminus}
             \end{equation}
             
@@ -485,8 +485,8 @@
             
             En términos de $\hat{E}_{\pm}$, los operadores de coseno y seno de la fase se definen como
             \begin{align}
-                \hat{C} &= \frac{1}{2}(\hat{E}_{+} + \hat{E}_{-}) = \frac{1}{2}\left[(\hat{n}+1)^{-1/2}\hat{a} + \hat{a}^{\dagger}(\hat{n}+1)^{-1/2}\right], \\
-                \hat{S} &= \frac{1}{2i}(\hat{E}_{+} - \hat{E}_{-}) = \frac{1}{2i}\left[(\hat{n}+1)^{-1/2}\hat{a} - \hat{a}^{\dagger}(\hat{n}+1)^{-1/2}\right].
+                \hat{C} &= \frac{1}{2}(\hat{E}_{+} + \hat{E}_{-}) = \frac{1}{2}\left[(\hat{N}+1)^{-1/2}\hat{a} + \hat{a}^{\dagger}(\hat{N}+1)^{-1/2}\right], \\
+                \hat{S} &= \frac{1}{2i}(\hat{E}_{+} - \hat{E}_{-}) = \frac{1}{2i}\left[(\hat{N}+1)^{-1/2}\hat{a} - \hat{a}^{\dagger}(\hat{N}+1)^{-1/2}\right].
                 \label{eq:SG_coseno_seno}
             \end{align}
  
@@ -506,15 +506,15 @@
             
             Esto tiene una interpretación física inmediata: $\hat{E}_{-}$ actúa como un operador de ``desplazamiento hacia arriba'' en número, pero $\hat{E}_{+}$ no puede invertir perfectamente esta operación porque no hay estado con número de fotones $-1$.
             
-            La relación de conmutación entre $\hat{n}$ y $\hat{E}_{\pm}$ se obtiene directamente:
+            La relación de conmutación entre $\hat{N}$ y $\hat{E}_{\pm}$ se obtiene directamente:
             \begin{align}
-                [\hat{n}, \hat{E}_{-}] &= \hat{E}_{-}, \label{eq:SG_com1}\\
-                [\hat{n}, \hat{E}_{+}] &= -\hat{E}_{+}. \label{eq:SG_com2}
+                [\hat{N}, \hat{E}_{-}] &= \hat{E}_{-}, \label{eq:SG_com1}\\
+                [\hat{N}, \hat{E}_{+}] &= -\hat{E}_{+}. \label{eq:SG_com2}
             \end{align}
             
             Para demostrarlo, actuamos sobre $|n\rangle$:
             \begin{align}
-                [\hat{n}, \hat{E}_{-}]|n\rangle &= \hat{n}(|n+1\rangle) - \hat{E}_{-}(n|n\rangle) = (n+1)|n+1\rangle - n|n+1\rangle = |n+1\rangle = \hat{E}_{-}|n\rangle.
+                [\hat{N}, \hat{E}_{-}]|n\rangle &= \hat{N}(|n+1\rangle) - \hat{E}_{-}(n|n\rangle) = (n+1)|n+1\rangle - n|n+1\rangle = |n+1\rangle = \hat{E}_{-}|n\rangle.
             \end{align}
  
         \subsection{Propiedades espectrales y relación de incertidumbre}
@@ -667,12 +667,12 @@
  
         \subsection{La relación de conmutación efectiva}
         
-            Dentro de $\mathcal{H}_s$, el operador número truncado $\hat{n}_s = \sum_{n=0}^{s} n|n\rangle\langle n|$ y el operador $\hat{\phi}_s$ satisfacen
+            Dentro de $\mathcal{H}_s$, el operador número truncado $\hat{N}_s = \sum_{n=0}^{s} n|n\rangle\langle n|$ y el operador $\hat{\phi}_s$ satisfacen
             \begin{equation}
-                [\hat{n}_s, \hat{\phi}_s] = i\left(\mathbf{1}_s - (s+1)|\phi_0 + 2\pi\rangle\langle\phi_0 + 2\pi|\right),
+                [\hat{N}_s, \hat{\phi}_s] = i\left(\mathbf{1}_s - (s+1)|\phi_0 + 2\pi\rangle\langle\phi_0 + 2\pi|\right),
                 \label{eq:PB_conmutador}
             \end{equation}
-            donde el término de corrección es despreciable en los elementos de matriz entre estados físicos cuando $s \to \infty$. Para cualquier par de estados $|\psi_1\rangle$, $|\psi_2\rangle$ en $\mathcal{H}_s$ con soporte en los primeros $N \ll s$ estados de Fock, la relación de conmutación efectiva es $[\hat{n}, \hat{\phi}]_{\text{eff}} \approx i$, con correcciones de orden $e^{-s}$.
+            donde el término de corrección es despreciable en los elementos de matriz entre estados físicos cuando $s \to \infty$. Para cualquier par de estados $|\psi_1\rangle$, $|\psi_2\rangle$ en $\mathcal{H}_s$ con soporte en los primeros $N \ll s$ estados de Fock, la relación de conmutación efectiva es $[\hat{N}, \hat{\phi}]_{\text{eff}} \approx i$, con correcciones de orden $e^{-s}$.
  
         \subsection{Distribución de probabilidad de fase y momentos}
         
@@ -733,7 +733,7 @@
  
         \subsection{La medida de valor operatorial positivo (POVM)}
         
-            La conclusión de Garrison y Wong no es nihilista: demuestra que no puede haber un operador de fase hermitiano canónicamente conjugado a $\hat{n}$, pero no impide la existencia de una descripción cuántica consistente de la fase. La salida que ofrece el formalismo moderno es el concepto de Medida de Valor Operatorial Positivo (POVM, por sus siglas en inglés), que generaliza el concepto de observable más allá de los operadores hermitianos \cite{Helstrom1976,Holevo1982}.
+            La conclusión de Garrison y Wong no es nihilista: demuestra que no puede haber un operador de fase hermitiano canónicamente conjugado a $\hat{N}$, pero no impide la existencia de una descripción cuántica consistente de la fase. La salida que ofrece el formalismo moderno es el concepto de Medida de Valor Operatorial Positivo (POVM, por sus siglas en inglés), que generaliza el concepto de observable más allá de los operadores hermitianos \cite{Helstrom1976,Holevo1982}.
             
             Una POVM sobre el intervalo $[0, 2\pi)$ es una familia $\{d\hat{F}(\phi)\}_{\phi \in [0,2\pi)}$ de operadores semidefinidos positivos que satisfacen la condición de normalización
             \begin{equation}
@@ -757,7 +757,7 @@
         
             Garrison y Wong establecen además un criterio de unicidad para la POVM de fase basado en la propiedad de covariancia: la POVM $\{d\hat{F}(\phi)\}$ debe satisfacer
             \begin{equation}
-                e^{i\hat{n}\theta} d\hat{F}(\phi) e^{-i\hat{n}\theta} = d\hat{F}(\phi + \theta),
+                e^{i\hat{N}\theta} d\hat{F}(\phi) e^{-i\hat{N}\theta} = d\hat{F}(\phi + \theta),
                 \label{eq:covariancia}
             \end{equation}
             es decir, la POVM debe ser covariante bajo rotaciones de fase. Puede demostrarse que la única POVM sobre $[0, 2\pi)$ que satisface \eqref{eq:covariancia} y \eqref{eq:POVM_normalizacion} es precisamente la POVM canónica descrita arriba \cite{Holevo1982}. Esto proporciona una justificación axiomática para el formalismo de Pegg--Barnett: aunque el operador de fase en sí no existe como observable hermitiano, la POVM que produce las mismas distribuciones de probabilidad está unívocamente determinada por la covariancia.
@@ -777,20 +777,350 @@
     
         Los cinco formalismos estudiados pueden compararse según varios criterios físicos y matemáticos. El análisis revela un cuadro coherente en el que cada propuesta responde a limitaciones específicas de las anteriores.
         
-        El formalismo de Dirac es el más intuitivo pero el más problemático: el operador $\hat{e}^{i\hat{\phi}}$ no es unitario, la relación de conmutación $[\hat{n}, \hat{\phi}] = i$ es inconsistente, y el tratamiento del estado de vacío requiere prescripciones ad hoc. Su importancia es principalmente histórica.
+        El formalismo de Dirac es el más intuitivo pero el más problemático: el operador $\hat{e}^{i\hat{\phi}}$ no es unitario, la relación de conmutación $[\hat{N}, \hat{\phi}] = i$ es inconsistente, y el tratamiento del estado de vacío requiere prescripciones ad hoc. Su importancia es principalmente histórica.
         
         Susskind y Glogower resuelven el problema de manera honesta abandonando la exigencia de unitariedad y definiendo directamente los operadores $\hat{E}_{\pm}$. El formalismo es internamente consistente, pero los operadores $\hat{C}$ y $\hat{S}$ no satisfacen $\hat{C}^2 + \hat{S}^2 = \mathbf{1}$, lo que complica la interpretación física.
         
         Paul extiende el espacio de Hilbert para recuperar la unitariedad, pero introduce estados sin interpretación física directa. Las predicciones para estados con pocos fotones presentan artefactos debidos a la proyección.
         
-        Pegg y Barnett resuelven el problema de manera pragmática y elegante: definen el operador de fase en un espacio de dimensión finita (donde el teorema de Garrison--Wong no aplica, pues el espectro de $\hat{n}$ es finito), y toman el límite al final. Las predicciones son físicamente interpretables y coinciden con el formalismo de Susskind--Glogower en el límite de muchos fotones.
+        Pegg y Barnett resuelven el problema de manera pragmática y elegante: definen el operador de fase en un espacio de dimensión finita (donde el teorema de Garrison--Wong no aplica, pues el espectro de $\hat{N}$ es finito), y toman el límite al final. Las predicciones son físicamente interpretables y coinciden con el formalismo de Susskind--Glogower en el límite de muchos fotones.
         
         Garrison y Wong proveen el fundamento axiomático: demuestran que un operador de fase hermitiano canónicamente conjugado no puede existir, identifican la estructura POVM como la descripción correcta, y establecen la covariancia como criterio de unicidad. Su trabajo conecta el problema de la fase cuántica con la teoría de la medición cuántica y la información cuántica.
         
         En la práctica experimental contemporánea, la distribución de probabilidad de fase de Pegg--Barnett es el estándar de referencia para el análisis de experimentos de interferometría cuántica y para la caracterización de estados no clásicos de la luz \cite{Barnett1989,Lynch1995}. La distinción entre los formalismos se vuelve empíricamente relevante únicamente para estados con número muy pequeño de fotones, donde las predicciones de los distintos operadores de coseno y seno difieren de manera mensurable.
 
-    \section{Espacio de fase y función de Wigner}
+    \section{La Ttransformación de Fourier Fraccionaria y la función de Wigner}
+            
+            En esta sección vamos a aplicar todo el formalismo teórico desarrollado en el capítulo \ref{chap:2} en donde vamos a probar la intrínseca relación que hay entre la TFFr y la función de Wigner \cite{ozaktas2001fractional}, en donde, el operador \ref{eq:Cap24TFFrDifNd} se convierte en rotaciones rígidas de las funciones de Wigner para cualquier estado cuántico y, a su vez, vamos a desarrollar la conección entre la TFFr  y los (no normalizables) estados de fase de Susskind-Glogower para deducir, de uan manera explícita y auto-contenida, un operador de fase Hermítico tipo Garrison-Wong.
+            
+            \subsection{Rotaciones de la función de Wigner}
+
+                A lo largo de las aplicaciones a la mecánica cuántica, vamos a adpotar la convención de notación para el operador de la TFFr como
+                \begin{equation}\label{eq:Cap3TFFrConv}
+                    \hat{\mathcal{F}}_\alpha = e^{i\hat{N}\alpha}, \qquad \hat{\mathcal{F}}_\alpha \ket{n} = e^{in\alpha}\ket{n}, \qquad \hat{\mathcal{F}}_{2n\pi} = \hat{\mathcal{I}}
+                \end{equation}
+                el cual difiere por un signo en el exponente de al convención original de Namias. Con \ref{eq:Cap3TFFrConv} la transformación de Fourier tradicional correspone a $\alpha = \pi/2$, y $\hat{\mathcal{F}}_\alpha^\dagger = \hat{\mathcal{F}}_{-\alpha} = \hat{\mathcal{F}}_\alpha^{-1}$.
+
+                Partamos de los estados coherentes $\ket{\lambda}$ \ref{eq:CoherentStates}, y vamos a aplciar el operador $\hat{\mathcal{F}}_\phi$, entonces
+                \begin{align}\label{eq:Cap3WignerRotCoherentes}
+                    & \hat{\mathcal{F}}_\phi \ket{\lambda} = e^{-\frac{1}{2}|\lambda|^2}\sum_{n=0}^{\infty} \frac{\lambda^n}{\sqrt{n!}}\hat{\mathcal{F}}_\phi \ket{n} = e^{-\frac{1}{2}|\lambda|^2}\sum_{n=0}^{\infty} \frac{\lambda^n}{\sqrt{n!}}e^{in\phi} \ket{n}, \nonumber\\
+                    & \hat{\mathcal{F}}_\phi \ket{\lambda} = e^{-\frac{1}{2}\left|\lambda e^{i\phi} \right|^2} \sum_{n=0}^{\infty} \frac{\left( \lambda e^{i\phi} \right)^n}{\sqrt{n!}}\ket{n} = \ket{\lambda e^{i\phi}},
+                \end{align}
+                en donde se utilizó el hecho de que $\left|\lambda e^{i\phi}\right| = |\lambda|$. En este orden de ideas, la TFFr produce una rotación de fase en la amplitud complejo de los estados coherentes, lo cual ya nos da una pista de que este operador podrá describir este tipo de rotaciones rígidas en un espacio de fase.
+
+                Como se mostró, los estados coherentes se pueden escribir como el operador de desplazamiento del estado de vacío. Con esto en mente, dado el operador de desplazamiento
+                \begin{equation*}
+                    \hat{\mathcal{D}}(\mu) = \exp\left(\mu \hat{a}^\dagger - \mu^* \hat{a} \right),
+                \end{equation*}
+                con $\mu = \lambda e^{i\phi}$ y usando la fórmula de Baker-Campbell-Hausdorff \cite{sakurai1995modern,cahill1969ordered}
+                \begin{equation}
+                    \hat{\mathcal{D}}\left(\lambda e^{i\phi} \right) = e^{-\frac{1}{2}|\lambda|^2} e^{\lambda e^{i\phi} \hat{a}^\dagger}e^{-\lambda^* e^{-i\phi} \hat{a}},
+                \end{equation}
+                vamos a ver que este operador es, en realidad, una transformación de rotación del operador de desplazamiento $\hat{\mathcal{D}}(\lambda)$. 
+
+                Llamemos $f(\phi)$ a la siguiente expresión
+                \begin{equation*}
+                    \hat{\mathcal{F}}_\phi \hat{a}\hat{\mathcal{F}}_\phi^\dagger = e^{i\hat{N}\phi} \hat{a}e^{-i\hat{N}\phi},
+                \end{equation*}
+                en donde, si derivamos respecto a $\phi$ y tenemos en cuenta el conmutador $\left[\hat{N}, \hat{a}\right] = - \hat{a}$ tendremos la siguiente EDO en operadores
+                \begin{align*}
+                    & \frac{d f}{d\phi}(\phi) = ie^{i\hat{N}\phi}\left(\hat{N}\hat{a} - \hat{a}\hat{N} \right)e^{-i\hat{N}\phi} = ie^{i\hat{N}\phi}\left[\hat{N},\hat{a} \right]e^{-i\hat{N}\phi} = -if(\phi),\\
+                    & f(\phi) = \hat{\mathcal{F}}_\phi \hat{a}\hat{\mathcal{F}}_\phi^\dagger = e^{i\hat{N}\phi} \hat{a}e^{-i\hat{N}\phi} = e^{-i\phi}\hat{a},
+                \end{align*}
+                análogamente se tiene que se cumple $\hat{\mathcal{F}}_\phi \hat{a}^\dagger\hat{\mathcal{F}}_\phi^\dagger = e^{i\phi}\hat{a}^\dagger$. Con esto en mente, veamos la rotación del operador de Desplazamiento
+
+                \begin{equation}\label{eq:Cap3Desplazamiento}
+                    \hat{\mathcal{F}}_\phi \hat{\mathcal{D}}(\lambda) \hat{\mathcal{F}}_\phi^\dagger = \exp\left(\lambda \hat{\mathcal{F}}_\phi \hat{a}^\dagger \hat{\mathcal{F}}_\phi^\dagger - \lambda^* \hat{\mathcal{F}}_\phi \hat{a}\hat{\mathcal{F}}_\phi^\dagger \right) = \exp\left( \lambda e^{i\phi}\hat{a}^\dagger - \lambda^* e^{-i\phi} \hat{a} \right) = \hat{\mathcal{D}}\left(\lambda e^{i\phi} \right).
+                \end{equation}
+                En particular, aplicado sobre el estado de vacío $\hat{\mathcal{D}}\left(\lambda e^{i\phi} \right)\ket{0} = \hat{\mathcal{F}}_\phi \ket{\lambda} = \ket{\lambda e^{i\phi}}$. Ahora que ya hemos probado que el operaor de desplazamiento para un estado coherente con fase $\phi$ está dado por una rotación del operador de desplazamiento vamos a ver cómo se relaciona la función de Wigner de los estados coherentes con la TFFr.
+
+                De la ecuación \ref{eq:Cap3Desplazamiento} la función característica de Wigner \cite{agarwal1968c} satisface
+                \begin{equation*}
+                    C_W\left(\lambda e^{i\phi} \right) = Tr \left\{ \hat{\rho}\hat{\mathcal{D}}\left(\lambda e^{i\phi} \right) \right\} = Tr\left\{\hat{\rho} \hat{\mathcal{F}}_\phi \hat{\mathcal{D}}(\lambda)\hat{\mathcal{F}}_\phi^\dagger \right\} = Tr\left\{\hat{\mathcal{F}}_\phi^\dagger \hat{\rho}\hat{\mathcal{F}}_\phi \hat{\mathcal{D}}(\lambda) \right\},
+                \end{equation*}
+                en donde usamos las propiedades cíclicas de la traza. La función de Wigner \cite{hillery1984distribution} es
+                \begin{equation}
+                    W\left( \alpha e^{i\phi} \right) = \frac{1}{\pi^2}\int_{\mathbb{R}^2}e^{\lambda^*\alpha - \lambda \alpha^*}C_W\left(\lambda e^{i\phi} \right)d^2\lambda.
+                \end{equation}
+
+                Entonces, la TFFr $\hat{\mathcal{F}}_\phi$ produce una rotación rígida de la función de Wigner en el espacio de fase de un ángulo $\phi$. El resultado estándar de la transformación de Fourier de una rotación $\phi = \pi/2$ replica lo mostrado por \cite{lohmann1993image}. 
+
+                Para extender este resutlado a cualquier función de Wigner vamos a partir de los operadores de posición y momento generalizados
+                \begin{equation}\label{eq:Cap3QP}
+                    \hat{q} = \sqrt{\frac{\hbar}{2}}\left(\hat{a} + \hat{a}^\dagger \right), \qquad \hat{p} = -i \sqrt{\frac{\hbar}{2}} \left(\hat{a} - \hat{a}^\dagger \right),
+                \end{equation}
+
+                tal que $[\hat{q},\hat{p}] = i\hbar$ y equivalentemente,
+                
+                \begin{equation}
+                    \hat{a} = \frac{1}{\sqrt{2\hbar}}\left(\hat{q}+i\hat{p} \right), \qquad \hat{a}^\dagger = \frac{1}{\sqrt{2\hbar}}\left(\hat{q}-i\hat{p} \right).
+                \end{equation}
+
+                La función de Wigner para un estado $\hat{\rho}$ está definida por
+                \begin{equation}
+                    W_\rho (q,p) = \frac{1}{2\pi \hbar} \int_{\mathbb{R}}e^{-ipy/\hbar}\left\langle q+ \frac{y}{2} \right|\hat{\rho}\left| q - \frac{y}{2} \right\rangle dy,
+                \end{equation}
+                o equivalentemente, mediante la función característica de Wyel \cite{hillery1984distribution,cahill1969ordered},
+                \begin{align*}
+                    & \chi_\rho (\xi,\eta) = Tr\left\{\hat{\rho} e^{i \left(\xi \hat{q} + \eta \hat{p} \right) /\hbar} \right\},\\
+                    & W_\rho(q,p) = \frac{1}{\left(2\pi\hbar \right)^2} \int_{\mathbb{R}^2} \chi_\rho (\xi,\eta) e^{-i \left(\chi q + \eta p \right)/\hbar} d\xi d\eta.
+                \end{align*}
+
+                La función de Wigner, a pesar de no ser positiva-definida está normalizada\footnote{La función de Wigner se ha explorado de muchas maneras con resultados muy interesantes en la mecánica cuántica, a pesar de ser conocida como una cuasi-distribución de probablidad (al no ser postiva-definida), en sus distribuciones marginales replica las densidades de probabilidad para cualquier par conjugado con exactitud, permitiendo así, caracterizaciones de sistemas cuánticos tan generales o complejos como se quiera.} tal que $\int W_\rho (q,p)dqdp = 1$. 
+
+                \begin{theorem}
+                    Sea $\hat{\rho}' = \hat{\mathcal{F}}_\alpha \hat{\rho} \hat{\mathcal{F}}_\alpha^\dagger$ donde $\hat{\mathcal{F}}_\alpha = e^{i\hat{N}\alpha}$. Entonces
+                    \begin{equation}\label{eq:Cap3TeoremaRotWigner}
+                        W_{\rho '} (q,p) = W_\rho \left(qcos\alpha + p sen\alpha, -q sen\alpha + p\cos \alpha \right).
+                    \end{equation}
+
+                    Es decir, la TFFr de orden $\alpha \in \mathbb{C}$ rota la función de Wigner un ángulo $\alpha$ en sentido horario en el espacio de fase.
+                \end{theorem}
+
+                \text{Demostración:} Partiendo de las identidades previamente demostradas $\hat{\mathcal{F}}_\alpha \hat{a} \hat{\mathcal{F}}_\alpha^\dagger = e^{-i\alpha}\hat{a}$ y $\hat{\mathcal{F}}_\alpha \hat{a}^\dagger \hat{\mathcal{F}}_\alpha^\dagger = e^{i\alpha}\hat{a}^\dagger$  y usando \ref{eq:Cap3QP}
+
+                \begin{align}
+                    & \hat{\mathcal{F}}_\alpha \hat{q} \hat{\mathcal{F}}_\alpha^\dagger = \sqrt{\frac{\hbar}{2}} \left(e^{-i\alpha} \hat{a} + e^{i\alpha}\hat{a}^\dagger \right) = \frac{1}{2}\left[e^{-i\alpha} \left( \hat{q} + i\hat{p} \right) + e^{i\alpha} \left(\hat{q} - i\hat{p} \right)\right] = \cos\alpha \hat{q} + \sen\alpha \hat{p},\\
+                    & \hat{\mathcal{F}}_\alpha \hat{p} \hat{\mathcal{F}}_\alpha^\dagger = -i\sqrt{\frac{\hbar}{2}} \left(e^{-i\alpha} \hat{a} - e^{i\alpha}\hat{a}^\dagger \right) = -\frac{i}{2}\left[e^{-i\alpha} \left( \hat{q} + i\hat{p} \right) - e^{i\alpha} \left(\hat{q} - i\hat{p} \right)\right] = -\sen\alpha \hat{q} + \cos\alpha \hat{p}.
+                \end{align}
+
+                Por lo tanto, la TFFr rota el vector $[\hat{q},\hat{p}]^T$ un ángulo $\alpha$ en sentido horario (un resultado evidenciado en la óptica en la representación metaplética de la rotación \cite{lohmann1993image,moshinsky1971linear} )
+                \begin{equation*}
+                    \hat{\mathcal{F}}_\alpha
+                    \begin{bmatrix}
+                        \hat{q}\\
+                        \hat{p}
+                    \end{bmatrix}
+                    \hat{\mathcal{F}}_\alpha^\dagger = R(\alpha) 
+                    \begin{bmatrix}
+                        \hat{q}\\
+                        \hat{p}
+                    \end{bmatrix},
+                    \qquad
+                    R(\alpha) =
+                    \begin{bmatrix}
+                        \cos\alpha & \sen\alpha\\
+                        -\sen\alpha & \cos\alpha
+                    \end{bmatrix}.
+                \end{equation*}
+
+                Ahora vamos a calcular la función característica de $\hat{\rho}'$
+
+                \begin{align*}
+                    & \chi_{\rho '} \left(\xi, \eta\right) = Tr \left\{\hat{\mathcal{F}}_\alpha \hat{\rho} \hat{\mathcal{F}}_\alpha ^\dagger e^{i \left(\chi\hat{q} + \eta \hat{p} \right)/\hbar} \right\} = Tr\left\{\hat{\rho} \hat{\mathcal{F}}_\alpha^\dagger e^{i\left(\xi \hat{q} + \eta \hat{p}  \right)/\hbar} \hat{\mathcal{F}}_\alpha \right\}\\
+                    & \chi_{\rho '} \left(\xi, \eta\right) = Tr \left\{ \hat{\rho} \exp \left[\hat{\mathcal{F}}_\alpha^\dagger \left(\xi \hat{q} + \eta \hat{p} \right)\hat{\mathcal{F}}_\alpha / \hbar \right] \right\},
+                \end{align*}
+                donde hemos utilizado la propiedad cíclica de la traza y el hecho de que
+                \begin{equation*}
+                    \hat{\mathcal{F}}_\alpha^\dagger f(\hat{A}) \hat{\mathcal{F}}_\alpha = f\left( \hat{\mathcal{F}}^\dagger_\alpha \hat{A} \hat{\mathcal{F}}_\alpha \right)
+                \end{equation*}
+                para $f$ analítica (como una consecuencia del teorema espectral \cite{reed1980methods}). Con esto en mente tenemos
+                \begin{equation*}
+                    \hat{\mathcal{F}}_\alpha^\dagger
+                    \begin{bmatrix}
+                        \hat{q}\\
+                        \hat{p}
+                    \end{bmatrix}
+                    \hat{\mathcal{F}}_\alpha
+                    = R(-\alpha)
+                    \begin{bmatrix}
+                        \hat{q}\\
+                        \hat{p}
+                    \end{bmatrix}
+                    = R(\alpha)^T
+                    \begin{bmatrix}
+                        \hat{q}\\
+                        \hat{p}.
+                    \end{bmatrix}
+                \end{equation*}
+
+                Luego
+                \begin{align}\label{eq:Cap3qpRot}
+                    & \xi \hat{\mathcal{F}}_\alpha^\dagger \hat{q} \hat{\mathcal{F}}_\alpha + \eta \hat{\mathcal{F}}_\alpha^\dagger \hat{p} \hat{\mathcal{F}}_\alpha = \xi \left(\cos\alpha \hat{q} - \sen\alpha \hat{p} \right) + \eta \left(\sen\alpha \hat{q} + \cos\alpha \hat{p} \right),\nonumber \\
+                    & \xi \hat{\mathcal{F}}_\alpha^\dagger \hat{q} \hat{\mathcal{F}}_\alpha + \eta \hat{\mathcal{F}}_\alpha^\dagger \hat{p} \hat{\mathcal{F}}_\alpha = \left(\xi\cos\alpha + \eta\sen\alpha \right)\hat{q} + \left(-\sen\alpha \xi + \eta\cos\alpha \right)\hat{p}\nonumber \\
+                    & \xi \hat{\mathcal{F}}_\alpha^\dagger \hat{q} \hat{\mathcal{F}}_\alpha + \eta \hat{\mathcal{F}}_\alpha^\dagger \hat{p} \hat{\mathcal{F}}_\alpha = \xi'\hat{q} + \eta' \hat{p}, \quad \text{donde}
+                    \begin{bmatrix}
+                        \xi'\\
+                        \eta'
+                    \end{bmatrix}
+                    = r(\alpha)
+                    \begin{bmatrix}
+                        \xi\\
+                        \eta
+                    \end{bmatrix}.
+                \end{align}
+                Entonces, la función característica de Weyl para el estado físico bajo la acción de la TFFr queda descrito por $\chi_{\rho'}\left(\xi,\eta\right) = \chi_\rho \left(\xi',\eta'\right)$ y así, la función de Wigner (bajo el cambio de variable $\left(\xi,\eta\right) \mapsto \left(\xi',\eta'\right)$ es)
+                \begin{align*}
+                    & W_{\rho'}\left(q,p\right) = \frac{1}{\left(2\pi\hbar\right)^2} \int\chi_{\rho}\left(\xi',\eta'\right)e^{-i\left(\xi q + \eta p\right)/\hbar} d\xi d\eta,\\
+                    & W_{\rho'}\left(q,p\right) = \frac{1}{\left(2\pi\hbar\right)^2} \int \chi_{\rho} \left(\xi', \eta'\right) e^{-i\left(\xi'q' + \eta'p' \right)/\hbar}d\xi'd\eta' = W_{\rho}\left(q',p'\right).
+                \end{align*}
+
+                En el desarrollo se expresó el argumento de la exponencial $\xi q + \eta p$ en términso de las variables rotadas. Específicamente, de \ref{eq:Cap3qpRot}. De esta manera, queda demostrado que la función de Wigner para un estado descrito por $\hat{\rho}$ bajo la acción de la TFFr de orden $\alpha$ es una rotación rígida de ángulo $\alpha$. Notemos que, en ningún momento en la demostración se impone que estrictamente $\alpha \in \mathbb{R}$ por lo tanto, este teorema contiene tanto rotaciones reales de de la función de Wigner como rotaciones hiperbólicas de la función de Wigner.
+
+            \subsection{Aplicación a distintos estados cuánticos}
+                
+                \subsubsection{Estados coherentes}
+
+                Para un estado coherente $\ket{\lambda}$ con
+                \begin{equation*}
+                    \lambda = \frac{q_0 + ip_0}{\sqrt{2\hbar}},
+                \end{equation*}
+                su función de Wigner es una Gaussiana \cite{glauber1963coherent,cahill1969density}
+                \begin{equation}
+                    W_{\ket{\lambda}}\left(q,p\right) = \frac{1}{\pi\hbar} \exp\left[- \frac{(q-q_0)^2 + (p-p_0)^2}{\hbar} \right],
+                \end{equation}
+                la cual es una Gaussiana de contornos ciruclares de ancho $\sqrt{\hbar/2}$ en cada cuadratura.  Vamos a aplicar entonces el resultado \ref{eq:Cap3TeoremaRotWigner} con $\alpha = \phi\;\in \mathbb{R}$ entonces
+                \begin{align}
+                    & W_{\hat{\mathcal{F}}_\phi \ket{\lambda}} (q,p) = W_{\ket{\lambda}}\left(q\cos\phi + p\sen\phi, -q\sen\phi + p\cos\phi \right) \nonumber \\
+                    & = \frac{1}{\pi\hbar} \exp \left\{ -\frac{1}{\hbar} \left[ \left(q\cos\phi + p\sen\phi - q_0\right)^2 + \left(-q\sen\phi + p \cos\phi - p_0\right)^2 \right] \right\}
+                \end{align}
+                Expandiendo los cuadrados
+                \begin{align*}
+                    & \left(q\cos\phi + p\sen\phi - q_0\right)^2 + \left(-q\sen\phi + p\cos\phi - p_0\right)^2 \\
+                    & = q^2 + p^2 + q_0^2 + p_0^2 - 2q\left( q_0\cos\phi - p_0\sen\phi \right) - 2p\left( q_0\sen\phi + p_0\cos\phi \right).
+                \end{align*}
+                Definiendo los centros de rotación
+                \begin{equation*}
+                    q_0' = q_0\cos\phi - p_0\sen\phi \qquad p_0' = q_0\sen\phi + p_0\cos\phi,
+                \end{equation*}
+                entonces la expresión se simplifica a $\left(q-q_0'\right)^2 + \left(p-p_0'\right)^2$ entonces la función de Wigner se escrie como
+                \begin{equation}\label{eq:Cap3WignerRotFormal}
+                    W_{\hat{\mathcal{F}}\ket{\lambda}} (q,p) = \frac{1}{\pi\hbar} e^{-\left[ \left(q-q_0'\right)^2 + \left(p-p_0'\right)^2\right]/\hbar}.
+                \end{equation}
+
+                En la ecuación \ref{eq:Cap3WignerRotFormal} se observa explícitamente la rotación de la función de Wigner y, para verificar la consistencia del modelo propuesto veamos que
+                \begin{equation}
+                    \lambda' = \frac{\left(q_0\cos\phi -p_0\sen\phi\right) + i\left(q_0\sen\phi + p_0\cos\phi \right)}{\sqrt{2\hbar}} = e^{i\phi} \frac{q_0+ip_0}{\sqrt{2\hbar}}\lambda,
+                \end{equation}
+                entonces $\hat{\mathcal{F}}_\phi \ket{\lambda} = \ket{\lambda e^{i\phi}}$ el cual es el mismo resultado mostrado en \ref{eq:Cap3WignerRotCoherentes} en la figura \ref{fig:TFFr-Coherentes} se muestra la simulación de la función de Wigner de distintos estados coherentes bajo la acción de la TFFr de distintos órdenes.
+
+                \begin{figure}[h]
+                    \centering    
+                    \includegraphics[width=0.8\textwidth]{Chapter3/Figures/TFFr_Coherents.png}
+                    \caption{Distribución de Wigner de los estados coherentes rotados bajo la aplicación de la TFFr de distintos órdenes.}
+                    \label{fig:TFFr-Coherentes}
+                \end{figure}
+
+                \subsubsection{Estados estrangulados del vacío}
+
+                    Sea $\hat{S}(r) = \exp\left[r \left(\hat{a}^2 - \hat{a}^{\dagger 2}\right)/2 \right] $ con $r \in \mathbb{R}$ el operador de estrangulamiento \cite{stoler1970equivalence,Walls2008}, y sea $\ket{r} = \hat{S}(r)\ket{0}$ el vacío estrangulado (estrangulado a lo largo del eje $q$ con una varianza de $\hbar e^{-2r}/2$ en $\hat{q}$ y varianza de $\hbar e^{2r}/2$ en $\hat{p}$, tal que $\triangle q\triangle p = \hbar/2$ se preserva). La función de Wigner es una Gaussiana anisótropa 
+                    \begin{equation}
+                        W_{\ket{r}}\left(q,p\right) = \frac{1}{\pi\hbar} \exp\left[- \frac{e^{2r}q^2 + e^{-2r}p^2}{\hbar} \right].
+                    \end{equation}
+
+                    Aplicamos \ref{eq:Cap3TeoremaRotWigner} entonces
+                    \begin{equation}
+                        W_{\hat{\mathcal{F}}_\phi \ket{r}}(q,p) = \frac{1}{\pi\hbar}\exp\left[- \frac{1}{\hbar}\left( e^{2r}\left(q\cos\phi + p \sen\phi\right)^2 + e^{-2r}\left(-q\sen\phi + p \cos\phi \right)^2 \right) \right],
+                    \end{equation}
+                    expandiendo los cuadrados tenemos
+                    \begin{equation*}
+                        e^{2r} \left(q\cos\phi + p\sen\phi \right)^2 + e^{-2r} \left(q\sen\phi - p\cos\phi\right)^2  = Aq^2 + Bp^2 + 2C qp,
+                    \end{equation*}
+                    donde
+                    \begin{align*}
+                        & A = e^{2r}cos^2\phi + e^{-2r}\sen^2\phi, \\
+                        & B = e^{2r}\sen^2\phi + e^{-2r}\cos^2\phi,\\
+                        & C = \left(e^{2r} - e^{-2r}\right)\sen\phi \cos\phi = \sen h(2r)\sen\phi \cos\phi.
+                    \end{align*}
+                    Usando $\cos^2\phi = \left(1+\cos 2\phi\right)/2$ y $\sen^2\phi = \left(1- \cos 2\phi\right)/2$, los coeficientes se escriben como
+                    \begin{align*}
+                        & A = \cosh 2r + \sen h2r \cos 2\phi,\\
+                        & B = \cosh 2r - \sen h2r \cos 2\phi,\\
+                        & C = \sen h(2r)\sen\phi\cos\phi = \frac{1}{2}\sen h2r \sen 2\phi.
+                    \end{align*}
+                    Entonces la función de Wigner se escribe como
+                    \begin{align}
+                        & W_{\hat{\mathcal{F}}_\phi \ket{r}}(q,p) = \nonumber\\
+                        &\frac{\pi}{\hbar} \exp\left\{-\frac{1}{\hbar} \left[ \left(\cosh 2r + \sen h 2r \cos 2\phi \right)q^2 + \left( \cosh 2r - \sen h2r \cos 2\phi \right)p^2 + \sen h2r \sen 2\phi\;qp \right]\right\}.
+                    \end{align}
+
+                    Entonces obtenemos que la elipse de los estados estrangulados originalmente alineada con el eje $q$ se rotó por un ángulo de $\phi$. Equivalentemente, podemos escribir
+                    \begin{equation}
+                        \hat{S}(r,\phi) = \hat{\mathcal{F}}_\phi \hat{S}(r) \hat{\mathcal{F}}_\phi^\dagger = \exp\left[ \frac{1}{2}r\left(\hat{a}^2e^{-2i\phi} - \hat{a}^{\dagger 2} e^{2i\phi} \right) \right],
+                    \end{equation}
+                    entonces la conjugación por $\hat{\mathcal{F}}_\phi$ produce la rotación rígida estándar del operador de estrangulamiento con parámetro $\zeta = re^{2u\phi}$ \cite{Walls2008,yuen1976two}. Esto muestra que la TFFr $\hat{\mathcal{F}}_\phi$ como el operador de orientación natural de la elipse de estrangulamiento en el espacio de fase como se muestra en la figura \ref{fig:TFFr-Squeezed}.
+
+                    \begin{figure}[h]
+                        \centering    
+                        \includegraphics[width=0.6\textwidth]{Chapter3/Figures/TFFr_Squeezed.png}
+                        \caption{Distribución de Wigner de los estados estrangulados del vacío rotados bajo la aplicación de la TFFr de distintos órdenes.}
+                        \label{fig:TFFr-Squeezed}
+                    \end{figure}
+                \subsubsection{Estados de Fock}
+                    
+                    La función de Wigner para los estados número $\ket{n}$ es \cite{hillery1984distribution,cahill1969ordered,groenewold1946principles}
+                    \begin{equation}
+                        W_{\ket{n}}\left(q,p\right) = \frac{(-1)^n}{\pi\hbar} L_n\left(\frac{2\left(q^2 + p^2\right)}{\hbar} \right)e^{-\left(q^2+p^2\right)/\hbar},
+                    \end{equation}
+                    donde $L_n$ es el n-ésimo polinomio de Laguerre. Para $n=0$ se reduce a la función de Wigner del vacío, la cual coincide con una Gaussiana $W_{\ket{0}}(q,p) = (\pi\hbar)^{-1}\exp\left[-\left(q^2+p^2\right)/\hbar\right]$.
+
+                    Vamos a aplicar entonces el teorema \ref{eq:Cap3TeoremaRotWigner}. Es importante notar que la función de Wigner de los estados de Fock $W_{\ket{n}}$ depende únicamente de la combinación radial $q^2+p^2$. Etonces, bajo la rotación tenemos
+                    \begin{align*}
+                        & q'^2 + p'^2 = \left(q\cos\phi + p\sen\phi \right)^2 + \left(-q\sen\phi + p\cos\phi \right)^2 \\
+                        & = q^2\left(\cos^2\phi + \sen^2\phi \right) +2qp\left( \cos\phi\sen\phi - \sen\phi \cos\phi \right) = q^2 + p^2.
+                    \end{align*}
+
+                    Por lo tanto
+                    \begin{equation}
+                        W_{\hat{\mathcal{F}}_\phi \ket{n}} (q,p) = W_{\ket{n}}(q,p).
+                    \end{equation}
+                    Esto quiere decir que las funciones de Wigner de los estados de Fock son invariantes bajo la influencia de la Tranformación de Fourier Fraccionaria, lo cual, es completamente consisten con el operador desde su definición ya que
+                    \begin{equation*}
+                        \hat{\mathcal{F}}_\phi \ket{n} = e^{in\phi} \ket{n},
+                    \end{equation*}
+                    dado que el producto de un estado por una fase global deja a $\ket{n}\bra{n}$ (y por tanto a su función de Wigner) invariantes. Geométricamente (ver figura \ref{fig:TFFr-Fock}), los anillos concéntricos y las oscilaciones centrales de $W_{\ket{n}}$ poseen completa simetría respecto al origen.
+
+                    \begin{figure}[h]
+                        \centering    
+                        \includegraphics[width=0.8\textwidth]{Chapter3/Figures/TFFr_Fock.png}
+                        \caption{Distribución de Wigner de los estados de Fock  bajo la aplicación de la TFFr de distintos órdenes, en donde podemos apreciar que se mantiene completamente invariante y tanto analítica como numéricamente su diferencia es cero.}
+                        \label{fig:TFFr-Fock}
+                    \end{figure}
+
+
+                \subsubsection{Estados térmicos}
+
+                    Un estado término para un valor medio de fotones de $\overline{n}$ es el estado mixto
+
+                    \begin{equation}
+                        \hat{\rho}_{th} = \frac{1}{\overline{n} + 1}\sum_{n=0}^{\infty} \left(\frac{\overline{n}}{\overline{n}+1}\right)^2 \ket{n}\bra{n},
+                    \end{equation}
+                    cuya función de Wigner \cite{hillery1984distribution,cahill1969density,Walls2008} es
+
+                    \begin{equation}
+                        W_{th}\left(q,p\right) = \frac{1}{\pi\hbar \left(2\overline{n} + 1\right)} \exp\left[- \frac{q^2+p^2}{\hbar\left(2\overline{n} + 1\right)}\right].
+                    \end{equation}
+
+                    Para $\overline{n} \to 0$, se reduce a la función de Wigner del vacío $W_{\ket{0}}$. Podemos ver que la variancia en cada cuadratura es de $\hbar\left(2\overline{n} + 1\right)/2$, la cual es $\hbar/2$ a temperatura cero y crece linealmente con $\overline{n}$.
+
+                    Para aplicar el resultado \ref{eq:Cap3TeoremaRotWigner} observemso que la dependencia, nuevamente, es puramente radial: $q^2+p^2$. Por el mismo argument y resultado de los estados de Fock se tiene que $q'^2 + p'^2 = q^2 + p^2$, entonces
+
+                    \begin{equation}
+                        W_{\hat{\mathcal{F}}_\phi \hat{\rho}_{th}\hat{\mathcal{F}}_\phi^\dagger}(q,p) = W_{th}(q,p).
+                    \end{equation}
+                    Esto también es un poco esperable  ya que, a nivel de operadores, cada proyector $\ket{n}\bra{n}$ en la descomposición espectral de los estadso términos es invariantes bajo la TFFr $\hat{\mathcal{F}}_\phi$ (ver figura \ref{fig:TFFr-Termicos}y, por tanto, es una combinación convexa.
+                    
+                    \begin{figure}[h]
+                        \centering    
+                        \includegraphics[width=0.8\textwidth]{Chapter3/Figures/TFFr_Termicos.png}
+                        \caption{Distribución de Wigner de los estados de térmicos  bajo la aplicación de la TFFr de distintos órdenes, en donde podemos apreciar que se mantiene completamente invariante y, al igual que los estados de Fock, tanto analítica como numéricamente su diferencia es cero.}
+                        \label{fig:TFFr-Termicos}
+                    \end{figure}
+
 
     \section{Operador de fase cuántica}
+                    
+        Vamos a definir unos estados de fase escritos en la base de los estados número como
+        \begin{equation*}
+            \ket{\#} = \sum_{n=0}^{\infty} \ket{n}.
+        \end{equation*}
 
-        \subsection{Test de Killing de Paul}
+        Entonces, utilizando la $TFFr$ $\hat{\mathcal{F}}_\phi$ obtenemos
+        \begin{equation}
+            \hat{\mathcal{F}}_\phi \ket{\#} = \sum_{n=0}^{\infty} e^{in\phi}\ket{n} = \ket{\phi}
+        \end{equation}
+
+
+        \subsection{Deducción de un operador hermítico y el test de Killing de Paul}
+
+        \subsection{Operadores de fase para distintos estados cuánticos}
