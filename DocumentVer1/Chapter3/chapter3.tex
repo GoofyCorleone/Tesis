@@ -996,7 +996,7 @@
 
                 \begin{figure}[h]
                     \centering    
-                    \includegraphics[width=0.8\textwidth]{Chapter3/Figures/TFFr_Coherents.png}
+                    \includegraphics[width=0.6\textwidth]{Chapter3/Figures/TFFr_Coherents.png}
                     \caption{Distribución de Wigner de los estados coherentes rotados bajo la aplicación de la TFFr de distintos órdenes.}
                     \label{fig:TFFr-Coherentes}
                 \end{figure}
@@ -1072,7 +1072,7 @@
 
                     \begin{figure}[h]
                         \centering    
-                        \includegraphics[width=0.8\textwidth]{Chapter3/Figures/TFFr_Fock.png}
+                        \includegraphics[width=0.6\textwidth]{Chapter3/Figures/TFFr_Fock.png}
                         \caption{Distribución de Wigner de los estados de Fock  bajo la aplicación de la TFFr de distintos órdenes, en donde podemos apreciar que se mantiene completamente invariante y tanto analítica como numéricamente su diferencia es cero.}
                         \label{fig:TFFr-Fock}
                     \end{figure}
@@ -1102,7 +1102,7 @@
                     
                     \begin{figure}[h]
                         \centering    
-                        \includegraphics[width=0.8\textwidth]{Chapter3/Figures/TFFr_Termicos.png}
+                        \includegraphics[width=0.6\textwidth]{Chapter3/Figures/TFFr_Termicos.png}
                         \caption{Distribución de Wigner de los estados de térmicos  bajo la aplicación de la TFFr de distintos órdenes, en donde podemos apreciar que se mantiene completamente invariante y, al igual que los estados de Fock, tanto analítica como numéricamente su diferencia es cero.}
                         \label{fig:TFFr-Termicos}
                     \end{figure}
@@ -1111,16 +1111,480 @@
     \section{Operador de fase cuántica}
                     
         Vamos a definir unos estados de fase escritos en la base de los estados número como
-        \begin{equation*}
+        \begin{equation*}\label{eq:Cap3EstadoNumeral}
             \ket{\#} = \sum_{n=0}^{\infty} \ket{n}.
         \end{equation*}
 
         Entonces, utilizando la $TFFr$ $\hat{\mathcal{F}}_\phi$ obtenemos
-        \begin{equation}
-            \hat{\mathcal{F}}_\phi \ket{\#} = \sum_{n=0}^{\infty} e^{in\phi}\ket{n} = \ket{\phi}
+        \begin{equation}\label{eq:Cap3EStadosDeFase}
+            \hat{\mathcal{F}}_\phi \ket{\#} = \sum_{n=0}^{\infty} e^{in\phi}\ket{n} = \ket{\phi}.
         \end{equation}
 
+        Antes de seguir con el desarrollo matemático, veamos que geométricamente los estados $\ket{\#}$ representa un peine de Dirac la cual es la identidad de la suma de Poisson para el peine de Dirac de periodo $2\pi$ como se puede ver en la figura \ref{fig:Cap3-EstadoFase}, mientras que por el resultado \ref{eq:Cap3EStadosDeFase} el peine de Dirac (ver figura \ref{fig:Cap3-EstadoFaseRot}) se orienta dando origen a los estados de fase $\ket{\phi}$.
 
-        \subsection{Deducción de un operador hermítico y el test de Killing de Paul}
+        \begin{figure}[htbp]
+            \centering
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Chapter3/Figures/EstadosFase.pdf}
+                \caption{Representación de los estados $\ket{\#}$ como peines de Dirac en el espacio de fase.}
+                \label{fig:Cap3-EstadoFase}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.45\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{Chapter3/Figures/EstadosFase_Rot.pdf}
+                \caption{Los estados de fase $\ket{\phi}$ corresponden a la aplicación de la TFFr de ordne $\phi$ sobre $\ket{\#}$ la cual, geométricamente, corresponde a orientar un ángulo $\phi$ el peine de Dirac.}
+                \label{fig:Cap3-EstadoFaseRot}
+            \end{subfigure}
+            \caption{Represetanción de los estados de fase y su relación con la TFFr..}
+            \label{fig:paralelo}
+        \end{figure}
+
+        Podemos ver que la no ortogonalidad de la familia de estados $\{\ket{\phi}\}$ es una manifestación del hecho de que cualesquiera dos estados de fase difieren por una rotación en el espacio de fase ($\hat{\mathcal{F}}_{\pm\theta}\ket{\phi} = \ket{\phi \pm \theta}$). 
+
+
+        \subsection{Operadores Exponenciales de fase}
+
+            De Sussking y Glogower \cite{susskind1964quantum}, introducimos los operadores exponenciales de fase de potencia $m$ escritos en la base de los estados número como
+            \begin{equation}
+                \hat{E}_m = \sum_{n=0}^{\infty}\ket{n}\bra{n+m}, \qquad m=0,1,2,3,...
+            \end{equation}
+            Donde $\hat{E}_0 = \hat{\mathcal{I}}$ y 
+            \begin{equation}
+                \hat{E}_m \ket{\phi} = e^{im\phi}\ket{\phi}.
+            \end{equation}
+            De hecho,
+            \begin{equation*}
+                \hat{E}_m \ket{\phi} = \sum_{n,k=0}^{\infty} \ket{n}\bra{n+m}e^{ik\phi}\ket{k} = \sum_{_n=0}^{\infty}e^{i(n+m)\phi}\ket{n} = e^{im\phi}\ket{\phi},
+            \end{equation*}
+            y sobre los estadso número opera como
+            \begin{equation}
+                \hat{E}_m \ket{n} = 
+                \left\{
+                \begin{matrix}
+                    \ket{n-m}, & n \geq m\\
+                    0, & n < m
+                \end{matrix}
+                \right.
+                \qquad \hat{E}_m^\dagger \ket{n} = \ket{n+m}.
+            \end{equation}
+            Un cambio en los índices mudos nos da
+            \begin{equation*}
+                \sum_{n=m}^{\infty} \ket{n}\bra{n-m} = \sum_{n=0}^{\infty}\ket{n+m}\bra{n} = \hat{E}^\dagger_m.
+            \end{equation*}
+
+            Estos operadores exponenciales de fase heredan la semi-unitareidad de la formulación original de Sussking-Glogower, en donde se tiene que
+            \begin{align}
+                & \hat{E}_m \hat{E}_m^\dagger = \sum_{n,n'=0}^{\infty} \ket{n}\braket{n+m|n'+m} \bra{n'} = \hat{\mathcal{I}},\\
+                & \hat{E}_m^\dagger\hat{E}_m = \sum_{n=0}^{\infty} \ket{n+m}\bra{n+m} = \hat{\mathcal{I}}- \sum_{n=0}^{m-1}\ket{n}\bra{n}.
+            \end{align}
+
+            Entonces el conmutador de los exponenciales de fase es
+            \begin{equation*}
+                \left[\hat{E}_m, \hat{E}_m^\dagger\right] = \sum_{n=0}^{m-1}\ket{n}\bra{n}.
+            \end{equation*}
+
+            Veamos ahora cómo relacionar la TFFr con estos operadores exponenciales y sus reglas de conmutación.  Dado que, en la base de los estados número $\hat{\mathcal{F}}_\theta = \sum_{n=0}^{\infty} e^{in\theta}\ket{n}\bra{n}$ es diagonal, entonces
+            \begin{align*}
+                & \hat{E}_m \hat{\mathcal{F}}_\theta = \sum_{n=0}^{\infty} e^{i(n+m)\theta}\ket{n}\bra{n+m},\\
+                & \hat{\mathcal{F}}_\theta \hat{E}_m = \sum_{n=0}^{\infty} e^{in\theta}\ket{n}\bra{n+m},
+            \end{align*}
+            luego los conmutadores son entonces
+            \begin{align}
+                & \left[\hat{E}_m, \hat{\mathcal{F}}_\theta\right] = \left(e^{im\theta} - 1\right)\hat{\mathcal{F}}_\theta \hat{E}_m, \\
+                & \left[\hat{E}_m^\dagger, \hat{\mathcal{F}}_\theta\right] = \left(1-e^{im\theta}\right)\hat{E}_m^\dagger \hat{\mathcal{F}}_\theta.
+            \end{align}
+
+            Vamos a usar estos conmutadores para calcular las transformaciones de similaridad de los exponenciales de fase. Del primer conmutador tenemos que $\hat{E}_m\hat{\mathcal{F}}_\theta = e^{im\theta} \hat{\mathcal{F}}_\theta \hat{E}_m$, tendremos
+            \begin{equation}\label{eq:Cap3SimilaridadEm}
+                \hat{\mathcal{F}}_\theta \hat{E}_m \hat{\mathcal{F}}_\theta^\dagger = e^{-im\theta} \hat{E}_m, \qquad \hat{\mathcal{F}}_\theta \hat{E}_m^\dagger \hat{\mathcal{F}}_\theta^\dagger = e^{im\theta} \hat{E}_m^\dagger,
+            \end{equation}
+            y al actuar sobre un estado de fase $\ket{\phi}$ tendremos que la TFFr rota los estados de fase en un ángulo $\theta$
+            \begin{equation}
+                \hat{\mathcal{F}}_\theta \hat{E}_m \hat{\mathcal{F}}_\theta^\dagger \ket{\phi} = e^{im(\phi-\theta)}\ket{\phi}.
+            \end{equation}
+        
+        \subsection{Operador hermítico de fase}
+            
+            Toda la construcción previa se susstenta en la construcción de las herramientas suficientes para usar al construcción de Toeplitz-Rosenblum y así obtener un operador de fase hermítico. Primero, vamos a calcular el projecto de fase cero $\ket{\#}\bra{\#}$ el cual, en la base de los estados número, acepta la descomposición
+            \begin{equation}
+                \ket{\#}\bra{\#} = \sum_{n,n'=0}^{\infty} \ket{n}\bra{n'} = \sum_{m=-\infty}^{^\infty} \hat{E}_m = \sum_{n=0}^{\infty}\ket{n}\bra{n} + \sum_{m=1}^{\infty} \left(\hat{E}_m + \hat{E}_m^\dagger\right).
+            \end{equation}
+            Donde hemos utilizado que $\hat{E}^{-m} = \hat{E}_m^\dagger$ y $\hat{E}_0 = \hat{\mathcal{I}}$. Conjugación con la TFFr $\hat{\mathcal{F}}_\theta$ y utilizando \ref{eq:Cap3SimilaridadEm}
+            \begin{equation}\label{eq:Cap3ProyectorTheta}
+                \ket{\theta}\bra{\theta} = \hat{\mathcal{I}} + \sum_{m=1}^{\infty} \left(e^{-im\theta}\hat{E}_m + e^{im\theta} \hat{E}_m^\dagger \right).
+            \end{equation}
+
+            Dado que la familia $\{\ket{\phi}\}$ no son ortogonales, adoptaremos al construcción de Toeplitz-Rosenblum \cite{rosenblum1962self}. Dado $f \in \mathbb{L}^1(\mathbb{R})$ se tiene que un operador Hermítico $\hat{F}_\phi$ está dado por
+            \begin{equation}
+                \hat{F}_\phi = \frac{1}{2\pi} \int_{\phi}^{\phi+2\pi} f(\theta)\ket{\theta}\bra{\theta}d\theta.
+            \end{equation}
+
+            Escogiendo $f(\theta) = \theta$ obtenemos un operador tipo Garrison-Wong \cite{Garrison1970}. Sustituyendo \ref{eq:Cap3ProyectorTheta}, tendremos las siguientes tres integrales
+
+            \begin{equation}
+                I_0 = \frac{1}{2\pi}\int_\phi^{\phi+2\pi} \theta d\theta, \qquad I_\pm  = \frac{1}{2\pi}\int_\phi^{\phi+2\pi}\theta e^{\pm im\theta}d\theta.
+            \end{equation}
+
+            La primera integral es inmdiata
+            \begin{equation*}
+                I_0 = \frac{(\phi+2\pi)^2 - \phi^2}{4\pi} = \phi+\pi.
+            \end{equation*}
+            Para las otras dos integrales, mediante integrcación por partes $(u=\theta, dv=e^{\pm im\theta}d\theta)$nos da, después de usar $e^{\pm im(\phi+2\pi)} = e^{\pm im\phi} (m\in \mathbb{Z})$
+            \begin{equation*}
+                I_\pm  = \frac{1}{2\pi} \left[\frac{\theta e^{\pm im\theta}}{\pm im}|_\phi^{\phi+2\pi} - \frac{1}{\pm im}\int_\phi^{\phi +2\pi} e^{\pm im\theta}d\theta  \right] = \frac{1}{2\pi} \frac{2\pi e^{\pm im\theta}}{\pm im} - 0 = \mp \frac{ie^{\pm im\phi}}{m}.
+            \end{equation*}
+            Entonces tenemos que el operador de fase $\hat{\Theta_\phi}$ es
+            \begin{equation}\label{eq:Cap3OperadorFaseHermitico}
+                \hat{\Theta}_\phi = (\phi + \pi)\sum_{n=0}\ket{n}\bra{n} + i \sum_{n=1}^\infty \frac{e^{-im\phi}}{m}\hat{E}_m -i\sum_{m=1}^{\infty} \frac{e^{im\phi}}{m}\hat{E}_m^\dagger.
+            \end{equation}
+            Usando $\hat{\mathcal{F}}_\phi \ket{n}\bra{n+m}\hat{\mathcal{F}}_\phi^\dagger = e^{-im\phi}\ket{n}\bra{n+m}$ y la relación análoga para el conjugado, entonces el operador de fase adquiere la forma
+            \begin{equation}\label{eq:Cap3OperadorFaseHermiticoFourier}
+                \hat{\Theta}_\phi = (\phi+\pi)\hat{\mathcal{I}} + i \hat{\mathcal{F}}_\phi \left(\sum_{m=1}^{\infty}\sum_{n=0}^{\infty}\frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m} \right)\hat{\mathcal{F}}_\phi^\dagger.
+            \end{equation}
+
+            Si hacemos $\phi = -\pi$ en la ecuación \ref{eq:Cap3OperadorFaseHermitico} y usando $e^{\mp im\pi}=(-1)^m$, tendremos
+            \begin{equation}\label{eq:Cap3OperadorFaseMenosPi}
+                \hat{\Theta}_{-\pi} = i \sum_{m=1}^{\infty}\sum_{n=0}^{\infty} \frac{(-1)^m}{m}\left(\ket{n}\bra{n+m} - \ket{n+m}\bra{n} \right),
+            \end{equation}
+            y podemos ver así que, el operador de fase, consiste en tomar el proyector de estados de fase $-\pi$ y rotarlos un ángulo de $\phi$ mediante una transformación de similaridad de la TFFr y así, dado una referencia $\phi$ el operador $\hat{\Theta}_\phi$ es hermítico lo cual coincide con el formalismo de Wong \cite{Garrison1970} y la formulación de operadores de fase de \cite{Bergou1991} \textbf{ACÁ DEBO VOLVER A REVISAR CON CALMA EL PAPER Y VER QUÉ TIENEN DE SEMEJANTES}.
+
+            Dado que la base de estados de fase no son ortogonales, el cuadrado de operadores de fase no es el cuadrado del operador de fase, es decir $\hat{\Theta}_\phi^2 \neq \left(\hat{\Theta}_\phi\right)^2$ en general; el operador cuadrático debe ser definido mediante la contrucción de Toeplitz-Rosenblum con $f(\theta) = \theta^2$. Necesitamos calcular
+
+            \begin{equation*}
+                J_0 = \frac{1}{2\pi}\int_\phi^{\phi+2\pi} \theta^2 d\theta, \qquad J_\pm = \frac{1}{2\pi} \int_\phi^{\phi+2\pi} \theta^2e
+                {\pm im\theta}d\theta.
+            \end{equation*}
+
+            Calculando directamente obtenemos
+            \begin{equation*}
+                J_0 = \frac{\left(\phi + 2\pi\right)^3 - \phi^3}{6\pi} = (\phi + \pi)^2 + \frac{\pi^2}{3}, \qquad J_\pm = 2\left[\mp \frac{i(\phi + \pi)}{m} + \frac{1}{m^2} \right]e^{\pm im\phi}, 
+            \end{equation*}
+            y así el operador cuadrático de fase es
+            \begin{align}\label{eq:Cap3OperadorHermiticoFaseCuadradoFourier}
+                & \hat{\Theta}_\phi^2 = \left[(\phi + \pi)^2 + \frac{\pi^2}{3} \right]\hat{\mathcal{I}} + 2(\phi + \pi)\hat{\mathcal{F}}_\phi \sum_{m=1}^{\infty}\sum_{n=0}^{\infty}\frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m} \hat{\mathcal{F}}_\phi^\dagger \nonumber\\
+                & + 2\hat{\mathcal{F}}_\phi \sum_{m=1}^{\infty}\sum_{n=0}^{\infty}\frac{\ket{n}\bra{n+m} + \ket{n+m}\bra{n}}{m^2} \hat{\mathcal{F}}_\phi^\dagger,
+            \end{align}
+            en donde podemos ver que si $\phi = -\pi$ tenemos
+            \begin{equation}
+                \hat{\Theta}_{-\pi}^2 = \frac{\pi^2}{3}\hat{\mathcal{I}} + 2 \sum_{m,n}^{\infty}\frac{(-1)^m}{m^2}\left(\ket{n}\bra{n+m} + \ket{n+m}\bra{n} \right),
+            \end{equation}
+            y así, el operador de fase al cuadrado consiste en una fase escalar, una rotación de $\phi$ del operador $\hat{\Theta}_{-\pi}$ y otra rotación de $\phi$ del operador cuadrático $\hat{\Theta}_{-\pi}^2$. 
+
+            Hasta este momento, todo lo desarrollado ha sido para construir un operador de fase hermítico en espacios de Hilbert de dimensión infinita sin la necesidad de introducir un espectro negativo tal como lo hacen Pegg y Barnett, sin embargo, este desarrollo reproduce los resultados de \cite{Bergou1991} en su totalidad, por lo tanto, lo que se muestra en este trabajo es una reformulación de estos operadores en donde utilizando la TFFr queda más claro la perspectiva geométrica y naturaleza tanto de los estados de fase como la construcción de los operadores de fase y replicaremos el conmutador de London que, como ya se mostró, es matemáticamente inconsistente tener un conmutador canónico entre el operador número y el operador de faes. Calculemos entonces este conmutador en donde, por brevedad y sin pérdida de generalidad diremos $\hat{\Theta} \equiv \hat{\theta}_{-\pi}$ entonces
+
+            \begin{align*}
+                & \hat{N}\hat{\Theta} = \sum_{k=0}^{\infty} k \ket{k}\bra{k} \cdot i \sum_{m,n}^{\infty} \frac{(-1)^m}{m}\left(\ket{n}\bra{n+m} - \ket{n+m}\bra{n}\right)\\
+                & = i\sum_{m,n}^{\infty}\frac{(-1)^m}{m}\left[n\ket{n}\bra{n+m} - (n+m)\ket{n+m}\bra{n} \right], \\
+                & \hat{\Theta}\hat{N} = i \sum_{m,n}^{\infty} \frac{(-1)^m}{m}\left(\ket{n}\bra{n+m} - \ket{n+m}\bra{n}\right)\sum_{k}^{\infty} k \ket{k}\bra{k}\\
+                & = i \sum_{m,n}^{\infty} \frac{(-1)^m}{m}\left[(n+m)\ket{n}\bra{n+m} - n\ket{n+m}\bra{n} \right],
+            \end{align*}
+            restando tendremos que el conmutador es
+            \begin{equation}
+                \left[\hat{N}, \hat{\Theta}\right] = -i \sum_{m=1}^{\infty}\sum_{m=0}^{\infty} (-1)^m \left(\ket{n}\bra{n+m} + \ket{n+m}\bra{n} \right).
+            \end{equation}
+
+            Del proyector de fase \ref{eq:Cap3ProyectorTheta} para $\theta = \pi$ y usando $e^{\pm im\pi} = (-1)^m$ 
+            \begin{align*}
+                & \ket{\pi}\bra{\pi} = \hat{\mathcal{I}} + \sum_{m=1}^{\infty} (-1)^m \left(\hat{E}_m + \hat{E}_k^\dagger \right),\\
+                & \hat{\mathcal{I}} - \ket{\pi}\bra{\pi} = - \sum_{m,n}^{\infty} (-1)^m \left(\ket{n}\bra{n+m} + \ket{n+m}\bra{n} \right),
+            \end{align*}
+            ell cual coincide con el lado derecho de la ecuación que representa al conmutador divido por $i$, entonces
+            \begin{equation}\label{eq:Cap3ConmutadorNTheta}
+                \left[\hat{N}, \hat{\Theta}\right] = i \left(\hat{\mathcal{I}} - \ket{\pi}\bra{\pi} \right).
+            \end{equation}
+
+            El conmutador \ref{eq:Cap3ConmutadorNTheta} es la forma de Judge-Lewis \cite{judge1963commutator}, donde $\hat{Theta}$ es un operador de ángulo de periodo $2\pi$. Acá se obtiene sin hacer ninguan extensión del espacio de Hilbert a estados número negativos. El estado $\ket{\pi}$ es no normalizable; el projector $\ket{\pi}\bra{\pi}$ en realidad se porta como una distribución delta de Dirac de periodo $2\pi$ es decir $\delta_{2\pi}(\theta-\pi)$ en la representación de fase.
 
         \subsection{Operadores de fase para distintos estados cuánticos}
+            
+            En esta sección vamos a calcular los valores esperados $\braket{\hat{\Theta}}$ y $\braket{\hat{\Theta}^2}$ para distintos estados y dar su interpretación física y matemática.
+
+            \subsubsection{Estados de Fock}
+
+                Para los estados número $\ket{n}$\ref el valor esperado de la ecuación \ref{eq:Cap3OperadorFaseHermiticoFourier} nos da
+                \begin{equation}
+                    \bra{n}\hat{\Theta}_\phi \ket{n} = \left(\phi + \pi\right) + i \bra{n} \hat{\mathcal{F}}_\phi \left( \sum_{m=1}^{\infty}\sum_{n=0}^{\infty}\frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m}  \right)\hat{\mathcal{F}}_\phi^\dagger \ket{n},
+                \end{equation}
+                dado que $\hat{\mathcal{F}}_\phi \ket{n} = e^{-in\phi}\ket{n}$ y el término que está bajo la transformación de similaridad está fuersa de la diagonal en la base de Fock, entonces $\bra{n} \hat{\mathcal{F}}_\phi \left( \sum_{m=1}^{\infty}\sum_{n=0}^{\infty}\frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m}  \right)\hat{\mathcal{F}}_\phi^\dagger \ket{n} = 0$ y el valor esperado del operador de fase es
+                \begin{equation}
+                    \bra{n} \hat{\Theta}_\phi \ket{n} = \phi + \pi.
+                \end{equation}
+
+                Análogamente, de \ref{eq:Cap3OperadorHermiticoFaseCuadradoFourier} tenemos
+                \begin{equation}
+                    \bra{n}\hat{\phi}^2_\phi \ket{n} = \left(\phi + \pi\right)^2 + \frac{\pi^2}{3}.
+                \end{equation}
+                Por lo tanto, la varianza será
+                \begin{equation}
+                    \triangle \hat{\Theta}_\phi^2 = \bra{n}\hat{\Theta}_\phi^2\ket{n} - \bra{n}\hat{\Theta}_\phi\ket{n}^2 = \frac{\pi^2}{3},
+                \end{equation}
+                la cual corresponde correctamente a la varianza de una distribución de fase uniforme en un intervalo de longitud $2\pi$, $\sigma^2 = (2\pi)^2/12 = \pi^2/3$, consistente con el hecho de que los estados de Fock tienen una fase indeterminada.
+
+            \subsubsection{Estados de Fase}
+                
+                Ahora vamos a evaluar $\hat{\Theta} \equiv \hat{\Theta}_{-\pi}$ sobre los estados de fase $\ket{\phi}$ y vamos a demostrar que recuperaremos la identidad $\hat{\Theta}\ket{\phi} = \phi \ket{\phi}\; $ para cada $\pi \in \left(-\pi,\pi\right)$. De \ref{eq:Cap3OperadorFaseMenosPi} tenemos
+                \begin{align*}
+                    & \hat{\Theta}\ket{n} = i \sum_{m=1}^{n}\frac{(-1)^m}{m}\ket{n-m} - i \sum_{m=1}^{\infty} \frac{(-1)^m}{m}\ket{n+m} = i \sum_{k\neq n}^{\infty} \frac{(-1)^{n-k}}{n+k}\ket{k},
+                \end{align*}
+                en donde, en el último paso, se hizo el cambio de variables $k= n-m$ en la primera suma y $k= n+m$ en la segunda. En particular
+                \begin{equation*}
+                    \bra{n}\hat{\Theta}\ket{n} = 0,
+                \end{equation*}
+                el cual es el caso especial cuando $\phi = -\pi$ de la varianza del operador de fase en la base de Fock ya que $\phi + \pi = 0$.
+
+                Vamos a calcular los elementos de matriz
+                \begin{align*}
+                    \bra{m}\hat{\Theta}\ket{\phi} = \sum_{n=0}^{\infty} e^{in\phi} \bra{m}\hat{\Theta}\ket{n} = i \sum_{n\neq m}^{\infty} \frac{(-1)^{n-m}}{n+m}e^{in\phi} = ie^{im\phi} \sum_{l=-m, l \neq 0}^{\infty} \frac{(-1)^l}{l}e^{il\phi},
+                \end{align*}
+                donde $l=n-m$.  Para dar uan cara explícita, veamos que la serie de Fourier para la función diente de sierra de periodo $2\pi$ $f(\phi) = \phi$ en $(-\pi,\pi)$ es
+                \begin{equation*}
+                    \phi = i \sum_{l\neq 0, l \in \mathbb{Z}}^{\infty} \frac{(-1)^l}{l}e^{il\phi}, \quad -\pi < \phi < \phi.
+                \end{equation*}
+
+                Entonces, en el límite formal donde la cota inferior $-m$ en  la serie de Fourier de la sierra puede ser reemplazada por $-\infty$ (el cua lse justifica en los elementos de matriz con suficientes estados suaves),
+                \begin{equation}
+                    \bra{m}\hat{\Theta}\ket{\phi} \longrightarrow \phi e^{im\phi} = \phi \braket{m|\phi},
+                \end{equation}
+                por lo tanto
+                \begin{equation}
+                    \hat{\Theta}\ket{\phi} = \phi \ket{\phi}, \quad -\pi < \phi < \pi.
+                \end{equation}
+
+            \subsubsection{Estados coherentes}
+                
+                Sea $\ket{\lambda}$ con $\lambda = |\lambda|e^{i\theta}$. De \ref{eq:Cap3OperadorFaseHermiticoFourier}
+                \begin{align}
+                    & \bra{\lambda} \hat{\Theta}_\phi \ket{\lambda} = (\phi + \pi) + i \bra{\lambda}\hat{\mathcal{F}_\phi} \left( \sum_{m=1}^{\infty}\sum_{m=0}^{\infty} \frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m} \right) \hat{\mathcal{F}}_\phi^\dagger  \ket{\lambda} \nonumber\\
+                    & = (\phi + \pi) + i \bra{\mu} \frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m} \ket{\mu},
+                \end{align}
+                donde $\mu = \lambda e^{-i\phi} = |\lambda| e^{i(\theta-\phi)}$. Para un estado coherente $\mu$ tenemos
+                \begin{equation*}
+                    \braket{\nu | n} = e^{- \frac{|\mu|^2}{2}}\frac{(\mu^*)^n}{\sqrt{n!}},
+                \end{equation*}
+                entonces
+                \begin{align*}
+                    & \bra{\mu} \left(\ket{n}\bra{n+m}\right)\ket{\mu} = e^{-|\mu|^2} \frac{(\mu^*)^n \mu^{n+m}}{\sqrt{n!(n+m)!}} = e^{-|\lambda|^2} \frac{|\lambda|^{2n+m}e^{im(\theta-\phi)}}{\sqrt{n!(n+m)!}},
+                \end{align*}
+                y el término transpuesto nos da el complejo conjugado, por tanto que en la base de los estados coherentes $\ket{\mu}$
+                \begin{align}
+                    & \bra{\mu}\sum_{m=1}^{\infty}\sum_{m=0}^{\infty} \frac{\ket{n}\bra{n+m} - \ket{n+m}\bra{n}}{m} \ket{\mu} = e^{-|\lambda|^2} \sum_{m=1}^{\infty} \frac{2i \sen\left[m\left(\theta-\phi\right)\right]}{m}S_m\left(|\lambda|\right) \nonumber\\
+                    & S_m(r) = \sum_{n=0}^{\infty} \frac{r^{2n+m}}{\sqrt{n!(n+m)!}},
+                \end{align}
+                juntando todo, el valor esperado del operadro de fase en la base de los estados coherentes es
+                \begin{equation}
+                    \bra{\lambda}\hat{\Theta}_\phi \ket{\lambda} = (\phi + \pi) - 2e^{-|\lambda|^2} \sum_{m=1}^{\infty} \frac{\sen\left[m(\theta-\phi)\right]}{m}S_m\left(|\lambda|\right).
+                \end{equation}
+
+                La idea central es probar que en el límite clásico, cuando $|\lambda| \to \infty$ se recupera la fase clásica. En este límite, las funciones $S_m(|\lambda|)$ tienen una forma cerrada conocida relacionada con las funciones de Bessell \cite{cahill1969ordered}
+                \begin{equation*}
+                    S_m(r) = I_m(2r^2),
+                \end{equation*}
+                o de manera más precisa, definiendo $\tilde{S}_m(r) = e^{-r^2}S_m(r)$ y usando la identidad de la función generatriz
+
+               \begin{equation}
+                    \sum_{n=0}^{\infty} \frac{r^{2n+m}}{\sqrt{n!(n+m)!}} \overset{r\to \infty}{\longrightarrow} e^{r^2} \left(1 - \frac{m^2}{4r^2} + \mathcal{O}(r^{-4})\right),
+               \end{equation}
+               se obtiene que $e^{-|\lambda|^2}S_m(|\lambda|) \to 1$ cuando $|\lambda| \to \infty$. En este límite, el valor esperado se reduce a
+               \begin{equation}
+                    \bra{\lambda} \hat{\Theta}_\phi \ket{\lambda} \overset{|\lambda|\to \infty}{\longrightarrow} (\phi + \pi) - 2\sum_{m=1}^{\infty} \frac{\sen\left(m(\theta-\phi)\right)}{m},
+               \end{equation} 
+               la cual corresponde a la serie de Fourier de la función diente de sierra de periodo $2\pi$. Concretamente, usando la identidad
+               \begin{equation}
+                   2\sum_{m=1}^{\infty}\frac{\sen(m\xi)}{m} = \pi - \xi, \quad 0 < \xi < 2\pi,
+               \end{equation}
+               con $\xi = \theta - \phi \in (0,2\pi)$, obtenemos directamente
+               \begin{equation}
+                   \bra{\lambda}\hat{\Theta}_\phi\ket{\lambda} \overset{|\lambda|\to\infty}{\longrightarrow} (\phi+\pi) - \left(\pi - (\theta-\phi)\right) = \theta,
+               \end{equation}
+               de modo que, en el límite clásico, el operador de fase recupera exactamente la fase clásica $\theta = \arg\lambda$ del estado coherente, con independencia de la referencia $\phi$.
+
+               Para la varianza, un cálculo análogo a partir del operador cuadrático \ref{eq:Cap3OperadorHermiticoFaseCuadradoFourier} con $\phi = -\pi$ conduce, para $|\lambda|\gg 1$, a
+               \begin{equation}\label{eq:Cap3VarianzaCoherentes}
+                   \Delta\hat{\Theta}^2 \approx \frac{1}{4|\lambda|^2} = \frac{1}{4\bar{n}},
+               \end{equation}
+               donde $\bar{n} = |\lambda|^2$ es el número medio de fotones. Este resultado reproduce la incertidumbre de fase semiclásica estándar y es completamente consistente con el producto de incertidumbre número-fase $\Delta N\cdot\Delta\hat{\Theta}\approx\frac{1}{2}$ para estados mínimos en el régimen de muchos fotones \cite{Barnett1989,Lynch1995}.
+
+            \subsubsection{Fotones de fase}
+
+                Los \textit{fotones de fase} son estados cuánticos que ocupan un régimen intermedio entre los estados de Fock ---amplitud nula, fase totalmente indeterminada--- y los estados coherentes macroscópicos ---fase bien definida, incertidumbre de fase $1/\sqrt{\bar{n}}$ pequeña---. En su versión monofrecuencia, el fotón de fase de etiqueta angular $\theta_0$ se define como el estado coherente de amplitud unitaria
+                \begin{equation}\label{eq:Cap3FotonDeFase}
+                    \ket{e^{i\theta_0}} \equiv \ket{\lambda}\Big|_{|\lambda|=1,\;\arg\lambda\,=\,\theta_0},
+                \end{equation}
+                es decir, el estado coherente $\ket{\lambda}$ con $|\lambda| = 1$ y $\arg\lambda = \theta_0$. Este estado tiene un número medio de fotones $\braket{\hat{N}} = |\lambda|^2 = 1$, lo que lo identifica como un paquete de ondas de un solo fotón con etiqueta de fase continua $\theta_0$.
+
+                La función de Wigner del fotón de fase $\ket{e^{i\theta_0}}$ es una gaussiana centrada en el punto $(q_0, p_0) = \left(\sqrt{2\hbar}\cos\theta_0,\;\sqrt{2\hbar}\sen\theta_0\right)$ del espacio de fase,
+                \begin{equation}\label{eq:Cap3WignerFotonFase}
+                    W_{\ket{e^{i\theta_0}}}(q,p) = \frac{1}{\pi\hbar}\exp\!\left[-\frac{\left(q-\sqrt{2\hbar}\cos\theta_0\right)^2+\left(p-\sqrt{2\hbar}\sen\theta_0\right)^2}{\hbar}\right],
+                \end{equation}
+                un disco gaussiano de ancho $\sqrt{\hbar/2}$ centrado sobre la circunferencia de radio $\sqrt{2\hbar}$ a posición angular $\theta_0$. Nótese que el desplazamiento desde el origen es $\sqrt{2\hbar}\approx 1.414\sqrt{\hbar}$, mientras que el ancho del disco es $\sqrt{\hbar/2}\approx 0.707\sqrt{\hbar}$: la razón entre ambas escalas es $2$, lo que significa que el disco gaussiano es aproximadamente tan ancho como la mitad del desplazamiento desde el origen. Esta geometría pone de manifiesto que el fotón de fase \textit{no} es un estado de fase bien definida en sentido riguroso; su incertidumbre angular es del mismo orden que la posición angular que lo etiqueta.
+
+                Bajo la acción de la TFFr de orden $\alpha$, el resultado \ref{eq:Cap3WignerRotCoherentes} con $|\lambda|=1$ da inmediatamente
+                \begin{equation}\label{eq:Cap3FrFTFotonFase}
+                    \hat{\mathcal{F}}_\alpha\ket{e^{i\theta_0}} = \ket{e^{i(\theta_0+\alpha)}},
+                \end{equation}
+                es decir, la TFFr de orden $\alpha$ desplaza la etiqueta de fase del fotón de fase en exactamente $\alpha$, deslizándolo a lo largo de la circunferencia de radio $\sqrt{2\hbar}$ en el espacio de fase. Este resultado es la versión del subespacio de amplitud unitaria de la identidad general $\hat{\mathcal{F}}_\phi\ket{\#} = \ket{\phi}$.
+
+                \textbf{Fase operacional.} Para calcular la fase medible del fotón de fase, evaluamos el operador de fase $\hat{\Theta}_{-\pi}$ sobre $\ket{e^{i\theta_0}}$. Este es el caso $|\lambda|=1$, $\phi=-\pi$ del resultado general para estados coherentes \ref{eq:Cap3OperadorFaseHermiticoFourier}. Con $\mu = \lambda e^{i\pi}$ y $|\mu|=1$, el valor esperado de la fase es
+                \begin{equation}\label{eq:Cap3FaseOperacionalFoton}
+                    \bra{e^{i\theta_0}}\hat{\Theta}_{-\pi}\ket{e^{i\theta_0}} = 2e^{-1}\sum_{m=1}^{\infty}\frac{(-1)^{m+1}}{m}\,S_m(1)\,\sen(m\theta_0),
+                \end{equation}
+                donde $S_m(1) = \sum_{n=0}^{\infty}1/\sqrt{n!(n+m)!}$ son coeficientes que decrecen con $m$. Numéricamente, $e^{-1}S_1(1)\approx 0.668$, $e^{-1}S_2(1)\approx 0.452$, $e^{-1}S_3(1)\approx 0.287$. El resultado fundamental es que la fase operacional $\braket{\hat{\Theta}}$ \textit{no es igual} a la etiqueta paramétrica $\theta_0$ cuando $|\lambda|=1$: la diferencia es una corrección cuántica genuina, inherente al régimen de un solo fotón. Solo en el límite $|\lambda|\to\infty$ la corrección desaparece y se recupera $\braket{\hat{\Theta}}\to\theta_0$, en concordancia con el límite clásico de los estados coherentes obtenido anteriormente.
+
+                Esto pone de manifiesto la distinción fundamental entre la etiqueta paramétrica $\theta_0$ ---que identifica el paquete de ondas pero no es resultado de ninguna medición--- y la fase operacional $\braket{\hat{\Theta}}$ ---que es un observable medible en principio mediante tomografía de fase---. Ambas cantidades coinciden únicamente en el límite clásico $|\lambda|\to\infty$.
+
+            \subsubsection{Estados coherentes estrangulados}
+
+                Consideremos ahora el estado coherente estrangulado
+                \begin{equation}\label{eq:Cap3EstadoCoherenteEstrangulado}
+                    \ket{\lambda, r, \beta} \equiv \hat{\mathcal{D}}(\lambda)\,\hat{S}(r,\beta)\ket{0},
+                \end{equation}
+                donde $\lambda = |\lambda|e^{i\theta_0}$, $\hat{\mathcal{D}}(\lambda)$ es el operador de desplazamiento, y $\hat{S}(r,\beta) = \hat{\mathcal{F}}_\beta\hat{S}(r)\hat{\mathcal{F}}_\beta^\dagger$ es el operador de estrangulamiento rotado con parámetro complejo $\zeta = re^{2i\beta}$, de modo que el eje de estrangulamiento mínimo forma un ángulo $\beta$ con la cuadratura $\hat{q}$.
+
+                Por el teorema de rotación de la función de Wigner \ref{eq:Cap3TeoremaRotWigner} y la definición del operador de estrangulamiento rotado (ecuación \ref{eq:Cap3Desplazamiento} del capítulo), la función de Wigner del estado \ref{eq:Cap3EstadoCoherenteEstrangulado} es una gaussiana anisótropa centrada en $(q_0,p_0)=\sqrt{2\hbar}|\lambda|(\cos\theta_0,\,\sen\theta_0)$ con matriz de covarianza
+                \begin{equation}\label{eq:Cap3CovarianzaEstrangulado}
+                    \Sigma = \frac{\hbar}{2}\,R(\beta)\begin{pmatrix}e^{-2r} & 0 \\ 0 & e^{+2r}\end{pmatrix}R(\beta)^T,
+                \end{equation}
+                donde $R(\beta)$ es la matriz de rotación de ángulo $\beta$. El eje de varianza mínima $\hbar e^{-2r}/2$ apunta en la dirección $\beta$ y el eje de varianza máxima $\hbar e^{+2r}/2$ apunta en la dirección perpendicular $\beta + \pi/2$.
+
+                \textbf{Varianza de fase.} En el régimen de gran amplitud $|\lambda|^2\gg e^{2r}$, la distribución de probabilidad de fase converge a la marginal azimutal de la gaussiana de Wigner \ref{eq:Cap3CovarianzaEstrangulado}. La varianza azimutal de esta gaussiana en la dirección perpendicular al desplazamiento, $\mathbf{e}_\perp = (-\sen\theta_0,\,\cos\theta_0)$, es
+                \begin{equation}
+                    \sigma_\perp^2 = \mathbf{e}_\perp^T\,\Sigma\,\mathbf{e}_\perp = \frac{\hbar}{2}\left[\cosh(2r) + \sinh(2r)\cos(2\theta_0 - 2\beta)\right].
+                \end{equation}
+                Dado que un desplazamiento azimutal $\delta\theta$ a radio $\sqrt{2\hbar}|\lambda|$ corresponde a un desplazamiento transversal $\sqrt{2\hbar}|\lambda|\,\delta\theta$, la varianza de fase al orden dominante es
+                \begin{equation}\label{eq:Cap3VarianzaEstrangulado}
+                    \Delta\Theta^2 \approx \frac{1}{4|\lambda|^2}\left[\cosh(2r)+\sinh(2r)\cos(2\theta_0-2\beta)\right]+\mathcal{O}\!\left(\frac{e^{2r}}{|\lambda|^4}\right).
+                \end{equation}
+
+                Este resultado contiene dos casos especiales de interés físico directo. Cuando el eje de estrangulamiento es \textit{perpendicular} al vector de desplazamiento, $2\beta = 2\theta_0+\pi$ (\textit{luz estrangulada en fase}), se tiene $\cos(2\theta_0-2\beta) = -1$ y la varianza de fase resulta
+                \begin{equation}
+                    \Delta\Theta^2 = \frac{e^{-2r}}{4|\lambda|^2},
+                \end{equation}
+                una reducción exponencial por debajo del valor coherente $1/(4\bar{n})$: el estrangulamiento orientado perpendicularmente al desplazamiento comprime la cuadratura azimutal y por tanto reduce la incertidumbre de fase. Cuando en cambio el eje de estrangulamiento es \textit{paralelo} al vector de desplazamiento, $2\beta = 2\theta_0$ (\textit{luz estrangulada en amplitud}), se tiene $\cos(2\theta_0-2\beta) = +1$ y
+                \begin{equation}
+                    \Delta\Theta^2 = \frac{e^{+2r}}{4|\lambda|^2},
+                \end{equation}
+                un aumento exponencial de la incertidumbre de fase: el estrangulamiento de amplitud comprime la cuadratura radial a expensas de inflar la cuadratura azimutal. En ambos casos, el producto de incertidumbre número-fase $\Delta N\cdot\Delta\Theta\geq\frac{1}{2}$ se preserva, pues el estrangulamiento redistribuye las fluctuaciones entre las dos variables canónicas sin violar la cota de Heisenberg \cite{stoler1970equivalence,yuen1976two,Walls2008}.
+
+                Cabe destacar que la fase media $\braket{\hat{\Theta}} = \theta_0$ permanece exactamente igual a la fase de desplazamiento con independencia de la orientación del eje de estrangulamiento $\beta$. Esto es una consecuencia directa de la covariancia rotacional del formalismo de la TFFr: la transformación $\hat{\mathcal{F}}_{\theta_0}$ mapea la configuración de referencia $\theta_0=0$ a una configuración general rotando simultáneamente el vector de desplazamiento y el eje de estrangulamiento, dejando $\Delta\Theta$ invariante y fijando la fase media en $\theta_0$.
+
+        \subsection{Estructura espectral del operador de fase y la regla de conmutación canónica}
+
+            A lo largo de las secciones anteriores hemos construido el operador de fase hermítico $\hat{\Theta}_\phi$ y calculado sus valores esperados sobre distintos estados cuánticos. Sin embargo, la forma compacta \ref{eq:Cap3OperadorFaseHermiticoFourier} oculta una estructura algebraica rica: el operador de fase admite una descomposición espectral en operadores hermíticos elementales, los \textit{cuantos de fase}, que son los modos de Fourier del observable de fase al nivel de operadores.
+
+            \subsubsection{Cuantos de fase: definición y descomposición}
+
+                Partamos de la expresión \ref{eq:Cap3OperadorFaseHermitico} del operador de fase:
+                \begin{equation*}
+                    \hat{\Theta}_\phi = \left(\phi + \pi\right)\sum_{n=0}^{\infty}\ket{n}\bra{n} + i\sum_{m=1}^{\infty}\frac{e^{-im\phi}}{m}\hat{E}_m - i\sum_{m=1}^{\infty}\frac{e^{im\phi}}{m}\hat{E}_m^\dagger.
+                \end{equation*}
+
+                La parte fuera de la diagonal se puede reagrupar término a término en $m$. Definimos el \textit{cuanto de fase de orden $m$} como el operador hermítico
+                \begin{equation}\label{eq:Cap3CuantoDeFase}
+                    \hat{\Pi}_m(\phi) \equiv \frac{i}{m}\left(e^{-im\phi}\hat{E}_m - e^{im\phi}\hat{E}_m^\dagger\right), \qquad m = 1, 2, 3, \ldots
+                \end{equation}
+
+                Con esta definición, el operador de fase se descompone como
+                \begin{equation}\label{eq:Cap3DescomposicionEspectral}
+                    \hat{\Theta}_\phi = \left(\phi+\pi\right)\hat{\mathcal{I}} + \sum_{m=1}^{\infty}\hat{\Pi}_m(\phi).
+                \end{equation}
+
+                El operador de fase es, salvo el desplazamiento constante $\phi+\pi$, una suma coherente de cuantos de fase $\hat{\Pi}_m(\phi)$, cada uno de los cuales conecta componentes de Fock que difieren en $m$ unidades. El peso $1/m$ refleja la decreciente contribución de los armónicos superiores, en perfecta analogía con el contenido armónico de la función diente de sierra.
+
+            \subsubsection{Propiedades de los cuantos de fase}
+
+                \textbf{(i) Hermiticidad.} La hermiticidad de $\hat{\Pi}_m(\phi)$ se verifica directamente tomando el adjunto:
+                \begin{equation*}
+                    \left[\hat{\Pi}_m(\phi)\right]^\dagger = \frac{-i}{m}\left(e^{im\phi}\hat{E}_m^\dagger - e^{-im\phi}\hat{E}_m\right) = \frac{i}{m}\left(e^{-im\phi}\hat{E}_m - e^{im\phi}\hat{E}_m^\dagger\right) = \hat{\Pi}_m(\phi),
+                \end{equation*}
+                por lo tanto $\hat{\Pi}_m(\phi)$ es hermítico para todo $m \geq 1$ y toda referencia $\phi$.
+
+                \textbf{(ii) Acción sobre los estados de fase.} De la propiedad \ref{eq:Cap3EStadosDeFase} tenemos que $\hat{E}_m\ket{\phi'} = e^{im\phi'}\ket{\phi'}$ y por tanto $\hat{E}_m^\dagger\ket{\phi'} = e^{-im\phi'}\ket{\phi'}$. Aplicando $\hat{\Pi}_m(\phi)$ sobre un estado de fase $\ket{\phi'}$ obtenemos
+                \begin{align*}
+                    \hat{\Pi}_m(\phi)\ket{\phi'} &= \frac{i}{m}\left(e^{-im\phi}\hat{E}_m - e^{im\phi}\hat{E}_m^\dagger\right)\ket{\phi'}\\
+                    &= \frac{i}{m}\left(e^{-im\phi}e^{im\phi'} - e^{im\phi}e^{-im\phi'}\right)\ket{\phi'}\\
+                    &= \frac{i}{m}\left(e^{im(\phi'-\phi)} - e^{-im(\phi'-\phi)}\right)\ket{\phi'},
+                \end{align*}
+                y usando la identidad $e^{i\xi} - e^{-i\xi} = 2i\sen\xi$ concluimos que
+                \begin{equation}\label{eq:Cap3AccionCuantoDeFase}
+                    \hat{\Pi}_m(\phi)\ket{\phi'} = -\frac{2}{m}\sen\!\left(m(\phi'-\phi)\right)\ket{\phi'}.
+                \end{equation}
+
+                Cada cuanto de fase $\hat{\Pi}_m(\phi)$ actúa sobre los estados de fase como la multiplicación por el $m$-ésimo armónico de la función diente de sierra centrada en $\phi$, con amplitud $2/m$.
+
+                \textbf{(iii) Ecuación de eigenvalor: recuperación formal de $\hat{\Theta}_\phi\ket{\phi'} = \phi'\ket{\phi'}$.} Sumando la acción \ref{eq:Cap3AccionCuantoDeFase} sobre todos los modos:
+                \begin{equation*}
+                    \sum_{m=1}^{\infty}\hat{\Pi}_m(\phi)\ket{\phi'} = -2\sum_{m=1}^{\infty}\frac{\sen\!\left(m(\phi'-\phi)\right)}{m}\,\ket{\phi'}.
+                \end{equation*}
+
+                Reconocemos aquí la serie de Fourier de la función diente de sierra de periodo $2\pi$, que en el intervalo $0 < \xi < 2\pi$ satisface la identidad (usada ya en la sección de estados coherentes)
+                \begin{equation*}
+                    2\sum_{m=1}^{\infty}\frac{\sen(m\xi)}{m} = \pi - \xi,
+                \end{equation*}
+                con $\xi = \phi'-\phi \in (0,2\pi)$, de modo que
+                \begin{equation*}
+                    \sum_{m=1}^{\infty}\hat{\Pi}_m(\phi)\ket{\phi'} = -(\pi - (\phi'-\phi))\ket{\phi'} = (\phi' - \phi - \pi)\ket{\phi'}.
+                \end{equation*}
+
+                Sustituyendo en la descomposición \ref{eq:Cap3DescomposicionEspectral}:
+                \begin{equation}\label{eq:Cap3EigenvalorFase}
+                    \hat{\Theta}_\phi\ket{\phi'} = (\phi+\pi)\ket{\phi'} + (\phi'-\phi-\pi)\ket{\phi'} = \phi'\ket{\phi'}, \quad \phi' \in (\phi,\phi+2\pi),
+                \end{equation}
+                recuperando la ecuación de eigenvalor formal de los estados de fase, resultado que ya habíamos obtenido en la subsección \ref{eq:Cap3OperadorFaseMenosPi} por el camino de los elementos de matriz. La descomposición en cuantos de fase muestra que dicho resultado es una consecuencia directa de la representación de Fourier de la función diente de sierra al nivel de operadores.
+
+            \subsubsection{Conmutadores de desplazamiento en número}
+
+                Para cada cuanto de fase $\hat{\Pi}_m(\phi)$, calculamos su conmutador con el operador número $\hat{N}$. Usando las relaciones
+                \begin{equation*}
+                    \left[\hat{N}, \hat{E}_m\right] = -m\hat{E}_m, \qquad \left[\hat{N}, \hat{E}_m^\dagger\right] = +m\hat{E}_m^\dagger,
+                \end{equation*}
+                que se obtienen directamente de la definición $\hat{E}_m = \sum_{n=0}^{\infty}\ket{n}\bra{n+m}$ y la acción $\hat{N}\ket{n} = n\ket{n}$, el conmutador de $\hat{N}$ con $\hat{\Pi}_m(\phi)$ es
+                \begin{align}
+                    \left[\hat{N},\hat{\Pi}_m(\phi)\right] &= \frac{i}{m}\left(e^{-im\phi}\left[\hat{N},\hat{E}_m\right] - e^{im\phi}\left[\hat{N},\hat{E}_m^\dagger\right]\right)\nonumber\\
+                    &= \frac{i}{m}\left(e^{-im\phi}(-m\hat{E}_m) - e^{im\phi}(+m\hat{E}_m^\dagger)\right)\nonumber\\
+                    &= -i\left(e^{-im\phi}\hat{E}_m + e^{im\phi}\hat{E}_m^\dagger\right).
+                    \label{eq:Cap3ConmutadorNPi}
+                \end{align}
+
+                El resultado es notable: mientras $\hat{\Pi}_m(\phi) \propto e^{-im\phi}\hat{E}_m - e^{im\phi}\hat{E}_m^\dagger$ contiene la \textit{diferencia} antisimétrica de los exponenciales de fase, su conmutador con $\hat{N}$ produce la \textit{suma} simétrica correspondiente, mostrando que la estructura algebraica del par $(\hat{N}, \hat{\Theta}_\phi)$ está completamente codificada en los dos tipos de combinaciones de $\hat{E}_m$ y $\hat{E}_m^\dagger$.
+
+                Sumando \ref{eq:Cap3ConmutadorNPi} sobre todos los modos y usando el proyector de fase \ref{eq:Cap3ProyectorTheta}, que establece $\ket{\phi}\bra{\phi} = \hat{\mathcal{I}} + \sum_{m=1}^{\infty}(e^{-im\phi}\hat{E}_m + e^{im\phi}\hat{E}_m^\dagger)$, obtenemos
+                \begin{align}
+                    \sum_{m=1}^{\infty}\left[\hat{N},\hat{\Pi}_m(\phi)\right] &= -i\sum_{m=1}^{\infty}\left(e^{-im\phi}\hat{E}_m + e^{im\phi}\hat{E}_m^\dagger\right)\nonumber\\
+                    &= -i\left(\ket{\phi}\bra{\phi} - \hat{\mathcal{I}}\right)\nonumber\\
+                    &= i\left(\hat{\mathcal{I}} - \ket{\phi}\bra{\phi}\right).
+                    \label{eq:Cap3SumaConmutadoresPi}
+                \end{align}
+
+                De la descomposición \ref{eq:Cap3DescomposicionEspectral}, el conmutador de $\hat{N}$ con $\hat{\Theta}_\phi$ es
+                \begin{equation}
+                    \left[\hat{N}, \hat{\Theta}_\phi\right] = \sum_{m=1}^{\infty}\left[\hat{N}, \hat{\Pi}_m(\phi)\right] = i\left(\hat{\mathcal{I}} - \ket{\phi}\bra{\phi}\right).
+                \end{equation}
+
+                Para la elección de referencia $\phi = -\pi$, tenemos que $\ket{-\pi} = \sum_{n=0}^{\infty}e^{-in\pi}\ket{n} = \sum_{n=0}^{\infty}(-1)^n\ket{n}$, que coincide con $\ket{\pi}$ (ya que $e^{-in\pi} = e^{in\pi} = (-1)^n$) por la periodicidad $2\pi$ de los estados de fase. En consecuencia,
+                \begin{equation}
+                    \left[\hat{N}, \hat{\Theta}_{-\pi}\right] = i\left(\hat{\mathcal{I}} - \ket{\pi}\bra{\pi}\right),
+                \end{equation}
+                que es exactamente la relación de Judge-Lewis \ref{eq:Cap3ConmutadorNTheta} ya deducida por el camino directo. La descomposición en cuantos de fase muestra que esa relación es la \textit{suma} de los conmutadores individuales $[\hat{N}, \hat{\Pi}_m(-\pi)]$: el defecto de la conmutación canónica se reparte entre todos los modos de Fourier del operador de fase, y la suma telescópica los concentra en un único proyector, el estado $\ket{\pi}\bra{\pi}$, que actúa como una delta de Dirac de periodo $2\pi$ en la representación de fase.
+
+            \subsubsection{Interpretación física y conexión con la TFFr}
+
+                Así como la función diente de sierra de periodo $2\pi$ se reconstruye como $f(\phi') = \phi' = (\phi+\pi) + \sum_{m=1}^{\infty}[-2\sen(m(\phi'-\phi))/m]$ mediante su serie de Fourier, el operador de fase $\hat{\Theta}_\phi$ se reconstruye como suma de sus modos armónicos de operador: el constante $(\phi+\pi)\hat{\mathcal{I}}$ juega el papel del valor medio, y cada $\hat{\Pi}_m(\phi)$ es el $m$-ésimo modo de Fourier del observable de fase. El operador $\hat{\Theta}_\phi$ es, por tanto, la \textit{transformada de Fourier inversa al nivel de operadores} de los cuantos de fase, en perfecta analogía con la descomposición modal del campo electromagnético en modos normales.
+
+                Es importante distinguir entre los cuantos de fase $\hat{\Pi}_m(\phi)$ y los fotones de fase $\ket{e^{i\theta_0}}$ introducidos en la subsección anterior. Los primeros son componentes espectrales del \textit{observable} $\hat{\Theta}_\phi$; los segundos son los \textit{estados} físicos sobre los que actúa dicho observable. La relación es de dualidad: los $\hat{\Pi}_m(\phi)$ son los modos de Fourier del operador en el espacio de modos, mientras que los fotones de fase son los estados físicos en los que uno extrae la información de fase aplicando el operador.
+
+                De las transformaciones de similaridad \ref{eq:Cap3SimilaridadEm} se tiene que $\hat{\mathcal{F}}_\phi\hat{E}_m\hat{\mathcal{F}}_\phi^\dagger = e^{-im\phi}\hat{E}_m$, por lo tanto
+                \begin{equation}\label{eq:Cap3CuantoDeFaseTFFr}
+                    \hat{\Pi}_m(\phi) = \frac{i}{m}\left(e^{-im\phi}\hat{E}_m - e^{im\phi}\hat{E}_m^\dagger\right) = \hat{\mathcal{F}}_\phi\left[\frac{i}{m}\left(\hat{E}_m - \hat{E}_m^\dagger\right)\right]\hat{\mathcal{F}}_\phi^\dagger = \hat{\mathcal{F}}_\phi\,\hat{\Pi}_m(0)\,\hat{\mathcal{F}}_\phi^\dagger,
+                \end{equation}
+                donde $\hat{\Pi}_m(0) = i(\hat{E}_m - \hat{E}_m^\dagger)/m$ es el cuanto de fase canónico de referencia $\phi=0$. Esto muestra que \textit{todos los cuantos de fase se obtienen del cuanto de referencia $\hat{\Pi}_m(0)$ mediante conjugación por la TFFr de orden $\phi$}: la TFFr actúa como el operador de orientación de los modos espectrales del operador de fase en el espacio de fase, exactamente del mismo modo en que orienta la elipse de estrangulamiento o rota el blob gaussiano de los estados coherentes.
+
+                Equivalentemente, de \ref{eq:Cap3CuantoDeFaseTFFr} y la descomposición \ref{eq:Cap3DescomposicionEspectral}:
+                \begin{equation}
+                    \hat{\Theta}_\phi = (\phi+\pi)\hat{\mathcal{I}} + \hat{\mathcal{F}}_\phi\left(\sum_{m=1}^{\infty}\hat{\Pi}_m(0)\right)\hat{\mathcal{F}}_\phi^\dagger,
+                \end{equation}
+                que es precisamente la forma \ref{eq:Cap3OperadorFaseHermiticoFourier} con el operador central $i\hat{K}=\sum_{m=1}^{\infty}\hat{\Pi}_m(0)$. La TFFr $\hat{\mathcal{F}}_\phi$ aparece así como el \textit{operador de rotación espectral} del observable de fase: para cada referencia $\phi$, rota los cuantos canónicos $\hat{\Pi}_m(0)$ en el espacio de fase produciendo los cuantos girados $\hat{\Pi}_m(\phi)$ que describen la fase medida desde esa referencia.
+
+                En síntesis, el formalismo de la TFFr proporciona una descripción geométrica completa y autocontenida del operador de fase cuántica: los estados de fase $\ket{\phi}$ son peines de Dirac rotados, los cuantos de fase $\hat{\Pi}_m(\phi)$ son los modos de Fourier del observable rotados por la TFFr, y el conmutador número-fase toma la forma de Judge-Lewis sin necesidad de extender el espacio de Hilbert a estados número negativos.
+
